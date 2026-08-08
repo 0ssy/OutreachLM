@@ -38,7 +38,7 @@ class Tokenizer:
 
         return ids
         # Find the best merge pair
-    def find_best_merge(self, tokens):
+    def find_best_merge(self, tokens):  #decison maker which tells us the hihest priority pair to merge based on the ranks
         best_pair = None
         best_rank = None
 
@@ -61,4 +61,21 @@ class Tokenizer:
 
         return best_pair
 
+    def merge_pair(self, tokens, pair, new_token):
+        result = []
+        i = 0
+
+        while i < len(tokens):
+            if(
+                i < len(tokens) - 1
+                and (tokens[i], tokens[i + 1]) == pair
+            ):
+                result.append(new_token)
+                i += 2
+            else:
+                result.append(tokens[i])
+                i += 1
+                
+
+        return result
    
