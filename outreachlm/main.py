@@ -11,8 +11,12 @@ tokenizer.merge_ranks = {
 
 tokens = ["a", "b", "c", "d"]
 
-best = tokenizer.find_best_merge(tokens)
-
 print("Tokens:", tokens)
 print("Merge ranks:", tokenizer.merge_ranks)
+
+for pair, rank in tokenizer.merge_ranks.items():
+    print("PAIR:", pair, "RANK:", rank)
+
+best = tokenizer.find_best_merge(tokens)
+
 print("Best merge:", best)

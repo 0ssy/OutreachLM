@@ -38,20 +38,27 @@ class Tokenizer:
 
         return ids
         # Find the best merge pair
-    def find_best_merge(self,tokens):
+    def find_best_merge(self, tokens):
         best_pair = None
         best_rank = None
-        # Iterate through the tokens to find the best merge pair
+
         for i in range(len(tokens) - 1):
             pair = (tokens[i], tokens[i + 1])
-            # Check if the pair is in the merge ranks dictionary
+
             if pair in self.merge_ranks:
                 rank = self.merge_ranks[pair]
 
+                print("found rank", rank)
+                print("current best rank", best_rank)
+
                 if best_rank is None or rank < best_rank:
+                    print("New best")
                     best_pair = pair
                     best_rank = rank
 
-            return best_pair
+        print("Final best pair", best_pair)
+        print("Final rank", best_rank)
+
+        return best_pair
 
    
