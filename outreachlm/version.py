@@ -10,9 +10,12 @@ class Tokenizer:
     """
 
     def __init__(self):
+        # Initialize the vocabulary with a special token for unknown words
         self.vocab ={
             "<UNK>": 0
         }
+        # Initialize the merge ranks dictionary
+        self.merge_ranks = {}
 
     def tokenize(self, text):
         return  re.findall(r"\w+|[.,!?,:;]", text)
@@ -27,7 +30,28 @@ class Tokenizer:
     def encode(self, text):
         tokens = self.tokenize(text)
 
-        return [
-            self.vocab.get(token, self.vocab["<UNK>"])
-            for token in tokens
-        ]
+        ids = []
+
+        for token in tokens:
+            token_id = self.vocab.get(token, self.vocab["<UNK>"])
+            ids.append(token_id)
+
+        return ids
+        # Find the best merge pair
+    def find_best_merge(self,tokens):
+        best_pair = None
+        best_rank = None
+        # Iterate through the tokens to find the best merge pair
+        for i in range(len(tokens) - 1):
+            pair = (tokens[i], tokens[i + 1])
+            # Check if the pair is in the merge ranks dictionary
+            if pair in self.merge_ranks:
+                rank = self.merge_ranks[pair]
+
+                if best_rank is None or rank < best_rank:
+                    best_pair = pair
+                    best_rank = rank
+
+            return best_pair
+
+   

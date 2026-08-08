@@ -3,14 +3,16 @@ from outreachlm.version import Tokenizer
 
 tokenizer = Tokenizer()
 
-training_data = [
-    "I love TRS.",
-    "TRS loves TerraNode.",
-]
+tokenizer.merge_ranks = {
+    ("a", "b"): 2,
+    ("b", "c"): 5,
+    ("c", "d"): 1
+}
 
-tokenizer.build_vocab(training_data)
+tokens = ["a", "b", "c", "d"]
 
-print(tokenizer.vocab)
+best = tokenizer.find_best_merge(tokens)
 
-print(tokenizer.encode("I love TRS."))
-print(tokenizer.encode("I love elephants."))
+print("Tokens:", tokens)
+print("Merge ranks:", tokenizer.merge_ranks)
+print("Best merge:", best)
