@@ -16,6 +16,7 @@ class Tokenizer:
         }
         # Initialize the merge ranks dictionary
         self.merge_ranks = {}
+        self.merge_tokens ={}
 
     def tokenize(self, text):
         return  re.findall(r"\w+|[.,!?,:;]", text)
@@ -60,7 +61,7 @@ class Tokenizer:
         print("Final rank", best_rank)
 
         return best_pair
-
+#a repeated merge function that merges the best pair until no more pairs can be merged
     def merge_pair(self, tokens, pair, new_token):
         result = []
         i = 0
@@ -78,4 +79,13 @@ class Tokenizer:
                 
 
         return result
+
+    def apply_merges(self, tokens):
+        while True:
+            pair = self.find_best_merge(tokens)
+            if pair is None:
+                break
+            new_token = self.merge_tokens[pair]
+            tokens = self.merge_pair(tokens, pair, new_token)
+        return tokens
    

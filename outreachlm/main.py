@@ -1,17 +1,28 @@
 from outreachlm.version import Tokenizer
+
+
 tokenizer = Tokenizer()
 
-tokens = ["a", "b", "c", "d"]
-pair = ("c","d")
-new_token = "cd"
+tokenizer.merge_ranks = {
+    ("a", "b"): 0,
+    ("ab", "c"): 1
+}
 
-result = tokenizer.merge_pair(
-    tokens,
-    pair,
-    new_token
-)
+tokenizer.merge_tokens = {
+    ("a", "b"): "ab",
+    ("ab", "c"): "abc"
+}
+
+tokens = ["a", "b", "c"]
 
 print("Original:", tokens)
-print("Pair:", pair)
-print("New token:", new_token)
-print("Result:", result)
+
+result = tokenizer.apply_merges(tokens)
+
+print("Final:", result)
+
+tokens = ["a", "b", "a", "b"]
+
+result = tokenizer.apply_merges(tokens)
+
+print("Repeated pair:", result)
