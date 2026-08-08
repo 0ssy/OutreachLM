@@ -3,26 +3,15 @@ from outreachlm.version import Tokenizer
 
 tokenizer = Tokenizer()
 
-tokenizer.merge_ranks = {
-    ("a", "b"): 0,
-    ("ab", "c"): 1
-}
+corpus = [
+    ["l", "o", "w"],
+    ["l", "o", "w", "e", "r"],
+    ["l", "o", "w", "e", "s", "t"]
+]
 
-tokenizer.merge_tokens = {
-    ("a", "b"): "ab",
-    ("ab", "c"): "abc"
-}
+counts = tokenizer.count_pairs(corpus)
 
-tokens = ["a", "b", "c"]
+print("Pair counts:")
 
-print("Original:", tokens)
-
-result = tokenizer.apply_merges(tokens)
-
-print("Final:", result)
-
-tokens = ["a", "b", "a", "b"]
-
-result = tokenizer.apply_merges(tokens)
-
-print("Repeated pair:", result)
+for pair, count in counts.items():
+    print(pair, "→", count)

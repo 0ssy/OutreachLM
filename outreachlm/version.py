@@ -79,7 +79,7 @@ class Tokenizer:
                 
 
         return result
-
+    #a repeated merge function that merges the best pair until no more pairs can be merged
     def apply_merges(self, tokens):
         while True:
             pair = self.find_best_merge(tokens)
@@ -88,4 +88,14 @@ class Tokenizer:
             new_token = self.merge_tokens[pair]
             tokens = self.merge_pair(tokens, pair, new_token)
         return tokens
-   
+    #a function that counts the number of times each pair of tokens appears in the corpus
+    def count_pairs(self, corpus):
+        pair_counts = {}
+
+        for text in corpus:
+            for i in range(len(text) - 1):
+                pair = (text[i], text[i + 1])
+                if pair not in pair_counts:
+                    pair_counts[pair] = 0
+                pair_counts[pair] += 1
+        return pair_counts
