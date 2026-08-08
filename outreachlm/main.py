@@ -1,7 +1,16 @@
 from outreachlm.version import Tokenizer
 
+
 tokenizer = Tokenizer()
 
-print(tokenizer.tokenize("I love TRS"))
-print(tokenizer.tokenize("Hello Chatty"))
-print(tokenizer.tokenize("TRS: TerraNode"))
+training_data = [
+    "I love TRS.",
+    "TRS loves TerraNode.",
+]
+
+tokenizer.build_vocab(training_data)
+
+print(tokenizer.vocab)
+
+print(tokenizer.encode("I love TRS."))
+print(tokenizer.encode("I love elephants."))
