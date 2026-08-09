@@ -132,24 +132,44 @@ class Tokenizer:
                 if token not in self.vocab:
                     self.vocab[token] = len(self.vocab)
     
-    def learn_merges(self, corpus, num_merges):
+        #a function that learns merges from the corpus based on the number of merges or target vocabulary size
+    def learn_merges(self, corpus, num_merges=None, target_vocab_size=None):
+        if num_merges is None and target_vocab_size is None:
+            raise ValueError("Provide num_merges or target_vocab_size")
+
         self.add_tokens_to_vocab(corpus)
-        for merge_number in range(num_merges):
+
+        merge_number = 0
+
+        while True:
+
+            if num_merges is not None and merge_number >= num_merges:
+                break
+
+            if target_vocab_size is not None and len(self.vocab) >= target_vocab_size:
+                break
+
             pair_counts = self.count_pairs(corpus)
-            best_pair, _best_count = self.select_best_pair(pair_counts)
+
+            best_pair, best_count = self.select_best_pair(pair_counts)
 
             if best_pair is None:
                 break
 
             new_token = best_pair[0] + best_pair[1]
 
-            #add the learned token to the vocabulary
             if new_token not in self.vocab:
                 self.vocab[new_token] = len(self.vocab)
 
-            corpus = self.merge_corpus(corpus, best_pair, new_token)
+            corpus = self.merge_corpus(
+                corpus,
+                best_pair,
+                new_token
+            )
 
             self.merge_ranks[best_pair] = merge_number
             self.merge_tokens[best_pair] = new_token
+
+            merge_number += 1
 
         return corpus
