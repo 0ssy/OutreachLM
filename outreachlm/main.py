@@ -49,7 +49,7 @@ tokenizer = Tokenizer()
 # LOAD TRAINING CORPUS
 # ============================================================
 
-texts = load_corpus("corpus/text")
+texts = load_corpus("corpus/fineweb")
 texts = deduplicate_corpus(texts)
 
 
