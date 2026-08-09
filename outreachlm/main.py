@@ -3,12 +3,24 @@ from outreachlm.version import Tokenizer
 
 tokenizer = Tokenizer()
 
-pair_counts = {
-    ("c", "d"): 5,
-    ("a", "b"): 5,
-    ("e", "f"): 2
-}
+corpus = [
+    ["l", "o", "w"],
+    ["l", "o", "w", "e", "r"],
+    ["l", "o", "w", "e", "s", "t"]
+]
 
-best_pair = tokenizer.select_best_pair(pair_counts)
+result = tokenizer.learn_merges(
+    corpus,
+    num_merges=5
+)
 
-print("Best pair:", best_pair)
+print("Final corpus:")
+
+for text in result:
+    print(text)
+
+print("\nMerge ranks:")
+print(tokenizer.merge_ranks)
+
+print("\nMerge tokens:")
+print(tokenizer.merge_tokens)

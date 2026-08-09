@@ -110,3 +110,34 @@ class Tokenizer:
                 best_count = count
 
         return best_pair, best_count
+
+        #a function that merges the best pair in the corpus with a new token
+    def merge_corpus(self, corpus, pair, new_token):
+        new_corpus = []
+        
+        for  tokens in corpus:
+            merged_tokens = self.merge_pair(
+                tokens,
+                pair,
+                new_token
+            )
+            new_corpus.append(merged_tokens)
+            
+        return new_corpus
+
+    def learn_merges(self, corpus, num_merges):
+        for merge_number in range(num_merges):
+            pair_counts = self.count_pairs(corpus)
+            best_pair, _best_count = self.select_best_pair(pair_counts)
+
+            if best_pair is None:
+                break
+
+            new_token = best_pair[0] + best_pair[1]
+
+            corpus = self.merge_corpus(corpus, best_pair, new_token)
+
+            self.merge_ranks[best_pair] = merge_number
+            self.merge_tokens[best_pair] = new_token
+
+        return corpus
