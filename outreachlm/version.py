@@ -19,7 +19,7 @@ class Tokenizer:
         self.merge_tokens ={}
 
     def tokenize(self, text):
-        return  re.findall(r"\w+|[.,!?,:;]", text)
+        return re.findall(r"\w+|[.,!?,:;]|\s+", text)
 
     def build_vocab(self,texts):
         for text in texts:

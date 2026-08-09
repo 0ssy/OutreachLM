@@ -1,0 +1,2 @@
+Artificial intelligence systems learn patterns from data.
+Language models process text using tokens.
