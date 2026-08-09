@@ -31,14 +31,25 @@ class Tokenizer:
     def encode(self, text):
         tokens = self.tokenize(text)
 
-        ids = []
+        bpe_tokens = []
 
         for token in tokens:
-            token_id = self.vocab.get(token, self.vocab["<UNK>"])
+            pieces = self.apply_bpe(token)
+            bpe_tokens.extend(pieces)
+
+        ids = []
+
+        for token in bpe_tokens:
+            token_id = self.vocab.get(
+                token,
+                self.vocab["<UNK>"]
+            )
+
             ids.append(token_id)
 
         return ids
-        # Find the best merge pair
+
+    # Find the best merge pair
     def find_best_merge(self, tokens):  #decison maker which tells us the hihest priority pair to merge based on the ranks
         best_pair = None
         best_rank = None
@@ -93,11 +104,18 @@ class Tokenizer:
         pair_counts = {}
 
         for text in corpus:
-            for i in range(len(text) - 1):
-                pair = (text[i], text[i + 1])
-                if pair not in pair_counts:
-                    pair_counts[pair] = 0
-                pair_counts[pair] += 1
+
+            for tokens in text:
+
+                for i in range(len(tokens) - 1):
+
+                    pair = (tokens[i], tokens[i + 1])
+
+                    if pair not in pair_counts:
+                        pair_counts[pair] = 0
+
+                    pair_counts[pair] += 1
+
         return pair_counts
         #a function that selects the best pair based on the counts of pairs in the corpus
     def select_best_pair(self, pair_counts):
@@ -111,26 +129,35 @@ class Tokenizer:
 
         return best_pair, best_count
 
-        #a function that merges the best pair in the corpus with a new token
+    #a function that merges the best pair in the corpus with a new token and returns the new corpus
     def merge_corpus(self, corpus, pair, new_token):
         new_corpus = []
-        
-        for  tokens in corpus:
-            merged_tokens = self.merge_pair(
-                tokens,
-                pair,
-                new_token
-            )
-            new_corpus.append(merged_tokens)
-            
+
+        for text in corpus:
+
+            new_text = []
+
+            for tokens in text:
+
+                merged_tokens = self.merge_pair(
+                    tokens,
+                    pair,
+                    new_token
+                )
+
+                new_text.append(merged_tokens)
+
+            new_corpus.append(new_text)
+
         return new_corpus
 
     #a function that adds new tokens to the vocabulary
     def add_tokens_to_vocab(self, corpus):
-        for tokens in corpus:
-            for token in tokens:
-                if token not in self.vocab:
-                    self.vocab[token] = len(self.vocab)
+        for text in corpus:
+            for tokens in text:
+                for token in tokens:
+                    if token not in self.vocab:
+                        self.vocab[token] = len(self.vocab)
     
         #a function that learns merges from the corpus based on the number of merges or target vocabulary size
     def learn_merges(self, corpus, num_merges=None, target_vocab_size=None):
@@ -171,5 +198,59 @@ class Tokenizer:
             self.merge_tokens[best_pair] = new_token
 
             merge_number += 1
+
+        return corpus
+
+#a function that applies the learned BPE merge rules to new text
+    def apply_bpe(self, text):
+        """
+        Apply the learned BPE merge rules to new text.
+        """
+
+        tokens = list(text)
+
+        while True:
+
+            best_pair = self.find_best_merge(tokens)
+
+            if best_pair is None:
+                break
+
+            new_token = self.merge_tokens[best_pair]
+
+            tokens = self.merge_pair(
+                tokens,
+                best_pair,
+                new_token
+            )
+
+        return tokens
+
+    def decode(self, ids):
+        reverse_vocab = {
+            token_id: token
+            for token, token_id in self.vocab.items()
+        }
+
+        return "".join([
+            reverse_vocab.get(token_id, "<UNK>")
+            for token_id in ids
+        ])
+
+    def prepare_corpus(self, texts):
+        corpus = []
+
+        for text in texts:
+            tokens = self.tokenize(text)
+
+            token_sequences = []
+
+            for token in tokens:
+                if len(token) == 1 and not token.isalnum():
+                    token_sequences.append([token])
+                else:
+                    token_sequences.append(list(token))
+
+            corpus.append(token_sequences)
 
         return corpus
