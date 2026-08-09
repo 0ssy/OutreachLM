@@ -99,3 +99,14 @@ class Tokenizer:
                     pair_counts[pair] = 0
                 pair_counts[pair] += 1
         return pair_counts
+        #a function that selects the best pair based on the counts of pairs in the corpus
+    def select_best_pair(self, pair_counts):
+        best_pair = None
+        best_count = 0
+
+        for pair, count in pair_counts.items():
+            if count > best_count:
+                best_pair = pair
+                best_count = count
+
+        return best_pair, best_count

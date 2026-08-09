@@ -3,15 +3,12 @@ from outreachlm.version import Tokenizer
 
 tokenizer = Tokenizer()
 
-corpus = [
-    ["l", "o", "w"],
-    ["l", "o", "w", "e", "r"],
-    ["l", "o", "w", "e", "s", "t"]
-]
+pair_counts = {
+    ("c", "d"): 5,
+    ("a", "b"): 5,
+    ("e", "f"): 2
+}
 
-counts = tokenizer.count_pairs(corpus)
+best_pair = tokenizer.select_best_pair(pair_counts)
 
-print("Pair counts:")
-
-for pair, count in counts.items():
-    print(pair, "→", count)
+print("Best pair:", best_pair)
