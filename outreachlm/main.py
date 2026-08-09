@@ -14,13 +14,7 @@ result = tokenizer.learn_merges(
     num_merges=5
 )
 
-print("Final corpus:")
+print("\nVocabulary:")
 
-for text in result:
-    print(text)
-
-print("\nMerge ranks:")
-print(tokenizer.merge_ranks)
-
-print("\nMerge tokens:")
-print(tokenizer.merge_tokens)
+for token, token_id in tokenizer.vocab.items():
+    print(token, "→", token_id)

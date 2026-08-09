@@ -125,7 +125,15 @@ class Tokenizer:
             
         return new_corpus
 
+    #a function that adds new tokens to the vocabulary
+    def add_tokens_to_vocab(self, corpus):
+        for tokens in corpus:
+            for token in tokens:
+                if token not in self.vocab:
+                    self.vocab[token] = len(self.vocab)
+    
     def learn_merges(self, corpus, num_merges):
+        self.add_tokens_to_vocab(corpus)
         for merge_number in range(num_merges):
             pair_counts = self.count_pairs(corpus)
             best_pair, _best_count = self.select_best_pair(pair_counts)
@@ -134,6 +142,10 @@ class Tokenizer:
                 break
 
             new_token = best_pair[0] + best_pair[1]
+
+            #add the learned token to the vocabulary
+            if new_token not in self.vocab:
+                self.vocab[new_token] = len(self.vocab)
 
             corpus = self.merge_corpus(corpus, best_pair, new_token)
 
