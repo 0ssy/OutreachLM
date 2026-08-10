@@ -2,89 +2,202 @@ import torch
 import torch.nn as nn
 import math
 
+
 class CausalSelfAttention(nn.Module):
 
-    def __init__(self, embedding_dim):
+    def __init__(self, embedding_dim, num_heads=4):
         super().__init__()
 
+        if embedding_dim % num_heads != 0:
+            raise ValueError(
+                "embedding_dim must be divisible by num_heads"
+            )
+
         self.embedding_dim = embedding_dim
-        #Linear projections for the query, key and value
+        self.num_heads = num_heads
+        self.head_dim = embedding_dim // num_heads
+
+        # Linear projections for Q, K, V
         self.query = nn.Linear(
             embedding_dim,
             embedding_dim
         )
+
         self.key = nn.Linear(
             embedding_dim,
             embedding_dim
         )
+
         self.value = nn.Linear(
-                    embedding_dim,
-                    embedding_dim
+            embedding_dim,
+            embedding_dim
         )
 
-        #Final Projection
+        # Final projection after combining all heads
         self.output = nn.Linear(
             embedding_dim,
             embedding_dim
         )
-    
+
     def forward(self, x):
-        # X shape: (batch_size, context_length, embedding_dim)
+
+        # x:
+        # [batch_size, sequence_length, embedding_dim]
 
         batch_size, sequence_length, embedding_dim = x.shape
 
-        #Create Q , K , V matrices
-        Q = self.query(x)  # Shape: (batch_size, context_length, embedding_dim)
-        K = self.key(x)  # Shape: (batch_size, context_length,    embedding_dim)
-        V = self.value(x)  # Shape: (batch_size, context_length, embedding_dim)
+        # --------------------------------------------------
+        # Create Q, K, V
+        # --------------------------------------------------
 
-        #Attention scores
-        # Q @ K^T
-        #[B, T, D] @ [B, D, T] -> [B, T, T]
+        Q = self.query(x)
+        K = self.key(x)
+        V = self.value(x)
 
-        scores = torch.matmul(Q, K.transpose(-2, -1))
+        # Current shape:
+        #
+        # [B, T, D]
+        #
+        # where:
+        # B = batch size
+        # T = sequence length
+        # D = embedding dimension
 
-        #Scale the scores
-        scores = scores / math.sqrt(embedding_dim)
+        # --------------------------------------------------
+        # Split embedding dimension into attention heads
+        # --------------------------------------------------
 
-        #Casual Mask
-        #Create a lower triangular matrix to mask future tokens
-        #1 0 0 0
-        #1 1 0 0
-        #1 1 1 0
-        #1 1 1 1
-        # Each position can only attend to itself
-        #and previous positions, not future ones
+        Q = Q.view(
+            batch_size,
+            sequence_length,
+            self.num_heads,
+            self.head_dim
+        )
 
-        casual_mask = torch.tril(
+        K = K.view(
+            batch_size,
+            sequence_length,
+            self.num_heads,
+            self.head_dim
+        )
+
+        V = V.view(
+            batch_size,
+            sequence_length,
+            self.num_heads,
+            self.head_dim
+        )
+
+        # Change dimensions to:
+        #
+        # [B, H, T, Hd]
+        #
+        # H  = number of heads
+        # Hd = dimensions per head
+
+        Q = Q.transpose(1, 2)
+        K = K.transpose(1, 2)
+        V = V.transpose(1, 2)
+
+        # --------------------------------------------------
+        # Attention scores
+        # --------------------------------------------------
+
+        # Q:
+        # [B, H, T, Hd]
+        #
+        # K.transpose:
+        # [B, H, Hd, T]
+        #
+        # Result:
+        # [B, H, T, T]
+
+        scores = torch.matmul(
+            Q,
+            K.transpose(-2, -1)
+        )
+
+        # --------------------------------------------------
+        # Scale attention scores
+        # --------------------------------------------------
+
+        scores = scores / math.sqrt(self.head_dim)
+
+        # --------------------------------------------------
+        # Causal mask
+        # --------------------------------------------------
+
+        causal_mask = torch.tril(
             torch.ones(
                 sequence_length,
                 sequence_length,
                 device=x.device
             )
         )
-        #Turn future positions into infinity
+
+        # Add dimensions so the same mask is applied
+        # to every batch and every attention head.
+        #
+        # [T, T]
+        # becomes
+        # [1, 1, T, T]
+
+        causal_mask = causal_mask.unsqueeze(0).unsqueeze(0)
+
         scores = scores.masked_fill(
-            casual_mask == 0,
+            causal_mask == 0,
             float("-inf")
         )
 
-        # Convert scores into probabilities
+        # --------------------------------------------------
+        # Convert scores to probabilities
+        # --------------------------------------------------
+
         attention_weights = torch.softmax(
             scores,
             dim=-1
         )
 
-        #weighted combination of values
+        # --------------------------------------------------
+        # Weighted combination of values
+        # --------------------------------------------------
+
         attention_output = torch.matmul(
             attention_weights,
             V
         )
 
-        #Final linear projection
+        # Shape:
+        #
+        # [B, H, T, Hd]
+
+        # --------------------------------------------------
+        # Combine attention heads
+        # --------------------------------------------------
+
+        attention_output = attention_output.transpose(
+            1,
+            2
+        )
+
+        # [B, T, H, Hd]
+
+        attention_output = attention_output.contiguous()
+
+        attention_output = attention_output.view(
+            batch_size,
+            sequence_length,
+            self.embedding_dim
+        )
+
+        # [B, T, D]
+
+        # --------------------------------------------------
+        # Final projection
+        # --------------------------------------------------
+
         output = self.output(
             attention_output
         )
 
-        return output
-        
+        return output, attention_weights
