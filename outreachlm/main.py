@@ -1,92 +1,72 @@
-from outreachlm.model import (
-    TokenEmbedding,
-    PositionalEmbedding,
-    SelfAttention
-)
 import torch
 
-
-vocab_size = 100
-context_length = 5
-embedding_dim = 16
+from outreachlm.model import TokenEmbedding
+from outreachlm.attention import CausalSelfAttention
 
 
-token_embedding = TokenEmbedding(
-    vocab_size,
-    embedding_dim
+# ============================================================
+# CONFIGURATION
+# ============================================================
+
+VOCAB_SIZE = 100
+EMBEDDING_DIM = 16
+CONTEXT_LENGTH = 5
+
+
+# ============================================================
+# CREATE TOKEN EMBEDDING
+# ============================================================
+
+embedding = TokenEmbedding(
+    vocab_size=VOCAB_SIZE,
+    embedding_dim=EMBEDDING_DIM
 )
 
-position_embedding = PositionalEmbedding(
-    context_length,
-    embedding_dim
+
+# ============================================================
+# CREATE ATTENTION
+# ============================================================
+
+attention = CausalSelfAttention(
+    embedding_dim=EMBEDDING_DIM
 )
 
 
-token_ids = torch.tensor([
+# ============================================================
+# INPUT
+# ============================================================
+
+input_ids = torch.tensor([
     [1, 2, 3, 4, 5]
 ])
 
 
-positions = torch.arange(
-    context_length
-)
+print("=" * 50)
+print("CAUSAL ATTENTION TEST")
+print("=" * 50)
+
+print("\nInput:")
+print(input_ids)
 
 
-token_vectors = token_embedding(token_ids)
+# ============================================================
+# EMBEDDING
+# ============================================================
 
-position_vectors = position_embedding(positions)
+x = embedding(input_ids)
+
+print("\nEmbedding shape:")
+print(x.shape)
 
 
-print("\n==================================================")
-print("POSITIONAL EMBEDDING TEST")
-print("==================================================")
+# ============================================================
+# ATTENTION
+# ============================================================
 
-print("Token IDs:")
-print(token_ids)
-
-print("\nPositions:")
-print(positions)
-
-print("\nToken embedding shape:")
-print(token_vectors.shape)
-
-print("\nPosition embedding shape:")
-print(position_vectors.shape)
-
-combined = token_vectors + position_vectors
-print("\nCombined shape:")
-print(combined.shape)
-
-attention = SelfAttention(
-    embedding_dim=16,
-    context_length=5
-)
-
-attention_output, attention_weights = attention(
-    combined
-)
-
-print("\n==================================================")
-print("SELF-ATTENTION TEST")
-print("==================================================")
-
-print("Input shape:")
-print(combined.shape)
+output = attention(x)
 
 print("\nAttention output shape:")
-print(attention_output.shape)
-print("\nAttention weights shape:")
-print(attention_weights.shape)
+print(output.shape)
 
-future_attention = torch.triu(
-    attention_weights,
-    diagonal=1
-)
-
-print("\nFuture attention:")
-print(future_attention)
-
-print(
-    "\nCausal constraint satisfied:",
-    torch.all(future_attention == 0).item()
-)
+print("\nAttention output:")
+print(output)
