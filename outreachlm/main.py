@@ -1,4 +1,8 @@
-from outreachlm.model import TokenEmbedding, PositionalEmbedding
+from outreachlm.model import (
+    TokenEmbedding,
+    PositionalEmbedding,
+    SelfAttention
+)
 import torch
 
 
@@ -52,3 +56,37 @@ print(position_vectors.shape)
 combined = token_vectors + position_vectors
 print("\nCombined shape:")
 print(combined.shape)
+
+attention = SelfAttention(
+    embedding_dim=16,
+    context_length=5
+)
+
+attention_output, attention_weights = attention(
+    combined
+)
+
+print("\n==================================================")
+print("SELF-ATTENTION TEST")
+print("==================================================")
+
+print("Input shape:")
+print(combined.shape)
+
+print("\nAttention output shape:")
+print(attention_output.shape)
+print("\nAttention weights shape:")
+print(attention_weights.shape)
+
+future_attention = torch.triu(
+    attention_weights,
+    diagonal=1
+)
+
+print("\nFuture attention:")
+print(future_attention)
+
+print(
+    "\nCausal constraint satisfied:",
+    torch.all(future_attention == 0).item()
+)
