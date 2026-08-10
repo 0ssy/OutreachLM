@@ -1,7 +1,11 @@
 import torch
 import torch.nn as nn
 
+from outreachlm.transformer_block import TransformerBlock
+
+
 class TokenEmbedding(nn.Module):
+
     def __init__(self, vocab_size, embedding_dim):
         super().__init__()
 
@@ -9,11 +13,14 @@ class TokenEmbedding(nn.Module):
             vocab_size,
             embedding_dim
         )
-    
+
     def forward(self, token_ids):
+
         return self.embedding(token_ids)
 
+
 class PositionalEmbedding(nn.Module):
+
     def __init__(self, context_length, embedding_dim):
         super().__init__()
 
@@ -23,62 +30,82 @@ class PositionalEmbedding(nn.Module):
         )
 
     def forward(self, positions):
+
         return self.embedding(positions)
-class SelfAttention(nn.Module):
-    def __init__(self, embedding_dim, context_length):
+
+
+class OutreachModel(nn.Module):
+
+    def __init__(
+        self,
+        vocab_size,
+        context_length,
+        embedding_dim
+    ):
         super().__init__()
-        self.query = nn.Linear(
-            embedding_dim,
-            embedding_dim
-        )
-        self.key = nn.Linear(
-            embedding_dim,
-            embedding_dim
-        )
-        self.value = nn.Linear(
-            embedding_dim,
+
+        self.context_length = context_length
+
+        # Token identity
+        self.token_embedding = TokenEmbedding(
+            vocab_size,
             embedding_dim
         )
 
-        mask = torch.tril(
-            torch.ones(
-                context_length,
-                context_length
-            )
+        # Token position
+        self.position_embedding = PositionalEmbedding(
+            context_length,
+            embedding_dim
         )
 
-        self.register_buffer(
-            "mask",
-            mask
+        # Transformer processing
+        self.transformer = TransformerBlock(
+            embedding_dim
         )
 
-    def forward(self, x):
-
-        Q = self.query(x)
-
-        K = self.key(x)
-
-        V = self.value(x)
-
-        scores = Q @ K.transpose(-2, -1)
-
-        scores = scores / (K.size(-1) ** 0.5)
-
-        sequence_length = x.size(1)
-
-        causal_mask = self.mask[
-            :sequence_length,
-            :sequence_length
-        ]
-
-        scores = scores.masked_fill(
-            causal_mask == 0,
-            float("-inf")
+        self.output_head = nn.Linear(
+            embedding_dim,
+            vocab_size
         )
-        attention_weights = torch.softmax(
-            scores,
-            dim=-1
-        )
-        output = attention_weights @ V
 
-        return output, attention_weights
+    def forward(self, input_ids):
+
+        batch_size, sequence_length = input_ids.shape
+
+        # -----------------------------
+        # Token embeddings
+        # -----------------------------
+
+        token_vectors = self.token_embedding(
+            input_ids
+        )
+
+        # -----------------------------
+        # Position indices
+        # -----------------------------
+
+        positions = torch.arange(
+            sequence_length,
+            device=input_ids.device
+        )
+
+        # -----------------------------
+        # Positional embeddings
+        # -----------------------------
+
+        position_vectors = self.position_embedding(
+            positions.unsqueeze(0)
+        )
+
+        # Add position to token representation
+        x = token_vectors + position_vectors
+
+        # -----------------------------
+        # Transformer processing
+        # -----------------------------
+
+        x = self.transformer(x)
+
+        logits = self.output_head(x)
+
+        return logits
