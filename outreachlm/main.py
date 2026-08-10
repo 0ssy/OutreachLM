@@ -1,4 +1,5 @@
 import torch
+import torch.nn as nn
 
 from outreachlm.model import OutreachModel
 
@@ -15,37 +16,60 @@ model = OutreachModel(
 )
 
 
+# Training example
 input_ids = torch.tensor([
+    [0, 1, 2, 3, 4]
+])
+
+target_ids = torch.tensor([
     [1, 2, 3, 4, 5]
 ])
 
 
+# Forward pass
 logits = model(input_ids)
 
 
 print("=" * 60)
-print("OUTREACHLM MODEL TEST")
+print("OUTREACHLM LOSS TEST")
 print("=" * 60)
 
 print()
-print("Input IDs:")
+print("Input:")
 print(input_ids)
 
 print()
-print("Input shape:")
-print(input_ids.shape)
+print("Target:")
+print(target_ids)
 
 print()
 print("Logits shape:")
 print(logits.shape)
 
-print()
-print("Logits:")
-print(logits)
+
+# Cross-entropy loss
+loss_function = nn.CrossEntropyLoss()
+
+
+# CrossEntropyLoss expects:
+#
+# predictions:
+# [batch, classes, sequence]
+#
+# targets:
+# [batch, sequence]
+#
+# Our logits are:
+# [batch, sequence, classes]
+#
+# Therefore we transpose dimensions 1 and 2.
+
+loss = loss_function(
+    logits.transpose(1, 2),
+    target_ids
+)
+
 
 print()
-print("Prediction shape:")
-print(logits.shape)
-
-print()
-print("✓ Model produces vocabulary logits.")
+print("Loss:")
+print(loss.item())
