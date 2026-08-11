@@ -1,0 +1,6 @@
+The computer processes information using instructions.
+A neural network learns patterns from examples.
+Language models predict tokens from previous context.
+Attention allows a model to compare different positions.
+Training adjusts parameters using gradients.
+The transformer architecture uses attention and feed forward networks.
