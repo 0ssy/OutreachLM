@@ -1,0 +1,12 @@
+OutreachLM is a language model built from the ground up.
+A language model learns patterns in sequences of tokens.
+Tokens are represented by vectors called embeddings.
+The transformer uses attention to process relationships between tokens.
+Attention allows each position to examine earlier positions.
+The model predicts the next token from the previous context.
+Training changes the parameters of the model.
+Gradients tell the optimizer how parameters should change.
+Backpropagation computes gradients through the network.
+Gradient descent uses those gradients to reduce the loss.
+A transformer contains attention and feed forward layers.
+The model improves by learning statistical patterns from data.
