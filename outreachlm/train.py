@@ -1,4 +1,5 @@
 import math
+from pathlib import Path
 
 import torch
 import torch.nn as nn
@@ -25,8 +26,10 @@ BATCH_SIZE = 8
 LEARNING_RATE = 0.001
 TRAINING_STEPS = 1000
 
-CORPUS_PATH = "data/train.txt"
-MODEL_PATH = "outreachlm_model.pt"
+PROJECT_DIR = Path(__file__).resolve().parent
+
+CORPUS_PATH = PROJECT_DIR / "data1" / "train.txt"
+MODEL_PATH = PROJECT_DIR / "outreachlm_model.pt"
 
 
 # ============================================================
