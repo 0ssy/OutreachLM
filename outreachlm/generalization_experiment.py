@@ -179,7 +179,7 @@ for step in range(
         # Forward pass
         # ----------------------------------------------------
 
-        logits = model(
+        logits, _ = model(
             input_ids
         )
 
@@ -257,7 +257,7 @@ with torch.no_grad():
         # Forward pass
         # ----------------------------------------------------
 
-        logits = model(
+        logits, _ = model(
             input_ids
         )
 

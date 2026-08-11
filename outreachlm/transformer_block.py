@@ -7,11 +7,12 @@ from outreachlm.feed_forward import FeedForward
 
 class TransformerBlock(nn.Module):
 
-    def __init__(self, embedding_dim):
+    def __init__(self, embedding_dim, num_heads=4):
         super().__init__()
 
         self.attention = CausalSelfAttention(
-            embedding_dim
+            embedding_dim=embedding_dim,
+            num_heads=num_heads
         )
 
         self.feed_forward = FeedForward(
@@ -26,11 +27,15 @@ class TransformerBlock(nn.Module):
             embedding_dim
         )
 
-    def forward(self, x):
+    def forward(
+        self,
+        x,
+        return_attention=False
+    ):
 
-        # --------------------------------------------------
-        # SELF-ATTENTION
-        # --------------------------------------------------
+        # ==================================================
+        # SELF ATTENTION
+        # ==================================================
 
         normalized_x = self.norm1(x)
 
@@ -38,26 +43,29 @@ class TransformerBlock(nn.Module):
             normalized_x
         )
 
-        # --------------------------------------------------
-        # RESIDUAL CONNECTION
-        # --------------------------------------------------
+        # Residual connection
 
         x = x + attention_output
 
-        # --------------------------------------------------
-        # FEED-FORWARD NETWORK
-        # --------------------------------------------------
+        # ==================================================
+        # FEED FORWARD
+        # ==================================================
+
+        normalized_x = self.norm2(x)
 
         feed_forward_output = self.feed_forward(
-            self.norm2(x)
+            normalized_x
         )
 
-        # --------------------------------------------------
-        # RESIDUAL CONNECTION
-        # --------------------------------------------------
+        # Residual connection
 
         x = x + feed_forward_output
 
-        # Return both the transformed representation
-        # and the attention information.
-        return x, attention_weights
+        # ==================================================
+        # OUTPUT
+        # ==================================================
+
+        if return_attention:
+            return x, attention_weights
+
+        return x

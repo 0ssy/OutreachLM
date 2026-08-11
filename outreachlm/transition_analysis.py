@@ -88,7 +88,7 @@ with torch.no_grad():
         # Forward pass
         # ----------------------------------------------------
 
-        logits = model(input_ids)
+        logits, _ = model(input_ids)
 
         # ----------------------------------------------------
         # Only inspect the final position.
