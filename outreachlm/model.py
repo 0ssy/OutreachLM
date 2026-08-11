@@ -46,22 +46,35 @@ class OutreachModel(nn.Module):
 
         self.context_length = context_length
 
+        # -----------------------------------------
         # Token identity
+        # -----------------------------------------
+
         self.token_embedding = TokenEmbedding(
             vocab_size,
             embedding_dim
         )
 
+        # -----------------------------------------
         # Token position
+        # -----------------------------------------
+
         self.position_embedding = PositionalEmbedding(
             context_length,
             embedding_dim
         )
 
+        # -----------------------------------------
         # Transformer processing
+        # -----------------------------------------
+
         self.transformer = TransformerBlock(
             embedding_dim
         )
+
+        # -----------------------------------------
+        # Vocabulary prediction
+        # -----------------------------------------
 
         self.output_head = nn.Linear(
             embedding_dim,
@@ -72,40 +85,62 @@ class OutreachModel(nn.Module):
 
         batch_size, sequence_length = input_ids.shape
 
-        # -----------------------------
+        if sequence_length > self.context_length:
+            raise ValueError(
+                f"Sequence length {sequence_length} "
+                f"exceeds context length "
+                f"{self.context_length}"
+            )
+
+        # -----------------------------------------
         # Token embeddings
-        # -----------------------------
+        # -----------------------------------------
 
         token_vectors = self.token_embedding(
             input_ids
         )
 
-        # -----------------------------
+        # -----------------------------------------
         # Position indices
-        # -----------------------------
+        # -----------------------------------------
 
         positions = torch.arange(
             sequence_length,
             device=input_ids.device
         )
 
-        # -----------------------------
+        # -----------------------------------------
         # Positional embeddings
-        # -----------------------------
+        # -----------------------------------------
 
         position_vectors = self.position_embedding(
             positions.unsqueeze(0)
         )
 
-        # Add position to token representation
+        # -----------------------------------------
+        # Combine token + position information
+        # -----------------------------------------
+
         x = token_vectors + position_vectors
 
-        # -----------------------------
+        # -----------------------------------------
         # Transformer processing
-        # -----------------------------
+        # -----------------------------------------
 
-        x = self.transformer(x)
+        transformer_output, attention_weights = (
+            self.transformer(x)
+        )
 
-        logits = self.output_head(x)
+        # -----------------------------------------
+        # Vocabulary logits
+        # -----------------------------------------
 
-        return logits
+        logits = self.output_head(
+            transformer_output
+        )
+
+        # -----------------------------------------
+        # Return both prediction and attention
+        # -----------------------------------------
+
+        return logits, attention_weights

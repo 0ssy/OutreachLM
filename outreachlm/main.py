@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 
 from outreachlm.model import OutreachModel
-from outreachlm.datasets import LanguageModelDataset
 
 
 # ============================================================
@@ -16,17 +15,77 @@ EMBEDDING_DIM = 16
 LEARNING_RATE = 0.001
 TRAINING_STEPS = 100
 
+MODEL_PATH = "outreachlm_model.pt"
+
+DEVICE = torch.device(
+    "cuda" if torch.cuda.is_available() else "cpu"
+)
+
 
 # ============================================================
 # DATASET
 # ============================================================
 
-token_ids = torch.arange(VOCAB_SIZE)
+examples = [
+    ([0, 1, 2, 3, 4], [1, 2, 3, 4, 5]),
+    ([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]),
+    ([2, 3, 4, 5, 6], [3, 4, 5, 6, 7]),
+    ([3, 4, 5, 6, 7], [4, 5, 6, 7, 8]),
+    ([4, 5, 6, 7, 8], [5, 6, 7, 8, 9]),
+    ([5, 6, 7, 8, 9], [6, 7, 8, 9, 10]),
+    ([6, 7, 8, 9, 10], [7, 8, 9, 10, 11]),
+    ([7, 8, 9, 10, 11], [8, 9, 10, 11, 12]),
+    ([8, 9, 10, 11, 12], [9, 10, 11, 12, 13]),
+    ([9, 10, 11, 12, 13], [10, 11, 12, 13, 14]),
+    ([10, 11, 12, 13, 14], [11, 12, 13, 14, 15]),
+    ([11, 12, 13, 14, 15], [12, 13, 14, 15, 16]),
+    ([12, 13, 14, 15, 16], [13, 14, 15, 16, 17]),
+    ([13, 14, 15, 16, 17], [14, 15, 16, 17, 18]),
+    ([14, 15, 16, 17, 18], [15, 16, 17, 18, 19]),
+]
 
-dataset = LanguageModelDataset(
-    token_ids=token_ids,
-    context_length=CONTEXT_LENGTH
-)
+
+# ============================================================
+# TRAIN / VALIDATION SPLIT
+# ============================================================
+
+training_examples = examples[:-1]
+validation_examples = examples[-1:]
+
+
+# ============================================================
+# DISPLAY CONFIGURATION
+# ============================================================
+
+print()
+print("=" * 60)
+print("OUTREACHLM")
+print("=" * 60)
+
+print()
+
+print(f"Total examples: {len(examples)}")
+print(f"Training examples: {len(training_examples)}")
+print(f"Validation examples: {len(validation_examples)}")
+print(f"Context length: {CONTEXT_LENGTH}")
+print(f"Vocabulary size: {VOCAB_SIZE}")
+print(f"Embedding dimension: {EMBEDDING_DIM}")
+print(f"Learning rate: {LEARNING_RATE}")
+print(f"Training steps: {TRAINING_STEPS}")
+print(f"Device: {DEVICE}")
+
+print()
+
+print("Validation example:")
+print()
+
+validation_input = validation_examples[0][0]
+validation_target = validation_examples[0][1]
+
+print(f"Input : {validation_input}")
+print(f"Target: {validation_target}")
+
+print()
 
 
 # ============================================================
@@ -37,14 +96,7 @@ model = OutreachModel(
     vocab_size=VOCAB_SIZE,
     context_length=CONTEXT_LENGTH,
     embedding_dim=EMBEDDING_DIM
-)
-
-
-# ============================================================
-# LOSS FUNCTION
-# ============================================================
-
-loss_function = nn.CrossEntropyLoss()
+).to(DEVICE)
 
 
 # ============================================================
@@ -58,293 +110,325 @@ optimizer = torch.optim.AdamW(
 
 
 # ============================================================
-# TRAINING INFORMATION
+# LOSS FUNCTION
+# ============================================================
+
+loss_function = nn.CrossEntropyLoss()
+
+
+# ============================================================
+# TRAINING
 # ============================================================
 
 print("=" * 60)
-print("OUTREACHLM TRAINING")
+print("TRAINING")
 print("=" * 60)
-
-print()
-print("Training examples:", len(dataset))
-print("Context length:", CONTEXT_LENGTH)
-print("Vocabulary size:", VOCAB_SIZE)
-print("Embedding dimension:", EMBEDDING_DIM)
-print("Learning rate:", LEARNING_RATE)
-print("Training steps:", TRAINING_STEPS)
-
-print()
-
-
-# ============================================================
-# SHOW FIRST TRAINING EXAMPLE
-# ============================================================
-
-first_input, first_target = dataset[0]
-
-print("First training example:")
-print()
-print("Input :", first_input.tolist())
-print("Target:", first_target.tolist())
-
-print()
-
-
-# ============================================================
-# TRAINING LOOP
-# ============================================================
 
 model.train()
 
-for step in range(TRAINING_STEPS):
+for step in range(1, TRAINING_STEPS + 1):
 
     total_loss = 0.0
 
-    # --------------------------------------------------------
-    # Train on every example in the dataset
-    # --------------------------------------------------------
+    for input_sequence, target_sequence in training_examples:
 
-    for index in range(len(dataset)):
+        # ----------------------------------------
+        # Convert data to tensors
+        # ----------------------------------------
 
-        # ----------------------------------------------------
-        # Get training example
-        # ----------------------------------------------------
+        input_ids = torch.tensor(
+            input_sequence,
+            dtype=torch.long,
+            device=DEVICE
+        ).unsqueeze(0)
 
-        input_ids, target_ids = dataset[index]
+        targets = torch.tensor(
+            target_sequence,
+            dtype=torch.long,
+            device=DEVICE
+        ).unsqueeze(0)
 
-        # ----------------------------------------------------
-        # Add batch dimension
-        #
-        # Before:
-        #
-        # [sequence]
-        #
-        # After:
-        #
-        # [batch, sequence]
-        # ----------------------------------------------------
-
-        input_ids = input_ids.unsqueeze(0)
-        target_ids = target_ids.unsqueeze(0)
-
-        # ----------------------------------------------------
+        # ----------------------------------------
         # Forward pass
-        # ----------------------------------------------------
+        #
+        # OutreachModel now returns:
+        #
+        # logits
+        # attention_weights
+        # ----------------------------------------
 
-        logits = model(input_ids)
+        logits, _ = model(input_ids)
 
-        # ----------------------------------------------------
-        # Logits shape:
-        #
-        # [batch, sequence, vocabulary]
-        #
-        # Example:
-        #
-        # [1, 5, 20]
-        # ----------------------------------------------------
-
-        # ----------------------------------------------------
-        # Cross-entropy loss
-        #
-        # CrossEntropyLoss expects:
-        #
-        # predictions:
-        # [batch, classes, sequence]
-        #
-        # targets:
-        # [batch, sequence]
-        #
-        # Our logits are:
-        # [batch, sequence, classes]
-        #
-        # Therefore transpose dimensions 1 and 2.
-        # ----------------------------------------------------
+        # ----------------------------------------
+        # Calculate loss
+        # ----------------------------------------
 
         loss = loss_function(
-            logits.transpose(1, 2),
-            target_ids
+            logits.reshape(-1, VOCAB_SIZE),
+            targets.reshape(-1)
         )
 
-        # ----------------------------------------------------
-        # Clear old gradients
-        # ----------------------------------------------------
+        # ----------------------------------------
+        # Backpropagation
+        # ----------------------------------------
 
         optimizer.zero_grad()
 
-        # ----------------------------------------------------
-        # Backpropagation
-        # ----------------------------------------------------
-
         loss.backward()
-
-        # ----------------------------------------------------
-        # Update model parameters
-        # ----------------------------------------------------
 
         optimizer.step()
 
-        # ----------------------------------------------------
-        # Accumulate loss
-        # ----------------------------------------------------
-
         total_loss += loss.item()
 
-    # --------------------------------------------------------
-    # Calculate average loss for this step
-    # --------------------------------------------------------
+    average_loss = (
+        total_loss / len(training_examples)
+    )
 
-    average_loss = total_loss / len(dataset)
+    # ----------------------------------------
+    # Training progress
+    # ----------------------------------------
 
-    # --------------------------------------------------------
-    # Print progress
-    # --------------------------------------------------------
-
-    if step == 0 or (step + 1) % 10 == 0:
-
+    if (
+        step == 1
+        or step % 10 == 0
+    ):
         print(
-            f"Step {step + 1:3d} | "
-            f"Loss: {average_loss:.6f}"
+            f"Step {step:3d} | "
+            f"Training Loss: {average_loss:.6f}"
         )
 
 
 # ============================================================
-# EVALUATION
+# SAVE MODEL
+# ============================================================
+
+torch.save(
+    {
+        "model_state_dict": model.state_dict(),
+        "vocab_size": VOCAB_SIZE,
+        "context_length": CONTEXT_LENGTH,
+        "embedding_dim": EMBEDDING_DIM,
+    },
+    MODEL_PATH
+)
+
+print()
+print("✓ Model saved to:")
+print(MODEL_PATH)
+
+
+# ============================================================
+# VALIDATION
 # ============================================================
 
 print()
 print("=" * 60)
-print("OUTREACHLM EVALUATION")
+print("VALIDATION")
 print("=" * 60)
-
 
 model.eval()
 
-
-# ============================================================
-# TEST INPUT
-# ============================================================
-
-test_input = torch.tensor([
-    [10, 11, 12, 13, 14]
-])
-
-
-print()
-print("Test input:")
-print(test_input)
-
-
-# ============================================================
-# FORWARD PASS
-# ============================================================
+validation_losses = []
+correct_predictions = 0
+total_predictions = 0
 
 with torch.no_grad():
 
-    logits = model(test_input)
+    for input_sequence, target_sequence in validation_examples:
 
+        input_ids = torch.tensor(
+            input_sequence,
+            dtype=torch.long,
+            device=DEVICE
+        ).unsqueeze(0)
+
+        targets = torch.tensor(
+            target_sequence,
+            dtype=torch.long,
+            device=DEVICE
+        ).unsqueeze(0)
+
+        # ----------------------------------------
+        # Forward pass
+        # ----------------------------------------
+
+        logits, attention_weights = model(
+            input_ids
+        )
+
+        # ----------------------------------------
+        # Validation loss
+        # ----------------------------------------
+
+        loss = loss_function(
+            logits.reshape(-1, VOCAB_SIZE),
+            targets.reshape(-1)
+        )
+
+        validation_losses.append(
+            loss.item()
+        )
+
+        # ----------------------------------------
+        # Predictions
+        # ----------------------------------------
+
+        predictions = torch.argmax(
+            logits,
+            dim=-1
+        )
+
+        prediction_list = (
+            predictions[0]
+            .cpu()
+            .tolist()
+        )
+
+        print()
+        print(f"Input     : {input_sequence}")
+        print(f"Target    : {target_sequence}")
+        print(f"Prediction: {prediction_list}")
+
+        # ----------------------------------------
+        # Accuracy
+        # ----------------------------------------
+
+        correct_predictions += (
+            predictions == targets
+        ).sum().item()
+
+        total_predictions += targets.numel()
+
+
+# ============================================================
+# VALIDATION METRICS
+# ============================================================
+
+validation_loss = (
+    sum(validation_losses)
+    / len(validation_losses)
+)
+
+validation_accuracy = (
+    correct_predictions
+    / total_predictions
+    * 100
+)
 
 print()
-print("Logits shape:")
-print(logits.shape)
 
+print(
+    f"Validation Loss: "
+    f"{validation_loss:.6f}"
+)
 
-# ============================================================
-# FINAL POSITION
-# ============================================================
-
-# The final position is the model's prediction
-# for the token that should come after the input.
-
-final_logits = logits[:, -1, :]
-
-
-# ============================================================
-# CONVERT LOGITS TO PROBABILITIES
-# ============================================================
-
-probabilities = torch.softmax(
-    final_logits,
-    dim=-1
+print(
+    f"Validation Accuracy: "
+    f"{validation_accuracy:.2f}%"
 )
 
 
 # ============================================================
-# MOST LIKELY TOKEN
-# ============================================================
-
-predicted_token = torch.argmax(
-    probabilities,
-    dim=-1
-)
-
-
-print()
-print("Predicted next token:")
-print(predicted_token)
-
-
-# ============================================================
-# TOP 5 PREDICTIONS
-# ============================================================
-
-top_probabilities, top_tokens = torch.topk(
-    probabilities,
-    k=5,
-    dim=-1
-)
-
-
-print()
-print("Top 5 predictions:")
-print()
-
-for token, probability in zip(
-    top_tokens[0],
-    top_probabilities[0]
-):
-
-    print(
-        f"Token {token.item():2d} "
-        f"| Probability: {probability.item():.6f}"
-    )
-
-
-# ============================================================
-# FINAL RESULT
+# AUTOREGRESSIVE GENERATION
 # ============================================================
 
 print()
 print("=" * 60)
-print("NEXT-TOKEN PREDICTION")
+print("AUTOREGRESSIVE GENERATION")
 print("=" * 60)
 
-print()
-
-print(
-    "Input:",
-    test_input[0].tolist()
-)
-
-print(
-    "Expected next token:",
-    15
-)
-
-print(
-    "Model prediction:",
-    predicted_token.item()
-)
+prompt = [0, 1, 2, 3, 4]
 
 print()
+print("Prompt:")
+print(prompt)
 
-if predicted_token.item() == 15:
+generated = prompt.copy()
 
-    print(
-        "✓ Model predicted the correct next token."
-    )
+model.eval()
 
-else:
+with torch.no_grad():
 
-    print(
-        "✗ Model did not predict the correct next token."
-    )
+    for step in range(10):
+
+        # ----------------------------------------
+        # Keep only the latest context window
+        # ----------------------------------------
+
+        context = generated[
+            -CONTEXT_LENGTH:
+        ]
+
+        input_ids = torch.tensor(
+            context,
+            dtype=torch.long,
+            device=DEVICE
+        ).unsqueeze(0)
+
+        # ----------------------------------------
+        # Model prediction
+        # ----------------------------------------
+
+        logits, attention_weights = model(
+            input_ids
+        )
+
+        # ----------------------------------------
+        # Use final position
+        # ----------------------------------------
+
+        next_token_logits = logits[
+            0,
+            -1,
+            :
+        ]
+
+        # ----------------------------------------
+        # Convert to probabilities
+        # ----------------------------------------
+
+        probabilities = torch.softmax(
+            next_token_logits,
+            dim=-1
+        )
+
+        # ----------------------------------------
+        # Greedy decoding
+        # ----------------------------------------
+
+        next_token = torch.argmax(
+            probabilities
+        ).item()
+
+        confidence = probabilities[
+            next_token
+        ].item()
+
+        # ----------------------------------------
+        # Add token to sequence
+        # ----------------------------------------
+
+        generated.append(
+            next_token
+        )
+
+        print(
+            f"Step {step + 1:2d} | "
+            f"Context: {context} | "
+            f"Next token: {next_token} | "
+            f"Confidence: {confidence:.6f}"
+        )
+
+
+# ============================================================
+# FINAL GENERATION
+# ============================================================
+
+print()
+print("Final generated sequence:")
+print(generated)
+
+print()
+print("=" * 60)
+print("EXPERIMENT COMPLETE")
+print("=" * 60)

@@ -28,20 +28,36 @@ class TransformerBlock(nn.Module):
 
     def forward(self, x):
 
-        # Self-attention
+        # --------------------------------------------------
+        # SELF-ATTENTION
+        # --------------------------------------------------
+
+        normalized_x = self.norm1(x)
+
         attention_output, attention_weights = self.attention(
-            self.norm1(x)
+            normalized_x
         )
 
-        # Residual connection
+        # --------------------------------------------------
+        # RESIDUAL CONNECTION
+        # --------------------------------------------------
+
         x = x + attention_output
 
-        # Feed-forward network
+        # --------------------------------------------------
+        # FEED-FORWARD NETWORK
+        # --------------------------------------------------
+
         feed_forward_output = self.feed_forward(
             self.norm2(x)
         )
 
-        # Residual connection
+        # --------------------------------------------------
+        # RESIDUAL CONNECTION
+        # --------------------------------------------------
+
         x = x + feed_forward_output
 
-        return x
+        # Return both the transformed representation
+        # and the attention information.
+        return x, attention_weights
