@@ -5,6 +5,7 @@ from pathlib import Path
 
 import torch
 import torch.nn as nn
+from torch.utils.data import DataLoader
 
 from outreachlm.corpus import Corpus
 from outreachlm.tokenizer import CharacterTokenizer
@@ -19,6 +20,10 @@ PROJECT_DIR = Path(__file__).resolve().parent
 DEFAULT_CORPUS_PATH = PROJECT_DIR.parent / "corpus" / "fineweb"
 DEFAULT_MODEL_PATH = PROJECT_DIR / "outreachlm_model.pt"
 DEFAULT_TOKENIZER_PATH = PROJECT_DIR / "outreachlm_tokenizer.json"
+CHECKPOINT_PATH = PROJECT_DIR / "outreachlm_checkpoint.pt"
+BEST_MODEL_PATH = PROJECT_DIR / "outreachlm_best.pt"
+SAVE_INTERVAL = 1000
+VALIDATION_INTERVAL = 5000
 
 # ============================================================
 # RUNTIME
@@ -46,6 +51,8 @@ VALIDATION_SPLIT = 0.10
 
 LOG_INTERVAL = 100
 SEED = 42
+WARMUP_STEPS = 500
+MIN_LEARNING_RATE_RATIO = 0.1
 
 # ============================================================
 # REPRODUCIBILITY
@@ -184,37 +191,43 @@ def create_model(
 
 
 def get_random_batch(
-    dataset,
+    token_ids,
+    context_length,
     batch_size,
     device
 ):
-    dataset_size = len(dataset)
-
-    indices = torch.randint(
-        low=0,
-        high=dataset_size,
-        size=(batch_size,)
+    max_start = (
+        len(token_ids)
+        - context_length
+        - 1
     )
 
-    inputs = []
-    targets = []
+    starts = torch.randint(
+        0,
+        max_start + 1,
+        (batch_size,)
+    )
 
-    for index in indices.tolist():
+    inputs = torch.stack([
+        token_ids[
+            start:
+            start + context_length
+        ]
+        for start in starts
+    ])
 
-        input_ids, target_ids = dataset[index]
+    targets = torch.stack([
+        token_ids[
+            start + 1:
+            start + context_length + 1
+        ]
+        for start in starts
+    ])
 
-        inputs.append(input_ids)
-        targets.append(target_ids)
-
-    input_batch = torch.stack(
-        inputs
-    ).to(device)
-
-    target_batch = torch.stack(
-        targets
-    ).to(device)
-
-    return input_batch, target_batch
+    return (
+        inputs.to(device),
+        targets.to(device)
+    )
 
 # ============================================================
 # LOSS
@@ -244,6 +257,204 @@ def calculate_loss(
         targets_for_loss
     )
 
+
+def get_learning_rate(
+    step,
+    max_steps,
+    base_learning_rate,
+    warmup_steps,
+    min_learning_rate_ratio,
+):
+    if step < warmup_steps:
+
+        return (
+            base_learning_rate
+            * (step + 1)
+            / warmup_steps
+        )
+
+    if max_steps <= warmup_steps:
+        return base_learning_rate
+
+    progress = (
+        step - warmup_steps
+    ) / (
+        max_steps - warmup_steps
+    )
+
+    progress = min(
+        max(progress, 0.0),
+        1.0,
+    )
+
+    cosine_decay = (
+        0.5
+        * (
+            1.0
+            + math.cos(
+                math.pi * progress
+            )
+        )
+    )
+
+    min_learning_rate = (
+        base_learning_rate
+        * min_learning_rate_ratio
+    )
+
+    return (
+        min_learning_rate
+        + (
+            base_learning_rate
+            - min_learning_rate
+        )
+        * cosine_decay
+    )
+
+# ============================================================
+# CHECKPOINTING
+# ============================================================
+
+
+def save_checkpoint(
+    checkpoint_path,
+    model,
+    optimizer,
+    step,
+    last_loss,
+    average_train_loss,
+    validation_loss,
+    best_validation_loss
+):
+    checkpoint_path.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    checkpoint = {
+        "step": step,
+        "model_state_dict": model.state_dict(),
+        "optimizer_state_dict": optimizer.state_dict(),
+        "last_loss": float(last_loss),
+        "average_train_loss": float(average_train_loss),
+        "validation_loss": float(validation_loss),
+        "best_validation_loss": float(best_validation_loss),
+        "config": {
+            "context_length": CONTEXT_LENGTH,
+            "embedding_dim": EMBEDDING_DIM,
+            "batch_size": BATCH_SIZE,
+            "learning_rate": LEARNING_RATE,
+        },
+    }
+
+    torch.save(
+        checkpoint,
+        checkpoint_path
+    )
+
+    print(
+        f"\n[CHECKPOINT] Saved at step {step}:"
+    )
+
+    print(
+        checkpoint_path
+    )
+
+
+def load_checkpoint(
+    checkpoint_path,
+    model,
+    optimizer,
+    device
+):
+    checkpoint = torch.load(
+        checkpoint_path,
+        map_location=device,
+        weights_only=False
+    )
+
+    model.load_state_dict(
+        checkpoint["model_state_dict"]
+    )
+
+    optimizer.load_state_dict(
+        checkpoint["optimizer_state_dict"]
+    )
+
+    step = checkpoint["step"]
+
+    best_validation_loss = checkpoint.get(
+        "best_validation_loss",
+        float("inf")
+    )
+
+    return step, best_validation_loss
+
+
+def evaluate_validation(
+    model,
+    validation_dataset,
+    device,
+    batch_size
+):
+    model.eval()
+
+    dataloader = DataLoader(
+        validation_dataset,
+        batch_size=batch_size,
+        shuffle=False
+    )
+
+    loss_function = nn.CrossEntropyLoss()
+
+    total_loss = 0.0
+    batches = 0
+
+    with torch.no_grad():
+
+        for input_ids, target_ids in dataloader:
+
+            input_ids = input_ids.to(device)
+            target_ids = target_ids.to(device)
+
+            model_output = model(input_ids)
+
+            if isinstance(model_output, tuple):
+                logits = model_output[0]
+            else:
+                logits = model_output
+
+            batch_size_actual = logits.shape[0]
+            sequence_length = logits.shape[1]
+            vocab_size = logits.shape[2]
+
+            logits_for_loss = logits.reshape(
+                batch_size_actual * sequence_length,
+                vocab_size
+            )
+
+            targets_for_loss = target_ids.reshape(
+                batch_size_actual * sequence_length
+            )
+
+            loss = loss_function(
+                logits_for_loss,
+                targets_for_loss
+            )
+
+            total_loss += loss.item()
+            batches += 1
+
+    average_loss = total_loss / batches
+
+    perplexity = math.exp(
+        average_loss
+    )
+
+    model.train()
+
+    return average_loss, perplexity
+
 # ============================================================
 # TRAINING
 # ============================================================
@@ -253,6 +464,8 @@ def train(
     corpus_path=DEFAULT_CORPUS_PATH,
     model_path=DEFAULT_MODEL_PATH,
     tokenizer_path=DEFAULT_TOKENIZER_PATH,
+    checkpoint_path=CHECKPOINT_PATH,
+    best_model_path=BEST_MODEL_PATH,
     context_length=CONTEXT_LENGTH,
     embedding_dim=EMBEDDING_DIM,
     batch_size=BATCH_SIZE,
@@ -260,7 +473,12 @@ def train(
     training_steps=TRAINING_STEPS,
     validation_split=VALIDATION_SPLIT,
     log_interval=LOG_INTERVAL,
-    seed=SEED
+    seed=SEED,
+    warmup_steps=WARMUP_STEPS,
+    min_learning_rate_ratio=MIN_LEARNING_RATE_RATIO,
+    save_interval=SAVE_INTERVAL,
+    validation_interval=VALIDATION_INTERVAL,
+    resume=False
 ):
 
     print("=" * 60)
@@ -285,6 +503,14 @@ def train(
 
     print(
         f"Learning rate:      {learning_rate}"
+    )
+
+    print(
+        f"Warmup steps:       {warmup_steps}"
+    )
+
+    print(
+        f"Min LR ratio:       {min_learning_rate_ratio}"
     )
 
     print(
@@ -324,31 +550,39 @@ def train(
         training_text
     )
 
-    # --------------------------------------------------------
-    # Build datasets
-    # --------------------------------------------------------
-
-    training_dataset = create_dataset(
-        tokenizer,
-        training_text,
-        context_length
+    training_token_ids = torch.tensor(
+        tokenizer.encode(training_text),
+        dtype=torch.long
     )
 
-    validation_dataset = create_dataset(
-        tokenizer,
-        validation_text,
-        context_length
+    validation_token_ids = torch.tensor(
+        tokenizer.encode(validation_text),
+        dtype=torch.long
+    )
+
+    # --------------------------------------------------------
+    # Build validation dataset
+    # --------------------------------------------------------
+
+    validation_dataset = LanguageModelDataset(
+        token_ids=validation_token_ids,
+        context_length=context_length
+    )
+
+    training_samples = (
+        len(training_token_ids)
+        - context_length
     )
 
     print(
-        f"Training samples:   {len(training_dataset)}"
+        f"Training samples:   {training_samples}"
     )
 
     print(
         f"Validation samples: {len(validation_dataset)}"
     )
 
-    if len(training_dataset) == 0:
+    if training_samples <= 0:
         raise RuntimeError(
             "Training dataset contains no samples."
         )
@@ -377,6 +611,26 @@ def train(
         lr=learning_rate
     )
 
+    start_step = 0
+    best_validation_loss = float("inf")
+
+    if resume and checkpoint_path.exists():
+        start_step, best_validation_loss = load_checkpoint(
+            checkpoint_path,
+            model,
+            optimizer,
+            DEVICE
+        )
+
+        print(
+            f"\n[CHECKPOINT] Resuming from step {start_step}"
+        )
+
+    elif resume:
+        raise RuntimeError(
+            f"Checkpoint not found for --resume: {checkpoint_path}"
+        )
+
     # --------------------------------------------------------
     # Cross entropy
     # --------------------------------------------------------
@@ -393,9 +647,12 @@ def train(
     print("=" * 60)
 
     model.train()
+    interval_losses = []
+    average_train_loss = float("nan")
+    validation_loss = float("nan")
 
     for step in range(
-        1,
+        start_step + 1,
         training_steps + 1
     ):
 
@@ -404,7 +661,8 @@ def train(
         # ----------------------------------------------------
 
         input_ids, target_ids = get_random_batch(
-            training_dataset,
+            training_token_ids,
+            context_length,
             batch_size,
             DEVICE
         )
@@ -442,25 +700,118 @@ def train(
 
         loss.backward()
 
+        current_learning_rate = get_learning_rate(
+            step=step - 1,
+            max_steps=training_steps,
+            base_learning_rate=learning_rate,
+            warmup_steps=warmup_steps,
+            min_learning_rate_ratio=min_learning_rate_ratio,
+        )
+
+        for parameter_group in optimizer.param_groups:
+            parameter_group["lr"] = current_learning_rate
+
         # ----------------------------------------------------
         # Parameter update
         # ----------------------------------------------------
 
         optimizer.step()
 
+        last_loss = loss.item()
+        interval_losses.append(
+            last_loss
+        )
+
         # ----------------------------------------------------
         # Logging
         # ----------------------------------------------------
 
         if (
-            step == 1
-            or step % log_interval == 0
+            step % log_interval == 0
             or step == training_steps
         ):
+            average_train_loss = (
+                sum(interval_losses)
+                / len(interval_losses)
+            )
 
             print(
                 f"Step {step:5d} | "
-                f"Loss: {loss.item():.6f}"
+                f"Train Loss: {average_train_loss:.6f} | "
+                f"LR: {current_learning_rate:.8f}"
+            )
+
+            interval_losses.clear()
+
+        if (
+            step % validation_interval == 0
+            or step == training_steps
+        ):
+
+            validation_loss, validation_perplexity = (
+                evaluate_validation(
+                    model,
+                    validation_dataset,
+                    DEVICE,
+                    batch_size
+                )
+            )
+
+            print(
+                f"           "
+                f"Validation Loss: {validation_loss:.6f} | "
+                f"Perplexity: {validation_perplexity:.4f}"
+            )
+
+            if validation_loss < best_validation_loss:
+
+                best_validation_loss = validation_loss
+
+                best_model_path.parent.mkdir(
+                    parents=True,
+                    exist_ok=True
+                )
+
+                torch.save(
+                    model.state_dict(),
+                    best_model_path
+                )
+
+                print(
+                    "[BEST] Validation loss improved."
+                )
+
+                print(
+                    best_model_path
+                )
+
+        if (
+            step % save_interval == 0
+            or step == training_steps
+        ):
+            if math.isnan(average_train_loss):
+                average_train_loss = (
+                    sum(interval_losses)
+                    / len(interval_losses)
+                )
+
+            if math.isnan(validation_loss):
+                validation_loss, _ = evaluate_validation(
+                    model,
+                    validation_dataset,
+                    DEVICE,
+                    batch_size
+                )
+
+            save_checkpoint(
+                checkpoint_path,
+                model,
+                optimizer,
+                step,
+                last_loss,
+                average_train_loss,
+                validation_loss,
+                best_validation_loss
             )
 
     # --------------------------------------------------------
@@ -749,6 +1100,29 @@ def parse_args():
         default=SEED
     )
 
+    parser.add_argument(
+        "--warmup-steps",
+        type=int,
+        default=WARMUP_STEPS
+    )
+
+    parser.add_argument(
+        "--min-learning-rate-ratio",
+        type=float,
+        default=MIN_LEARNING_RATE_RATIO
+    )
+
+    parser.add_argument(
+        "--validation-interval",
+        type=int,
+        default=VALIDATION_INTERVAL
+    )
+
+    parser.add_argument(
+        "--resume",
+        action="store_true"
+    )
+
     return parser.parse_args()
 
 # ============================================================
@@ -771,7 +1145,11 @@ if __name__ == "__main__":
         training_steps=args.steps,
         validation_split=args.validation_split,
         log_interval=args.log_interval,
-        seed=args.seed
+        seed=args.seed,
+        warmup_steps=args.warmup_steps,
+        min_learning_rate_ratio=args.min_learning_rate_ratio,
+        validation_interval=args.validation_interval,
+        resume=args.resume
     )
 
     evaluate(

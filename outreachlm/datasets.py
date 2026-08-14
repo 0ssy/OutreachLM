@@ -5,10 +5,7 @@ from torch.utils.data import Dataset
 class LanguageModelDataset(Dataset):
 
     def __init__(self, token_ids, context_length):
-        self.token_ids = torch.tensor(
-            token_ids,
-            dtype=torch.long
-        )
+        self.token_ids = token_ids.detach().clone()
 
         self.context_length = context_length
 
