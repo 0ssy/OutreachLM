@@ -11,6 +11,12 @@ from outreachlm.corpus import Corpus
 from outreachlm.tokenizer import CharacterTokenizer
 from outreachlm.datasets import LanguageModelDataset
 from outreachlm.model import OutreachModel
+from outreachlm.checkpoint import (
+    build_config,
+    save_checkpoint,
+    load_checkpoint,
+    validate_config,
+)
 
 # ============================================================
 # PROJECT PATHS
@@ -24,6 +30,11 @@ CHECKPOINT_PATH = PROJECT_DIR / "outreachlm_checkpoint.pt"
 BEST_MODEL_PATH = PROJECT_DIR / "outreachlm_best.pt"
 SAVE_INTERVAL = 1000
 VALIDATION_INTERVAL = 5000
+
+# Backward-compatible aliases for modules that import these names.
+CORPUS_PATH = DEFAULT_CORPUS_PATH
+MODEL_PATH = DEFAULT_MODEL_PATH
+TOKENIZER_PATH = DEFAULT_TOKENIZER_PATH
 
 # ============================================================
 # RUNTIME
@@ -70,7 +81,7 @@ def set_seed(seed):
 # ============================================================
 
 
-def load_corpus(corpus_path):
+def load_corpus(corpus_path=DEFAULT_CORPUS_PATH):
     corpus = Corpus(
         str(corpus_path)
     )
@@ -174,8 +185,8 @@ def create_dataset(
 
 def create_model(
     vocab_size,
-    context_length,
-    embedding_dim
+    context_length=CONTEXT_LENGTH,
+    embedding_dim=EMBEDDING_DIM
 ):
     model = OutreachModel(
         vocab_size=vocab_size,

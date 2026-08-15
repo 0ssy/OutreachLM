@@ -4,8 +4,11 @@ from outreachlm.train import (
     DEVICE,
     CONTEXT_LENGTH,
     EMBEDDING_DIM,
+    CORPUS_PATH,
+    VALIDATION_SPLIT,
     MODEL_PATH,
     load_corpus,
+    split_corpus,
     create_tokenizer,
     create_model,
 )
@@ -50,15 +53,24 @@ def load_model_and_tokenizer():
     # Load corpus
     # --------------------------------------------------------
 
-    text = load_corpus()
+    text = load_corpus(CORPUS_PATH)
+
+    training_text, _ = split_corpus(
+        text,
+        VALIDATION_SPLIT
+    )
 
     # --------------------------------------------------------
     # Recreate tokenizer
     # --------------------------------------------------------
 
-    tokenizer = create_tokenizer(text)
+    tokenizer = create_tokenizer(
+        training_text
+    )
 
-    print(f"Corpus characters: {len(text)}")
+    print(
+        f"Training characters: {len(training_text)}"
+    )
     print(f"Vocabulary size:  {tokenizer.vocab_size}")
 
     # --------------------------------------------------------
@@ -85,7 +97,7 @@ def load_model_and_tokenizer():
     model.eval()
 
     print()
-    print("✓ Model loaded successfully.")
+    print("[OK] Model loaded successfully.")
 
     return model, tokenizer
 
