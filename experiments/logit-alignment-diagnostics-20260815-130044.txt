@@ -1,0 +1,66 @@
+OUTREACHLM LOGIT-ALIGNMENT AND TRAJECTORY DIAGNOSTICS
+================================================================================
+Timestamp: 2026-08-15T13:00:44.180977
+
+EXPERIMENT 4) DOMINANT LOGIT DIRECTION (VALIDATION CONTEXTS)
+--------------------------------------------------------------------------------
+Samples x vocab: [2048, 490]
+Raw explained variance PC1/PC2/PC5/PC10: 0.990257 / 0.003007 / 0.000486 / 0.000192
+Raw cumulative PC1/PC2/PC5/PC10: 0.990257 / 0.993264 / 0.996539 / 0.997921
+Centered explained variance PC1/PC2/PC5/PC10: 0.797498 / 0.062543 / 0.010301 / 0.003692
+Centered cumulative PC1/PC2/PC5/PC10: 0.797498 / 0.860040 / 0.927854 / 0.956481
+Cosine(logits_i, mean_logits) mean/std/min/max: 0.993869 / 0.004489 / 0.945436 / 0.998859
+
+EXPERIMENT 5) RAW VS MEAN-CENTERED LOGIT COSINES
+--------------------------------------------------------------------------------
+Prompt-pair offdiag cosine mean/min/max (raw): 0.994433 / 0.991302 / 0.997458
+Prompt-pair offdiag cosine mean/min/max (centered): 0.186568 / -0.673381 / 0.942933
+'Machine learning allows' vs 'A computer system can'
+  raw cosine: 0.991788 | centered cosine: -0.131523
+'Machine learning allows computers to' vs 'The purpose of a transformer'
+  raw cosine: 0.992509 | centered cosine: -0.659817
+'OutreachLM is' vs 'Machine'
+  raw cosine: 0.995749 | centered cosine: 0.529006
+
+EXPERIMENT 6) TOP TOKENS OF MEAN LOGIT DIRECTION
+--------------------------------------------------------------------------------
+id= 76 token='i' mean_logit=3.629008 prob=0.127359
+id= 72 token='e' mean_logit=3.530140 prob=0.115370
+id= 68 token='a' mean_logit=3.497399 prob=0.111654
+id= 87 token='t' mean_logit=3.202422 prob=0.083132
+id= 86 token='s' mean_logit=3.149534 prob=0.078849
+id= 82 token='o' mean_logit=3.006696 prob=0.068354
+id= 85 token='r' mean_logit=2.956585 prob=0.065013
+id= 79 token='l' mean_logit=2.695901 prob=0.050094
+id=  3 token=' ' mean_logit=2.591651 prob=0.045135
+id= 81 token='n' mean_logit=2.420076 prob=0.038019
+id= 88 token='u' mean_logit=2.300550 prob=0.033736
+id= 70 token='c' mean_logit=2.007280 prob=0.025161
+id= 80 token='m' mean_logit=1.868596 prob=0.021902
+id= 71 token='d' mean_logit=1.644830 prob=0.017511
+id= 92 token='y' mean_logit=1.515939 prob=0.015393
+id= 75 token='h' mean_logit=1.259258 prob=0.011909
+id= 73 token='f' mean_logit=1.168841 prob=0.010879
+id= 69 token='b' mean_logit=1.107675 prob=0.010234
+id= 83 token='p' mean_logit=1.045683 prob=0.009618
+id= 90 token='w' mean_logit=1.016857 prob=0.009345
+id= 17 token='.' mean_logit=0.974744 prob=0.008960
+id= 74 token='g' mean_logit=0.805568 prob=0.007565
+id= 15 token=',' mean_logit=0.595246 prob=0.006130
+id= 16 token='-' mean_logit=0.389127 prob=0.004988
+id= 89 token='v' mean_logit=0.018207 prob=0.003443
+id= 78 token='k' mean_logit=-0.553953 prob=0.001943
+id= 29 token=':' mean_logit=-1.018182 prob=0.001221
+id=279 token='’' mean_logit=-1.054708 prob=0.001177
+id=  2 token='\\n' mean_logit=-1.098718 prob=0.001127
+id= 34 token='?' mean_logit=-1.458456 prob=0.000786
+
+EXPERIMENT 7) TEACHER-FORCED VS FREE-RUN DISTRIBUTION DRIFT
+--------------------------------------------------------------------------------
+Sequence source: fallback-start-of-validation
+Prompt text: 'the content on the Xbox 360 Marketplace,'
+teacher_top1/free_top1/generated-match: 0.480000 / 0.090000 / 0.090000
+first mismatch / first top1 disagreement: 41 / 42
+first KL_sym >0.5 / >1.0: 42 / 42
+mean/max KL_sym: 3.458544 / 9.210614
+mean/max TV distance: 0.718486 / 0.990655

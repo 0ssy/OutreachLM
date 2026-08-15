@@ -1,0 +1,28 @@
+OUTREACHLM EXPERIMENTS 8-10
+================================================================================
+Timestamp: 2026-08-15T13:15:11.052711
+
+EXPERIMENT 8 - OUTPUT HEAD INTERVENTION
+--------------------------------------------------------------------------------
+Baseline offdiag logit cosine mean: 0.994433
+centered_output_head: cos_mean=0.974546, teacher_top1=0.512500, free_match=0.100000
+reinitialized_output_head: cos_mean=0.998394, teacher_top1=0.212500, free_match=0.162500
+Selected candidate: centered_output_head
+
+EXPERIMENT 9 - TRAINING INTERVENTION
+--------------------------------------------------------------------------------
+Steps: 1200 | LR: 0.0005
+Loss first/last: 1.802182 / 1.854177
+Final teacher_top1: 0.512500 | free_match: 0.075000
+Final prompt logit cosine mean: 0.981093
+Final rollout mean entropy: 1.749765
+
+EXPERIMENT 10 - CONTROLLED GENERATION
+--------------------------------------------------------------------------------
+BASELINE
+  greedy: unique=7, context_similarity=0.775000, repeat2=0.751582, repeat3=0.705128
+  sampling: unique=8, context_similarity=0.248661, repeat2=0.202532, repeat3=0.062500
+
+CORRECTED
+  greedy: unique=7, context_similarity=0.792411, repeat2=0.729430, repeat3=0.671474
+  sampling: unique=8, context_similarity=0.249554, repeat2=0.208861, repeat3=0.056090

@@ -1,0 +1,3432 @@
+{
+  "timestamp": "2026-08-15T12:55:53.585757",
+  "config": {
+    "seed": 42,
+    "prompts": [
+      "Machine",
+      "Machine learning",
+      "Machine learning allows",
+      "Machine learning allows computers",
+      "Machine learning allows computers to",
+      "The purpose of a transformer",
+      "A computer system can",
+      "OutreachLM is"
+    ]
+  },
+  "output_head_geometry": {
+    "shape": [
+      490,
+      64
+    ],
+    "singular_values_top20": [
+      49.155433654785156,
+      5.507903575897217,
+      3.8526368141174316,
+      3.4730403423309326,
+      3.1423492431640625,
+      3.060028076171875,
+      2.904904842376709,
+      2.7497451305389404,
+      2.6512129306793213,
+      2.5754096508026123,
+      2.5067708492279053,
+      2.4765360355377197,
+      2.394181966781616,
+      2.3742167949676514,
+      2.348245143890381,
+      2.266205072402954,
+      2.226026773452759,
+      2.2032880783081055,
+      2.175677537918091,
+      2.1553547382354736
+    ],
+    "numerical_rank_eps_1e-6": 64,
+    "effective_rank_entropy": 33.831839597407814,
+    "norm_stats": {
+      "mean": 2.2291290760040283,
+      "std": 0.7283490896224976,
+      "min": 0.7659887671470642,
+      "p25": 1.6190398931503296,
+      "median": 2.1278696060180664,
+      "p75": 2.9509520530700684,
+      "max": 3.2745773792266846
+    },
+    "row_cosine_stats_offdiag": {
+      "mean": 0.669279158115387,
+      "std": 0.3689349293708801,
+      "min": -0.6007618308067322,
+      "max": 0.9896739721298218
+    },
+    "top_most_similar_row_pairs": [
+      {
+        "token_a_id": 465,
+        "token_a": "💲",
+        "token_b_id": 477,
+        "token_b": "🖋",
+        "cosine": 0.9896739721298218
+      },
+      {
+        "token_a_id": 406,
+        "token_a": "输",
+        "token_b_id": 466,
+        "token_b": "💵",
+        "cosine": 0.9896486401557922
+      },
+      {
+        "token_a_id": 123,
+        "token_a": "Ã",
+        "token_b_id": 327,
+        "token_b": "伴",
+        "cosine": 0.9895981550216675
+      },
+      {
+        "token_a_id": 408,
+        "token_a": "运",
+        "token_b_id": 472,
+        "token_b": "📨",
+        "cosine": 0.9891566634178162
+      },
+      {
+        "token_a_id": 272,
+        "token_a": "ไ",
+        "token_b_id": 472,
+        "token_b": "📨",
+        "cosine": 0.9891383647918701
+      },
+      {
+        "token_a_id": 99,
+        "token_a": "¦",
+        "token_b_id": 437,
+        "token_b": "코",
+        "cosine": 0.9889205098152161
+      },
+      {
+        "token_a_id": 398,
+        "token_a": "装",
+        "token_b_id": 404,
+        "token_b": "路",
+        "cosine": 0.9887522459030151
+      },
+      {
+        "token_a_id": 387,
+        "token_a": "种",
+        "token_b_id": 477,
+        "token_b": "🖋",
+        "cosine": 0.9885506629943848
+      },
+      {
+        "token_a_id": 327,
+        "token_a": "伴",
+        "token_b_id": 472,
+        "token_b": "📨",
+        "cosine": 0.9884350895881653
+      },
+      {
+        "token_a_id": 299,
+        "token_a": "─",
+        "token_b_id": 336,
+        "token_b": "区",
+        "cosine": 0.9883821606636047
+      },
+      {
+        "token_a_id": 148,
+        "token_a": "õ",
+        "token_b_id": 472,
+        "token_b": "📨",
+        "cosine": 0.9883677363395691
+      },
+      {
+        "token_a_id": 262,
+        "token_a": "บ",
+        "token_b_id": 272,
+        "token_b": "ไ",
+        "cosine": 0.988231360912323
+      },
+      {
+        "token_a_id": 148,
+        "token_a": "õ",
+        "token_b_id": 300,
+        "token_b": "└",
+        "cosine": 0.9881649613380432
+      },
+      {
+        "token_a_id": 166,
+        "token_a": "œ",
+        "token_b_id": 274,
+        "token_b": "์",
+        "cosine": 0.9881207942962646
+      },
+      {
+        "token_a_id": 269,
+        "token_a": "ิ",
+        "token_b_id": 414,
+        "token_b": "里",
+        "cosine": 0.9880958795547485
+      },
+      {
+        "token_a_id": 383,
+        "token_a": "用",
+        "token_b_id": 472,
+        "token_b": "📨",
+        "cosine": 0.9880616068840027
+      },
+      {
+        "token_a_id": 378,
+        "token_a": "每",
+        "token_b_id": 479,
+        "token_b": "😉",
+        "cosine": 0.9880590438842773
+      },
+      {
+        "token_a_id": 310,
+        "token_a": "✏",
+        "token_b_id": 481,
+        "token_b": "😏",
+        "cosine": 0.9879664778709412
+      },
+      {
+        "token_a_id": 398,
+        "token_a": "装",
+        "token_b_id": 439,
+        "token_b": "튀",
+        "cosine": 0.9879637956619263
+      },
+      {
+        "token_a_id": 160,
+        "token_a": "Ħ",
+        "token_b_id": 382,
+        "token_b": "理",
+        "cosine": 0.9879487752914429
+      }
+    ]
+  },
+  "prompt_projection": {
+    "prompts": [
+      "Machine",
+      "Machine learning",
+      "Machine learning allows",
+      "Machine learning allows computers",
+      "Machine learning allows computers to",
+      "The purpose of a transformer",
+      "A computer system can",
+      "OutreachLM is"
+    ],
+    "per_prompt_top10_ln": {
+      "Machine": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.3680817484855652
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.34841254353523254
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.08960437029600143
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.0403013601899147
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.031667809933423996
+        },
+        {
+          "token_id": 85,
+          "token": "r",
+          "probability": 0.02470545843243599
+        },
+        {
+          "token_id": 79,
+          "token": "l",
+          "probability": 0.014374797232449055
+        },
+        {
+          "token_id": 16,
+          "token": "-",
+          "probability": 0.009985540062189102
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.005944899283349514
+        },
+        {
+          "token_id": 73,
+          "token": "f",
+          "probability": 0.005900272633880377
+        }
+      ],
+      "Machine learning": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.8554708957672119
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.043324489146471024
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.038605086505413055
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.023172961547970772
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.014577913098037243
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.004804233089089394
+        },
+        {
+          "token_id": 16,
+          "token": "-",
+          "probability": 0.003801818937063217
+        },
+        {
+          "token_id": 34,
+          "token": "?",
+          "probability": 0.002674315357580781
+        },
+        {
+          "token_id": 12,
+          "token": ")",
+          "probability": 0.0015312287723645568
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.0013231171760708094
+        }
+      ],
+      "Machine learning allows": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.6466886401176453
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.0958717092871666
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.09387658536434174
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.05327252671122551
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.030498838052153587
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.013147889636456966
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.007572982460260391
+        },
+        {
+          "token_id": 79,
+          "token": "l",
+          "probability": 0.006752596702426672
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.005996961146593094
+        },
+        {
+          "token_id": 34,
+          "token": "?",
+          "probability": 0.0051920413970947266
+        }
+      ],
+      "Machine learning allows computers": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.5978500843048096
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.09233643114566803
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.0789639800786972
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.05967768654227257
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.042300745844841
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.036652784794569016
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.022894812747836113
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.01841994747519493
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.007415832486003637
+        },
+        {
+          "token_id": 88,
+          "token": "u",
+          "probability": 0.005852291360497475
+        }
+      ],
+      "Machine learning allows computers to": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.8973696827888489
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.011824105866253376
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.009590020403265953
+        },
+        {
+          "token_id": 83,
+          "token": "p",
+          "probability": 0.008193272165954113
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.0076170386746525764
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.005916554015129805
+        },
+        {
+          "token_id": 79,
+          "token": "l",
+          "probability": 0.005718020256608725
+        },
+        {
+          "token_id": 74,
+          "token": "g",
+          "probability": 0.005622218828648329
+        },
+        {
+          "token_id": 88,
+          "token": "u",
+          "probability": 0.005517265293747187
+        },
+        {
+          "token_id": 90,
+          "token": "w",
+          "probability": 0.004898023325949907
+        }
+      ],
+      "The purpose of a transformer": [
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.2730931043624878
+        },
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.22093524038791656
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.11047794669866562
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.08478125184774399
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.04417020455002785
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.04187898337841034
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.034530024975538254
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.03147856891155243
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.027799319475889206
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.01980891264975071
+        }
+      ],
+      "A computer system can": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.77633136510849
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.04732101038098335
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.03405985236167908
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.032240286469459534
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.02176962047815323
+        },
+        {
+          "token_id": 10,
+          "token": "'",
+          "probability": 0.017809584736824036
+        },
+        {
+          "token_id": 279,
+          "token": "’",
+          "probability": 0.015363205224275589
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.014902660623192787
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.010181128978729248
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.004326432943344116
+        }
+      ],
+      "OutreachLM is": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.8980631828308105
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.05332903191447258
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.014476398937404156
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.004505586344748735
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.004350575618445873
+        },
+        {
+          "token_id": 80,
+          "token": "m",
+          "probability": 0.003908379469066858
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.0038747722283005714
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.0034460914321243763
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.00324651668779552
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.0015388933243229985
+        }
+      ]
+    },
+    "per_prompt_top10_no_ln": {
+      "Machine": [
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.48357275128364563
+        },
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.3724852204322815
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.07518740743398666
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.030128344893455505
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.019088272005319595
+        },
+        {
+          "token_id": 16,
+          "token": "-",
+          "probability": 0.003403016133233905
+        },
+        {
+          "token_id": 85,
+          "token": "r",
+          "probability": 0.0031219820957630873
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.0030163447372615337
+        },
+        {
+          "token_id": 79,
+          "token": "l",
+          "probability": 0.0019999644719064236
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.0013133472530171275
+        }
+      ],
+      "Machine learning": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.9185215830802917
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.03242814913392067
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.025151534005999565
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.014817754738032818
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.0031705284491181374
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.0020084723364561796
+        },
+        {
+          "token_id": 34,
+          "token": "?",
+          "probability": 0.001049339072778821
+        },
+        {
+          "token_id": 16,
+          "token": "-",
+          "probability": 0.0009693155298009515
+        },
+        {
+          "token_id": 12,
+          "token": ")",
+          "probability": 0.0004247429023962468
+        },
+        {
+          "token_id": 4,
+          "token": "!",
+          "probability": 0.000403688958613202
+        }
+      ],
+      "Machine learning allows": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.8182647228240967
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.08622349798679352
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.07039343565702438
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.007032039575278759
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.006229560822248459
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.002897264901548624
+        },
+        {
+          "token_id": 12,
+          "token": ")",
+          "probability": 0.0024051705840975046
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.0018032502848654985
+        },
+        {
+          "token_id": 34,
+          "token": "?",
+          "probability": 0.001775152049958706
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.0004933021846227348
+        }
+      ],
+      "Machine learning allows computers": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.7084769010543823
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.11977875977754593
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.10935548692941666
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.011877190321683884
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.011042499914765358
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.009418180212378502
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.005291268229484558
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.0038925092667341232
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.0035080525558441877
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.0034929285757243633
+        }
+      ],
+      "Machine learning allows computers to": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.9267985224723816
+        },
+        {
+          "token_id": 83,
+          "token": "p",
+          "probability": 0.009659257717430592
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.009584102779626846
+        },
+        {
+          "token_id": 16,
+          "token": "-",
+          "probability": 0.00626256363466382
+        },
+        {
+          "token_id": 90,
+          "token": "w",
+          "probability": 0.005863906815648079
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.005650046747177839
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.003287740284577012
+        },
+        {
+          "token_id": 69,
+          "token": "b",
+          "probability": 0.0032361142802983522
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.0032027342822402716
+        },
+        {
+          "token_id": 88,
+          "token": "u",
+          "probability": 0.003062229137867689
+        }
+      ],
+      "The purpose of a transformer": [
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.33297017216682434
+        },
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.1963973343372345
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.09001429378986359
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.06869206577539444
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.04869537428021431
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.04339354857802391
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.04251105338335037
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.03547731786966324
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.02008233033120632
+        },
+        {
+          "token_id": 74,
+          "token": "g",
+          "probability": 0.01958385296165943
+        }
+      ],
+      "A computer system can": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.7246803641319275
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.04721840098500252
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.0428570993244648
+        },
+        {
+          "token_id": 10,
+          "token": "'",
+          "probability": 0.04086121916770935
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.03145359829068184
+        },
+        {
+          "token_id": 279,
+          "token": "’",
+          "probability": 0.027060117572546005
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.022768212482333183
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.016320690512657166
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.006476686801761389
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.006368185859173536
+        }
+      ],
+      "OutreachLM is": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.9888736009597778
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.0077485558576881886
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.0010237524984404445
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.0004709068452939391
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.0004155327915214002
+        },
+        {
+          "token_id": 80,
+          "token": "m",
+          "probability": 0.00032794979051686823
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.0003178059123456478
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.0003022627206519246
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.0001458604383515194
+        },
+        {
+          "token_id": 83,
+          "token": "p",
+          "probability": 9.722926188260317e-05
+        }
+      ]
+    },
+    "pairwise": [
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine",
+        "hidden_cosine": 1.0,
+        "logit_cosine_ln": 1.0,
+        "logit_cosine_no_ln": 1.0,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.5422786474227905,
+        "logit_cosine_ln": 0.9933773279190063,
+        "logit_cosine_no_ln": 0.9872767925262451,
+        "kl_symmetric_ln": 1.0897129774093628,
+        "kl_symmetric_no_ln": 1.8493309915065765,
+        "delta_hidden_norm": 10.476462364196777,
+        "delta_logits_norm_ln": 41.57786560058594,
+        "delta_logits_norm_no_ln": 116.01919555664062,
+        "compression_ratio_ln": 3.9686932625919553,
+        "compression_ratio_no_ln": 11.07427216587302
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.42898720502853394,
+        "logit_cosine_ln": 0.993592381477356,
+        "logit_cosine_no_ln": 0.9875278472900391,
+        "kl_symmetric_ln": 1.3768832385540009,
+        "kl_symmetric_no_ln": 2.615734040737152,
+        "delta_hidden_norm": 11.663581848144531,
+        "delta_logits_norm_ln": 31.65475845336914,
+        "delta_logits_norm_no_ln": 64.0143051147461,
+        "compression_ratio_ln": 2.713982622619899,
+        "compression_ratio_no_ln": 5.488391640594491
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.3393881916999817,
+        "logit_cosine_ln": 0.9945458173751831,
+        "logit_cosine_no_ln": 0.9909942150115967,
+        "kl_symmetric_ln": 1.7389966249465942,
+        "kl_symmetric_no_ln": 2.6542441844940186,
+        "delta_hidden_norm": 12.877974510192871,
+        "delta_logits_norm_ln": 29.288772583007812,
+        "delta_logits_norm_no_ln": 71.56730651855469,
+        "compression_ratio_ln": 2.274330684520757,
+        "compression_ratio_no_ln": 5.557341836785701
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.30546677112579346,
+        "logit_cosine_ln": 0.9950405359268188,
+        "logit_cosine_no_ln": 0.9908756017684937,
+        "kl_symmetric_ln": 1.2595357298851013,
+        "kl_symmetric_no_ln": 1.822144627571106,
+        "delta_hidden_norm": 13.1863431930542,
+        "delta_logits_norm_ln": 46.12250518798828,
+        "delta_logits_norm_no_ln": 84.7605972290039,
+        "compression_ratio_ln": 3.497747974001082,
+        "compression_ratio_no_ln": 6.427907721501657
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.311698853969574,
+        "logit_cosine_ln": 0.9928029179573059,
+        "logit_cosine_no_ln": 0.9849482178688049,
+        "kl_symmetric_ln": 0.9241081178188324,
+        "kl_symmetric_no_ln": 1.473304569721222,
+        "delta_hidden_norm": 13.04951000213623,
+        "delta_logits_norm_ln": 45.23906707763672,
+        "delta_logits_norm_no_ln": 159.64720153808594,
+        "compression_ratio_ln": 3.4667253460268617,
+        "compression_ratio_no_ln": 12.23396139103701
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.45772987604141235,
+        "logit_cosine_ln": 0.995963990688324,
+        "logit_cosine_no_ln": 0.9931408166885376,
+        "kl_symmetric_ln": 0.7964227199554443,
+        "kl_symmetric_no_ln": 1.144612729549408,
+        "delta_hidden_norm": 11.5603666305542,
+        "delta_logits_norm_ln": 49.77593231201172,
+        "delta_logits_norm_no_ln": 103.71357727050781,
+        "compression_ratio_ln": 4.30573993911692,
+        "compression_ratio_no_ln": 8.971478205231959
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.4488300383090973,
+        "logit_cosine_ln": 0.9957485198974609,
+        "logit_cosine_no_ln": 0.992309033870697,
+        "kl_symmetric_ln": 0.9761826992034912,
+        "kl_symmetric_no_ln": 1.7774263322353363,
+        "delta_hidden_norm": 11.621325492858887,
+        "delta_logits_norm_ln": 114.27850341796875,
+        "delta_logits_norm_no_ln": 155.93170166015625,
+        "compression_ratio_ln": 9.833517139520016,
+        "compression_ratio_no_ln": 13.417720874953009
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.5422786474227905,
+        "logit_cosine_ln": 0.9933773279190063,
+        "logit_cosine_no_ln": 0.9872767925262451,
+        "kl_symmetric_ln": 1.0897129774093628,
+        "kl_symmetric_no_ln": 1.8493309915065765,
+        "delta_hidden_norm": 10.476462364196777,
+        "delta_logits_norm_ln": 41.57786560058594,
+        "delta_logits_norm_no_ln": 116.01919555664062,
+        "compression_ratio_ln": 3.9686932625919553,
+        "compression_ratio_no_ln": 11.07427216587302
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.9999998807907104,
+        "logit_cosine_ln": 0.9999999403953552,
+        "logit_cosine_no_ln": 1.0,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.5652899146080017,
+        "logit_cosine_ln": 0.9956268668174744,
+        "logit_cosine_no_ln": 0.9920374751091003,
+        "kl_symmetric_ln": 0.354876384139061,
+        "kl_symmetric_no_ln": 0.10859475284814835,
+        "delta_hidden_norm": 10.205522537231445,
+        "delta_logits_norm_ln": 25.98333740234375,
+        "delta_logits_norm_no_ln": 74.89125061035156,
+        "compression_ratio_ln": 2.546007547144422,
+        "compression_ratio_no_ln": 7.338306327494336
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.49429967999458313,
+        "logit_cosine_ln": 0.9945906400680542,
+        "logit_cosine_no_ln": 0.9901516437530518,
+        "kl_symmetric_ln": 0.6365605890750885,
+        "kl_symmetric_no_ln": 0.3463890999555588,
+        "delta_hidden_norm": 11.299221992492676,
+        "delta_logits_norm_ln": 50.90044403076172,
+        "delta_logits_norm_no_ln": 60.22735595703125,
+        "compression_ratio_ln": 4.5047742282239005,
+        "compression_ratio_no_ln": 5.330221496404527
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.25252366065979004,
+        "logit_cosine_ln": 0.9913020730018616,
+        "logit_cosine_no_ln": 0.9841122031211853,
+        "kl_symmetric_ln": 0.3243788331747055,
+        "kl_symmetric_no_ln": 0.3257663920521736,
+        "delta_hidden_norm": 13.715006828308105,
+        "delta_logits_norm_ln": 77.06869506835938,
+        "delta_logits_norm_no_ln": 54.597999572753906,
+        "compression_ratio_ln": 5.619296879188403,
+        "compression_ratio_no_ln": 3.9808948151642416
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.404573917388916,
+        "logit_cosine_ln": 0.9921066164970398,
+        "logit_cosine_no_ln": 0.983451247215271,
+        "kl_symmetric_ln": 1.938136339187622,
+        "kl_symmetric_no_ln": 3.05386483669281,
+        "delta_hidden_norm": 12.17024040222168,
+        "delta_logits_norm_ln": 27.071775436401367,
+        "delta_logits_norm_no_ln": 59.69607162475586,
+        "compression_ratio_ln": 2.22442404929482,
+        "compression_ratio_no_ln": 4.905085655814846
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.26562631130218506,
+        "logit_cosine_ln": 0.9920287728309631,
+        "logit_cosine_no_ln": 0.9845173358917236,
+        "kl_symmetric_ln": 0.478351429104805,
+        "kl_symmetric_no_ln": 0.95381660759449,
+        "delta_hidden_norm": 13.48764419555664,
+        "delta_logits_norm_ln": 81.90308380126953,
+        "delta_logits_norm_no_ln": 42.23313522338867,
+        "compression_ratio_ln": 6.0724528771489705,
+        "compression_ratio_no_ln": 3.1312462436770034
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.520684540271759,
+        "logit_cosine_ln": 0.9949682950973511,
+        "logit_cosine_no_ln": 0.9896891713142395,
+        "kl_symmetric_ln": 0.18686602264642715,
+        "kl_symmetric_no_ln": 0.1833607591688633,
+        "delta_hidden_norm": 10.866764068603516,
+        "delta_logits_norm_ln": 145.6328125,
+        "delta_logits_norm_no_ln": 259.28790283203125,
+        "compression_ratio_ln": 13.401672437222171,
+        "compression_ratio_no_ln": 23.860636082195924
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.42898720502853394,
+        "logit_cosine_ln": 0.993592381477356,
+        "logit_cosine_no_ln": 0.9875278472900391,
+        "kl_symmetric_ln": 1.3768832385540009,
+        "kl_symmetric_no_ln": 2.615734040737152,
+        "delta_hidden_norm": 11.663581848144531,
+        "delta_logits_norm_ln": 31.65475845336914,
+        "delta_logits_norm_no_ln": 64.0143051147461,
+        "compression_ratio_ln": 2.713982622619899,
+        "compression_ratio_no_ln": 5.488391640594491
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.5652899146080017,
+        "logit_cosine_ln": 0.9956268668174744,
+        "logit_cosine_no_ln": 0.9920374751091003,
+        "kl_symmetric_ln": 0.354876384139061,
+        "kl_symmetric_no_ln": 0.10859475284814835,
+        "delta_hidden_norm": 10.205522537231445,
+        "delta_logits_norm_ln": 25.98333740234375,
+        "delta_logits_norm_no_ln": 74.89125061035156,
+        "compression_ratio_ln": 2.546007547144422,
+        "compression_ratio_no_ln": 7.338306327494336
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.9999999403953552,
+        "logit_cosine_ln": 1.0,
+        "logit_cosine_no_ln": 1.0000001192092896,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.706113338470459,
+        "logit_cosine_ln": 0.9972267150878906,
+        "logit_cosine_no_ln": 0.9944098591804504,
+        "kl_symmetric_ln": 0.15568996965885162,
+        "kl_symmetric_no_ln": 0.09839053452014923,
+        "delta_hidden_norm": 8.596417427062988,
+        "delta_logits_norm_ln": 34.28630065917969,
+        "delta_logits_norm_no_ln": 35.67863464355469,
+        "compression_ratio_ln": 3.9884406440339397,
+        "compression_ratio_no_ln": 4.150407416376996
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.2222917377948761,
+        "logit_cosine_ln": 0.9927406311035156,
+        "logit_cosine_no_ln": 0.9874390363693237,
+        "kl_symmetric_ln": 0.7287208288908005,
+        "kl_symmetric_no_ln": 0.5169051587581635,
+        "delta_hidden_norm": 13.946928977966309,
+        "delta_logits_norm_ln": 62.45322799682617,
+        "delta_logits_norm_no_ln": 56.253116607666016,
+        "compression_ratio_ln": 4.4779196979845,
+        "compression_ratio_no_ln": 4.033369403152195
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.21681007742881775,
+        "logit_cosine_ln": 0.9918785691261292,
+        "logit_cosine_no_ln": 0.983833372592926,
+        "kl_symmetric_ln": 1.55803644657135,
+        "kl_symmetric_no_ln": 3.169333517551422,
+        "delta_hidden_norm": 13.91363525390625,
+        "delta_logits_norm_ln": 34.231544494628906,
+        "delta_logits_norm_no_ln": 121.262939453125,
+        "compression_ratio_ln": 2.460287614986774,
+        "compression_ratio_no_ln": 8.71540307333272
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.08079911768436432,
+        "logit_cosine_ln": 0.9917880296707153,
+        "logit_cosine_no_ln": 0.9846603870391846,
+        "kl_symmetric_ln": 0.8336006999015808,
+        "kl_symmetric_no_ln": 1.2080691456794739,
+        "delta_hidden_norm": 15.042129516601562,
+        "delta_logits_norm_ln": 68.60252380371094,
+        "delta_logits_norm_no_ln": 74.69141387939453,
+        "compression_ratio_ln": 4.56069226953513,
+        "compression_ratio_no_ln": 4.9654813699722355
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.5174544453620911,
+        "logit_cosine_ln": 0.9959891438484192,
+        "logit_cosine_no_ln": 0.992562472820282,
+        "kl_symmetric_ln": 0.6410785168409348,
+        "kl_symmetric_no_ln": 0.4999210312962532,
+        "delta_hidden_norm": 10.870023727416992,
+        "delta_logits_norm_ln": 129.9905548095703,
+        "delta_logits_norm_no_ln": 193.22218322753906,
+        "compression_ratio_ln": 11.95862659266334,
+        "compression_ratio_no_ln": 17.775691026339075
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.3393881916999817,
+        "logit_cosine_ln": 0.9945458173751831,
+        "logit_cosine_no_ln": 0.9909942150115967,
+        "kl_symmetric_ln": 1.7389966249465942,
+        "kl_symmetric_no_ln": 2.6542441844940186,
+        "delta_hidden_norm": 12.877974510192871,
+        "delta_logits_norm_ln": 29.288772583007812,
+        "delta_logits_norm_no_ln": 71.56730651855469,
+        "compression_ratio_ln": 2.274330684520757,
+        "compression_ratio_no_ln": 5.557341836785701
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.49429967999458313,
+        "logit_cosine_ln": 0.9945906400680542,
+        "logit_cosine_no_ln": 0.9901516437530518,
+        "kl_symmetric_ln": 0.6365605890750885,
+        "kl_symmetric_no_ln": 0.3463890999555588,
+        "delta_hidden_norm": 11.299221992492676,
+        "delta_logits_norm_ln": 50.90044403076172,
+        "delta_logits_norm_no_ln": 60.22735595703125,
+        "compression_ratio_ln": 4.5047742282239005,
+        "compression_ratio_no_ln": 5.330221496404527
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.706113338470459,
+        "logit_cosine_ln": 0.9972267150878906,
+        "logit_cosine_no_ln": 0.9944098591804504,
+        "kl_symmetric_ln": 0.15568996965885162,
+        "kl_symmetric_no_ln": 0.09839053452014923,
+        "delta_hidden_norm": 8.596417427062988,
+        "delta_logits_norm_ln": 34.28630065917969,
+        "delta_logits_norm_no_ln": 35.67863464355469,
+        "compression_ratio_ln": 3.9884406440339397,
+        "compression_ratio_no_ln": 4.150407416376996
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 1.0,
+        "logit_cosine_ln": 0.9999998807907104,
+        "logit_cosine_no_ln": 1.0,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.3103731572628021,
+        "logit_cosine_ln": 0.994747519493103,
+        "logit_cosine_no_ln": 0.9915016889572144,
+        "kl_symmetric_ln": 0.7647003382444382,
+        "kl_symmetric_no_ln": 0.6835341900587082,
+        "delta_hidden_norm": 13.459152221679688,
+        "delta_logits_norm_ln": 37.60723114013672,
+        "delta_logits_norm_no_ln": 38.76504898071289,
+        "compression_ratio_ln": 2.794175332942581,
+        "compression_ratio_no_ln": 2.8801999072624396
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.41339609026908875,
+        "logit_cosine_ln": 0.9947025775909424,
+        "logit_cosine_no_ln": 0.9891894459724426,
+        "kl_symmetric_ln": 1.3965477347373962,
+        "kl_symmetric_no_ln": 2.3649646043777466,
+        "delta_hidden_norm": 12.344890594482422,
+        "delta_logits_norm_ln": 54.207218170166016,
+        "delta_logits_norm_no_ln": 100.79413604736328,
+        "compression_ratio_ln": 4.391065093310269,
+        "compression_ratio_no_ln": 8.164846442010061
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.18519048392772675,
+        "logit_cosine_ln": 0.9945293664932251,
+        "logit_cosine_no_ln": 0.9911606311798096,
+        "kl_symmetric_ln": 0.8286140263080597,
+        "kl_symmetric_no_ln": 1.0101820230484009,
+        "delta_hidden_norm": 14.521318435668945,
+        "delta_logits_norm_ln": 42.27404022216797,
+        "delta_logits_norm_no_ln": 52.47004318237305,
+        "compression_ratio_ln": 2.9111709387440725,
+        "compression_ratio_no_ln": 3.6133112440734063
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.4488036036491394,
+        "logit_cosine_ln": 0.9961345195770264,
+        "logit_cosine_no_ln": 0.9935778379440308,
+        "kl_symmetric_ln": 0.8406967222690582,
+        "kl_symmetric_no_ln": 0.8932273387908936,
+        "delta_hidden_norm": 11.912691116333008,
+        "delta_logits_norm_ln": 101.96485900878906,
+        "delta_logits_norm_no_ln": 210.36228942871094,
+        "compression_ratio_ln": 8.559347171269234,
+        "compression_ratio_no_ln": 17.658670687792092
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.30546677112579346,
+        "logit_cosine_ln": 0.9950405359268188,
+        "logit_cosine_no_ln": 0.9908756017684937,
+        "kl_symmetric_ln": 1.2595357298851013,
+        "kl_symmetric_no_ln": 1.822144627571106,
+        "delta_hidden_norm": 13.1863431930542,
+        "delta_logits_norm_ln": 46.12250518798828,
+        "delta_logits_norm_no_ln": 84.7605972290039,
+        "compression_ratio_ln": 3.497747974001082,
+        "compression_ratio_no_ln": 6.427907721501657
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.25252366065979004,
+        "logit_cosine_ln": 0.9913020730018616,
+        "logit_cosine_no_ln": 0.9841122031211853,
+        "kl_symmetric_ln": 0.3243788331747055,
+        "kl_symmetric_no_ln": 0.3257663920521736,
+        "delta_hidden_norm": 13.715006828308105,
+        "delta_logits_norm_ln": 77.06869506835938,
+        "delta_logits_norm_no_ln": 54.597999572753906,
+        "compression_ratio_ln": 5.619296879188403,
+        "compression_ratio_no_ln": 3.9808948151642416
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.2222917377948761,
+        "logit_cosine_ln": 0.9927406311035156,
+        "logit_cosine_no_ln": 0.9874390363693237,
+        "kl_symmetric_ln": 0.7287208288908005,
+        "kl_symmetric_no_ln": 0.5169051587581635,
+        "delta_hidden_norm": 13.946928977966309,
+        "delta_logits_norm_ln": 62.45322799682617,
+        "delta_logits_norm_no_ln": 56.253116607666016,
+        "compression_ratio_ln": 4.4779196979845,
+        "compression_ratio_no_ln": 4.033369403152195
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.3103731572628021,
+        "logit_cosine_ln": 0.994747519493103,
+        "logit_cosine_no_ln": 0.9915016889572144,
+        "kl_symmetric_ln": 0.7647003382444382,
+        "kl_symmetric_no_ln": 0.6835341900587082,
+        "delta_hidden_norm": 13.459152221679688,
+        "delta_logits_norm_ln": 37.60723114013672,
+        "delta_logits_norm_no_ln": 38.76504898071289,
+        "compression_ratio_ln": 2.794175332942581,
+        "compression_ratio_no_ln": 2.8801999072624396
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 1.0,
+        "logit_cosine_ln": 0.9999999403953552,
+        "logit_cosine_no_ln": 1.0,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.11737748980522156,
+        "logit_cosine_ln": 0.9925093650817871,
+        "logit_cosine_no_ln": 0.9850640296936035,
+        "kl_symmetric_ln": 1.8385745286941528,
+        "kl_symmetric_no_ln": 2.375338852405548,
+        "delta_hidden_norm": 15.123202323913574,
+        "delta_logits_norm_ln": 79.66645050048828,
+        "delta_logits_norm_no_ln": 87.72122955322266,
+        "compression_ratio_ln": 5.26782944472783,
+        "compression_ratio_no_ln": 5.800440123353597
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.41240930557250977,
+        "logit_cosine_ln": 0.9962875247001648,
+        "logit_cosine_no_ln": 0.9936435222625732,
+        "kl_symmetric_ln": 0.23864294588565826,
+        "kl_symmetric_no_ln": 0.4119873344898224,
+        "delta_hidden_norm": 12.31620979309082,
+        "delta_logits_norm_ln": 25.459632873535156,
+        "delta_logits_norm_no_ln": 36.8296012878418,
+        "compression_ratio_ln": 2.067164598626565,
+        "compression_ratio_no_ln": 2.9903356557390377
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.5273419618606567,
+        "logit_cosine_ln": 0.99745774269104,
+        "logit_cosine_no_ln": 0.996270477771759,
+        "kl_symmetric_ln": 0.16491638123989105,
+        "kl_symmetric_no_ln": 0.20248201116919518,
+        "delta_hidden_norm": 11.017509460449219,
+        "delta_logits_norm_ln": 76.60169219970703,
+        "delta_logits_norm_no_ln": 224.38450622558594,
+        "compression_ratio_ln": 6.95272307000894,
+        "compression_ratio_no_ln": 20.36617322917525
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.311698853969574,
+        "logit_cosine_ln": 0.9928029179573059,
+        "logit_cosine_no_ln": 0.9849482178688049,
+        "kl_symmetric_ln": 0.9241081178188324,
+        "kl_symmetric_no_ln": 1.473304569721222,
+        "delta_hidden_norm": 13.04951000213623,
+        "delta_logits_norm_ln": 45.23906707763672,
+        "delta_logits_norm_no_ln": 159.64720153808594,
+        "compression_ratio_ln": 3.4667253460268617,
+        "compression_ratio_no_ln": 12.23396139103701
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.404573917388916,
+        "logit_cosine_ln": 0.9921066164970398,
+        "logit_cosine_no_ln": 0.983451247215271,
+        "kl_symmetric_ln": 1.938136339187622,
+        "kl_symmetric_no_ln": 3.05386483669281,
+        "delta_hidden_norm": 12.17024040222168,
+        "delta_logits_norm_ln": 27.071775436401367,
+        "delta_logits_norm_no_ln": 59.69607162475586,
+        "compression_ratio_ln": 2.22442404929482,
+        "compression_ratio_no_ln": 4.905085655814846
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.21681007742881775,
+        "logit_cosine_ln": 0.9918785691261292,
+        "logit_cosine_no_ln": 0.983833372592926,
+        "kl_symmetric_ln": 1.55803644657135,
+        "kl_symmetric_no_ln": 3.169333517551422,
+        "delta_hidden_norm": 13.91363525390625,
+        "delta_logits_norm_ln": 34.231544494628906,
+        "delta_logits_norm_no_ln": 121.262939453125,
+        "compression_ratio_ln": 2.460287614986774,
+        "compression_ratio_no_ln": 8.71540307333272
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.41339609026908875,
+        "logit_cosine_ln": 0.9947025775909424,
+        "logit_cosine_no_ln": 0.9891894459724426,
+        "kl_symmetric_ln": 1.3965477347373962,
+        "kl_symmetric_no_ln": 2.3649646043777466,
+        "delta_hidden_norm": 12.344890594482422,
+        "delta_logits_norm_ln": 54.207218170166016,
+        "delta_logits_norm_no_ln": 100.79413604736328,
+        "compression_ratio_ln": 4.391065093310269,
+        "compression_ratio_no_ln": 8.164846442010061
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.11737748980522156,
+        "logit_cosine_ln": 0.9925093650817871,
+        "logit_cosine_no_ln": 0.9850640296936035,
+        "kl_symmetric_ln": 1.8385745286941528,
+        "kl_symmetric_no_ln": 2.375338852405548,
+        "delta_hidden_norm": 15.123202323913574,
+        "delta_logits_norm_ln": 79.66645050048828,
+        "delta_logits_norm_no_ln": 87.72122955322266,
+        "compression_ratio_ln": 5.26782944472783,
+        "compression_ratio_no_ln": 5.800440123353597
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 1.0,
+        "logit_cosine_ln": 0.9999998807907104,
+        "logit_cosine_no_ln": 1.0000001192092896,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.36346185207366943,
+        "logit_cosine_ln": 0.994659423828125,
+        "logit_cosine_no_ln": 0.9888657331466675,
+        "kl_symmetric_ln": 1.0758135318756104,
+        "kl_symmetric_no_ln": 1.174964725971222,
+        "delta_hidden_norm": 12.746264457702637,
+        "delta_logits_norm_ln": 83.57530975341797,
+        "delta_logits_norm_no_ln": 63.66744613647461,
+        "compression_ratio_ln": 6.556847304616605,
+        "compression_ratio_no_ln": 4.994988637474882
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.3928956687450409,
+        "logit_cosine_ln": 0.9948974251747131,
+        "logit_cosine_no_ln": 0.9896098971366882,
+        "kl_symmetric_ln": 1.5877928137779236,
+        "kl_symmetric_no_ln": 2.999245524406433,
+        "delta_hidden_norm": 12.41454792022705,
+        "delta_logits_norm_ln": 149.5333709716797,
+        "delta_logits_norm_no_ln": 304.3943786621094,
+        "compression_ratio_ln": 12.045011379596403,
+        "compression_ratio_no_ln": 24.51916740086515
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.45772987604141235,
+        "logit_cosine_ln": 0.995963990688324,
+        "logit_cosine_no_ln": 0.9931408166885376,
+        "kl_symmetric_ln": 0.7964227199554443,
+        "kl_symmetric_no_ln": 1.144612729549408,
+        "delta_hidden_norm": 11.5603666305542,
+        "delta_logits_norm_ln": 49.77593231201172,
+        "delta_logits_norm_no_ln": 103.71357727050781,
+        "compression_ratio_ln": 4.30573993911692,
+        "compression_ratio_no_ln": 8.971478205231959
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.26562631130218506,
+        "logit_cosine_ln": 0.9920287728309631,
+        "logit_cosine_no_ln": 0.9845173358917236,
+        "kl_symmetric_ln": 0.478351429104805,
+        "kl_symmetric_no_ln": 0.95381660759449,
+        "delta_hidden_norm": 13.48764419555664,
+        "delta_logits_norm_ln": 81.90308380126953,
+        "delta_logits_norm_no_ln": 42.23313522338867,
+        "compression_ratio_ln": 6.0724528771489705,
+        "compression_ratio_no_ln": 3.1312462436770034
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.08079911768436432,
+        "logit_cosine_ln": 0.9917880296707153,
+        "logit_cosine_no_ln": 0.9846603870391846,
+        "kl_symmetric_ln": 0.8336006999015808,
+        "kl_symmetric_no_ln": 1.2080691456794739,
+        "delta_hidden_norm": 15.042129516601562,
+        "delta_logits_norm_ln": 68.60252380371094,
+        "delta_logits_norm_no_ln": 74.69141387939453,
+        "compression_ratio_ln": 4.56069226953513,
+        "compression_ratio_no_ln": 4.9654813699722355
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.18519048392772675,
+        "logit_cosine_ln": 0.9945293664932251,
+        "logit_cosine_no_ln": 0.9911606311798096,
+        "kl_symmetric_ln": 0.8286140263080597,
+        "kl_symmetric_no_ln": 1.0101820230484009,
+        "delta_hidden_norm": 14.521318435668945,
+        "delta_logits_norm_ln": 42.27404022216797,
+        "delta_logits_norm_no_ln": 52.47004318237305,
+        "compression_ratio_ln": 2.9111709387440725,
+        "compression_ratio_no_ln": 3.6133112440734063
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.41240930557250977,
+        "logit_cosine_ln": 0.9962875247001648,
+        "logit_cosine_no_ln": 0.9936435222625732,
+        "kl_symmetric_ln": 0.23864294588565826,
+        "kl_symmetric_no_ln": 0.4119873344898224,
+        "delta_hidden_norm": 12.31620979309082,
+        "delta_logits_norm_ln": 25.459632873535156,
+        "delta_logits_norm_no_ln": 36.8296012878418,
+        "compression_ratio_ln": 2.067164598626565,
+        "compression_ratio_no_ln": 2.9903356557390377
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.36346185207366943,
+        "logit_cosine_ln": 0.994659423828125,
+        "logit_cosine_no_ln": 0.9888657331466675,
+        "kl_symmetric_ln": 1.0758135318756104,
+        "kl_symmetric_no_ln": 1.174964725971222,
+        "delta_hidden_norm": 12.746264457702637,
+        "delta_logits_norm_ln": 83.57530975341797,
+        "delta_logits_norm_no_ln": 63.66744613647461,
+        "compression_ratio_ln": 6.556847304616605,
+        "compression_ratio_no_ln": 4.994988637474882
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.9999998807907104,
+        "logit_cosine_ln": 1.0,
+        "logit_cosine_no_ln": 0.9999998211860657,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.44144102931022644,
+        "logit_cosine_ln": 0.9968902468681335,
+        "logit_cosine_no_ln": 0.9947115182876587,
+        "kl_symmetric_ln": 0.2355715036392212,
+        "kl_symmetric_no_ln": 0.8317264914512634,
+        "delta_hidden_norm": 11.88449478149414,
+        "delta_logits_norm_ln": 72.0185317993164,
+        "delta_logits_norm_no_ln": 248.35951232910156,
+        "compression_ratio_ln": 6.059873231755679,
+        "compression_ratio_no_ln": 20.897776211390397
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.4488300383090973,
+        "logit_cosine_ln": 0.9957485198974609,
+        "logit_cosine_no_ln": 0.992309033870697,
+        "kl_symmetric_ln": 0.9761826992034912,
+        "kl_symmetric_no_ln": 1.7774263322353363,
+        "delta_hidden_norm": 11.621325492858887,
+        "delta_logits_norm_ln": 114.27850341796875,
+        "delta_logits_norm_no_ln": 155.93170166015625,
+        "compression_ratio_ln": 9.833517139520016,
+        "compression_ratio_no_ln": 13.417720874953009
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.520684540271759,
+        "logit_cosine_ln": 0.9949682950973511,
+        "logit_cosine_no_ln": 0.9896891713142395,
+        "kl_symmetric_ln": 0.18686602264642715,
+        "kl_symmetric_no_ln": 0.1833607591688633,
+        "delta_hidden_norm": 10.866764068603516,
+        "delta_logits_norm_ln": 145.6328125,
+        "delta_logits_norm_no_ln": 259.28790283203125,
+        "compression_ratio_ln": 13.401672437222171,
+        "compression_ratio_no_ln": 23.860636082195924
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.5174544453620911,
+        "logit_cosine_ln": 0.9959891438484192,
+        "logit_cosine_no_ln": 0.992562472820282,
+        "kl_symmetric_ln": 0.6410785168409348,
+        "kl_symmetric_no_ln": 0.4999210312962532,
+        "delta_hidden_norm": 10.870023727416992,
+        "delta_logits_norm_ln": 129.9905548095703,
+        "delta_logits_norm_no_ln": 193.22218322753906,
+        "compression_ratio_ln": 11.95862659266334,
+        "compression_ratio_no_ln": 17.775691026339075
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.4488036036491394,
+        "logit_cosine_ln": 0.9961345195770264,
+        "logit_cosine_no_ln": 0.9935778379440308,
+        "kl_symmetric_ln": 0.8406967222690582,
+        "kl_symmetric_no_ln": 0.8932273387908936,
+        "delta_hidden_norm": 11.912691116333008,
+        "delta_logits_norm_ln": 101.96485900878906,
+        "delta_logits_norm_no_ln": 210.36228942871094,
+        "compression_ratio_ln": 8.559347171269234,
+        "compression_ratio_no_ln": 17.658670687792092
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.5273419618606567,
+        "logit_cosine_ln": 0.99745774269104,
+        "logit_cosine_no_ln": 0.996270477771759,
+        "kl_symmetric_ln": 0.16491638123989105,
+        "kl_symmetric_no_ln": 0.20248201116919518,
+        "delta_hidden_norm": 11.017509460449219,
+        "delta_logits_norm_ln": 76.60169219970703,
+        "delta_logits_norm_no_ln": 224.38450622558594,
+        "compression_ratio_ln": 6.95272307000894,
+        "compression_ratio_no_ln": 20.36617322917525
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.3928956687450409,
+        "logit_cosine_ln": 0.9948974251747131,
+        "logit_cosine_no_ln": 0.9896098971366882,
+        "kl_symmetric_ln": 1.5877928137779236,
+        "kl_symmetric_no_ln": 2.999245524406433,
+        "delta_hidden_norm": 12.41454792022705,
+        "delta_logits_norm_ln": 149.5333709716797,
+        "delta_logits_norm_no_ln": 304.3943786621094,
+        "compression_ratio_ln": 12.045011379596403,
+        "compression_ratio_no_ln": 24.51916740086515
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.44144102931022644,
+        "logit_cosine_ln": 0.9968902468681335,
+        "logit_cosine_no_ln": 0.9947115182876587,
+        "kl_symmetric_ln": 0.2355715036392212,
+        "kl_symmetric_no_ln": 0.8317264914512634,
+        "delta_hidden_norm": 11.88449478149414,
+        "delta_logits_norm_ln": 72.0185317993164,
+        "delta_logits_norm_no_ln": 248.35951232910156,
+        "compression_ratio_ln": 6.059873231755679,
+        "compression_ratio_no_ln": 20.897776211390397
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 1.0000001192092896,
+        "logit_cosine_ln": 0.9999998807907104,
+        "logit_cosine_no_ln": 1.0,
+        "kl_symmetric_ln": 0.0,
+        "kl_symmetric_no_ln": 0.0,
+        "delta_hidden_norm": 0.0,
+        "delta_logits_norm_ln": 0.0,
+        "delta_logits_norm_no_ln": 0.0,
+        "compression_ratio_ln": 0.0,
+        "compression_ratio_no_ln": 0.0
+      }
+    ],
+    "logit_variance_summary": {
+      "mean_variance_ln": 4.876845836639404,
+      "mean_variance_no_ln": 16.38177490234375,
+      "median_variance_ln": 4.986144065856934,
+      "median_variance_no_ln": 14.947245597839355,
+      "top10_tokens_by_variance_ln": [
+        {
+          "token_id": 399,
+          "token": "规",
+          "variance": 9.474607467651367
+        },
+        {
+          "token_id": 224,
+          "token": "Ц",
+          "variance": 9.450852394104004
+        },
+        {
+          "token_id": 112,
+          "token": "¶",
+          "variance": 9.379956245422363
+        },
+        {
+          "token_id": 163,
+          "token": "ł",
+          "variance": 9.336989402770996
+        },
+        {
+          "token_id": 466,
+          "token": "💵",
+          "variance": 9.214584350585938
+        },
+        {
+          "token_id": 298,
+          "token": "⏰",
+          "variance": 9.118978500366211
+        },
+        {
+          "token_id": 322,
+          "token": "交",
+          "variance": 9.1041259765625
+        },
+        {
+          "token_id": 63,
+          "token": "\\",
+          "variance": 9.072230339050293
+        },
+        {
+          "token_id": 100,
+          "token": "§",
+          "variance": 9.055856704711914
+        },
+        {
+          "token_id": 414,
+          "token": "里",
+          "variance": 8.931295394897461
+        }
+      ],
+      "top10_tokens_by_variance_no_ln": [
+        {
+          "token_id": 109,
+          "token": "³",
+          "variance": 33.99539566040039
+        },
+        {
+          "token_id": 445,
+          "token": "🅿",
+          "variance": 33.37682342529297
+        },
+        {
+          "token_id": 425,
+          "token": "마",
+          "variance": 33.32067108154297
+        },
+        {
+          "token_id": 224,
+          "token": "Ц",
+          "variance": 33.071563720703125
+        },
+        {
+          "token_id": 322,
+          "token": "交",
+          "variance": 32.96455001831055
+        },
+        {
+          "token_id": 386,
+          "token": "社",
+          "variance": 32.881256103515625
+        },
+        {
+          "token_id": 271,
+          "token": "โ",
+          "variance": 32.868736267089844
+        },
+        {
+          "token_id": 231,
+          "token": "ж",
+          "variance": 32.66053009033203
+        },
+        {
+          "token_id": 378,
+          "token": "每",
+          "variance": 32.475887298583984
+        },
+        {
+          "token_id": 186,
+          "token": "̃",
+          "variance": 32.32773971557617
+        }
+      ]
+    }
+  },
+  "teacher_forcing_ablation": {
+    "sequence_source": "fallback-start-of-validation",
+    "sequence_text": "the content on the Xbox 360 Marketplace, not just the demos and arcade games. Between myself and a few other like minded people we estimate that vast majority of content has already been preserved, both by pooling our ex",
+    "prompt_text": "the content on the Xbox 360 Marketplace,",
+    "eval_length": 120,
+    "prompt_length": 40,
+    "ln_top1_accuracy": 0.5125,
+    "no_ln_top1_accuracy": 0.45,
+    "ln_average_gold_probability": 0.3411161755444482,
+    "no_ln_average_gold_probability": 0.39139515202658365,
+    "rows": [
+      {
+        "position": 40,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.9806007742881775,
+        "ln_gold_probability": 0.9806007742881775,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.9840571284294128,
+        "no_ln_gold_probability": 0.9840571284294128,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 41,
+        "gold_token_id": 81,
+        "gold_token": "n",
+        "ln_top1_token_id": 68,
+        "ln_top1_token": "a",
+        "ln_top1_probability": 0.15161167085170746,
+        "ln_gold_probability": 0.008757887408137321,
+        "ln_gold_rank": 26,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 38,
+        "no_ln_top1_token": "C",
+        "no_ln_top1_probability": 0.3447996973991394,
+        "no_ln_gold_probability": 8.629260150883056e-08,
+        "no_ln_gold_rank": 55,
+        "no_ln_correct": false
+      },
+      {
+        "position": 42,
+        "gold_token_id": 82,
+        "gold_token": "o",
+        "ln_top1_token_id": 82,
+        "ln_top1_token": "o",
+        "ln_top1_probability": 0.6024253964424133,
+        "ln_gold_probability": 0.6024253964424133,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 82,
+        "no_ln_top1_token": "o",
+        "no_ln_top1_probability": 0.8129006624221802,
+        "no_ln_gold_probability": 0.8129006624221802,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 43,
+        "gold_token_id": 87,
+        "gold_token": "t",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.6454665064811707,
+        "ln_gold_probability": 0.6454665064811707,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.7134167551994324,
+        "no_ln_gold_probability": 0.7134167551994324,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 44,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.5945664048194885,
+        "ln_gold_probability": 0.5945664048194885,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.45549651980400085,
+        "no_ln_gold_probability": 0.45549651980400085,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 45,
+        "gold_token_id": 77,
+        "gold_token": "j",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.12955349683761597,
+        "ln_gold_probability": 0.003349396400153637,
+        "ln_gold_rank": 43,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 90,
+        "no_ln_top1_token": "w",
+        "no_ln_top1_probability": 0.41173720359802246,
+        "no_ln_gold_probability": 8.013694241526537e-06,
+        "no_ln_gold_rank": 46,
+        "no_ln_correct": false
+      },
+      {
+        "position": 46,
+        "gold_token_id": 88,
+        "gold_token": "u",
+        "ln_top1_token_id": 88,
+        "ln_top1_token": "u",
+        "ln_top1_probability": 0.5458859801292419,
+        "ln_gold_probability": 0.5458859801292419,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 88,
+        "no_ln_top1_token": "u",
+        "no_ln_top1_probability": 0.7703878879547119,
+        "no_ln_gold_probability": 0.7703878879547119,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 47,
+        "gold_token_id": 86,
+        "gold_token": "s",
+        "ln_top1_token_id": 86,
+        "ln_top1_token": "s",
+        "ln_top1_probability": 0.7635270953178406,
+        "ln_gold_probability": 0.7635270953178406,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 86,
+        "no_ln_top1_token": "s",
+        "no_ln_top1_probability": 0.9194173812866211,
+        "no_ln_gold_probability": 0.9194173812866211,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 48,
+        "gold_token_id": 87,
+        "gold_token": "t",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.8623867034912109,
+        "ln_gold_probability": 0.8623867034912109,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.9339430332183838,
+        "no_ln_gold_probability": 0.9339430332183838,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 49,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.8044872879981995,
+        "ln_gold_probability": 0.8044872879981995,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.9648481607437134,
+        "no_ln_gold_probability": 0.9648481607437134,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 50,
+        "gold_token_id": 87,
+        "gold_token": "t",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.14940577745437622,
+        "ln_gold_probability": 0.14940577745437622,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 90,
+        "no_ln_top1_token": "w",
+        "no_ln_top1_probability": 0.46759653091430664,
+        "no_ln_gold_probability": 0.3361342251300812,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 51,
+        "gold_token_id": 75,
+        "gold_token": "h",
+        "ln_top1_token_id": 75,
+        "ln_top1_token": "h",
+        "ln_top1_probability": 0.702079176902771,
+        "ln_gold_probability": 0.702079176902771,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 75,
+        "no_ln_top1_token": "h",
+        "no_ln_top1_probability": 0.9828687906265259,
+        "no_ln_gold_probability": 0.9828687906265259,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 52,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.5920974612236023,
+        "ln_gold_probability": 0.5920974612236023,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 72,
+        "no_ln_top1_token": "e",
+        "no_ln_top1_probability": 0.7606531381607056,
+        "no_ln_gold_probability": 0.7606531381607056,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 53,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.8082361817359924,
+        "ln_gold_probability": 0.8082361817359924,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.8698826432228088,
+        "no_ln_gold_probability": 0.8698826432228088,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 54,
+        "gold_token_id": 71,
+        "gold_token": "d",
+        "ln_top1_token_id": 86,
+        "ln_top1_token": "s",
+        "ln_top1_probability": 0.08239481598138809,
+        "ln_gold_probability": 0.032836105674505234,
+        "ln_gold_rank": 15,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 83,
+        "no_ln_top1_token": "p",
+        "no_ln_top1_probability": 0.34963148832321167,
+        "no_ln_gold_probability": 0.005038434639573097,
+        "no_ln_gold_rank": 14,
+        "no_ln_correct": false
+      },
+      {
+        "position": 55,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 76,
+        "ln_top1_token": "i",
+        "ln_top1_probability": 0.3648885190486908,
+        "ln_gold_probability": 0.21557040512561798,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 76,
+        "no_ln_top1_token": "i",
+        "no_ln_top1_probability": 0.6858324408531189,
+        "no_ln_gold_probability": 0.1265925019979477,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 56,
+        "gold_token_id": 80,
+        "gold_token": "m",
+        "ln_top1_token_id": 86,
+        "ln_top1_token": "s",
+        "ln_top1_probability": 0.17528288066387177,
+        "ln_gold_probability": 0.0713314637541771,
+        "ln_gold_rank": 7,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 86,
+        "no_ln_top1_token": "s",
+        "no_ln_top1_probability": 0.1839732825756073,
+        "no_ln_gold_probability": 0.06643021106719971,
+        "no_ln_gold_rank": 7,
+        "no_ln_correct": false
+      },
+      {
+        "position": 57,
+        "gold_token_id": 82,
+        "gold_token": "o",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.3081711530685425,
+        "ln_gold_probability": 0.20092611014842987,
+        "ln_gold_rank": 3,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 69,
+        "no_ln_top1_token": "b",
+        "no_ln_top1_probability": 0.3267175853252411,
+        "no_ln_gold_probability": 0.18603932857513428,
+        "no_ln_gold_rank": 4,
+        "no_ln_correct": false
+      },
+      {
+        "position": 58,
+        "gold_token_id": 86,
+        "gold_token": "s",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.18023331463336945,
+        "ln_gold_probability": 0.15395250916481018,
+        "ln_gold_rank": 3,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 81,
+        "no_ln_top1_token": "n",
+        "no_ln_top1_probability": 0.27255919575691223,
+        "no_ln_gold_probability": 0.15149074792861938,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 59,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.8341980576515198,
+        "ln_gold_probability": 0.00584802869707346,
+        "ln_gold_rank": 6,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.8613131642341614,
+        "no_ln_gold_probability": 0.004855571314692497,
+        "no_ln_gold_rank": 7,
+        "no_ln_correct": false
+      },
+      {
+        "position": 60,
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "ln_top1_token_id": 68,
+        "ln_top1_token": "a",
+        "ln_top1_probability": 0.1864517331123352,
+        "ln_gold_probability": 0.1864517331123352,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.4303863048553467,
+        "no_ln_gold_probability": 0.378314346075058,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 61,
+        "gold_token_id": 81,
+        "gold_token": "n",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.3569548428058624,
+        "ln_gold_probability": 0.3569548428058624,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 81,
+        "no_ln_top1_token": "n",
+        "no_ln_top1_probability": 0.6867809891700745,
+        "no_ln_gold_probability": 0.6867809891700745,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 62,
+        "gold_token_id": 71,
+        "gold_token": "d",
+        "ln_top1_token_id": 71,
+        "ln_top1_token": "d",
+        "ln_top1_probability": 0.863742470741272,
+        "ln_gold_probability": 0.863742470741272,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 71,
+        "no_ln_top1_token": "d",
+        "no_ln_top1_probability": 0.9388371706008911,
+        "no_ln_gold_probability": 0.9388371706008911,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 63,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.9412605166435242,
+        "ln_gold_probability": 0.9412605166435242,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.9960682392120361,
+        "no_ln_gold_probability": 0.9960682392120361,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 64,
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.16153529286384583,
+        "ln_gold_probability": 0.11075054854154587,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.5476469993591309,
+        "no_ln_gold_probability": 0.05615295469760895,
+        "no_ln_gold_rank": 4,
+        "no_ln_correct": false
+      },
+      {
+        "position": 65,
+        "gold_token_id": 85,
+        "gold_token": "r",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.3569314181804657,
+        "ln_gold_probability": 0.03572046756744385,
+        "ln_gold_rank": 8,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 81,
+        "no_ln_top1_token": "n",
+        "no_ln_top1_probability": 0.7893328666687012,
+        "no_ln_gold_probability": 0.001443397719413042,
+        "no_ln_gold_rank": 10,
+        "no_ln_correct": false
+      },
+      {
+        "position": 66,
+        "gold_token_id": 70,
+        "gold_token": "c",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.6680715680122375,
+        "ln_gold_probability": 0.013054626993834972,
+        "ln_gold_rank": 8,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 72,
+        "no_ln_top1_token": "e",
+        "no_ln_top1_probability": 0.6531903147697449,
+        "no_ln_gold_probability": 0.013623155653476715,
+        "no_ln_gold_rank": 8,
+        "no_ln_correct": false
+      },
+      {
+        "position": 67,
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "ln_top1_token_id": 75,
+        "ln_top1_token": "h",
+        "ln_top1_probability": 0.46812349557876587,
+        "ln_gold_probability": 0.012952610850334167,
+        "ln_gold_rank": 6,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 75,
+        "no_ln_top1_token": "h",
+        "no_ln_top1_probability": 0.8619712591171265,
+        "no_ln_gold_probability": 0.0006731247995048761,
+        "no_ln_gold_rank": 8,
+        "no_ln_correct": false
+      },
+      {
+        "position": 68,
+        "gold_token_id": 71,
+        "gold_token": "d",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.2736724615097046,
+        "ln_gold_probability": 0.009120305068790913,
+        "ln_gold_rank": 14,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 81,
+        "no_ln_top1_token": "n",
+        "no_ln_top1_probability": 0.37261345982551575,
+        "no_ln_gold_probability": 0.0033817461226135492,
+        "no_ln_gold_rank": 13,
+        "no_ln_correct": false
+      },
+      {
+        "position": 69,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.39206039905548096,
+        "ln_gold_probability": 0.39206039905548096,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 76,
+        "no_ln_top1_token": "i",
+        "no_ln_top1_probability": 0.4535585939884186,
+        "no_ln_gold_probability": 0.34745359420776367,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 70,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.31827130913734436,
+        "ln_gold_probability": 0.31827130913734436,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.47260358929634094,
+        "no_ln_gold_probability": 0.47260358929634094,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 71,
+        "gold_token_id": 74,
+        "gold_token": "g",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.19157129526138306,
+        "ln_gold_probability": 0.013771452009677887,
+        "ln_gold_rank": 19,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.6768216490745544,
+        "no_ln_gold_probability": 3.316108268336393e-05,
+        "no_ln_gold_rank": 18,
+        "no_ln_correct": false
+      },
+      {
+        "position": 72,
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "ln_top1_token_id": 85,
+        "ln_top1_token": "r",
+        "ln_top1_probability": 0.1921088993549347,
+        "ln_gold_probability": 0.1679508090019226,
+        "ln_gold_rank": 4,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 85,
+        "no_ln_top1_token": "r",
+        "no_ln_top1_probability": 0.2808432877063751,
+        "no_ln_gold_probability": 0.21088340878486633,
+        "no_ln_gold_rank": 3,
+        "no_ln_correct": false
+      },
+      {
+        "position": 73,
+        "gold_token_id": 80,
+        "gold_token": "m",
+        "ln_top1_token_id": 80,
+        "ln_top1_token": "m",
+        "ln_top1_probability": 0.4461284577846527,
+        "ln_gold_probability": 0.4461284577846527,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 80,
+        "no_ln_top1_token": "m",
+        "no_ln_top1_probability": 0.73422771692276,
+        "no_ln_gold_probability": 0.73422771692276,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 74,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.6530238389968872,
+        "ln_gold_probability": 0.6530238389968872,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 72,
+        "no_ln_top1_token": "e",
+        "no_ln_top1_probability": 0.6866366267204285,
+        "no_ln_gold_probability": 0.6866366267204285,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 75,
+        "gold_token_id": 86,
+        "gold_token": "s",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.4376849830150604,
+        "ln_gold_probability": 0.18545053899288177,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.616524875164032,
+        "no_ln_gold_probability": 0.1293395757675171,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 76,
+        "gold_token_id": 17,
+        "gold_token": ".",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.7281571626663208,
+        "ln_gold_probability": 0.07148967683315277,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.8182875514030457,
+        "no_ln_gold_probability": 0.06823167204856873,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 77,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.5989487767219543,
+        "ln_gold_probability": 0.5989487767219543,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 2,
+        "no_ln_top1_token": "\\n",
+        "no_ln_top1_probability": 0.8155654668807983,
+        "no_ln_gold_probability": 0.18378937244415283,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 78,
+        "gold_token_id": 37,
+        "gold_token": "B",
+        "ln_top1_token_id": 55,
+        "ln_top1_token": "T",
+        "ln_top1_probability": 0.21552760899066925,
+        "ln_gold_probability": 0.04352114722132683,
+        "ln_gold_rank": 6,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 55,
+        "no_ln_top1_token": "T",
+        "no_ln_top1_probability": 0.6163069605827332,
+        "no_ln_gold_probability": 0.012145801447331905,
+        "no_ln_gold_rank": 8,
+        "no_ln_correct": false
+      },
+      {
+        "position": 79,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.23145627975463867,
+        "ln_gold_probability": 0.23145627975463867,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 88,
+        "no_ln_top1_token": "u",
+        "no_ln_top1_probability": 0.2860366106033325,
+        "no_ln_gold_probability": 0.19356973469257355,
+        "no_ln_gold_rank": 3,
+        "no_ln_correct": false
+      },
+      {
+        "position": 80,
+        "gold_token_id": 87,
+        "gold_token": "t",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.21456286311149597,
+        "ln_gold_probability": 0.21456286311149597,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.3336748480796814,
+        "no_ln_gold_probability": 0.3336748480796814,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 81,
+        "gold_token_id": 90,
+        "gold_token": "w",
+        "ln_top1_token_id": 68,
+        "ln_top1_token": "a",
+        "ln_top1_probability": 0.20981015264987946,
+        "ln_gold_probability": 0.13534417748451233,
+        "ln_gold_rank": 3,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 90,
+        "no_ln_top1_token": "w",
+        "no_ln_top1_probability": 0.4606441855430603,
+        "no_ln_gold_probability": 0.4606441855430603,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 82,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 82,
+        "ln_top1_token": "o",
+        "ln_top1_probability": 0.4001758098602295,
+        "ln_gold_probability": 0.21987904608249664,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 82,
+        "no_ln_top1_token": "o",
+        "no_ln_top1_probability": 0.7555034756660461,
+        "no_ln_gold_probability": 0.08717292547225952,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 83,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 85,
+        "ln_top1_token": "r",
+        "ln_top1_probability": 0.45302659273147583,
+        "ln_gold_probability": 0.1147250309586525,
+        "ln_gold_rank": 3,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 85,
+        "no_ln_top1_token": "r",
+        "no_ln_top1_probability": 0.5212440490722656,
+        "no_ln_gold_probability": 0.07529616355895996,
+        "no_ln_gold_rank": 3,
+        "no_ln_correct": false
+      },
+      {
+        "position": 84,
+        "gold_token_id": 81,
+        "gold_token": "n",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.3391077220439911,
+        "ln_gold_probability": 0.3391077220439911,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 78,
+        "no_ln_top1_token": "k",
+        "no_ln_top1_probability": 0.6202595829963684,
+        "no_ln_gold_probability": 0.19864638149738312,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 85,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.8040574789047241,
+        "ln_gold_probability": 0.8040574789047241,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.8889408111572266,
+        "no_ln_gold_probability": 0.8889408111572266,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 86,
+        "gold_token_id": 80,
+        "gold_token": "m",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.16147169470787048,
+        "ln_gold_probability": 0.019554423168301582,
+        "ln_gold_rank": 13,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.42101696133613586,
+        "no_ln_gold_probability": 3.155508966301568e-05,
+        "no_ln_gold_rank": 34,
+        "no_ln_correct": false
+      },
+      {
+        "position": 87,
+        "gold_token_id": 92,
+        "gold_token": "y",
+        "ln_top1_token_id": 68,
+        "ln_top1_token": "a",
+        "ln_top1_probability": 0.33273252844810486,
+        "ln_gold_probability": 0.1571577787399292,
+        "ln_gold_rank": 3,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 68,
+        "no_ln_top1_token": "a",
+        "no_ln_top1_probability": 0.4555148184299469,
+        "no_ln_gold_probability": 0.3910004794597626,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 88,
+        "gold_token_id": 86,
+        "gold_token": "s",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.8032025694847107,
+        "ln_gold_probability": 0.043380364775657654,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.969048261642456,
+        "no_ln_gold_probability": 0.004935400560498238,
+        "no_ln_gold_rank": 4,
+        "no_ln_correct": false
+      },
+      {
+        "position": 89,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.7264591455459595,
+        "ln_gold_probability": 0.04818776622414589,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.8091100454330444,
+        "no_ln_gold_probability": 0.015562118031084538,
+        "no_ln_gold_rank": 5,
+        "no_ln_correct": false
+      },
+      {
+        "position": 90,
+        "gold_token_id": 79,
+        "gold_token": "l",
+        "ln_top1_token_id": 85,
+        "ln_top1_token": "r",
+        "ln_top1_probability": 0.29108181595802307,
+        "ln_gold_probability": 0.07779975235462189,
+        "ln_gold_rank": 4,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 85,
+        "no_ln_top1_token": "r",
+        "no_ln_top1_probability": 0.30926135182380676,
+        "no_ln_gold_probability": 0.050138864666223526,
+        "no_ln_gold_rank": 4,
+        "no_ln_correct": false
+      },
+      {
+        "position": 91,
+        "gold_token_id": 73,
+        "gold_token": "f",
+        "ln_top1_token_id": 73,
+        "ln_top1_token": "f",
+        "ln_top1_probability": 0.4063127636909485,
+        "ln_gold_probability": 0.4063127636909485,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 73,
+        "no_ln_top1_token": "f",
+        "no_ln_top1_probability": 0.39733386039733887,
+        "no_ln_gold_probability": 0.39733386039733887,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 92,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.6189410090446472,
+        "ln_gold_probability": 0.6189410090446472,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.8221810460090637,
+        "no_ln_gold_probability": 0.8221810460090637,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 93,
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.16818678379058838,
+        "ln_gold_probability": 0.12698058784008026,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.3876761198043823,
+        "no_ln_gold_probability": 0.07514935731887817,
+        "no_ln_gold_rank": 5,
+        "no_ln_correct": false
+      },
+      {
+        "position": 94,
+        "gold_token_id": 81,
+        "gold_token": "n",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.3931640386581421,
+        "ln_gold_probability": 0.3931640386581421,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 81,
+        "no_ln_top1_token": "n",
+        "no_ln_top1_probability": 0.8883683085441589,
+        "no_ln_gold_probability": 0.8883683085441589,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 95,
+        "gold_token_id": 71,
+        "gold_token": "d",
+        "ln_top1_token_id": 71,
+        "ln_top1_token": "d",
+        "ln_top1_probability": 0.6508588790893555,
+        "ln_gold_probability": 0.6508588790893555,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 71,
+        "no_ln_top1_token": "d",
+        "no_ln_top1_probability": 0.7600968480110168,
+        "no_ln_gold_probability": 0.7600968480110168,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 96,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.934764564037323,
+        "ln_gold_probability": 0.934764564037323,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.9957336783409119,
+        "no_ln_gold_probability": 0.9957336783409119,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 97,
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.15754009783267975,
+        "ln_gold_probability": 0.10584980994462967,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 87,
+        "no_ln_top1_token": "t",
+        "no_ln_top1_probability": 0.566819429397583,
+        "no_ln_gold_probability": 0.04942408576607704,
+        "no_ln_gold_rank": 3,
+        "no_ln_correct": false
+      },
+      {
+        "position": 98,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.3571871221065521,
+        "ln_gold_probability": 0.21642129123210907,
+        "ln_gold_rank": 2,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 81,
+        "no_ln_top1_token": "n",
+        "no_ln_top1_probability": 0.7904902100563049,
+        "no_ln_gold_probability": 0.12826071679592133,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 99,
+        "gold_token_id": 73,
+        "gold_token": "f",
+        "ln_top1_token_id": 86,
+        "ln_top1_token": "s",
+        "ln_top1_probability": 0.07672332227230072,
+        "ln_gold_probability": 0.02999592013657093,
+        "ln_gold_rank": 13,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 38,
+        "no_ln_top1_token": "C",
+        "no_ln_top1_probability": 0.6572210192680359,
+        "no_ln_gold_probability": 0.00042780092917382717,
+        "no_ln_gold_rank": 25,
+        "no_ln_correct": false
+      },
+      {
+        "position": 100,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 85,
+        "ln_top1_token": "r",
+        "ln_top1_probability": 0.20155920088291168,
+        "ln_gold_probability": 0.11310955137014389,
+        "ln_gold_rank": 6,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 85,
+        "no_ln_top1_token": "r",
+        "no_ln_top1_probability": 0.33323484659194946,
+        "no_ln_gold_probability": 0.034157007932662964,
+        "no_ln_gold_rank": 6,
+        "no_ln_correct": false
+      },
+      {
+        "position": 101,
+        "gold_token_id": 90,
+        "gold_token": "w",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.2607593834400177,
+        "ln_gold_probability": 0.07631603628396988,
+        "ln_gold_rank": 4,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 72,
+        "no_ln_top1_token": "e",
+        "no_ln_top1_probability": 0.18956956267356873,
+        "no_ln_gold_probability": 0.18820440769195557,
+        "no_ln_gold_rank": 2,
+        "no_ln_correct": false
+      },
+      {
+        "position": 102,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.35546281933784485,
+        "ln_gold_probability": 0.35546281933784485,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.5513159036636353,
+        "no_ln_gold_probability": 0.5513159036636353,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 103,
+        "gold_token_id": 82,
+        "gold_token": "o",
+        "ln_top1_token_id": 68,
+        "ln_top1_token": "a",
+        "ln_top1_probability": 0.1559915840625763,
+        "ln_gold_probability": 0.0868641585111618,
+        "ln_gold_rank": 3,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 90,
+        "no_ln_top1_token": "w",
+        "no_ln_top1_probability": 0.6119905114173889,
+        "no_ln_gold_probability": 0.02144167572259903,
+        "no_ln_gold_rank": 4,
+        "no_ln_correct": false
+      },
+      {
+        "position": 104,
+        "gold_token_id": 87,
+        "gold_token": "t",
+        "ln_top1_token_id": 73,
+        "ln_top1_token": "f",
+        "ln_top1_probability": 0.5178684592247009,
+        "ln_gold_probability": 0.019496912136673927,
+        "ln_gold_rank": 5,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 73,
+        "no_ln_top1_token": "f",
+        "no_ln_top1_probability": 0.863288402557373,
+        "no_ln_gold_probability": 0.001780799706466496,
+        "no_ln_gold_rank": 5,
+        "no_ln_correct": false
+      },
+      {
+        "position": 105,
+        "gold_token_id": 75,
+        "gold_token": "h",
+        "ln_top1_token_id": 75,
+        "ln_top1_token": "h",
+        "ln_top1_probability": 0.7791506052017212,
+        "ln_gold_probability": 0.7791506052017212,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 75,
+        "no_ln_top1_token": "h",
+        "no_ln_top1_probability": 0.9113686680793762,
+        "no_ln_gold_probability": 0.9113686680793762,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 106,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.8088822364807129,
+        "ln_gold_probability": 0.8088822364807129,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 72,
+        "no_ln_top1_token": "e",
+        "no_ln_top1_probability": 0.9683697819709778,
+        "no_ln_gold_probability": 0.9683697819709778,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 107,
+        "gold_token_id": 85,
+        "gold_token": "r",
+        "ln_top1_token_id": 85,
+        "ln_top1_token": "r",
+        "ln_top1_probability": 0.8964385986328125,
+        "ln_gold_probability": 0.8964385986328125,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 85,
+        "no_ln_top1_token": "r",
+        "no_ln_top1_probability": 0.9136661887168884,
+        "no_ln_gold_probability": 0.9136661887168884,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 108,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.8395646810531616,
+        "ln_gold_probability": 0.8395646810531616,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.6819776892662048,
+        "no_ln_gold_probability": 0.6819776892662048,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 109,
+        "gold_token_id": 79,
+        "gold_token": "l",
+        "ln_top1_token_id": 87,
+        "ln_top1_token": "t",
+        "ln_top1_probability": 0.12744532525539398,
+        "ln_gold_probability": 0.019004883244633675,
+        "ln_gold_rank": 16,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 90,
+        "no_ln_top1_token": "w",
+        "no_ln_top1_probability": 0.27290716767311096,
+        "no_ln_gold_probability": 3.830377863778267e-06,
+        "no_ln_gold_rank": 29,
+        "no_ln_correct": false
+      },
+      {
+        "position": 110,
+        "gold_token_id": 76,
+        "gold_token": "i",
+        "ln_top1_token_id": 76,
+        "ln_top1_token": "i",
+        "ln_top1_probability": 0.4497319459915161,
+        "ln_gold_probability": 0.4497319459915161,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 76,
+        "no_ln_top1_token": "i",
+        "no_ln_top1_probability": 0.678667426109314,
+        "no_ln_gold_probability": 0.678667426109314,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 111,
+        "gold_token_id": 78,
+        "gold_token": "k",
+        "ln_top1_token_id": 78,
+        "ln_top1_token": "k",
+        "ln_top1_probability": 0.34911829233169556,
+        "ln_gold_probability": 0.34911829233169556,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 78,
+        "no_ln_top1_token": "k",
+        "no_ln_top1_probability": 0.7279783487319946,
+        "no_ln_gold_probability": 0.7279783487319946,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 112,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 72,
+        "ln_top1_token": "e",
+        "ln_top1_probability": 0.9185857772827148,
+        "ln_gold_probability": 0.9185857772827148,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 72,
+        "no_ln_top1_token": "e",
+        "no_ln_top1_probability": 0.982797384262085,
+        "no_ln_gold_probability": 0.982797384262085,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 113,
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.7041260004043579,
+        "ln_gold_probability": 0.7041260004043579,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.9052053093910217,
+        "no_ln_gold_probability": 0.9052053093910217,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 114,
+        "gold_token_id": 80,
+        "gold_token": "m",
+        "ln_top1_token_id": 68,
+        "ln_top1_token": "a",
+        "ln_top1_probability": 0.13952398300170898,
+        "ln_gold_probability": 0.03362216800451279,
+        "ln_gold_rank": 10,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 68,
+        "no_ln_top1_token": "a",
+        "no_ln_top1_probability": 0.30458685755729675,
+        "no_ln_gold_probability": 0.0015084844781085849,
+        "no_ln_gold_rank": 12,
+        "no_ln_correct": false
+      },
+      {
+        "position": 115,
+        "gold_token_id": 76,
+        "gold_token": "i",
+        "ln_top1_token_id": 68,
+        "ln_top1_token": "a",
+        "ln_top1_probability": 0.4178997278213501,
+        "ln_gold_probability": 0.06726031750440598,
+        "ln_gold_rank": 4,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 68,
+        "no_ln_top1_token": "a",
+        "no_ln_top1_probability": 0.6114663481712341,
+        "no_ln_gold_probability": 0.005832138005644083,
+        "no_ln_gold_rank": 5,
+        "no_ln_correct": false
+      },
+      {
+        "position": 116,
+        "gold_token_id": 81,
+        "gold_token": "n",
+        "ln_top1_token_id": 81,
+        "ln_top1_token": "n",
+        "ln_top1_probability": 0.3641996383666992,
+        "ln_gold_probability": 0.3641996383666992,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 81,
+        "no_ln_top1_token": "n",
+        "no_ln_top1_probability": 0.4784243404865265,
+        "no_ln_gold_probability": 0.4784243404865265,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 117,
+        "gold_token_id": 71,
+        "gold_token": "d",
+        "ln_top1_token_id": 71,
+        "ln_top1_token": "d",
+        "ln_top1_probability": 0.2568455636501312,
+        "ln_gold_probability": 0.2568455636501312,
+        "ln_gold_rank": 1,
+        "ln_correct": true,
+        "no_ln_top1_token_id": 71,
+        "no_ln_top1_token": "d",
+        "no_ln_top1_probability": 0.40737709403038025,
+        "no_ln_gold_probability": 0.40737709403038025,
+        "no_ln_gold_rank": 1,
+        "no_ln_correct": true
+      },
+      {
+        "position": 118,
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "ln_top1_token_id": 3,
+        "ln_top1_token": " ",
+        "ln_top1_probability": 0.6887066960334778,
+        "ln_gold_probability": 0.04285260662436485,
+        "ln_gold_rank": 4,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 3,
+        "no_ln_top1_token": " ",
+        "no_ln_top1_probability": 0.9412091970443726,
+        "no_ln_gold_probability": 0.006278363522142172,
+        "no_ln_gold_rank": 5,
+        "no_ln_correct": false
+      },
+      {
+        "position": 119,
+        "gold_token_id": 71,
+        "gold_token": "d",
+        "ln_top1_token_id": 85,
+        "ln_top1_token": "r",
+        "ln_top1_probability": 0.510676920413971,
+        "ln_gold_probability": 0.055798523128032684,
+        "ln_gold_rank": 4,
+        "ln_correct": false,
+        "no_ln_top1_token_id": 85,
+        "no_ln_top1_token": "r",
+        "no_ln_top1_probability": 0.5153902173042297,
+        "no_ln_gold_probability": 0.06358728557825089,
+        "no_ln_gold_rank": 3,
+        "no_ln_correct": false
+      }
+    ]
+  }
+}

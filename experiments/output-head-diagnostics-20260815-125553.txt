@@ -1,0 +1,49 @@
+OUTREACHLM OUTPUT-HEAD COLLAPSE DIAGNOSTICS
+================================================================================
+Timestamp: 2026-08-15T12:55:53.585757
+
+A) OUTPUT HEAD GEOMETRY
+--------------------------------------------------------------------------------
+W shape: [490, 64]
+Numerical rank (eps=1e-6): 64
+Effective rank: 33.831840
+Row cosine mean/std/min/max: 0.669279 / 0.368935 / -0.600762 / 0.989674
+
+B) PROMPT PROJECTION COMPRESSION (sample pairs)
+--------------------------------------------------------------------------------
+'Machine learning allows' vs 'A computer system can'
+  hidden_cosine: 0.080799
+  logit_cosine_ln: 0.991788
+  logit_cosine_no_ln: 0.984660
+  KL_sym ln/no_ln: 0.833601 / 1.208069
+  ||Δh||: 15.042130
+  ||Δlogits|| ln/no_ln: 68.602524 / 74.691414
+  compression ratio ln/no_ln: 4.560692 / 4.965481
+'Machine learning allows computers to' vs 'The purpose of a transformer'
+  hidden_cosine: 0.117377
+  logit_cosine_ln: 0.992509
+  logit_cosine_no_ln: 0.985064
+  KL_sym ln/no_ln: 1.838575 / 2.375339
+  ||Δh||: 15.123202
+  ||Δlogits|| ln/no_ln: 79.666451 / 87.721230
+  compression ratio ln/no_ln: 5.267829 / 5.800440
+'OutreachLM is' vs 'Machine'
+  hidden_cosine: 0.448830
+  logit_cosine_ln: 0.995749
+  logit_cosine_no_ln: 0.992309
+  KL_sym ln/no_ln: 0.976183 / 1.777426
+  ||Δh||: 11.621325
+  ||Δlogits|| ln/no_ln: 114.278503 / 155.931702
+  compression ratio ln/no_ln: 9.833517 / 13.417721
+
+C) LOGIT VARIANCE ACROSS PROMPTS
+--------------------------------------------------------------------------------
+Mean variance ln/no_ln: 4.876846 / 16.381775
+Median variance ln/no_ln: 4.986144 / 14.947246
+
+D) LAYERNORM A/B (INFERENCE-ONLY, NO RETRAIN)
+--------------------------------------------------------------------------------
+Sequence source: fallback-start-of-validation
+Prompt text: 'the content on the Xbox 360 Marketplace,'
+Teacher forcing top1 accuracy ln/no_ln: 0.512500 / 0.450000
+Average gold probability ln/no_ln: 0.341116 / 0.391395

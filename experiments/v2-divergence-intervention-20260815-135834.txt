@@ -1,0 +1,16 @@
+OUTREACHLM DIVERGENCE-WINDOW INTERVENTION
+================================================================================
+Timestamp: 2026-08-15T13:58:34.032078
+
+CONFIG | steps=1500 batch=8 lr=0.0005 warmup=250 label_smoothing=0.05 recovery_start=40 recovery_weight=3.0
+
+METRIC COMPARISON
+--------------------------------------------------------------------------------
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+baseline_v1,0.512500,0.100000,0.994433,1.716832,19,20,41
+v2_before_intervention,0.450000,0.100000,0.917749,3.062355,25,29,41
+v2_after_intervention,0.425000,0.200000,0.941058,3.861350,25,36,41
+
+Intervention total loss first/last/mean: 20.672274 / 17.483261 / 17.630383
+Teacher loss first->last: 3.773088 -> 3.836037
+Recovery loss first->last: 5.633061 -> 4.549075

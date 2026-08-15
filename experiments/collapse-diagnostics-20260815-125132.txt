@@ -1,0 +1,52 @@
+OUTREACHLM COLLAPSE DIAGNOSTICS
+================================================================================
+Timestamp: 2026-08-15T12:51:32.434884
+
+EXPERIMENT 1: HIDDEN VS LOGIT COLLAPSE
+--------------------------------------------------------------------------------
+'Machine learning allows' vs 'A computer system can'
+  hidden_cosine: 0.080799
+  logit_cosine:  0.991788
+  kl_symmetric:  0.833601
+'Machine learning allows computers to' vs 'The purpose of a transformer'
+  hidden_cosine: 0.117377
+  logit_cosine:  0.992509
+  kl_symmetric:  1.838575
+'OutreachLM is' vs 'Machine'
+  hidden_cosine: 0.448830
+  logit_cosine:  0.995749
+  kl_symmetric:  0.976183
+
+EXPERIMENT 2: ATTRACTOR TRANSITION
+--------------------------------------------------------------------------------
+Prompt: OutreachLM is
+First repeated bigram step: 19
+First repeated trigram step: 20
+First 12 steps:
+  step= 1 token=' '      p=0.898063 H=0.522365 ||h||=11.213492 cos(h_t,h_t-1)=None
+  step= 2 token='a'      p=0.128088 H=3.636119 ||h||=9.379189 cos(h_t,h_t-1)=0.12694096565246582
+  step= 3 token='n'      p=0.354734 H=1.868583 ||h||=11.080667 cos(h_t,h_t-1)=0.07943306863307953
+  step= 4 token='d'      p=0.832751 H=0.778658 ||h||=11.457074 cos(h_t,h_t-1)=0.4145311117172241
+  step= 5 token=' '      p=0.882909 H=0.674166 ||h||=10.940300 cos(h_t,h_t-1)=0.24885231256484985
+  step= 6 token='a'      p=0.069713 H=3.794014 ||h||=9.339129 cos(h_t,h_t-1)=0.23463064432144165
+  step= 7 token='n'      p=0.358129 H=2.109994 ||h||=10.874571 cos(h_t,h_t-1)=0.29497987031936646
+  step= 8 token='d'      p=0.810573 H=0.883321 ||h||=11.308030 cos(h_t,h_t-1)=0.4538828432559967
+  step= 9 token=' '      p=0.924844 H=0.468541 ||h||=10.972146 cos(h_t,h_t-1)=0.2201230227947235
+  step=10 token='t'      p=0.080690 H=3.754447 ||h||=9.300032 cos(h_t,h_t-1)=0.2146332859992981
+  step=11 token='h'      p=0.519549 H=1.245127 ||h||=11.260300 cos(h_t,h_t-1)=0.3998070955276489
+  step=12 token='e'      p=0.797104 H=0.754426 ||h||=11.410974 cos(h_t,h_t-1)=0.5491029024124146
+
+EXPERIMENT 3: TEACHER FORCING VS FREE RUNNING
+--------------------------------------------------------------------------------
+Sequence source: fallback-start-of-validation
+Prompt text: 'the content on the Xbox 360 Marketplace,'
+Teacher forcing top1 accuracy: 0.512500
+Teacher forcing avg gold probability: 0.341116
+Free-running match rate vs target: 0.100000
+First divergence position: 41
+
+Target continuation:
+ not just the demos and arcade games. Between myself and a few other like minded
+
+Free-running continuation:
+ and the service and the company and the company and the company and the company

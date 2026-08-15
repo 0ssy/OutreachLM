@@ -1,17 +1,26 @@
+import json
+
 import torch
 
 from outreachlm.train import (
     DEVICE,
     CONTEXT_LENGTH,
     EMBEDDING_DIM,
+    NUM_LAYERS,
+    NUM_HEADS,
     CORPUS_PATH,
     VALIDATION_SPLIT,
+    CHECKPOINT_PATH,
+    BEST_MODEL_PATH,
     MODEL_PATH,
+    TOKENIZER_PATH,
     load_corpus,
     split_corpus,
     create_tokenizer,
     create_model,
+    save_tokenizer,
 )
+from outreachlm.tokenizer import CharacterTokenizer
 
 
 # ============================================================
@@ -37,6 +46,86 @@ TOP_K = 8
 # LOAD MODEL
 # ============================================================
 
+def tokenizer_from_tokens_config(tokenizer_config):
+    tokenizer = CharacterTokenizer.__new__(
+        CharacterTokenizer
+    )
+
+    tokenizer.pad_token = tokenizer_config["pad_token"]
+    tokenizer.unk_token = tokenizer_config["unk_token"]
+    tokenizer.tokens = tokenizer_config["tokens"]
+
+    tokenizer.token_to_id = {
+        token: index
+        for index, token in enumerate(tokenizer.tokens)
+    }
+
+    tokenizer.id_to_token = {
+        index: token
+        for token, index in tokenizer.token_to_id.items()
+    }
+
+    return tokenizer
+
+
+def load_tokenizer_artifact(tokenizer_path):
+    if not tokenizer_path.exists():
+        return None
+
+    with open(
+        tokenizer_path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+        tokenizer_data = json.load(file)
+
+    if (
+        "tokens" in tokenizer_data
+        and "pad_token" in tokenizer_data
+        and "unk_token" in tokenizer_data
+    ):
+        return tokenizer_from_tokens_config(
+            tokenizer_data
+        )
+
+    return None
+
+
+def upgrade_legacy_tokenizer_artifact(tokenizer_path):
+    print(
+        "[WARN] Tokenizer artifact is legacy; "
+        "upgrading tokenizer JSON to full token mapping."
+    )
+
+    text = load_corpus(CORPUS_PATH)
+    training_text, _ = split_corpus(
+        text,
+        VALIDATION_SPLIT
+    )
+
+    tokenizer = create_tokenizer(
+        training_text
+    )
+
+    save_tokenizer(
+        tokenizer,
+        tokenizer_path
+    )
+
+    return tokenizer
+
+
+def resolve_model_path():
+    if BEST_MODEL_PATH.exists():
+        return BEST_MODEL_PATH
+
+    print(
+        "[WARN] Best model artifact not found; "
+        "falling back to outreachlm_model.pt."
+    )
+    return MODEL_PATH
+
+
 def load_model_and_tokenizer():
 
     print("=" * 60)
@@ -45,53 +134,163 @@ def load_model_and_tokenizer():
 
     print()
     print(f"Device:           {DEVICE}")
-    print(f"Context length:   {CONTEXT_LENGTH}")
-    print(f"Embedding dim:    {EMBEDDING_DIM}")
-    print(f"Model path:       {MODEL_PATH}")
+    model_path = resolve_model_path()
+    print(f"Model path:       {model_path}")
 
-    # --------------------------------------------------------
-    # Load corpus
-    # --------------------------------------------------------
-
-    text = load_corpus(CORPUS_PATH)
-
-    training_text, _ = split_corpus(
-        text,
-        VALIDATION_SPLIT
+    tokenizer = load_tokenizer_artifact(
+        TOKENIZER_PATH
     )
 
-    # --------------------------------------------------------
-    # Recreate tokenizer
-    # --------------------------------------------------------
-
-    tokenizer = create_tokenizer(
-        training_text
-    )
-
-    print(
-        f"Training characters: {len(training_text)}"
-    )
-    print(f"Vocabulary size:  {tokenizer.vocab_size}")
-
-    # --------------------------------------------------------
-    # Create model
-    # --------------------------------------------------------
-
-    model = create_model(
-        vocab_size=tokenizer.vocab_size
-    )
-
-    # --------------------------------------------------------
-    # Load trained weights
-    # --------------------------------------------------------
+    if tokenizer is None:
+        tokenizer = upgrade_legacy_tokenizer_artifact(
+            TOKENIZER_PATH
+        )
 
     checkpoint = torch.load(
-        MODEL_PATH,
+        model_path,
         map_location=DEVICE,
-        weights_only=True
+        weights_only=False
     )
 
-    model.load_state_dict(checkpoint)
+    if (
+        isinstance(checkpoint, dict)
+        and "model_state_dict" in checkpoint
+        and "model_config" in checkpoint
+    ):
+        model_config = checkpoint["model_config"]
+
+        print(
+            f"Context length:   {model_config['context_length']}"
+        )
+        print(
+            f"Embedding dim:    {model_config['embedding_dim']}"
+        )
+
+        if tokenizer is None:
+            raise RuntimeError(
+                f"Tokenizer artifact not available: {TOKENIZER_PATH}"
+            )
+
+        print(
+            f"Vocabulary size:  {tokenizer.vocab_size}"
+        )
+
+        model = create_model(
+            vocab_size=model_config["vocab_size"],
+            context_length=model_config["context_length"],
+            embedding_dim=model_config["embedding_dim"],
+            num_layers=model_config["num_layers"],
+            num_heads=model_config["num_heads"],
+        )
+
+        if tokenizer.vocab_size != model_config["vocab_size"]:
+            raise RuntimeError(
+                "Tokenizer/model vocab mismatch: "
+                f"tokenizer={tokenizer.vocab_size}, "
+                f"model={model_config['vocab_size']}"
+            )
+
+        model.load_state_dict(
+            checkpoint["model_state_dict"]
+        )
+    else:
+        print(
+            "[WARN] Model artifact is legacy format; "
+            "inferring model config from checkpoint/state dict."
+        )
+
+        if tokenizer is None:
+            raise RuntimeError(
+                f"Tokenizer artifact not available: {TOKENIZER_PATH}"
+            )
+
+        state_dict = checkpoint
+
+        token_embedding = state_dict[
+            "token_embedding.embedding.weight"
+        ]
+        inferred_vocab_size = token_embedding.shape[0]
+        inferred_embedding_dim = token_embedding.shape[1]
+
+        inferred_context_length = CONTEXT_LENGTH
+        inferred_num_layers = NUM_LAYERS
+        inferred_num_heads = NUM_HEADS
+
+        if CHECKPOINT_PATH.exists():
+            train_checkpoint = torch.load(
+                CHECKPOINT_PATH,
+                map_location=DEVICE,
+                weights_only=False
+            )
+            saved_config = train_checkpoint.get(
+                "config",
+                {}
+            )
+            inferred_context_length = saved_config.get(
+                "context_length",
+                inferred_context_length
+            )
+            inferred_num_layers = saved_config.get(
+                "num_layers",
+                inferred_num_layers
+            )
+            inferred_num_heads = saved_config.get(
+                "num_heads",
+                inferred_num_heads
+            )
+
+        if tokenizer.vocab_size != inferred_vocab_size:
+            raise RuntimeError(
+                "Tokenizer/model vocab mismatch: "
+                f"tokenizer={tokenizer.vocab_size}, "
+                f"model={inferred_vocab_size}"
+            )
+
+        print(
+            f"Context length:   {inferred_context_length}"
+        )
+        print(
+            f"Embedding dim:    {inferred_embedding_dim}"
+        )
+        print(
+            f"Vocabulary size:  {tokenizer.vocab_size}"
+        )
+
+        model = create_model(
+            vocab_size=inferred_vocab_size,
+            context_length=inferred_context_length,
+            embedding_dim=inferred_embedding_dim,
+            num_layers=inferred_num_layers,
+            num_heads=inferred_num_heads,
+        )
+
+        model.load_state_dict(state_dict)
+
+        upgraded_artifact = {
+            "model_state_dict": model.state_dict(),
+            "model_config": {
+                "vocab_size": inferred_vocab_size,
+                "context_length": inferred_context_length,
+                "embedding_dim": inferred_embedding_dim,
+                "num_layers": inferred_num_layers,
+                "num_heads": inferred_num_heads,
+            },
+            "training_config": saved_config if CHECKPOINT_PATH.exists() else {},
+            "tokenizer_config": {
+                "tokens": tokenizer.tokens,
+                "pad_token": tokenizer.pad_token,
+                "unk_token": tokenizer.unk_token,
+            },
+        }
+
+        torch.save(
+            upgraded_artifact,
+            model_path
+        )
+
+        print(
+            f"[OK] Upgraded legacy model artifact: {model_path}"
+        )
 
     model.to(DEVICE)
     model.eval()
@@ -226,7 +425,7 @@ def generate(
     for step in range(max_new_tokens):
 
         # Keep only the most recent context window.
-        context = generated[-CONTEXT_LENGTH:]
+        context = generated[-model.context_length:]
 
         input_ids = torch.tensor(
             [context],

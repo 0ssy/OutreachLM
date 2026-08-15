@@ -1,0 +1,74 @@
+OUTREACHLM CHARACTER PRIOR ALIGNMENT DIAGNOSTICS
+================================================================================
+Timestamp: 2026-08-15T13:10:06.020768
+
+A) TRAINING TOKEN COVERAGE
+--------------------------------------------------------------------------------
+Vocabulary size: 490
+Observed in training stream: 488
+Unseen in training stream: 2
+PAD count/prob: 0 / 0.000000000000
+UNK count/prob: 0 / 0.000000000000
+
+B) LOG EMPIRICAL PROBABILITY VS MEAN LOGITS
+--------------------------------------------------------------------------------
+Pearson (all tokens): 0.879790
+Spearman (all tokens): 0.781542
+Pearson (observed tokens only): 0.899453
+Spearman (observed tokens only): 0.780413
+
+C) TOP 20 EMPIRICAL CHARACTERS
+--------------------------------------------------------------------------------
+id=  3 token=' ' prob=0.161551 count=485091
+id= 72 token='e' prob=0.093911 count=281986
+id= 87 token='t' prob=0.069039 count=207303
+id= 68 token='a' prob=0.062927 count=188952
+id= 82 token='o' prob=0.062576 count=187896
+id= 76 token='i' prob=0.057510 count=172686
+id= 81 token='n' prob=0.056376 count=169280
+id= 86 token='s' prob=0.050530 count=151727
+id= 85 token='r' prob=0.050069 count=150342
+id= 79 token='l' prob=0.032820 count=98550
+id= 75 token='h' prob=0.032335 count=97094
+id= 71 token='d' prob=0.026917 count=80824
+id= 70 token='c' prob=0.025734 count=77271
+id= 88 token='u' prob=0.024198 count=72660
+id= 80 token='m' prob=0.018394 count=55231
+id= 83 token='p' prob=0.017127 count=51426
+id= 74 token='g' prob=0.016589 count=49813
+id= 73 token='f' prob=0.016266 count=48843
+id= 92 token='y' prob=0.015823 count=47512
+id= 90 token='w' prob=0.012292 count=36909
+
+D) TOP 20 MEAN-LOGIT CHARACTERS
+--------------------------------------------------------------------------------
+id= 76 token='i' mean_logit=3.614230 mean_prob=0.061209
+id= 72 token='e' mean_logit=3.496696 mean_prob=0.089083
+id= 68 token='a' mean_logit=3.448691 mean_prob=0.067571
+id= 87 token='t' mean_logit=3.156752 mean_prob=0.070075
+id= 86 token='s' mean_logit=3.127536 mean_prob=0.048865
+id= 82 token='o' mean_logit=3.018413 mean_prob=0.061843
+id= 85 token='r' mean_logit=2.985328 mean_prob=0.047731
+id= 79 token='l' mean_logit=2.700901 mean_prob=0.031765
+id=  3 token=' ' mean_logit=2.676418 mean_prob=0.165851
+id= 81 token='n' mean_logit=2.406567 mean_prob=0.057036
+id= 88 token='u' mean_logit=2.345041 mean_prob=0.028407
+id= 70 token='c' mean_logit=1.990719 mean_prob=0.026350
+id= 80 token='m' mean_logit=1.860769 mean_prob=0.016264
+id= 71 token='d' mean_logit=1.629403 mean_prob=0.025639
+id= 92 token='y' mean_logit=1.472614 mean_prob=0.015438
+id= 75 token='h' mean_logit=1.219429 mean_prob=0.033326
+id= 73 token='f' mean_logit=1.171131 mean_prob=0.015179
+id= 69 token='b' mean_logit=1.082057 mean_prob=0.010741
+id= 83 token='p' mean_logit=1.022906 mean_prob=0.014827
+id= 17 token='.' mean_logit=1.018221 mean_prob=0.009655
+
+E) PAD / UNK PREDICTION MASS
+--------------------------------------------------------------------------------
+PAD rank/prob(mean softmax): 460 / 0.000000007264
+UNK rank/prob(mean softmax): 400 / 0.000000010097
+
+F) EMPIRICAL UNIGRAM BASELINE ON VALIDATION TOKENS
+--------------------------------------------------------------------------------
+Cross-entropy (nats): 3.126865
+Perplexity: 22.802374

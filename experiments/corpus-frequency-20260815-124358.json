@@ -1,0 +1,2034 @@
+{
+  "timestamp": "2026-08-15T12:43:58.412511",
+  "split": {
+    "train_characters": 3002707,
+    "validation_characters": 333635,
+    "train_words": 501848
+  },
+  "phrase_stats": {
+    "the company": {
+      "count": 82,
+      "per_million_ngrams": 163.39641364798433
+    },
+    "and the company": {
+      "count": 2,
+      "per_million_ngrams": 3.9852863228958686
+    }
+  },
+  "top_words": [
+    {
+      "item": "the",
+      "count": 24399
+    },
+    {
+      "item": "and",
+      "count": 15729
+    },
+    {
+      "item": "to",
+      "count": 14891
+    },
+    {
+      "item": "of",
+      "count": 12447
+    },
+    {
+      "item": "a",
+      "count": 11712
+    },
+    {
+      "item": "in",
+      "count": 8454
+    },
+    {
+      "item": "you",
+      "count": 6570
+    },
+    {
+      "item": "is",
+      "count": 6435
+    },
+    {
+      "item": "for",
+      "count": 5573
+    },
+    {
+      "item": "that",
+      "count": 5245
+    },
+    {
+      "item": "it",
+      "count": 4410
+    },
+    {
+      "item": "with",
+      "count": 4075
+    },
+    {
+      "item": "your",
+      "count": 3983
+    },
+    {
+      "item": "on",
+      "count": 3822
+    },
+    {
+      "item": "are",
+      "count": 3635
+    },
+    {
+      "item": "i",
+      "count": 3232
+    },
+    {
+      "item": "this",
+      "count": 3089
+    },
+    {
+      "item": "as",
+      "count": 3082
+    },
+    {
+      "item": "or",
+      "count": 2919
+    },
+    {
+      "item": "be",
+      "count": 2815
+    },
+    {
+      "item": "can",
+      "count": 2802
+    },
+    {
+      "item": "s",
+      "count": 2741
+    },
+    {
+      "item": "we",
+      "count": 2385
+    },
+    {
+      "item": "have",
+      "count": 2332
+    },
+    {
+      "item": "from",
+      "count": 2116
+    },
+    {
+      "item": "an",
+      "count": 1985
+    },
+    {
+      "item": "by",
+      "count": 1958
+    },
+    {
+      "item": "at",
+      "count": 1925
+    },
+    {
+      "item": "will",
+      "count": 1902
+    },
+    {
+      "item": "not",
+      "count": 1784
+    },
+    {
+      "item": "all",
+      "count": 1593
+    },
+    {
+      "item": "our",
+      "count": 1536
+    },
+    {
+      "item": "if",
+      "count": 1441
+    },
+    {
+      "item": "they",
+      "count": 1369
+    },
+    {
+      "item": "but",
+      "count": 1363
+    },
+    {
+      "item": "their",
+      "count": 1354
+    },
+    {
+      "item": "more",
+      "count": 1328
+    },
+    {
+      "item": "was",
+      "count": 1319
+    },
+    {
+      "item": "one",
+      "count": 1256
+    },
+    {
+      "item": "has",
+      "count": 1236
+    },
+    {
+      "item": "so",
+      "count": 1185
+    },
+    {
+      "item": "about",
+      "count": 1184
+    },
+    {
+      "item": "also",
+      "count": 1099
+    },
+    {
+      "item": "time",
+      "count": 1058
+    },
+    {
+      "item": "what",
+      "count": 1056
+    },
+    {
+      "item": "do",
+      "count": 1050
+    },
+    {
+      "item": "there",
+      "count": 1049
+    },
+    {
+      "item": "which",
+      "count": 1029
+    },
+    {
+      "item": "when",
+      "count": 995
+    },
+    {
+      "item": "up",
+      "count": 982
+    },
+    {
+      "item": "these",
+      "count": 966
+    },
+    {
+      "item": "out",
+      "count": 959
+    },
+    {
+      "item": "like",
+      "count": 948
+    },
+    {
+      "item": "other",
+      "count": 921
+    },
+    {
+      "item": "t",
+      "count": 889
+    },
+    {
+      "item": "some",
+      "count": 881
+    },
+    {
+      "item": "my",
+      "count": 881
+    },
+    {
+      "item": "new",
+      "count": 878
+    },
+    {
+      "item": "how",
+      "count": 846
+    },
+    {
+      "item": "who",
+      "count": 822
+    },
+    {
+      "item": "just",
+      "count": 812
+    },
+    {
+      "item": "any",
+      "count": 809
+    },
+    {
+      "item": "get",
+      "count": 776
+    },
+    {
+      "item": "make",
+      "count": 776
+    },
+    {
+      "item": "he",
+      "count": 762
+    },
+    {
+      "item": "them",
+      "count": 731
+    },
+    {
+      "item": "use",
+      "count": 730
+    },
+    {
+      "item": "into",
+      "count": 729
+    },
+    {
+      "item": "may",
+      "count": 718
+    },
+    {
+      "item": "its",
+      "count": 709
+    },
+    {
+      "item": "people",
+      "count": 669
+    },
+    {
+      "item": "well",
+      "count": 662
+    },
+    {
+      "item": "most",
+      "count": 656
+    },
+    {
+      "item": "no",
+      "count": 652
+    },
+    {
+      "item": "been",
+      "count": 645
+    },
+    {
+      "item": "us",
+      "count": 627
+    },
+    {
+      "item": "his",
+      "count": 587
+    },
+    {
+      "item": "work",
+      "count": 579
+    },
+    {
+      "item": "over",
+      "count": 574
+    },
+    {
+      "item": "help",
+      "count": 571
+    },
+    {
+      "item": "than",
+      "count": 570
+    },
+    {
+      "item": "need",
+      "count": 559
+    },
+    {
+      "item": "only",
+      "count": 554
+    },
+    {
+      "item": "through",
+      "count": 550
+    },
+    {
+      "item": "many",
+      "count": 539
+    },
+    {
+      "item": "best",
+      "count": 538
+    },
+    {
+      "item": "want",
+      "count": 523
+    },
+    {
+      "item": "first",
+      "count": 522
+    },
+    {
+      "item": "way",
+      "count": 513
+    },
+    {
+      "item": "were",
+      "count": 511
+    },
+    {
+      "item": "now",
+      "count": 502
+    },
+    {
+      "item": "such",
+      "count": 487
+    },
+    {
+      "item": "would",
+      "count": 486
+    },
+    {
+      "item": "where",
+      "count": 482
+    },
+    {
+      "item": "then",
+      "count": 481
+    },
+    {
+      "item": "very",
+      "count": 470
+    },
+    {
+      "item": "should",
+      "count": 460
+    },
+    {
+      "item": "re",
+      "count": 458
+    },
+    {
+      "item": "because",
+      "count": 457
+    },
+    {
+      "item": "see",
+      "count": 455
+    }
+  ],
+  "top_word_bigrams": [
+    {
+      "item": "of the",
+      "count": 2583
+    },
+    {
+      "item": "in the",
+      "count": 1889
+    },
+    {
+      "item": "to the",
+      "count": 1143
+    },
+    {
+      "item": "on the",
+      "count": 1032
+    },
+    {
+      "item": "you can",
+      "count": 838
+    },
+    {
+      "item": "is a",
+      "count": 802
+    },
+    {
+      "item": "it is",
+      "count": 713
+    },
+    {
+      "item": "and the",
+      "count": 710
+    },
+    {
+      "item": "for the",
+      "count": 705
+    },
+    {
+      "item": "if you",
+      "count": 698
+    },
+    {
+      "item": "to be",
+      "count": 685
+    },
+    {
+      "item": "with the",
+      "count": 620
+    },
+    {
+      "item": "in a",
+      "count": 554
+    },
+    {
+      "item": "at the",
+      "count": 546
+    },
+    {
+      "item": "it s",
+      "count": 541
+    },
+    {
+      "item": "from the",
+      "count": 539
+    },
+    {
+      "item": "with a",
+      "count": 492
+    },
+    {
+      "item": "is the",
+      "count": 473
+    },
+    {
+      "item": "as a",
+      "count": 467
+    },
+    {
+      "item": "can be",
+      "count": 452
+    },
+    {
+      "item": "you are",
+      "count": 421
+    },
+    {
+      "item": "will be",
+      "count": 419
+    },
+    {
+      "item": "for a",
+      "count": 405
+    },
+    {
+      "item": "one of",
+      "count": 403
+    },
+    {
+      "item": "of a",
+      "count": 388
+    },
+    {
+      "item": "want to",
+      "count": 365
+    },
+    {
+      "item": "of your",
+      "count": 350
+    },
+    {
+      "item": "have a",
+      "count": 347
+    },
+    {
+      "item": "this is",
+      "count": 343
+    },
+    {
+      "item": "need to",
+      "count": 338
+    },
+    {
+      "item": "that you",
+      "count": 338
+    },
+    {
+      "item": "there are",
+      "count": 334
+    },
+    {
+      "item": "by the",
+      "count": 322
+    },
+    {
+      "item": "to a",
+      "count": 316
+    },
+    {
+      "item": "the best",
+      "count": 314
+    },
+    {
+      "item": "to get",
+      "count": 300
+    },
+    {
+      "item": "the most",
+      "count": 298
+    },
+    {
+      "item": "that is",
+      "count": 296
+    },
+    {
+      "item": "that the",
+      "count": 290
+    },
+    {
+      "item": "to make",
+      "count": 287
+    },
+    {
+      "item": "such as",
+      "count": 281
+    },
+    {
+      "item": "as well",
+      "count": 280
+    },
+    {
+      "item": "don t",
+      "count": 277
+    },
+    {
+      "item": "you have",
+      "count": 271
+    },
+    {
+      "item": "you to",
+      "count": 263
+    },
+    {
+      "item": "in this",
+      "count": 263
+    },
+    {
+      "item": "you re",
+      "count": 258
+    },
+    {
+      "item": "and a",
+      "count": 258
+    },
+    {
+      "item": "you will",
+      "count": 257
+    },
+    {
+      "item": "as the",
+      "count": 256
+    },
+    {
+      "item": "able to",
+      "count": 253
+    },
+    {
+      "item": "all the",
+      "count": 252
+    },
+    {
+      "item": "the first",
+      "count": 251
+    },
+    {
+      "item": "on a",
+      "count": 247
+    },
+    {
+      "item": "and you",
+      "count": 246
+    },
+    {
+      "item": "to do",
+      "count": 245
+    },
+    {
+      "item": "we are",
+      "count": 243
+    },
+    {
+      "item": "is not",
+      "count": 241
+    },
+    {
+      "item": "the world",
+      "count": 238
+    },
+    {
+      "item": "a lot",
+      "count": 237
+    },
+    {
+      "item": "into the",
+      "count": 233
+    },
+    {
+      "item": "the same",
+      "count": 232
+    },
+    {
+      "item": "has been",
+      "count": 229
+    },
+    {
+      "item": "to your",
+      "count": 226
+    },
+    {
+      "item": "of our",
+      "count": 221
+    },
+    {
+      "item": "i have",
+      "count": 221
+    },
+    {
+      "item": "in your",
+      "count": 216
+    },
+    {
+      "item": "on your",
+      "count": 215
+    },
+    {
+      "item": "they are",
+      "count": 214
+    },
+    {
+      "item": "help you",
+      "count": 213
+    },
+    {
+      "item": "be a",
+      "count": 211
+    },
+    {
+      "item": "about the",
+      "count": 210
+    },
+    {
+      "item": "there is",
+      "count": 208
+    },
+    {
+      "item": "for your",
+      "count": 206
+    },
+    {
+      "item": "how to",
+      "count": 204
+    },
+    {
+      "item": "do not",
+      "count": 203
+    },
+    {
+      "item": "it was",
+      "count": 202
+    },
+    {
+      "item": "and i",
+      "count": 202
+    },
+    {
+      "item": "to have",
+      "count": 201
+    },
+    {
+      "item": "well as",
+      "count": 200
+    },
+    {
+      "item": "going to",
+      "count": 199
+    },
+    {
+      "item": "out of",
+      "count": 198
+    },
+    {
+      "item": "have to",
+      "count": 194
+    },
+    {
+      "item": "over the",
+      "count": 192
+    },
+    {
+      "item": "you want",
+      "count": 191
+    },
+    {
+      "item": "when you",
+      "count": 189
+    },
+    {
+      "item": "a few",
+      "count": 186
+    },
+    {
+      "item": "we have",
+      "count": 180
+    },
+    {
+      "item": "is to",
+      "count": 179
+    },
+    {
+      "item": "part of",
+      "count": 177
+    },
+    {
+      "item": "have been",
+      "count": 175
+    },
+    {
+      "item": "way to",
+      "count": 168
+    },
+    {
+      "item": "you need",
+      "count": 167
+    },
+    {
+      "item": "is an",
+      "count": 167
+    },
+    {
+      "item": "more than",
+      "count": 166
+    },
+    {
+      "item": "of this",
+      "count": 165
+    },
+    {
+      "item": "to help",
+      "count": 163
+    },
+    {
+      "item": "and it",
+      "count": 162
+    },
+    {
+      "item": "lot of",
+      "count": 160
+    },
+    {
+      "item": "some of",
+      "count": 160
+    }
+  ],
+  "top_word_trigrams": [
+    {
+      "item": "one of the",
+      "count": 278
+    },
+    {
+      "item": "as well as",
+      "count": 198
+    },
+    {
+      "item": "a lot of",
+      "count": 154
+    },
+    {
+      "item": "you want to",
+      "count": 125
+    },
+    {
+      "item": "be able to",
+      "count": 123
+    },
+    {
+      "item": "if you are",
+      "count": 119
+    },
+    {
+      "item": "some of the",
+      "count": 112
+    },
+    {
+      "item": "you need to",
+      "count": 104
+    },
+    {
+      "item": "in order to",
+      "count": 93
+    },
+    {
+      "item": "of the most",
+      "count": 91
+    },
+    {
+      "item": "if you re",
+      "count": 77
+    },
+    {
+      "item": "it is a",
+      "count": 75
+    },
+    {
+      "item": "citrus hotel s",
+      "count": 75
+    },
+    {
+      "item": "if you have",
+      "count": 74
+    },
+    {
+      "item": "there is a",
+      "count": 72
+    },
+    {
+      "item": "can help you",
+      "count": 67
+    },
+    {
+      "item": "is one of",
+      "count": 67
+    },
+    {
+      "item": "xiaomi mi a",
+      "count": 67
+    },
+    {
+      "item": "mi a lite",
+      "count": 67
+    },
+    {
+      "item": "a lite redmi",
+      "count": 67
+    },
+    {
+      "item": "lite redmi pro",
+      "count": 67
+    },
+    {
+      "item": "to help you",
+      "count": 65
+    },
+    {
+      "item": "if you want",
+      "count": 65
+    },
+    {
+      "item": "it s a",
+      "count": 64
+    },
+    {
+      "item": "part of the",
+      "count": 64
+    },
+    {
+      "item": "of the best",
+      "count": 62
+    },
+    {
+      "item": "and you can",
+      "count": 61
+    },
+    {
+      "item": "to be a",
+      "count": 61
+    },
+    {
+      "item": "a variety of",
+      "count": 60
+    },
+    {
+      "item": "you don t",
+      "count": 57
+    },
+    {
+      "item": "the end of",
+      "count": 56
+    },
+    {
+      "item": "this is a",
+      "count": 56
+    },
+    {
+      "item": "pump and dump",
+      "count": 56
+    },
+    {
+      "item": "over the counter",
+      "count": 55
+    },
+    {
+      "item": "in the world",
+      "count": 54
+    },
+    {
+      "item": "the fact that",
+      "count": 53
+    },
+    {
+      "item": "a couple of",
+      "count": 53
+    },
+    {
+      "item": "you do not",
+      "count": 53
+    },
+    {
+      "item": "it can be",
+      "count": 53
+    },
+    {
+      "item": "when it comes",
+      "count": 52
+    },
+    {
+      "item": "can be a",
+      "count": 52
+    },
+    {
+      "item": "here are some",
+      "count": 52
+    },
+    {
+      "item": "to have a",
+      "count": 52
+    },
+    {
+      "item": "that you can",
+      "count": 51
+    },
+    {
+      "item": "it comes to",
+      "count": 50
+    },
+    {
+      "item": "the united states",
+      "count": 50
+    },
+    {
+      "item": "and you will",
+      "count": 49
+    },
+    {
+      "item": "in addition to",
+      "count": 49
+    },
+    {
+      "item": "do over the",
+      "count": 49
+    },
+    {
+      "item": "the counter erectile",
+      "count": 49
+    },
+    {
+      "item": "counter erectile dysfunction",
+      "count": 49
+    },
+    {
+      "item": "erectile dysfunction drugs",
+      "count": 49
+    },
+    {
+      "item": "dysfunction drugs contain",
+      "count": 49
+    },
+    {
+      "item": "drugs contain amphetamines",
+      "count": 49
+    },
+    {
+      "item": "there is no",
+      "count": 48
+    },
+    {
+      "item": "i want to",
+      "count": 48
+    },
+    {
+      "item": "a number of",
+      "count": 47
+    },
+    {
+      "item": "you have a",
+      "count": 47
+    },
+    {
+      "item": "as a result",
+      "count": 47
+    },
+    {
+      "item": "you can also",
+      "count": 45
+    },
+    {
+      "item": "due to the",
+      "count": 44
+    },
+    {
+      "item": "you have to",
+      "count": 44
+    },
+    {
+      "item": "to make sure",
+      "count": 44
+    },
+    {
+      "item": "of the world",
+      "count": 43
+    },
+    {
+      "item": "out of the",
+      "count": 43
+    },
+    {
+      "item": "so you can",
+      "count": 42
+    },
+    {
+      "item": "that can be",
+      "count": 42
+    },
+    {
+      "item": "you will be",
+      "count": 42
+    },
+    {
+      "item": "this is the",
+      "count": 42
+    },
+    {
+      "item": "the ability to",
+      "count": 41
+    },
+    {
+      "item": "the university of",
+      "count": 41
+    },
+    {
+      "item": "most of the",
+      "count": 41
+    },
+    {
+      "item": "looking for a",
+      "count": 41
+    },
+    {
+      "item": "to make the",
+      "count": 40
+    },
+    {
+      "item": "the use of",
+      "count": 39
+    },
+    {
+      "item": "at the end",
+      "count": 39
+    },
+    {
+      "item": "there are many",
+      "count": 39
+    },
+    {
+      "item": "at the same",
+      "count": 39
+    },
+    {
+      "item": "need to be",
+      "count": 39
+    },
+    {
+      "item": "that you are",
+      "count": 38
+    },
+    {
+      "item": "are able to",
+      "count": 38
+    },
+    {
+      "item": "according to the",
+      "count": 38
+    },
+    {
+      "item": "i don t",
+      "count": 38
+    },
+    {
+      "item": "a v script",
+      "count": 38
+    },
+    {
+      "item": "it is not",
+      "count": 37
+    },
+    {
+      "item": "in this case",
+      "count": 37
+    },
+    {
+      "item": "all of the",
+      "count": 37
+    },
+    {
+      "item": "to be able",
+      "count": 37
+    },
+    {
+      "item": "the same time",
+      "count": 37
+    },
+    {
+      "item": "it s not",
+      "count": 37
+    },
+    {
+      "item": "the importance of",
+      "count": 37
+    },
+    {
+      "item": "based on the",
+      "count": 37
+    },
+    {
+      "item": "you can find",
+      "count": 36
+    },
+    {
+      "item": "it s important",
+      "count": 36
+    },
+    {
+      "item": "the concept of",
+      "count": 36
+    },
+    {
+      "item": "to be the",
+      "count": 36
+    },
+    {
+      "item": "in terms of",
+      "count": 36
+    },
+    {
+      "item": "the opportunity to",
+      "count": 35
+    },
+    {
+      "item": "there are a",
+      "count": 35
+    },
+    {
+      "item": "there s a",
+      "count": 35
+    }
+  ],
+  "top_char_4grams": [
+    {
+      "item": " the",
+      "count": 29417
+    },
+    {
+      "item": "the ",
+      "count": 24289
+    },
+    {
+      "item": "and ",
+      "count": 16365
+    },
+    {
+      "item": "ing ",
+      "count": 16177
+    },
+    {
+      "item": " and",
+      "count": 15591
+    },
+    {
+      "item": " to ",
+      "count": 14567
+    },
+    {
+      "item": " of ",
+      "count": 12320
+    },
+    {
+      "item": " you",
+      "count": 10847
+    },
+    {
+      "item": "tion",
+      "count": 9774
+    },
+    {
+      "item": " in ",
+      "count": 7994
+    },
+    {
+      "item": " for",
+      "count": 6330
+    },
+    {
+      "item": " is ",
+      "count": 6282
+    },
+    {
+      "item": " tha",
+      "count": 5989
+    },
+    {
+      "item": "hat ",
+      "count": 5986
+    },
+    {
+      "item": "you ",
+      "count": 5753
+    },
+    {
+      "item": "our ",
+      "count": 5749
+    },
+    {
+      "item": "for ",
+      "count": 5509
+    },
+    {
+      "item": "that",
+      "count": 5357
+    },
+    {
+      "item": "ion ",
+      "count": 5216
+    },
+    {
+      "item": "atio",
+      "count": 5141
+    },
+    {
+      "item": "n th",
+      "count": 4821
+    },
+    {
+      "item": " pro",
+      "count": 4776
+    },
+    {
+      "item": "e th",
+      "count": 4726
+    },
+    {
+      "item": "with",
+      "count": 4701
+    },
+    {
+      "item": " wit",
+      "count": 4610
+    },
+    {
+      "item": "are ",
+      "count": 4313
+    },
+    {
+      "item": "your",
+      "count": 4165
+    },
+    {
+      "item": "ith ",
+      "count": 4052
+    },
+    {
+      "item": " are",
+      "count": 3995
+    },
+    {
+      "item": " con",
+      "count": 3991
+    },
+    {
+      "item": "s th",
+      "count": 3890
+    },
+    {
+      "item": "ther",
+      "count": 3888
+    },
+    {
+      "item": "s an",
+      "count": 3824
+    },
+    {
+      "item": " thi",
+      "count": 3819
+    },
+    {
+      "item": "ent ",
+      "count": 3714
+    },
+    {
+      "item": " on ",
+      "count": 3614
+    },
+    {
+      "item": "of t",
+      "count": 3580
+    },
+    {
+      "item": "his ",
+      "count": 3545
+    },
+    {
+      "item": "f th",
+      "count": 3540
+    },
+    {
+      "item": "t th",
+      "count": 3538
+    },
+    {
+      "item": "ng t",
+      "count": 3421
+    },
+    {
+      "item": " com",
+      "count": 3377
+    },
+    {
+      "item": "ting",
+      "count": 3347
+    },
+    {
+      "item": "ment",
+      "count": 3263
+    },
+    {
+      "item": " it ",
+      "count": 3227
+    },
+    {
+      "item": " can",
+      "count": 3146
+    },
+    {
+      "item": "e of",
+      "count": 3137
+    },
+    {
+      "item": "this",
+      "count": 3093
+    },
+    {
+      "item": "d th",
+      "count": 2950
+    },
+    {
+      "item": "e to",
+      "count": 2946
+    },
+    {
+      "item": "can ",
+      "count": 2935
+    },
+    {
+      "item": "in t",
+      "count": 2896
+    },
+    {
+      "item": ". th",
+      "count": 2880
+    },
+    {
+      "item": "ted ",
+      "count": 2879
+    },
+    {
+      "item": " as ",
+      "count": 2879
+    },
+    {
+      "item": " or ",
+      "count": 2794
+    },
+    {
+      "item": "s to",
+      "count": 2789
+    },
+    {
+      "item": "ions",
+      "count": 2758
+    },
+    {
+      "item": ", an",
+      "count": 2751
+    },
+    {
+      "item": " be ",
+      "count": 2746
+    },
+    {
+      "item": "e in",
+      "count": 2742
+    },
+    {
+      "item": "s of",
+      "count": 2680
+    },
+    {
+      "item": "her ",
+      "count": 2596
+    },
+    {
+      "item": "ed t",
+      "count": 2582
+    },
+    {
+      "item": "ave ",
+      "count": 2540
+    },
+    {
+      "item": "nd t",
+      "count": 2532
+    },
+    {
+      "item": " hav",
+      "count": 2498
+    },
+    {
+      "item": "ng a",
+      "count": 2479
+    },
+    {
+      "item": "e an",
+      "count": 2470
+    },
+    {
+      "item": "out ",
+      "count": 2448
+    },
+    {
+      "item": "ers ",
+      "count": 2413
+    },
+    {
+      "item": "he s",
+      "count": 2399
+    },
+    {
+      "item": "e co",
+      "count": 2392
+    },
+    {
+      "item": "s in",
+      "count": 2386
+    },
+    {
+      "item": "here",
+      "count": 2376
+    },
+    {
+      "item": "have",
+      "count": 2373
+    },
+    {
+      "item": "he c",
+      "count": 2360
+    },
+    {
+      "item": "ill ",
+      "count": 2322
+    },
+    {
+      "item": " int",
+      "count": 2266
+    },
+    {
+      "item": "d to",
+      "count": 2261
+    },
+    {
+      "item": "r th",
+      "count": 2260
+    },
+    {
+      "item": "to t",
+      "count": 2248
+    },
+    {
+      "item": "s a ",
+      "count": 2225
+    },
+    {
+      "item": "ere ",
+      "count": 2218
+    },
+    {
+      "item": "nce ",
+      "count": 2206
+    },
+    {
+      "item": " fro",
+      "count": 2165
+    },
+    {
+      "item": "on t",
+      "count": 2131
+    },
+    {
+      "item": "o th",
+      "count": 2127
+    },
+    {
+      "item": "ter ",
+      "count": 2121
+    },
+    {
+      "item": "from",
+      "count": 2120
+    },
+    {
+      "item": ", th",
+      "count": 2111
+    },
+    {
+      "item": "all ",
+      "count": 2107
+    },
+    {
+      "item": "es a",
+      "count": 2104
+    },
+    {
+      "item": "ive ",
+      "count": 2088
+    },
+    {
+      "item": "ble ",
+      "count": 2082
+    },
+    {
+      "item": " not",
+      "count": 2079
+    },
+    {
+      "item": "rom ",
+      "count": 2071
+    },
+    {
+      "item": "ding",
+      "count": 2068
+    },
+    {
+      "item": "g th",
+      "count": 2058
+    },
+    {
+      "item": "ate ",
+      "count": 2049
+    }
+  ],
+  "top_char_5grams": [
+    {
+      "item": " the ",
+      "count": 23151
+    },
+    {
+      "item": " and ",
+      "count": 15405
+    },
+    {
+      "item": " you ",
+      "count": 5571
+    },
+    {
+      "item": " for ",
+      "count": 5338
+    },
+    {
+      "item": " that",
+      "count": 5305
+    },
+    {
+      "item": "ation",
+      "count": 5117
+    },
+    {
+      "item": "that ",
+      "count": 4924
+    },
+    {
+      "item": " with",
+      "count": 4584
+    },
+    {
+      "item": "tion ",
+      "count": 4354
+    },
+    {
+      "item": " your",
+      "count": 4109
+    },
+    {
+      "item": "with ",
+      "count": 4020
+    },
+    {
+      "item": "your ",
+      "count": 3965
+    },
+    {
+      "item": "n the",
+      "count": 3919
+    },
+    {
+      "item": " of t",
+      "count": 3570
+    },
+    {
+      "item": " are ",
+      "count": 3522
+    },
+    {
+      "item": "ing t",
+      "count": 3271
+    },
+    {
+      "item": "s and",
+      "count": 3256
+    },
+    {
+      "item": "of th",
+      "count": 3236
+    },
+    {
+      "item": "f the",
+      "count": 3130
+    },
+    {
+      "item": "this ",
+      "count": 2964
+    },
+    {
+      "item": "e the",
+      "count": 2899
+    },
+    {
+      "item": "e of ",
+      "count": 2866
+    },
+    {
+      "item": " this",
+      "count": 2837
+    },
+    {
+      "item": "ting ",
+      "count": 2806
+    },
+    {
+      "item": " can ",
+      "count": 2667
+    },
+    {
+      "item": ", and",
+      "count": 2619
+    },
+    {
+      "item": "t the",
+      "count": 2597
+    },
+    {
+      "item": "s to ",
+      "count": 2545
+    },
+    {
+      "item": "in th",
+      "count": 2545
+    },
+    {
+      "item": "e to ",
+      "count": 2475
+    },
+    {
+      "item": " in t",
+      "count": 2465
+    },
+    {
+      "item": "s of ",
+      "count": 2433
+    },
+    {
+      "item": "ing a",
+      "count": 2393
+    },
+    {
+      "item": "tions",
+      "count": 2346
+    },
+    {
+      "item": " have",
+      "count": 2330
+    },
+    {
+      "item": "have ",
+      "count": 2299
+    },
+    {
+      "item": "the s",
+      "count": 2283
+    },
+    {
+      "item": "the c",
+      "count": 2276
+    },
+    {
+      "item": "s the",
+      "count": 2116
+    },
+    {
+      "item": "d to ",
+      "count": 2086
+    },
+    {
+      "item": " from",
+      "count": 2071
+    },
+    {
+      "item": "d the",
+      "count": 2069
+    },
+    {
+      "item": "from ",
+      "count": 2065
+    },
+    {
+      "item": "ng th",
+      "count": 2039
+    },
+    {
+      "item": "the p",
+      "count": 1993
+    },
+    {
+      "item": "and t",
+      "count": 1985
+    },
+    {
+      "item": ". the",
+      "count": 1974
+    },
+    {
+      "item": " will",
+      "count": 1940
+    },
+    {
+      "item": "ther ",
+      "count": 1936
+    },
+    {
+      "item": " to t",
+      "count": 1926
+    },
+    {
+      "item": "will ",
+      "count": 1894
+    },
+    {
+      "item": "e and",
+      "count": 1839
+    },
+    {
+      "item": "nd th",
+      "count": 1800
+    },
+    {
+      "item": "t of ",
+      "count": 1771
+    },
+    {
+      "item": "ding ",
+      "count": 1755
+    },
+    {
+      "item": "to th",
+      "count": 1716
+    },
+    {
+      "item": "o the",
+      "count": 1697
+    },
+    {
+      "item": " not ",
+      "count": 1695
+    },
+    {
+      "item": " comp",
+      "count": 1680
+    },
+    {
+      "item": "ction",
+      "count": 1679
+    },
+    {
+      "item": "here ",
+      "count": 1672
+    },
+    {
+      "item": "ally ",
+      "count": 1666
+    },
+    {
+      "item": "ions ",
+      "count": 1656
+    },
+    {
+      "item": ", the",
+      "count": 1651
+    },
+    {
+      "item": "ed to",
+      "count": 1648
+    },
+    {
+      "item": "t to ",
+      "count": 1588
+    },
+    {
+      "item": "s in ",
+      "count": 1588
+    },
+    {
+      "item": "r the",
+      "count": 1565
+    },
+    {
+      "item": "able ",
+      "count": 1559
+    },
+    {
+      "item": "g the",
+      "count": 1555
+    },
+    {
+      "item": "t is ",
+      "count": 1520
+    },
+    {
+      "item": "e you",
+      "count": 1514
+    },
+    {
+      "item": "other",
+      "count": 1508
+    },
+    {
+      "item": "the f",
+      "count": 1496
+    },
+    {
+      "item": "on th",
+      "count": 1489
+    },
+    {
+      "item": "king ",
+      "count": 1469
+    },
+    {
+      "item": "the b",
+      "count": 1467
+    },
+    {
+      "item": "ment ",
+      "count": 1465
+    },
+    {
+      "item": " is a",
+      "count": 1464
+    },
+    {
+      "item": " cont",
+      "count": 1450
+    },
+    {
+      "item": " our ",
+      "count": 1428
+    },
+    {
+      "item": "and a",
+      "count": 1405
+    },
+    {
+      "item": "ring ",
+      "count": 1396
+    },
+    {
+      "item": "s tha",
+      "count": 1396
+    },
+    {
+      "item": " some",
+      "count": 1393
+    },
+    {
+      "item": "and s",
+      "count": 1392
+    },
+    {
+      "item": "the m",
+      "count": 1386
+    },
+    {
+      "item": " all ",
+      "count": 1384
+    },
+    {
+      "item": " they",
+      "count": 1376
+    },
+    {
+      "item": "their",
+      "count": 1356
+    },
+    {
+      "item": "heir ",
+      "count": 1355
+    },
+    {
+      "item": " inte",
+      "count": 1351
+    },
+    {
+      "item": " thei",
+      "count": 1346
+    },
+    {
+      "item": " more",
+      "count": 1326
+    },
+    {
+      "item": " on t",
+      "count": 1326
+    },
+    {
+      "item": "at th",
+      "count": 1314
+    },
+    {
+      "item": "ould ",
+      "count": 1298
+    },
+    {
+      "item": " was ",
+      "count": 1295
+    },
+    {
+      "item": "they ",
+      "count": 1289
+    },
+    {
+      "item": "s are",
+      "count": 1276
+    }
+  ],
+  "meta": {
+    "total_word_bigrams": 501847,
+    "total_word_trigrams": 501846,
+    "corpus_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\corpus\\fineweb",
+    "character_count_train": 3002707
+  }
+}

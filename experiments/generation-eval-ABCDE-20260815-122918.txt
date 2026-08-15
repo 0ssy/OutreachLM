@@ -1,0 +1,206 @@
+OUTREACHLM GENERATION EVAL A/B/C/D/E
+========================================================================
+JSON: experiments\generation-eval-ABCDE-20260815-122918.json
+
+A) DETERMINISTIC (GREEDY)
+PROMPT: OutreachLM is
+OutreachLM is and and the service and the company and the company and the
+
+PROMPT: The purpose of a transformer is
+The purpose of a transformer is and the company and the company and the company and the com
+
+PROMPT: Machine learning allows
+Machine learning allows and the company and the company and the company and the com
+
+PROMPT: A computer system can
+A computer system can and the company and the company and the company and the com
+
+B) SAMPLING COMPARISON
+TEMPERATURE=0.3
+PROMPT: OutreachLM is
+OutreachLM is and And and a stree and a company and and surformation and 
+
+PROMPT: The purpose of a transformer is
+The purpose of a transformer is that of completed the a contring the are the can the comple
+
+PROMPT: Machine learning allows
+Machine learning allows and and stand the contries in the contrance of the sure the
+
+PROMPT: A computer system can
+A computer system can the conter stand the stand the such and the comperation and
+
+TEMPERATURE=0.5
+PROMPT: OutreachLM is
+OutreachLM is of A chance a success into is conced in and the with is the
+
+PROMPT: The purpose of a transformer is
+The purpose of a transformer is that of changer the to so we in a signal to our contration 
+
+PROMPT: Machine learning allows
+Machine learning allows and and stant on storice and and inting and when of the com
+
+PROMPT: A computer system can
+A computer system can the constries and start can the companing to the service an
+
+TEMPERATURE=0.8
+PROMPT: OutreachLM is
+OutreachLM is properact to the eniver a by intely contance. The productio
+
+PROMPT: The purpose of a transformer is
+The purpose of a transformer is that’s can pumptive to so we in is what in to a real chall 
+
+PROMPT: Machine learning allows
+Machine learning allows and in counted the on seasert their into contrengle in the 
+
+PROMPT: A computer system can
+A computer system can the con crienday contring and a compries on and so of the w
+
+TEMPERATURE=1.0
+PROMPT: OutreachLM is
+OutreachLM is propulard to his communitual think access surfore cryst on 
+
+PROMPT: The purpose of a transformer is
+The purpose of a transformer is that’s carphicture in a cout insidew are into agroup chall 
+
+PROMPT: Machine learning allows
+Machine learning allows and increative thin effers it their into contred of thist t
+
+PROMPT: A computer system can
+A computer system can the clance supplogs. We centran is indown to the services w
+
+C) CONTEXT SENSITIVITY (GREEDY)
+PROMPT: Machine
+Machine and and the conter the service and the comple to the compan
+
+PROMPT: Machine learning
+Machine learning the comportant the company and the company and the company 
+
+PROMPT: Machine learning allows
+Machine learning allows and the company and the company and the company and the com
+
+PROMPT: Machine learning allows computers
+Machine learning allows computers and the comple to the company and the company and the compa
+
+PROMPT: Machine learning allows computers to
+Machine learning allows computers to the comple to the company and the company and the company a
+
+D) TOP-5 NEXT-CHAR PROBABILITIES
+PROMPT: A computer system can
+  1. ' '  prob=0.776331  id=3
+  2. 's'  prob=0.047321  id=86
+  3. 't'  prob=0.034060  id=87
+  4. 'n'  prob=0.032240  id=81
+  5. 'd'  prob=0.021770  id=71
+
+PROMPT: Machine
+  1. ' '  prob=0.368082  id=3
+  2. 's'  prob=0.348413  id=86
+  3. 'd'  prob=0.089604  id=71
+  4. ','  prob=0.040301  id=15
+  5. '.'  prob=0.031668  id=17
+
+PROMPT: Machine learning
+  1. ' '  prob=0.855471  id=3
+  2. '.'  prob=0.043324  id=17
+  3. ','  prob=0.038605  id=15
+  4. 's'  prob=0.023173  id=86
+  5. '\\n'  prob=0.014578  id=2
+
+PROMPT: Machine learning allows
+  1. ' '  prob=0.646689  id=3
+  2. ','  prob=0.095872  id=15
+  3. '.'  prob=0.093877  id=17
+  4. 'i'  prob=0.053273  id=76
+  5. 'e'  prob=0.030499  id=72
+
+PROMPT: Machine learning allows computers
+  1. ' '  prob=0.597850  id=3
+  2. ','  prob=0.092336  id=15
+  3. '.'  prob=0.078964  id=17
+  4. 'e'  prob=0.059678  id=72
+  5. 'o'  prob=0.042301  id=82
+
+PROMPT: Machine learning allows computers to
+  1. ' '  prob=0.897370  id=3
+  2. 'd'  prob=0.011824  id=71
+  3. 'o'  prob=0.009590  id=82
+  4. 'p'  prob=0.008193  id=83
+  5. 't'  prob=0.007617  id=87
+
+PROMPT: OutreachLM is
+  1. ' '  prob=0.898063  id=3
+  2. 's'  prob=0.053329  id=86
+  3. 't'  prob=0.014476  id=87
+  4. 'c'  prob=0.004506  id=70
+  5. '.'  prob=0.004351  id=17
+
+PROMPT: The purpose of a transformer is
+  1. ' '  prob=0.938161  id=3
+  2. 's'  prob=0.030653  id=86
+  3. 't'  prob=0.010745  id=87
+  4. 'c'  prob=0.003544  id=70
+  5. '.'  prob=0.003326  id=17
+
+E) METRICS
+overall:
+  total_words: 385
+  valid_english_looking_word_rate: 0.927273
+  malformed_word_rate: 0.072727
+  repeated_word_rate: 0.026042
+  repeated_3gram_rate: 0.328982
+  average_word_length: 4.379221
+  sentence_termination_rate: 0.000000
+
+A:
+  total_words: 63
+  valid_english_looking_word_rate: 0.968254
+  malformed_word_rate: 0.031746
+  repeated_word_rate: 0.032258
+  repeated_3gram_rate: 0.524590
+  average_word_length: 4.269841
+  sentence_termination_rate: 0.000000
+
+B_temp_0.3:
+  total_words: 62
+  valid_english_looking_word_rate: 0.919355
+  malformed_word_rate: 0.080645
+  repeated_word_rate: 0.065574
+  repeated_3gram_rate: 0.000000
+  average_word_length: 4.338710
+  sentence_termination_rate: 0.000000
+
+B_temp_0.5:
+  total_words: 66
+  valid_english_looking_word_rate: 0.924242
+  malformed_word_rate: 0.075758
+  repeated_word_rate: 0.046154
+  repeated_3gram_rate: 0.000000
+  average_word_length: 4.015152
+  sentence_termination_rate: 0.000000
+
+B_temp_0.8:
+  total_words: 64
+  valid_english_looking_word_rate: 0.875000
+  malformed_word_rate: 0.125000
+  repeated_word_rate: 0.000000
+  repeated_3gram_rate: 0.000000
+  average_word_length: 4.140625
+  sentence_termination_rate: 0.000000
+
+B_temp_1.0:
+  total_words: 57
+  valid_english_looking_word_rate: 0.877193
+  malformed_word_rate: 0.122807
+  repeated_word_rate: 0.000000
+  repeated_3gram_rate: 0.000000
+  average_word_length: 4.771930
+  sentence_termination_rate: 0.000000
+
+C:
+  total_words: 73
+  valid_english_looking_word_rate: 0.986301
+  malformed_word_rate: 0.013699
+  repeated_word_rate: 0.013889
+  repeated_3gram_rate: 0.450704
+  average_word_length: 4.739726
+  sentence_termination_rate: 0.000000

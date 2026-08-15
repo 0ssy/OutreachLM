@@ -2,7 +2,7 @@ from pathlib import Path
 
 import torch
 
-CHECKPOINT_VERSION = 1
+CHECKPOINT_VERSION = 2
 
 
 def build_config(
@@ -17,6 +17,8 @@ def build_config(
     seed,
     corpus_path,
     vocab_size,
+    num_layers,
+    num_heads,
 ):
     return {
         "context_length": context_length,
@@ -31,6 +33,8 @@ def build_config(
             Path(corpus_path).resolve()
         ),
         "vocab_size": vocab_size,
+        "num_layers": num_layers,
+        "num_heads": num_heads,
     }
 
 
@@ -101,7 +105,7 @@ def load_checkpoint(
         "checkpoint_version"
     )
 
-    if version != CHECKPOINT_VERSION:
+    if version not in (None, 1, CHECKPOINT_VERSION):
         raise RuntimeError(
             "Unsupported checkpoint version: "
             f"{version}"
@@ -119,18 +123,29 @@ def load_checkpoint(
         ]
     )
 
+    if "train_loss" in checkpoint:
+        train_loss = checkpoint["train_loss"]
+    elif "average_train_loss" in checkpoint:
+        train_loss = checkpoint["average_train_loss"]
+    elif "last_loss" in checkpoint:
+        train_loss = checkpoint["last_loss"]
+    elif "loss" in checkpoint:
+        train_loss = checkpoint["loss"]
+    else:
+        train_loss = float("nan")
+
     return {
         "step": checkpoint["step"],
 
-        "train_loss": checkpoint[
-            "train_loss"
-        ],
+        "train_loss": train_loss,
 
-        "best_validation_loss": checkpoint[
-            "best_validation_loss"
-        ],
+        "best_validation_loss": checkpoint.get(
+            "best_validation_loss",
+            float("inf")
+        ),
 
-        "config": checkpoint["config"],
+        "config": checkpoint.get("config", {}),
+        "is_legacy": version != CHECKPOINT_VERSION,
     }
 
 

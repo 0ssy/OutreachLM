@@ -1,0 +1,74 @@
+OUTREACHLM CORPUS FREQUENCY DIAGNOSTIC
+========================================================================
+Train characters: 3002707
+Train words: 501848
+
+Target phrase stats:
+- 'the company': count=82, per_million_ngrams=163.396
+- 'and the company': count=2, per_million_ngrams=3.985
+
+Top 20 words:
+- the: 24399
+- and: 15729
+- to: 14891
+- of: 12447
+- a: 11712
+- in: 8454
+- you: 6570
+- is: 6435
+- for: 5573
+- that: 5245
+- it: 4410
+- with: 4075
+- your: 3983
+- on: 3822
+- are: 3635
+- i: 3232
+- this: 3089
+- as: 3082
+- or: 2919
+- be: 2815
+
+Top 20 word bigrams:
+- of the: 2583
+- in the: 1889
+- to the: 1143
+- on the: 1032
+- you can: 838
+- is a: 802
+- it is: 713
+- and the: 710
+- for the: 705
+- if you: 698
+- to be: 685
+- with the: 620
+- in a: 554
+- at the: 546
+- it s: 541
+- from the: 539
+- with a: 492
+- is the: 473
+- as a: 467
+- can be: 452
+
+Top 20 word trigrams:
+- one of the: 278
+- as well as: 198
+- a lot of: 154
+- you want to: 125
+- be able to: 123
+- if you are: 119
+- some of the: 112
+- you need to: 104
+- in order to: 93
+- of the most: 91
+- if you re: 77
+- it is a: 75
+- citrus hotel s: 75
+- if you have: 74
+- there is a: 72
+- can help you: 67
+- is one of: 67
+- xiaomi mi a: 67
+- mi a lite: 67
+- a lite redmi: 67

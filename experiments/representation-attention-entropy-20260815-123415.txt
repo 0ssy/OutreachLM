@@ -1,0 +1,105 @@
+OUTREACHLM REPRESENTATION/ATTENTION/ENTROPY DIAGNOSTICS
+========================================================================
+Timestamp: 2026-08-15T12:34:15.575048
+
+1) REPRESENTATION SEPARATION
+Context centroid cosine vs unrelated centroid: 0.576701
+Prompts:
+- Machine
+- Machine learning
+- Machine learning allows
+- Machine learning allows computers
+- The purpose of a transformer
+- A computer system can
+- OutreachLM is
+
+2) ATTENTION DIAGNOSTICS
+Prompt: Machine
+  Layer 0:
+    Head 0 | entropy=0.838152 | self=0.275573 | prev=0.481459 | future_ratio=0.000000 | argmax_offset=1.143
+    Head 1 | entropy=0.512475 | self=0.251826 | prev=0.130324 | future_ratio=0.000000 | argmax_offset=1.429
+    Head 2 | entropy=0.787966 | self=0.233523 | prev=0.333157 | future_ratio=0.000000 | argmax_offset=1.714
+    Head 3 | entropy=0.164047 | self=0.157486 | prev=0.960476 | future_ratio=0.000000 | argmax_offset=0.857
+
+Prompt: Machine learning
+  Layer 0:
+    Head 0 | entropy=0.984203 | self=0.161649 | prev=0.442106 | future_ratio=0.000000 | argmax_offset=1.688
+    Head 1 | entropy=0.680558 | self=0.127471 | prev=0.146437 | future_ratio=0.000000 | argmax_offset=1.625
+    Head 2 | entropy=1.081767 | self=0.147658 | prev=0.341317 | future_ratio=0.000000 | argmax_offset=2.062
+    Head 3 | entropy=0.140560 | self=0.070298 | prev=0.972193 | future_ratio=0.000000 | argmax_offset=0.938
+
+Prompt: Machine learning allows
+  Layer 0:
+    Head 0 | entropy=1.036529 | self=0.142658 | prev=0.410815 | future_ratio=0.000000 | argmax_offset=1.696
+    Head 1 | entropy=0.764085 | self=0.098679 | prev=0.137008 | future_ratio=0.000000 | argmax_offset=1.739
+    Head 2 | entropy=1.116106 | self=0.139435 | prev=0.401911 | future_ratio=0.000000 | argmax_offset=2.478
+    Head 3 | entropy=0.133507 | self=0.050753 | prev=0.975023 | future_ratio=0.000000 | argmax_offset=0.957
+
+Prompt: Machine learning allows computers
+  Layer 0:
+    Head 0 | entropy=1.077459 | self=0.125353 | prev=0.401357 | future_ratio=0.000000 | argmax_offset=1.438
+    Head 1 | entropy=0.762571 | self=0.071226 | prev=0.129832 | future_ratio=0.000000 | argmax_offset=1.844
+    Head 2 | entropy=1.183924 | self=0.149798 | prev=0.440547 | future_ratio=0.000000 | argmax_offset=1.531
+    Head 3 | entropy=0.177124 | self=0.041290 | prev=0.963618 | future_ratio=0.000000 | argmax_offset=0.969
+
+Prompt: The purpose of a transformer
+  Layer 0:
+    Head 0 | entropy=1.103170 | self=0.140144 | prev=0.397848 | future_ratio=0.000000 | argmax_offset=1.464
+    Head 1 | entropy=0.777293 | self=0.069255 | prev=0.174148 | future_ratio=0.000000 | argmax_offset=1.821
+    Head 2 | entropy=1.177232 | self=0.120553 | prev=0.386463 | future_ratio=0.000000 | argmax_offset=1.500
+    Head 3 | entropy=0.193605 | self=0.045088 | prev=0.960497 | future_ratio=0.000000 | argmax_offset=0.964
+
+Prompt: A computer system can
+  Layer 0:
+    Head 0 | entropy=1.168553 | self=0.195224 | prev=0.372674 | future_ratio=0.000000 | argmax_offset=1.571
+    Head 1 | entropy=0.823196 | self=0.099849 | prev=0.186721 | future_ratio=0.000000 | argmax_offset=1.762
+    Head 2 | entropy=1.042789 | self=0.120991 | prev=0.353548 | future_ratio=0.000000 | argmax_offset=2.810
+    Head 3 | entropy=0.243105 | self=0.059147 | prev=0.943121 | future_ratio=0.000000 | argmax_offset=0.952
+
+Prompt: OutreachLM is
+  Layer 0:
+    Head 0 | entropy=1.018376 | self=0.191894 | prev=0.446159 | future_ratio=0.000000 | argmax_offset=1.231
+    Head 1 | entropy=0.765952 | self=0.152350 | prev=0.170645 | future_ratio=0.000000 | argmax_offset=1.538
+    Head 2 | entropy=1.051736 | self=0.211186 | prev=0.358965 | future_ratio=0.000000 | argmax_offset=1.692
+    Head 3 | entropy=0.236077 | self=0.088296 | prev=0.938471 | future_ratio=0.000000 | argmax_offset=0.923
+
+3) LOGIT ENTROPY + REPETITION DYNAMICS
+Prompt: OutreachLM is
+Generated: OutreachLM is and and the service and the company and the company and the
+  first_repeated_bigram_step=6 first_repeated_trigram_step=7 unique_bigrams=23 unique_trigrams=28
+  First 5 steps:
+    step=1 entropy=0.522365 argmax=' ' p=0.898063
+    step=2 entropy=3.636119 argmax='a' p=0.128088
+    step=3 entropy=1.868583 argmax='n' p=0.354734
+    step=4 entropy=0.778658 argmax='d' p=0.832751
+    step=5 entropy=0.674166 argmax=' ' p=0.882909
+
+Prompt: The purpose of a transformer is
+Generated: The purpose of a transformer is and the company and the company and the company and the com
+  first_repeated_bigram_step=15 first_repeated_trigram_step=19 unique_bigrams=16 unique_trigrams=18
+  First 5 steps:
+    step=1 entropy=0.347914 argmax=' ' p=0.938161
+    step=2 entropy=2.942425 argmax='a' p=0.180137
+    step=3 entropy=1.905627 argmax='n' p=0.334138
+    step=4 entropy=0.700100 argmax='d' p=0.855541
+    step=5 entropy=0.355736 argmax=' ' p=0.944786
+
+Prompt: Machine learning allows
+Generated: Machine learning allows and the company and the company and the company and the com
+  first_repeated_bigram_step=15 first_repeated_trigram_step=19 unique_bigrams=16 unique_trigrams=18
+  First 5 steps:
+    step=1 entropy=1.432163 argmax=' ' p=0.646689
+    step=2 entropy=2.711083 argmax='a' p=0.212460
+    step=3 entropy=1.911123 argmax='n' p=0.351306
+    step=4 entropy=0.861613 argmax='d' p=0.785793
+    step=5 entropy=0.545978 argmax=' ' p=0.909999
+
+Prompt: A computer system can
+Generated: A computer system can and the company and the company and the company and the com
+  first_repeated_bigram_step=15 first_repeated_trigram_step=19 unique_bigrams=16 unique_trigrams=18
+  First 5 steps:
+    step=1 entropy=1.086728 argmax=' ' p=0.776331
+    step=2 entropy=3.176039 argmax='a' p=0.144509
+    step=3 entropy=2.163619 argmax='n' p=0.386579
+    step=4 entropy=0.811915 argmax='d' p=0.810206
+    step=5 entropy=0.499299 argmax=' ' p=0.918714

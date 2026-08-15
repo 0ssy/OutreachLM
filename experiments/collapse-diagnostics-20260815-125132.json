@@ -1,0 +1,4735 @@
+{
+  "timestamp": "2026-08-15T12:51:32.434884",
+  "config": {
+    "max_new_tokens": 60,
+    "seed": 42,
+    "prompts": [
+      "Machine",
+      "Machine learning",
+      "Machine learning allows",
+      "Machine learning allows computers",
+      "Machine learning allows computers to",
+      "The purpose of a transformer",
+      "A computer system can",
+      "OutreachLM is"
+    ]
+  },
+  "experiment_1": {
+    "prompts": [
+      "Machine",
+      "Machine learning",
+      "Machine learning allows",
+      "Machine learning allows computers",
+      "Machine learning allows computers to",
+      "The purpose of a transformer",
+      "A computer system can",
+      "OutreachLM is"
+    ],
+    "per_prompt_top10": {
+      "Machine": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.3680817484855652
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.34841254353523254
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.08960437029600143
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.0403013601899147
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.031667809933423996
+        },
+        {
+          "token_id": 85,
+          "token": "r",
+          "probability": 0.02470545843243599
+        },
+        {
+          "token_id": 79,
+          "token": "l",
+          "probability": 0.014374797232449055
+        },
+        {
+          "token_id": 16,
+          "token": "-",
+          "probability": 0.009985540062189102
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.005944899283349514
+        },
+        {
+          "token_id": 73,
+          "token": "f",
+          "probability": 0.005900272633880377
+        }
+      ],
+      "Machine learning": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.8554708957672119
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.043324489146471024
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.038605086505413055
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.023172961547970772
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.014577913098037243
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.004804233089089394
+        },
+        {
+          "token_id": 16,
+          "token": "-",
+          "probability": 0.003801818937063217
+        },
+        {
+          "token_id": 34,
+          "token": "?",
+          "probability": 0.002674315357580781
+        },
+        {
+          "token_id": 12,
+          "token": ")",
+          "probability": 0.0015312287723645568
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.0013231171760708094
+        }
+      ],
+      "Machine learning allows": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.6466886401176453
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.0958717092871666
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.09387658536434174
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.05327252671122551
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.030498838052153587
+        },
+        {
+          "token_id": 29,
+          "token": ":",
+          "probability": 0.013147889636456966
+        },
+        {
+          "token_id": 2,
+          "token": "\\n",
+          "probability": 0.007572982460260391
+        },
+        {
+          "token_id": 79,
+          "token": "l",
+          "probability": 0.006752596702426672
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.005996961146593094
+        },
+        {
+          "token_id": 34,
+          "token": "?",
+          "probability": 0.0051920413970947266
+        }
+      ],
+      "Machine learning allows computers": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.5978500843048096
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.09233643114566803
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.0789639800786972
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.05967768654227257
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.042300745844841
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.036652784794569016
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.022894812747836113
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.01841994747519493
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.007415832486003637
+        },
+        {
+          "token_id": 88,
+          "token": "u",
+          "probability": 0.005852291360497475
+        }
+      ],
+      "Machine learning allows computers to": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.8973696827888489
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.011824105866253376
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.009590020403265953
+        },
+        {
+          "token_id": 83,
+          "token": "p",
+          "probability": 0.008193272165954113
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.0076170386746525764
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.005916554015129805
+        },
+        {
+          "token_id": 79,
+          "token": "l",
+          "probability": 0.005718020256608725
+        },
+        {
+          "token_id": 74,
+          "token": "g",
+          "probability": 0.005622218828648329
+        },
+        {
+          "token_id": 88,
+          "token": "u",
+          "probability": 0.005517265293747187
+        },
+        {
+          "token_id": 90,
+          "token": "w",
+          "probability": 0.004898023325949907
+        }
+      ],
+      "The purpose of a transformer": [
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.2730931043624878
+        },
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.22093524038791656
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.11047794669866562
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.08478125184774399
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.04417020455002785
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.04187898337841034
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.034530024975538254
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.03147856891155243
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.027799319475889206
+        },
+        {
+          "token_id": 72,
+          "token": "e",
+          "probability": 0.01980891264975071
+        }
+      ],
+      "A computer system can": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.77633136510849
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.04732101038098335
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.03405985236167908
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.032240286469459534
+        },
+        {
+          "token_id": 71,
+          "token": "d",
+          "probability": 0.02176962047815323
+        },
+        {
+          "token_id": 10,
+          "token": "'",
+          "probability": 0.017809584736824036
+        },
+        {
+          "token_id": 279,
+          "token": "’",
+          "probability": 0.015363205224275589
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.014902660623192787
+        },
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.010181128978729248
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.004326432943344116
+        }
+      ],
+      "OutreachLM is": [
+        {
+          "token_id": 3,
+          "token": " ",
+          "probability": 0.8980631828308105
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.05332903191447258
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.014476398937404156
+        },
+        {
+          "token_id": 70,
+          "token": "c",
+          "probability": 0.004505586344748735
+        },
+        {
+          "token_id": 17,
+          "token": ".",
+          "probability": 0.004350575618445873
+        },
+        {
+          "token_id": 80,
+          "token": "m",
+          "probability": 0.003908379469066858
+        },
+        {
+          "token_id": 15,
+          "token": ",",
+          "probability": 0.0038747722283005714
+        },
+        {
+          "token_id": 81,
+          "token": "n",
+          "probability": 0.0034460914321243763
+        },
+        {
+          "token_id": 75,
+          "token": "h",
+          "probability": 0.00324651668779552
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.0015388933243229985
+        }
+      ]
+    },
+    "pairwise": [
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine",
+        "hidden_cosine": 1.0,
+        "logit_cosine": 1.0,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.5422786474227905,
+        "logit_cosine": 0.9933773279190063,
+        "kl_pq": 1.5133562088012695,
+        "kl_qp": 0.666069746017456,
+        "kl_symmetric": 1.0897129774093628
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.42898720502853394,
+        "logit_cosine": 0.993592381477356,
+        "kl_pq": 1.888727068901062,
+        "kl_qp": 0.8650394082069397,
+        "kl_symmetric": 1.3768832385540009
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.3393881916999817,
+        "logit_cosine": 0.9945458173751831,
+        "kl_pq": 2.515427589416504,
+        "kl_qp": 0.9625656604766846,
+        "kl_symmetric": 1.7389966249465942
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.30546677112579346,
+        "logit_cosine": 0.9950405359268188,
+        "kl_pq": 1.7183036804199219,
+        "kl_qp": 0.8007677793502808,
+        "kl_symmetric": 1.2595357298851013
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.311698853969574,
+        "logit_cosine": 0.9928029179573059,
+        "kl_pq": 0.7741315960884094,
+        "kl_qp": 1.0740846395492554,
+        "kl_symmetric": 0.9241081178188324
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.45772987604141235,
+        "logit_cosine": 0.995963990688324,
+        "kl_pq": 0.9070640206336975,
+        "kl_qp": 0.6857814192771912,
+        "kl_symmetric": 0.7964227199554443
+      },
+      {
+        "prompt_a": "Machine",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.4488300383090973,
+        "logit_cosine": 0.9957485198974609,
+        "kl_pq": 1.259911298751831,
+        "kl_qp": 0.6924540996551514,
+        "kl_symmetric": 0.9761826992034912
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.5422786474227905,
+        "logit_cosine": 0.9933773279190063,
+        "kl_pq": 0.666069746017456,
+        "kl_qp": 1.5133562088012695,
+        "kl_symmetric": 1.0897129774093628
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.9999998807907104,
+        "logit_cosine": 0.9999999403953552,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.5652899146080017,
+        "logit_cosine": 0.9956268668174744,
+        "kl_pq": 0.19706788659095764,
+        "kl_qp": 0.5126848816871643,
+        "kl_symmetric": 0.354876384139061
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.49429967999458313,
+        "logit_cosine": 0.9945906400680542,
+        "kl_pq": 0.3246513605117798,
+        "kl_qp": 0.9484698176383972,
+        "kl_symmetric": 0.6365605890750885
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.25252366065979004,
+        "logit_cosine": 0.9913020730018616,
+        "kl_pq": 0.3086302876472473,
+        "kl_qp": 0.3401273787021637,
+        "kl_symmetric": 0.3243788331747055
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.404573917388916,
+        "logit_cosine": 0.9921066164970398,
+        "kl_pq": 1.134533405303955,
+        "kl_qp": 2.741739273071289,
+        "kl_symmetric": 1.938136339187622
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.26562631130218506,
+        "logit_cosine": 0.9920287728309631,
+        "kl_pq": 0.3287520706653595,
+        "kl_qp": 0.6279507875442505,
+        "kl_symmetric": 0.478351429104805
+      },
+      {
+        "prompt_a": "Machine learning",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.520684540271759,
+        "logit_cosine": 0.9949682950973511,
+        "kl_pq": 0.21494826674461365,
+        "kl_qp": 0.15878377854824066,
+        "kl_symmetric": 0.18686602264642715
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.42898720502853394,
+        "logit_cosine": 0.993592381477356,
+        "kl_pq": 0.8650394082069397,
+        "kl_qp": 1.888727068901062,
+        "kl_symmetric": 1.3768832385540009
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.5652899146080017,
+        "logit_cosine": 0.9956268668174744,
+        "kl_pq": 0.5126848816871643,
+        "kl_qp": 0.19706788659095764,
+        "kl_symmetric": 0.354876384139061
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.9999999403953552,
+        "logit_cosine": 1.0,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.706113338470459,
+        "logit_cosine": 0.9972267150878906,
+        "kl_pq": 0.112139493227005,
+        "kl_qp": 0.19924044609069824,
+        "kl_symmetric": 0.15568996965885162
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.2222917377948761,
+        "logit_cosine": 0.9927406311035156,
+        "kl_pq": 1.0077356100082397,
+        "kl_qp": 0.4497060477733612,
+        "kl_symmetric": 0.7287208288908005
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.21681007742881775,
+        "logit_cosine": 0.9918785691261292,
+        "kl_pq": 0.9156649112701416,
+        "kl_qp": 2.2004079818725586,
+        "kl_symmetric": 1.55803644657135
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.08079911768436432,
+        "logit_cosine": 0.9917880296707153,
+        "kl_pq": 0.8887112736701965,
+        "kl_qp": 0.7784901261329651,
+        "kl_symmetric": 0.8336006999015808
+      },
+      {
+        "prompt_a": "Machine learning allows",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.5174544453620911,
+        "logit_cosine": 0.9959891438484192,
+        "kl_pq": 0.8527810573577881,
+        "kl_qp": 0.4293759763240814,
+        "kl_symmetric": 0.6410785168409348
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.3393881916999817,
+        "logit_cosine": 0.9945458173751831,
+        "kl_pq": 0.9625656604766846,
+        "kl_qp": 2.515427589416504,
+        "kl_symmetric": 1.7389966249465942
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.49429967999458313,
+        "logit_cosine": 0.9945906400680542,
+        "kl_pq": 0.9484698176383972,
+        "kl_qp": 0.3246513605117798,
+        "kl_symmetric": 0.6365605890750885
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.706113338470459,
+        "logit_cosine": 0.9972267150878906,
+        "kl_pq": 0.19924044609069824,
+        "kl_qp": 0.112139493227005,
+        "kl_symmetric": 0.15568996965885162
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 1.0,
+        "logit_cosine": 0.9999998807907104,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.3103731572628021,
+        "logit_cosine": 0.994747519493103,
+        "kl_pq": 1.0421797037124634,
+        "kl_qp": 0.48722097277641296,
+        "kl_symmetric": 0.7647003382444382
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.41339609026908875,
+        "logit_cosine": 0.9947025775909424,
+        "kl_pq": 0.8115466833114624,
+        "kl_qp": 1.98154878616333,
+        "kl_symmetric": 1.3965477347373962
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.18519048392772675,
+        "logit_cosine": 0.9945293664932251,
+        "kl_pq": 0.9076406955718994,
+        "kl_qp": 0.74958735704422,
+        "kl_symmetric": 0.8286140263080597
+      },
+      {
+        "prompt_a": "Machine learning allows computers",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.4488036036491394,
+        "logit_cosine": 0.9961345195770264,
+        "kl_pq": 1.143784761428833,
+        "kl_qp": 0.5376086831092834,
+        "kl_symmetric": 0.8406967222690582
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.30546677112579346,
+        "logit_cosine": 0.9950405359268188,
+        "kl_pq": 0.8007677793502808,
+        "kl_qp": 1.7183036804199219,
+        "kl_symmetric": 1.2595357298851013
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.25252366065979004,
+        "logit_cosine": 0.9913020730018616,
+        "kl_pq": 0.3401273787021637,
+        "kl_qp": 0.3086302876472473,
+        "kl_symmetric": 0.3243788331747055
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.2222917377948761,
+        "logit_cosine": 0.9927406311035156,
+        "kl_pq": 0.4497060477733612,
+        "kl_qp": 1.0077356100082397,
+        "kl_symmetric": 0.7287208288908005
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.3103731572628021,
+        "logit_cosine": 0.994747519493103,
+        "kl_pq": 0.48722097277641296,
+        "kl_qp": 1.0421797037124634,
+        "kl_symmetric": 0.7647003382444382
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 1.0,
+        "logit_cosine": 0.9999999403953552,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.11737748980522156,
+        "logit_cosine": 0.9925093650817871,
+        "kl_pq": 1.2573816776275635,
+        "kl_qp": 2.419767379760742,
+        "kl_symmetric": 1.8385745286941528
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.41240930557250977,
+        "logit_cosine": 0.9962875247001648,
+        "kl_pq": 0.2082040011882782,
+        "kl_qp": 0.26908189058303833,
+        "kl_symmetric": 0.23864294588565826
+      },
+      {
+        "prompt_a": "Machine learning allows computers to",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.5273419618606567,
+        "logit_cosine": 0.99745774269104,
+        "kl_pq": 0.18452054262161255,
+        "kl_qp": 0.14531221985816956,
+        "kl_symmetric": 0.16491638123989105
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.311698853969574,
+        "logit_cosine": 0.9928029179573059,
+        "kl_pq": 1.0740846395492554,
+        "kl_qp": 0.7741315960884094,
+        "kl_symmetric": 0.9241081178188324
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.404573917388916,
+        "logit_cosine": 0.9921066164970398,
+        "kl_pq": 2.741739273071289,
+        "kl_qp": 1.134533405303955,
+        "kl_symmetric": 1.938136339187622
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.21681007742881775,
+        "logit_cosine": 0.9918785691261292,
+        "kl_pq": 2.2004079818725586,
+        "kl_qp": 0.9156649112701416,
+        "kl_symmetric": 1.55803644657135
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.41339609026908875,
+        "logit_cosine": 0.9947025775909424,
+        "kl_pq": 1.98154878616333,
+        "kl_qp": 0.8115466833114624,
+        "kl_symmetric": 1.3965477347373962
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.11737748980522156,
+        "logit_cosine": 0.9925093650817871,
+        "kl_pq": 2.419767379760742,
+        "kl_qp": 1.2573816776275635,
+        "kl_symmetric": 1.8385745286941528
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 1.0,
+        "logit_cosine": 0.9999998807907104,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.36346185207366943,
+        "logit_cosine": 0.994659423828125,
+        "kl_pq": 1.2196717262268066,
+        "kl_qp": 0.9319553375244141,
+        "kl_symmetric": 1.0758135318756104
+      },
+      {
+        "prompt_a": "The purpose of a transformer",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.3928956687450409,
+        "logit_cosine": 0.9948974251747131,
+        "kl_pq": 2.0678021907806396,
+        "kl_qp": 1.1077834367752075,
+        "kl_symmetric": 1.5877928137779236
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.45772987604141235,
+        "logit_cosine": 0.995963990688324,
+        "kl_pq": 0.6857814192771912,
+        "kl_qp": 0.9070640206336975,
+        "kl_symmetric": 0.7964227199554443
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.26562631130218506,
+        "logit_cosine": 0.9920287728309631,
+        "kl_pq": 0.6279507875442505,
+        "kl_qp": 0.3287520706653595,
+        "kl_symmetric": 0.478351429104805
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.08079911768436432,
+        "logit_cosine": 0.9917880296707153,
+        "kl_pq": 0.7784901261329651,
+        "kl_qp": 0.8887112736701965,
+        "kl_symmetric": 0.8336006999015808
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.18519048392772675,
+        "logit_cosine": 0.9945293664932251,
+        "kl_pq": 0.74958735704422,
+        "kl_qp": 0.9076406955718994,
+        "kl_symmetric": 0.8286140263080597
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.41240930557250977,
+        "logit_cosine": 0.9962875247001648,
+        "kl_pq": 0.26908189058303833,
+        "kl_qp": 0.2082040011882782,
+        "kl_symmetric": 0.23864294588565826
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.36346185207366943,
+        "logit_cosine": 0.994659423828125,
+        "kl_pq": 0.9319553375244141,
+        "kl_qp": 1.2196717262268066,
+        "kl_symmetric": 1.0758135318756104
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.9999998807907104,
+        "logit_cosine": 1.0,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      },
+      {
+        "prompt_a": "A computer system can",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 0.44144102931022644,
+        "logit_cosine": 0.9968902468681335,
+        "kl_pq": 0.33756446838378906,
+        "kl_qp": 0.13357853889465332,
+        "kl_symmetric": 0.2355715036392212
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine",
+        "hidden_cosine": 0.4488300383090973,
+        "logit_cosine": 0.9957485198974609,
+        "kl_pq": 0.6924540996551514,
+        "kl_qp": 1.259911298751831,
+        "kl_symmetric": 0.9761826992034912
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning",
+        "hidden_cosine": 0.520684540271759,
+        "logit_cosine": 0.9949682950973511,
+        "kl_pq": 0.15878377854824066,
+        "kl_qp": 0.21494826674461365,
+        "kl_symmetric": 0.18686602264642715
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning allows",
+        "hidden_cosine": 0.5174544453620911,
+        "logit_cosine": 0.9959891438484192,
+        "kl_pq": 0.4293759763240814,
+        "kl_qp": 0.8527810573577881,
+        "kl_symmetric": 0.6410785168409348
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning allows computers",
+        "hidden_cosine": 0.4488036036491394,
+        "logit_cosine": 0.9961345195770264,
+        "kl_pq": 0.5376086831092834,
+        "kl_qp": 1.143784761428833,
+        "kl_symmetric": 0.8406967222690582
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "Machine learning allows computers to",
+        "hidden_cosine": 0.5273419618606567,
+        "logit_cosine": 0.99745774269104,
+        "kl_pq": 0.14531221985816956,
+        "kl_qp": 0.18452054262161255,
+        "kl_symmetric": 0.16491638123989105
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "The purpose of a transformer",
+        "hidden_cosine": 0.3928956687450409,
+        "logit_cosine": 0.9948974251747131,
+        "kl_pq": 1.1077834367752075,
+        "kl_qp": 2.0678021907806396,
+        "kl_symmetric": 1.5877928137779236
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "A computer system can",
+        "hidden_cosine": 0.44144102931022644,
+        "logit_cosine": 0.9968902468681335,
+        "kl_pq": 0.13357853889465332,
+        "kl_qp": 0.33756446838378906,
+        "kl_symmetric": 0.2355715036392212
+      },
+      {
+        "prompt_a": "OutreachLM is",
+        "prompt_b": "OutreachLM is",
+        "hidden_cosine": 1.0000001192092896,
+        "logit_cosine": 0.9999998807907104,
+        "kl_pq": 0.0,
+        "kl_qp": 0.0,
+        "kl_symmetric": 0.0
+      }
+    ]
+  },
+  "experiment_2": {
+    "prompt": "OutreachLM is",
+    "max_new_tokens": 60,
+    "generated_text": "OutreachLM is and and the service and the company and the company and the",
+    "first_repeated_bigram_step": 19,
+    "first_repeated_trigram_step": 20,
+    "rows": [
+      {
+        "step": 1,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.8980631828308105,
+        "entropy": 0.5223650932312012,
+        "hidden_norm": 11.213492393493652,
+        "hidden_cosine_to_previous": null,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.8980631828308105
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.05332903191447258
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.014476398937404156
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.004505586344748735
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.004350575618445873
+          }
+        ]
+      },
+      {
+        "step": 2,
+        "token_id": 68,
+        "token": "a",
+        "probability": 0.128088116645813,
+        "entropy": 3.6361191272735596,
+        "hidden_norm": 9.379189491271973,
+        "hidden_cosine_to_previous": 0.12694096565246582,
+        "top_5_tokens": [
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.128088116645813
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.06923133134841919
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.059114355593919754
+          },
+          {
+            "token_id": 90,
+            "token": "w",
+            "probability": 0.050570305436849594
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.04467017203569412
+          }
+        ]
+      },
+      {
+        "step": 3,
+        "token_id": 81,
+        "token": "n",
+        "probability": 0.3547343909740448,
+        "entropy": 1.868582844734192,
+        "hidden_norm": 11.080666542053223,
+        "hidden_cosine_to_previous": 0.07943306863307953,
+        "top_5_tokens": [
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.3547343909740448
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.2742983102798462
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.14453265070915222
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.06671828031539917
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.03860245645046234
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "token_id": 71,
+        "token": "d",
+        "probability": 0.8327510952949524,
+        "entropy": 0.7786577939987183,
+        "hidden_norm": 11.457074165344238,
+        "hidden_cosine_to_previous": 0.4145311117172241,
+        "top_5_tokens": [
+          {
+            "token_id": 71,
+            "token": "d",
+            "probability": 0.8327510952949524
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.07595543563365936
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.035852573812007904
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.007567496970295906
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.007187455426901579
+          }
+        ]
+      },
+      {
+        "step": 5,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.8829091191291809,
+        "entropy": 0.674165666103363,
+        "hidden_norm": 10.940299987792969,
+        "hidden_cosine_to_previous": 0.24885231256484985,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.8829091191291809
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.020139561966061592
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.013969137333333492
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.013295305892825127
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.013006960041821003
+          }
+        ]
+      },
+      {
+        "step": 6,
+        "token_id": 68,
+        "token": "a",
+        "probability": 0.06971319019794464,
+        "entropy": 3.7940139770507812,
+        "hidden_norm": 9.339129447937012,
+        "hidden_cosine_to_previous": 0.23463064432144165,
+        "top_5_tokens": [
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.06971319019794464
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.06142674386501312
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.043207984417676926
+          },
+          {
+            "token_id": 90,
+            "token": "w",
+            "probability": 0.039311349391937256
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.03721850365400314
+          }
+        ]
+      },
+      {
+        "step": 7,
+        "token_id": 81,
+        "token": "n",
+        "probability": 0.35812944173812866,
+        "entropy": 2.1099936962127686,
+        "hidden_norm": 10.874570846557617,
+        "hidden_cosine_to_previous": 0.29497987031936646,
+        "top_5_tokens": [
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.35812944173812866
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.23491942882537842
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.06203727796673775
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.0617515854537487
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.05737302452325821
+          }
+        ]
+      },
+      {
+        "step": 8,
+        "token_id": 71,
+        "token": "d",
+        "probability": 0.8105732798576355,
+        "entropy": 0.8833208084106445,
+        "hidden_norm": 11.308030128479004,
+        "hidden_cosine_to_previous": 0.4538828432559967,
+        "top_5_tokens": [
+          {
+            "token_id": 71,
+            "token": "d",
+            "probability": 0.8105732798576355
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.06595896929502487
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.05275917053222656
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.016520891338586807
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.007935228757560253
+          }
+        ]
+      },
+      {
+        "step": 9,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.9248437285423279,
+        "entropy": 0.4685409665107727,
+        "hidden_norm": 10.972146034240723,
+        "hidden_cosine_to_previous": 0.2201230227947235,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.9248437285423279
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.014003090560436249
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.01044626533985138
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.009158716537058353
+          },
+          {
+            "token_id": 15,
+            "token": ",",
+            "probability": 0.008031381294131279
+          }
+        ]
+      },
+      {
+        "step": 10,
+        "token_id": 87,
+        "token": "t",
+        "probability": 0.08069031685590744,
+        "entropy": 3.754446506500244,
+        "hidden_norm": 9.300031661987305,
+        "hidden_cosine_to_previous": 0.2146332859992981,
+        "top_5_tokens": [
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.08069031685590744
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.07613258808851242
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.04598843306303024
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.042705245316028595
+          },
+          {
+            "token_id": 90,
+            "token": "w",
+            "probability": 0.039973899722099304
+          }
+        ]
+      },
+      {
+        "step": 11,
+        "token_id": 75,
+        "token": "h",
+        "probability": 0.519548773765564,
+        "entropy": 1.2451268434524536,
+        "hidden_norm": 11.260299682617188,
+        "hidden_cosine_to_previous": 0.3998070955276489,
+        "top_5_tokens": [
+          {
+            "token_id": 75,
+            "token": "h",
+            "probability": 0.519548773765564
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.33833807706832886
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.037705324590206146
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.027850592508912086
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.02753942273557186
+          }
+        ]
+      },
+      {
+        "step": 12,
+        "token_id": 72,
+        "token": "e",
+        "probability": 0.7971043586730957,
+        "entropy": 0.7544258832931519,
+        "hidden_norm": 11.41097354888916,
+        "hidden_cosine_to_previous": 0.5491029024124146,
+        "top_5_tokens": [
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.7971043586730957
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.08549508452415466
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.08299612253904343
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.01775517128407955
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.012707030400633812
+          }
+        ]
+      },
+      {
+        "step": 13,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.7731095552444458,
+        "entropy": 1.0329420566558838,
+        "hidden_norm": 11.548444747924805,
+        "hidden_cosine_to_previous": 0.32320329546928406,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.7731095552444458
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.05767052620649338
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.042745865881443024
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.03261425346136093
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.026354197412729263
+          }
+        ]
+      },
+      {
+        "step": 14,
+        "token_id": 86,
+        "token": "s",
+        "probability": 0.07986355572938919,
+        "entropy": 3.459418773651123,
+        "hidden_norm": 9.61916732788086,
+        "hidden_cosine_to_previous": 0.04826796054840088,
+        "top_5_tokens": [
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.07986355572938919
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.07915051281452179
+          },
+          {
+            "token_id": 83,
+            "token": "p",
+            "probability": 0.06388091295957565
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.0632016658782959
+          },
+          {
+            "token_id": 80,
+            "token": "m",
+            "probability": 0.05116049945354462
+          }
+        ]
+      },
+      {
+        "step": 15,
+        "token_id": 72,
+        "token": "e",
+        "probability": 0.18406745791435242,
+        "entropy": 2.3920700550079346,
+        "hidden_norm": 10.95415210723877,
+        "hidden_cosine_to_previous": 0.5901294350624084,
+        "top_5_tokens": [
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.18406745791435242
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.1511898636817932
+          },
+          {
+            "token_id": 88,
+            "token": "u",
+            "probability": 0.1316310316324234
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.10506141930818558
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.09416132420301437
+          }
+        ]
+      },
+      {
+        "step": 16,
+        "token_id": 85,
+        "token": "r",
+        "probability": 0.27732425928115845,
+        "entropy": 2.2833597660064697,
+        "hidden_norm": 11.525708198547363,
+        "hidden_cosine_to_previous": 0.3801906108856201,
+        "top_5_tokens": [
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.27732425928115845
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.18090781569480896
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.12382427603006363
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.08362919092178345
+          },
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.07032886892557144
+          }
+        ]
+      },
+      {
+        "step": 17,
+        "token_id": 89,
+        "token": "v",
+        "probability": 0.6991114020347595,
+        "entropy": 1.3363968133926392,
+        "hidden_norm": 11.161585807800293,
+        "hidden_cosine_to_previous": 0.249186173081398,
+        "top_5_tokens": [
+          {
+            "token_id": 89,
+            "token": "v",
+            "probability": 0.6991114020347595
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.10043881833553314
+          },
+          {
+            "token_id": 73,
+            "token": "f",
+            "probability": 0.034255482256412506
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.033492010086774826
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.024439861997961998
+          }
+        ]
+      },
+      {
+        "step": 18,
+        "token_id": 76,
+        "token": "i",
+        "probability": 0.5648746490478516,
+        "entropy": 1.2676314115524292,
+        "hidden_norm": 11.175036430358887,
+        "hidden_cosine_to_previous": 0.23382240533828735,
+        "top_5_tokens": [
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.5648746490478516
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.2179805487394333
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.11365211009979248
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.07131282985210419
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.01669418253004551
+          }
+        ]
+      },
+      {
+        "step": 19,
+        "token_id": 70,
+        "token": "c",
+        "probability": 0.6017923951148987,
+        "entropy": 1.5291386842727661,
+        "hidden_norm": 11.69360637664795,
+        "hidden_cosine_to_previous": -0.05505555123090744,
+        "top_5_tokens": [
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.6017923951148987
+          },
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.10158903896808624
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.06403917819261551
+          },
+          {
+            "token_id": 71,
+            "token": "d",
+            "probability": 0.06351162493228912
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.057843953371047974
+          }
+        ]
+      },
+      {
+        "step": 20,
+        "token_id": 72,
+        "token": "e",
+        "probability": 0.8118137121200562,
+        "entropy": 0.8216103315353394,
+        "hidden_norm": 11.31364917755127,
+        "hidden_cosine_to_previous": 0.18014372885227203,
+        "top_5_tokens": [
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.8118137121200562
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.08807478845119476
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.028260044753551483
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.02485843002796173
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.01485610194504261
+          }
+        ]
+      },
+      {
+        "step": 21,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.5387826561927795,
+        "entropy": 1.6665935516357422,
+        "hidden_norm": 11.120495796203613,
+        "hidden_cosine_to_previous": 0.19569312036037445,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.5387826561927795
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.1728203445672989
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.06641767919063568
+          },
+          {
+            "token_id": 15,
+            "token": ",",
+            "probability": 0.05572325736284256
+          },
+          {
+            "token_id": 71,
+            "token": "d",
+            "probability": 0.05012771487236023
+          }
+        ]
+      },
+      {
+        "step": 22,
+        "token_id": 68,
+        "token": "a",
+        "probability": 0.16064472496509552,
+        "entropy": 3.0398035049438477,
+        "hidden_norm": 9.67231559753418,
+        "hidden_cosine_to_previous": 0.03615771234035492,
+        "top_5_tokens": [
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.16064472496509552
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.1324039101600647
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.1027732864022255
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.08958788961172104
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.0508250966668129
+          }
+        ]
+      },
+      {
+        "step": 23,
+        "token_id": 81,
+        "token": "n",
+        "probability": 0.2966725826263428,
+        "entropy": 2.3259780406951904,
+        "hidden_norm": 10.990371704101562,
+        "hidden_cosine_to_previous": 0.3328256905078888,
+        "top_5_tokens": [
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.2966725826263428
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.1662696748971939
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.12471343576908112
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.08195384591817856
+          },
+          {
+            "token_id": 69,
+            "token": "b",
+            "probability": 0.05272667855024338
+          }
+        ]
+      },
+      {
+        "step": 24,
+        "token_id": 71,
+        "token": "d",
+        "probability": 0.8353520035743713,
+        "entropy": 0.7703627943992615,
+        "hidden_norm": 11.379146575927734,
+        "hidden_cosine_to_previous": 0.4985096752643585,
+        "top_5_tokens": [
+          {
+            "token_id": 71,
+            "token": "d",
+            "probability": 0.8353520035743713
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.06069515645503998
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.05270931497216225
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.007962459698319435
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.007601485121995211
+          }
+        ]
+      },
+      {
+        "step": 25,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.9409314393997192,
+        "entropy": 0.37699100375175476,
+        "hidden_norm": 11.010541915893555,
+        "hidden_cosine_to_previous": 0.31243637204170227,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.9409314393997192
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.013786199502646923
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.00796966440975666
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.007587288971990347
+          },
+          {
+            "token_id": 15,
+            "token": ",",
+            "probability": 0.006540175061672926
+          }
+        ]
+      },
+      {
+        "step": 26,
+        "token_id": 87,
+        "token": "t",
+        "probability": 0.1442938596010208,
+        "entropy": 3.100954532623291,
+        "hidden_norm": 9.636509895324707,
+        "hidden_cosine_to_previous": 0.11604753881692886,
+        "top_5_tokens": [
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.1442938596010208
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.10277824103832245
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.07393859326839447
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.07046069204807281
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.06310849636793137
+          }
+        ]
+      },
+      {
+        "step": 27,
+        "token_id": 75,
+        "token": "h",
+        "probability": 0.6127121448516846,
+        "entropy": 1.142791986465454,
+        "hidden_norm": 11.192817687988281,
+        "hidden_cosine_to_previous": 0.4477798342704773,
+        "top_5_tokens": [
+          {
+            "token_id": 75,
+            "token": "h",
+            "probability": 0.6127121448516846
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.25840869545936584
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.047991324216127396
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.021861491724848747
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.02045927569270134
+          }
+        ]
+      },
+      {
+        "step": 28,
+        "token_id": 72,
+        "token": "e",
+        "probability": 0.7407197952270508,
+        "entropy": 0.9040886163711548,
+        "hidden_norm": 11.311412811279297,
+        "hidden_cosine_to_previous": 0.5656213164329529,
+        "top_5_tokens": [
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.7407197952270508
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.12723009288311005
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.07772280275821686
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.03302803263068199
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.014899896457791328
+          }
+        ]
+      },
+      {
+        "step": 29,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.778683066368103,
+        "entropy": 0.9921795725822449,
+        "hidden_norm": 11.435243606567383,
+        "hidden_cosine_to_previous": 0.33793914318084717,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.778683066368103
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.05385545641183853
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.04278209060430527
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.04130822420120239
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.03598245978355408
+          }
+        ]
+      },
+      {
+        "step": 30,
+        "token_id": 70,
+        "token": "c",
+        "probability": 0.09212655574083328,
+        "entropy": 3.3383994102478027,
+        "hidden_norm": 9.716411590576172,
+        "hidden_cosine_to_previous": 0.03011609986424446,
+        "top_5_tokens": [
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.09212655574083328
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.07824098318815231
+          },
+          {
+            "token_id": 83,
+            "token": "p",
+            "probability": 0.06604398041963577
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.06505639106035233
+          },
+          {
+            "token_id": 90,
+            "token": "w",
+            "probability": 0.05044550076127052
+          }
+        ]
+      },
+      {
+        "step": 31,
+        "token_id": 82,
+        "token": "o",
+        "probability": 0.40954503417015076,
+        "entropy": 1.669762134552002,
+        "hidden_norm": 11.378363609313965,
+        "hidden_cosine_to_previous": 0.29229071736335754,
+        "top_5_tokens": [
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.40954503417015076
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.24300289154052734
+          },
+          {
+            "token_id": 75,
+            "token": "h",
+            "probability": 0.11467093974351883
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.07515736669301987
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.0664195790886879
+          }
+        ]
+      },
+      {
+        "step": 32,
+        "token_id": 80,
+        "token": "m",
+        "probability": 0.36404305696487427,
+        "entropy": 1.7434227466583252,
+        "hidden_norm": 11.379802703857422,
+        "hidden_cosine_to_previous": 0.18330878019332886,
+        "top_5_tokens": [
+          {
+            "token_id": 80,
+            "token": "m",
+            "probability": 0.36404305696487427
+          },
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.32172906398773193
+          },
+          {
+            "token_id": 88,
+            "token": "u",
+            "probability": 0.12428010255098343
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.03977249562740326
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.03306581452488899
+          }
+        ]
+      },
+      {
+        "step": 33,
+        "token_id": 83,
+        "token": "p",
+        "probability": 0.595941424369812,
+        "entropy": 1.1890631914138794,
+        "hidden_norm": 11.001543045043945,
+        "hidden_cosine_to_previous": 0.3760729134082794,
+        "top_5_tokens": [
+          {
+            "token_id": 83,
+            "token": "p",
+            "probability": 0.595941424369812
+          },
+          {
+            "token_id": 80,
+            "token": "m",
+            "probability": 0.26443377137184143
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.06475166231393814
+          },
+          {
+            "token_id": 69,
+            "token": "b",
+            "probability": 0.03168407827615738
+          },
+          {
+            "token_id": 73,
+            "token": "f",
+            "probability": 0.013119429349899292
+          }
+        ]
+      },
+      {
+        "step": 34,
+        "token_id": 68,
+        "token": "a",
+        "probability": 0.23369605839252472,
+        "entropy": 2.1380879878997803,
+        "hidden_norm": 11.48210334777832,
+        "hidden_cosine_to_previous": 0.06914382427930832,
+        "top_5_tokens": [
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.23369605839252472
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.23286500573158264
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.15592089295387268
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.0971236526966095
+          },
+          {
+            "token_id": 88,
+            "token": "u",
+            "probability": 0.07931289076805115
+          }
+        ]
+      },
+      {
+        "step": 35,
+        "token_id": 81,
+        "token": "n",
+        "probability": 0.5295102596282959,
+        "entropy": 1.4294313192367554,
+        "hidden_norm": 11.423989295959473,
+        "hidden_cosine_to_previous": 0.12993773818016052,
+        "top_5_tokens": [
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.5295102596282959
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.18671637773513794
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.14140574634075165
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.08868858218193054
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.009644905105233192
+          }
+        ]
+      },
+      {
+        "step": 36,
+        "token_id": 92,
+        "token": "y",
+        "probability": 0.3351508378982544,
+        "entropy": 1.9409379959106445,
+        "hidden_norm": 11.33791446685791,
+        "hidden_cosine_to_previous": 0.37298864126205444,
+        "top_5_tokens": [
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.3351508378982544
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.24797970056533813
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.13210923969745636
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.061612993478775024
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.059166859835386276
+          }
+        ]
+      },
+      {
+        "step": 37,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.6058845520019531,
+        "entropy": 1.7335654497146606,
+        "hidden_norm": 10.72263240814209,
+        "hidden_cosine_to_previous": 0.2649889588356018,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.6058845520019531
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.07622656226158142
+          },
+          {
+            "token_id": 15,
+            "token": ",",
+            "probability": 0.07002237439155579
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.06142311543226242
+          },
+          {
+            "token_id": 16,
+            "token": "-",
+            "probability": 0.027589967474341393
+          }
+        ]
+      },
+      {
+        "step": 38,
+        "token_id": 68,
+        "token": "a",
+        "probability": 0.14982566237449646,
+        "entropy": 3.0089774131774902,
+        "hidden_norm": 9.774222373962402,
+        "hidden_cosine_to_previous": 0.1152443140745163,
+        "top_5_tokens": [
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.14982566237449646
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.11995114386081696
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.08621674031019211
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.07099146395921707
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.05454790219664574
+          }
+        ]
+      },
+      {
+        "step": 39,
+        "token_id": 81,
+        "token": "n",
+        "probability": 0.38416674733161926,
+        "entropy": 2.1865742206573486,
+        "hidden_norm": 11.026390075683594,
+        "hidden_cosine_to_previous": 0.3184693455696106,
+        "top_5_tokens": [
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.38416674733161926
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.12198086082935333
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.08865435421466827
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.08075620979070663
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.06597660481929779
+          }
+        ]
+      },
+      {
+        "step": 40,
+        "token_id": 71,
+        "token": "d",
+        "probability": 0.8497041463851929,
+        "entropy": 0.6990339756011963,
+        "hidden_norm": 11.367605209350586,
+        "hidden_cosine_to_previous": 0.4594976007938385,
+        "top_5_tokens": [
+          {
+            "token_id": 71,
+            "token": "d",
+            "probability": 0.8497041463851929
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.07438924163579941
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.034355517476797104
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.006976941134780645
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.005258925724774599
+          }
+        ]
+      },
+      {
+        "step": 41,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.9412155151367188,
+        "entropy": 0.3743934631347656,
+        "hidden_norm": 11.017315864562988,
+        "hidden_cosine_to_previous": 0.32964569330215454,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.9412155151367188
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.014231786131858826
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.007921574637293816
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.0075064110569655895
+          },
+          {
+            "token_id": 15,
+            "token": ",",
+            "probability": 0.0065238880924880505
+          }
+        ]
+      },
+      {
+        "step": 42,
+        "token_id": 87,
+        "token": "t",
+        "probability": 0.13234306871891022,
+        "entropy": 3.1046829223632812,
+        "hidden_norm": 9.65897274017334,
+        "hidden_cosine_to_previous": 0.11345965415239334,
+        "top_5_tokens": [
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.13234306871891022
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.1054648831486702
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.07526461035013199
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.06710497289896011
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.06411901861429214
+          }
+        ]
+      },
+      {
+        "step": 43,
+        "token_id": 75,
+        "token": "h",
+        "probability": 0.597133457660675,
+        "entropy": 1.1589891910552979,
+        "hidden_norm": 11.20085620880127,
+        "hidden_cosine_to_previous": 0.44933411478996277,
+        "top_5_tokens": [
+          {
+            "token_id": 75,
+            "token": "h",
+            "probability": 0.597133457660675
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.27392521500587463
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.0444486103951931
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.02308487333357334
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.02127651870250702
+          }
+        ]
+      },
+      {
+        "step": 44,
+        "token_id": 72,
+        "token": "e",
+        "probability": 0.758645236492157,
+        "entropy": 0.8605909943580627,
+        "hidden_norm": 11.31579303741455,
+        "hidden_cosine_to_previous": 0.5757516622543335,
+        "top_5_tokens": [
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.758645236492157
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.11796357482671738
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.07545062154531479
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.02693994715809822
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.014786023646593094
+          }
+        ]
+      },
+      {
+        "step": 45,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.7812201976776123,
+        "entropy": 0.9948477149009705,
+        "hidden_norm": 11.44182014465332,
+        "hidden_cosine_to_previous": 0.3296518325805664,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.7812201976776123
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.04559459909796715
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.04360981658101082
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.04220924898982048
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.03351209685206413
+          }
+        ]
+      },
+      {
+        "step": 46,
+        "token_id": 70,
+        "token": "c",
+        "probability": 0.08984524011611938,
+        "entropy": 3.3255741596221924,
+        "hidden_norm": 9.730681419372559,
+        "hidden_cosine_to_previous": 0.04848170280456543,
+        "top_5_tokens": [
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.08984524011611938
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.0721757635474205
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.06951919943094254
+          },
+          {
+            "token_id": 83,
+            "token": "p",
+            "probability": 0.05949706956744194
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.05320167541503906
+          }
+        ]
+      },
+      {
+        "step": 47,
+        "token_id": 82,
+        "token": "o",
+        "probability": 0.41167283058166504,
+        "entropy": 1.6684277057647705,
+        "hidden_norm": 11.378385543823242,
+        "hidden_cosine_to_previous": 0.2890344262123108,
+        "top_5_tokens": [
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.41167283058166504
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.2411961704492569
+          },
+          {
+            "token_id": 75,
+            "token": "h",
+            "probability": 0.11431463807821274
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.07481887191534042
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.06645301729440689
+          }
+        ]
+      },
+      {
+        "step": 48,
+        "token_id": 80,
+        "token": "m",
+        "probability": 0.3641800582408905,
+        "entropy": 1.7419850826263428,
+        "hidden_norm": 11.379388809204102,
+        "hidden_cosine_to_previous": 0.18402233719825745,
+        "top_5_tokens": [
+          {
+            "token_id": 80,
+            "token": "m",
+            "probability": 0.3641800582408905
+          },
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.3223021328449249
+          },
+          {
+            "token_id": 88,
+            "token": "u",
+            "probability": 0.12404701858758926
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.03965938091278076
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.032937388867139816
+          }
+        ]
+      },
+      {
+        "step": 49,
+        "token_id": 83,
+        "token": "p",
+        "probability": 0.5969569683074951,
+        "entropy": 1.1866953372955322,
+        "hidden_norm": 11.003070831298828,
+        "hidden_cosine_to_previous": 0.3747253715991974,
+        "top_5_tokens": [
+          {
+            "token_id": 83,
+            "token": "p",
+            "probability": 0.5969569683074951
+          },
+          {
+            "token_id": 80,
+            "token": "m",
+            "probability": 0.2640893757343292
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.06442082673311234
+          },
+          {
+            "token_id": 69,
+            "token": "b",
+            "probability": 0.031500980257987976
+          },
+          {
+            "token_id": 73,
+            "token": "f",
+            "probability": 0.013112504035234451
+          }
+        ]
+      },
+      {
+        "step": 50,
+        "token_id": 68,
+        "token": "a",
+        "probability": 0.24552881717681885,
+        "entropy": 2.111743688583374,
+        "hidden_norm": 11.48362922668457,
+        "hidden_cosine_to_previous": 0.061294153332710266,
+        "top_5_tokens": [
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.24552881717681885
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.21886906027793884
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.16940245032310486
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.09320373833179474
+          },
+          {
+            "token_id": 88,
+            "token": "u",
+            "probability": 0.08311402052640915
+          }
+        ]
+      },
+      {
+        "step": 51,
+        "token_id": 81,
+        "token": "n",
+        "probability": 0.5314737558364868,
+        "entropy": 1.4260700941085815,
+        "hidden_norm": 11.419737815856934,
+        "hidden_cosine_to_previous": 0.1329263150691986,
+        "top_5_tokens": [
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.5314737558364868
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.18648745119571686
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.14053545892238617
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.08803445845842361
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.009611982852220535
+          }
+        ]
+      },
+      {
+        "step": 52,
+        "token_id": 92,
+        "token": "y",
+        "probability": 0.33472299575805664,
+        "entropy": 1.941915512084961,
+        "hidden_norm": 11.337862014770508,
+        "hidden_cosine_to_previous": 0.3727182447910309,
+        "top_5_tokens": [
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.33472299575805664
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.24769289791584015
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.13248877227306366
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.061686839908361435
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.059115540236234665
+          }
+        ]
+      },
+      {
+        "step": 53,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.6095860600471497,
+        "entropy": 1.7181330919265747,
+        "hidden_norm": 10.7284574508667,
+        "hidden_cosine_to_previous": 0.26620352268218994,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.6095860600471497
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.07557615637779236
+          },
+          {
+            "token_id": 15,
+            "token": ",",
+            "probability": 0.06974878907203674
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.061787672340869904
+          },
+          {
+            "token_id": 16,
+            "token": "-",
+            "probability": 0.02679237350821495
+          }
+        ]
+      },
+      {
+        "step": 54,
+        "token_id": 68,
+        "token": "a",
+        "probability": 0.14889121055603027,
+        "entropy": 3.006899356842041,
+        "hidden_norm": 9.77571964263916,
+        "hidden_cosine_to_previous": 0.1136944591999054,
+        "top_5_tokens": [
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.14889121055603027
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.12202739715576172
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.08556320518255234
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.07008666545152664
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.053809355944395065
+          }
+        ]
+      },
+      {
+        "step": 55,
+        "token_id": 81,
+        "token": "n",
+        "probability": 0.38456711173057556,
+        "entropy": 2.186445951461792,
+        "hidden_norm": 11.025296211242676,
+        "hidden_cosine_to_previous": 0.3188789486885071,
+        "top_5_tokens": [
+          {
+            "token_id": 81,
+            "token": "n",
+            "probability": 0.38456711173057556
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.12166743725538254
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.0885341465473175
+          },
+          {
+            "token_id": 79,
+            "token": "l",
+            "probability": 0.08066574484109879
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.06559260934591293
+          }
+        ]
+      },
+      {
+        "step": 56,
+        "token_id": 71,
+        "token": "d",
+        "probability": 0.8497784733772278,
+        "entropy": 0.698630690574646,
+        "hidden_norm": 11.367608070373535,
+        "hidden_cosine_to_previous": 0.4597262740135193,
+        "top_5_tokens": [
+          {
+            "token_id": 71,
+            "token": "d",
+            "probability": 0.8497784733772278
+          },
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.07445916533470154
+          },
+          {
+            "token_id": 92,
+            "token": "y",
+            "probability": 0.034259334206581116
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.006971332710236311
+          },
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.00524976197630167
+          }
+        ]
+      },
+      {
+        "step": 57,
+        "token_id": 3,
+        "token": " ",
+        "probability": 0.9411695003509521,
+        "entropy": 0.3746510446071625,
+        "hidden_norm": 11.017278671264648,
+        "hidden_cosine_to_previous": 0.3296844959259033,
+        "top_5_tokens": [
+          {
+            "token_id": 3,
+            "token": " ",
+            "probability": 0.9411695003509521
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.014234896749258041
+          },
+          {
+            "token_id": 17,
+            "token": ".",
+            "probability": 0.007923642173409462
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.007517922203987837
+          },
+          {
+            "token_id": 15,
+            "token": ",",
+            "probability": 0.006525198929011822
+          }
+        ]
+      },
+      {
+        "step": 58,
+        "token_id": 87,
+        "token": "t",
+        "probability": 0.13379323482513428,
+        "entropy": 3.100095272064209,
+        "hidden_norm": 9.663485527038574,
+        "hidden_cosine_to_previous": 0.11302828788757324,
+        "top_5_tokens": [
+          {
+            "token_id": 87,
+            "token": "t",
+            "probability": 0.13379323482513428
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.1051945611834526
+          },
+          {
+            "token_id": 86,
+            "token": "s",
+            "probability": 0.07429392635822296
+          },
+          {
+            "token_id": 70,
+            "token": "c",
+            "probability": 0.06757137179374695
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.06436308473348618
+          }
+        ]
+      },
+      {
+        "step": 59,
+        "token_id": 75,
+        "token": "h",
+        "probability": 0.5969377756118774,
+        "entropy": 1.1592321395874023,
+        "hidden_norm": 11.200956344604492,
+        "hidden_cosine_to_previous": 0.4496140480041504,
+        "top_5_tokens": [
+          {
+            "token_id": 75,
+            "token": "h",
+            "probability": 0.5969377756118774
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.2740936279296875
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.04443150386214256
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.023102035745978355
+          },
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.021287374198436737
+          }
+        ]
+      },
+      {
+        "step": 60,
+        "token_id": 72,
+        "token": "e",
+        "probability": 0.7586537003517151,
+        "entropy": 0.8605709671974182,
+        "hidden_norm": 11.31578540802002,
+        "hidden_cosine_to_previous": 0.5757954716682434,
+        "top_5_tokens": [
+          {
+            "token_id": 72,
+            "token": "e",
+            "probability": 0.7586537003517151
+          },
+          {
+            "token_id": 68,
+            "token": "a",
+            "probability": 0.11796039342880249
+          },
+          {
+            "token_id": 76,
+            "token": "i",
+            "probability": 0.07544725388288498
+          },
+          {
+            "token_id": 85,
+            "token": "r",
+            "probability": 0.02693755179643631
+          },
+          {
+            "token_id": 82,
+            "token": "o",
+            "probability": 0.014786752872169018
+          }
+        ]
+      }
+    ]
+  },
+  "experiment_3": {
+    "sequence_source": "fallback-start-of-validation",
+    "sequence_text": "the content on the Xbox 360 Marketplace, not just the demos and arcade games. Between myself and a few other like minded people we estimate that vast majority of content has already been preserved, bo",
+    "eval_length": 120,
+    "prompt_length": 40,
+    "prompt_text": "the content on the Xbox 360 Marketplace,",
+    "target_continuation_text": " not just the demos and arcade games. Between myself and a few other like minded",
+    "free_running_continuation_text": " and the service and the company and the company and the company and the company",
+    "teacher_forcing": {
+      "top1_accuracy": 0.5125,
+      "average_gold_probability": 0.3411161755444482,
+      "rows": [
+        {
+          "position": 40,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.9806007742881775,
+          "gold_probability": 0.9806007742881775,
+          "gold_rank": 1
+        },
+        {
+          "position": 41,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "top1_token_id": 68,
+          "top1_token": "a",
+          "top1_probability": 0.15161167085170746,
+          "gold_probability": 0.008757887408137321,
+          "gold_rank": 26
+        },
+        {
+          "position": 42,
+          "gold_token_id": 82,
+          "gold_token": "o",
+          "top1_token_id": 82,
+          "top1_token": "o",
+          "top1_probability": 0.6024253964424133,
+          "gold_probability": 0.6024253964424133,
+          "gold_rank": 1
+        },
+        {
+          "position": 43,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.6454665064811707,
+          "gold_probability": 0.6454665064811707,
+          "gold_rank": 1
+        },
+        {
+          "position": 44,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.5945664048194885,
+          "gold_probability": 0.5945664048194885,
+          "gold_rank": 1
+        },
+        {
+          "position": 45,
+          "gold_token_id": 77,
+          "gold_token": "j",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.12955349683761597,
+          "gold_probability": 0.003349396400153637,
+          "gold_rank": 43
+        },
+        {
+          "position": 46,
+          "gold_token_id": 88,
+          "gold_token": "u",
+          "top1_token_id": 88,
+          "top1_token": "u",
+          "top1_probability": 0.5458859801292419,
+          "gold_probability": 0.5458859801292419,
+          "gold_rank": 1
+        },
+        {
+          "position": 47,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "top1_token_id": 86,
+          "top1_token": "s",
+          "top1_probability": 0.7635270953178406,
+          "gold_probability": 0.7635270953178406,
+          "gold_rank": 1
+        },
+        {
+          "position": 48,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.8623867034912109,
+          "gold_probability": 0.8623867034912109,
+          "gold_rank": 1
+        },
+        {
+          "position": 49,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.8044872879981995,
+          "gold_probability": 0.8044872879981995,
+          "gold_rank": 1
+        },
+        {
+          "position": 50,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.14940577745437622,
+          "gold_probability": 0.14940577745437622,
+          "gold_rank": 1
+        },
+        {
+          "position": 51,
+          "gold_token_id": 75,
+          "gold_token": "h",
+          "top1_token_id": 75,
+          "top1_token": "h",
+          "top1_probability": 0.702079176902771,
+          "gold_probability": 0.702079176902771,
+          "gold_rank": 1
+        },
+        {
+          "position": 52,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.5920974612236023,
+          "gold_probability": 0.5920974612236023,
+          "gold_rank": 1
+        },
+        {
+          "position": 53,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.8082361817359924,
+          "gold_probability": 0.8082361817359924,
+          "gold_rank": 1
+        },
+        {
+          "position": 54,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "top1_token_id": 86,
+          "top1_token": "s",
+          "top1_probability": 0.08239481598138809,
+          "gold_probability": 0.032836105674505234,
+          "gold_rank": 15
+        },
+        {
+          "position": 55,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 76,
+          "top1_token": "i",
+          "top1_probability": 0.3648885190486908,
+          "gold_probability": 0.21557040512561798,
+          "gold_rank": 2
+        },
+        {
+          "position": 56,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "top1_token_id": 86,
+          "top1_token": "s",
+          "top1_probability": 0.17528288066387177,
+          "gold_probability": 0.0713314637541771,
+          "gold_rank": 7
+        },
+        {
+          "position": 57,
+          "gold_token_id": 82,
+          "gold_token": "o",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.3081711530685425,
+          "gold_probability": 0.20092611014842987,
+          "gold_rank": 3
+        },
+        {
+          "position": 58,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.18023331463336945,
+          "gold_probability": 0.15395250916481018,
+          "gold_rank": 3
+        },
+        {
+          "position": 59,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.8341980576515198,
+          "gold_probability": 0.00584802869707346,
+          "gold_rank": 6
+        },
+        {
+          "position": 60,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "top1_token_id": 68,
+          "top1_token": "a",
+          "top1_probability": 0.1864517331123352,
+          "gold_probability": 0.1864517331123352,
+          "gold_rank": 1
+        },
+        {
+          "position": 61,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.3569548428058624,
+          "gold_probability": 0.3569548428058624,
+          "gold_rank": 1
+        },
+        {
+          "position": 62,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "top1_token_id": 71,
+          "top1_token": "d",
+          "top1_probability": 0.863742470741272,
+          "gold_probability": 0.863742470741272,
+          "gold_rank": 1
+        },
+        {
+          "position": 63,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.9412605166435242,
+          "gold_probability": 0.9412605166435242,
+          "gold_rank": 1
+        },
+        {
+          "position": 64,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.16153529286384583,
+          "gold_probability": 0.11075054854154587,
+          "gold_rank": 2
+        },
+        {
+          "position": 65,
+          "gold_token_id": 85,
+          "gold_token": "r",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.3569314181804657,
+          "gold_probability": 0.03572046756744385,
+          "gold_rank": 8
+        },
+        {
+          "position": 66,
+          "gold_token_id": 70,
+          "gold_token": "c",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.6680715680122375,
+          "gold_probability": 0.013054626993834972,
+          "gold_rank": 8
+        },
+        {
+          "position": 67,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "top1_token_id": 75,
+          "top1_token": "h",
+          "top1_probability": 0.46812349557876587,
+          "gold_probability": 0.012952610850334167,
+          "gold_rank": 6
+        },
+        {
+          "position": 68,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.2736724615097046,
+          "gold_probability": 0.009120305068790913,
+          "gold_rank": 14
+        },
+        {
+          "position": 69,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.39206039905548096,
+          "gold_probability": 0.39206039905548096,
+          "gold_rank": 1
+        },
+        {
+          "position": 70,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.31827130913734436,
+          "gold_probability": 0.31827130913734436,
+          "gold_rank": 1
+        },
+        {
+          "position": 71,
+          "gold_token_id": 74,
+          "gold_token": "g",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.19157129526138306,
+          "gold_probability": 0.013771452009677887,
+          "gold_rank": 19
+        },
+        {
+          "position": 72,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "top1_token_id": 85,
+          "top1_token": "r",
+          "top1_probability": 0.1921088993549347,
+          "gold_probability": 0.1679508090019226,
+          "gold_rank": 4
+        },
+        {
+          "position": 73,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "top1_token_id": 80,
+          "top1_token": "m",
+          "top1_probability": 0.4461284577846527,
+          "gold_probability": 0.4461284577846527,
+          "gold_rank": 1
+        },
+        {
+          "position": 74,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.6530238389968872,
+          "gold_probability": 0.6530238389968872,
+          "gold_rank": 1
+        },
+        {
+          "position": 75,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.4376849830150604,
+          "gold_probability": 0.18545053899288177,
+          "gold_rank": 2
+        },
+        {
+          "position": 76,
+          "gold_token_id": 17,
+          "gold_token": ".",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.7281571626663208,
+          "gold_probability": 0.07148967683315277,
+          "gold_rank": 2
+        },
+        {
+          "position": 77,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.5989487767219543,
+          "gold_probability": 0.5989487767219543,
+          "gold_rank": 1
+        },
+        {
+          "position": 78,
+          "gold_token_id": 37,
+          "gold_token": "B",
+          "top1_token_id": 55,
+          "top1_token": "T",
+          "top1_probability": 0.21552760899066925,
+          "gold_probability": 0.04352114722132683,
+          "gold_rank": 6
+        },
+        {
+          "position": 79,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.23145627975463867,
+          "gold_probability": 0.23145627975463867,
+          "gold_rank": 1
+        },
+        {
+          "position": 80,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.21456286311149597,
+          "gold_probability": 0.21456286311149597,
+          "gold_rank": 1
+        },
+        {
+          "position": 81,
+          "gold_token_id": 90,
+          "gold_token": "w",
+          "top1_token_id": 68,
+          "top1_token": "a",
+          "top1_probability": 0.20981015264987946,
+          "gold_probability": 0.13534417748451233,
+          "gold_rank": 3
+        },
+        {
+          "position": 82,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 82,
+          "top1_token": "o",
+          "top1_probability": 0.4001758098602295,
+          "gold_probability": 0.21987904608249664,
+          "gold_rank": 2
+        },
+        {
+          "position": 83,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 85,
+          "top1_token": "r",
+          "top1_probability": 0.45302659273147583,
+          "gold_probability": 0.1147250309586525,
+          "gold_rank": 3
+        },
+        {
+          "position": 84,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.3391077220439911,
+          "gold_probability": 0.3391077220439911,
+          "gold_rank": 1
+        },
+        {
+          "position": 85,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.8040574789047241,
+          "gold_probability": 0.8040574789047241,
+          "gold_rank": 1
+        },
+        {
+          "position": 86,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.16147169470787048,
+          "gold_probability": 0.019554423168301582,
+          "gold_rank": 13
+        },
+        {
+          "position": 87,
+          "gold_token_id": 92,
+          "gold_token": "y",
+          "top1_token_id": 68,
+          "top1_token": "a",
+          "top1_probability": 0.33273252844810486,
+          "gold_probability": 0.1571577787399292,
+          "gold_rank": 3
+        },
+        {
+          "position": 88,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.8032025694847107,
+          "gold_probability": 0.043380364775657654,
+          "gold_rank": 2
+        },
+        {
+          "position": 89,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.7264591455459595,
+          "gold_probability": 0.04818776622414589,
+          "gold_rank": 2
+        },
+        {
+          "position": 90,
+          "gold_token_id": 79,
+          "gold_token": "l",
+          "top1_token_id": 85,
+          "top1_token": "r",
+          "top1_probability": 0.29108181595802307,
+          "gold_probability": 0.07779975235462189,
+          "gold_rank": 4
+        },
+        {
+          "position": 91,
+          "gold_token_id": 73,
+          "gold_token": "f",
+          "top1_token_id": 73,
+          "top1_token": "f",
+          "top1_probability": 0.4063127636909485,
+          "gold_probability": 0.4063127636909485,
+          "gold_rank": 1
+        },
+        {
+          "position": 92,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.6189410090446472,
+          "gold_probability": 0.6189410090446472,
+          "gold_rank": 1
+        },
+        {
+          "position": 93,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.16818678379058838,
+          "gold_probability": 0.12698058784008026,
+          "gold_rank": 2
+        },
+        {
+          "position": 94,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.3931640386581421,
+          "gold_probability": 0.3931640386581421,
+          "gold_rank": 1
+        },
+        {
+          "position": 95,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "top1_token_id": 71,
+          "top1_token": "d",
+          "top1_probability": 0.6508588790893555,
+          "gold_probability": 0.6508588790893555,
+          "gold_rank": 1
+        },
+        {
+          "position": 96,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.934764564037323,
+          "gold_probability": 0.934764564037323,
+          "gold_rank": 1
+        },
+        {
+          "position": 97,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.15754009783267975,
+          "gold_probability": 0.10584980994462967,
+          "gold_rank": 2
+        },
+        {
+          "position": 98,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.3571871221065521,
+          "gold_probability": 0.21642129123210907,
+          "gold_rank": 2
+        },
+        {
+          "position": 99,
+          "gold_token_id": 73,
+          "gold_token": "f",
+          "top1_token_id": 86,
+          "top1_token": "s",
+          "top1_probability": 0.07672332227230072,
+          "gold_probability": 0.02999592013657093,
+          "gold_rank": 13
+        },
+        {
+          "position": 100,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 85,
+          "top1_token": "r",
+          "top1_probability": 0.20155920088291168,
+          "gold_probability": 0.11310955137014389,
+          "gold_rank": 6
+        },
+        {
+          "position": 101,
+          "gold_token_id": 90,
+          "gold_token": "w",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.2607593834400177,
+          "gold_probability": 0.07631603628396988,
+          "gold_rank": 4
+        },
+        {
+          "position": 102,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.35546281933784485,
+          "gold_probability": 0.35546281933784485,
+          "gold_rank": 1
+        },
+        {
+          "position": 103,
+          "gold_token_id": 82,
+          "gold_token": "o",
+          "top1_token_id": 68,
+          "top1_token": "a",
+          "top1_probability": 0.1559915840625763,
+          "gold_probability": 0.0868641585111618,
+          "gold_rank": 3
+        },
+        {
+          "position": 104,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "top1_token_id": 73,
+          "top1_token": "f",
+          "top1_probability": 0.5178684592247009,
+          "gold_probability": 0.019496912136673927,
+          "gold_rank": 5
+        },
+        {
+          "position": 105,
+          "gold_token_id": 75,
+          "gold_token": "h",
+          "top1_token_id": 75,
+          "top1_token": "h",
+          "top1_probability": 0.7791506052017212,
+          "gold_probability": 0.7791506052017212,
+          "gold_rank": 1
+        },
+        {
+          "position": 106,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.8088822364807129,
+          "gold_probability": 0.8088822364807129,
+          "gold_rank": 1
+        },
+        {
+          "position": 107,
+          "gold_token_id": 85,
+          "gold_token": "r",
+          "top1_token_id": 85,
+          "top1_token": "r",
+          "top1_probability": 0.8964385986328125,
+          "gold_probability": 0.8964385986328125,
+          "gold_rank": 1
+        },
+        {
+          "position": 108,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.8395646810531616,
+          "gold_probability": 0.8395646810531616,
+          "gold_rank": 1
+        },
+        {
+          "position": 109,
+          "gold_token_id": 79,
+          "gold_token": "l",
+          "top1_token_id": 87,
+          "top1_token": "t",
+          "top1_probability": 0.12744532525539398,
+          "gold_probability": 0.019004883244633675,
+          "gold_rank": 16
+        },
+        {
+          "position": 110,
+          "gold_token_id": 76,
+          "gold_token": "i",
+          "top1_token_id": 76,
+          "top1_token": "i",
+          "top1_probability": 0.4497319459915161,
+          "gold_probability": 0.4497319459915161,
+          "gold_rank": 1
+        },
+        {
+          "position": 111,
+          "gold_token_id": 78,
+          "gold_token": "k",
+          "top1_token_id": 78,
+          "top1_token": "k",
+          "top1_probability": 0.34911829233169556,
+          "gold_probability": 0.34911829233169556,
+          "gold_rank": 1
+        },
+        {
+          "position": 112,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 72,
+          "top1_token": "e",
+          "top1_probability": 0.9185857772827148,
+          "gold_probability": 0.9185857772827148,
+          "gold_rank": 1
+        },
+        {
+          "position": 113,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.7041260004043579,
+          "gold_probability": 0.7041260004043579,
+          "gold_rank": 1
+        },
+        {
+          "position": 114,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "top1_token_id": 68,
+          "top1_token": "a",
+          "top1_probability": 0.13952398300170898,
+          "gold_probability": 0.03362216800451279,
+          "gold_rank": 10
+        },
+        {
+          "position": 115,
+          "gold_token_id": 76,
+          "gold_token": "i",
+          "top1_token_id": 68,
+          "top1_token": "a",
+          "top1_probability": 0.4178997278213501,
+          "gold_probability": 0.06726031750440598,
+          "gold_rank": 4
+        },
+        {
+          "position": 116,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "top1_token_id": 81,
+          "top1_token": "n",
+          "top1_probability": 0.3641996383666992,
+          "gold_probability": 0.3641996383666992,
+          "gold_rank": 1
+        },
+        {
+          "position": 117,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "top1_token_id": 71,
+          "top1_token": "d",
+          "top1_probability": 0.2568455636501312,
+          "gold_probability": 0.2568455636501312,
+          "gold_rank": 1
+        },
+        {
+          "position": 118,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "top1_token_id": 3,
+          "top1_token": " ",
+          "top1_probability": 0.6887066960334778,
+          "gold_probability": 0.04285260662436485,
+          "gold_rank": 4
+        },
+        {
+          "position": 119,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "top1_token_id": 85,
+          "top1_token": "r",
+          "top1_probability": 0.510676920413971,
+          "gold_probability": 0.055798523128032684,
+          "gold_rank": 4
+        }
+      ]
+    },
+    "free_running": {
+      "match_rate_against_target": 0.1,
+      "first_divergence_position": 41,
+      "rows": [
+        {
+          "position": 40,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.9806007742881775,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": true
+        },
+        {
+          "position": 41,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.15161167085170746,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "matches_gold": false
+        },
+        {
+          "position": 42,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.5940040946006775,
+          "gold_token_id": 82,
+          "gold_token": "o",
+          "matches_gold": false
+        },
+        {
+          "position": 43,
+          "predicted_token_id": 71,
+          "predicted_token": "d",
+          "predicted_probability": 0.8375388979911804,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "matches_gold": false
+        },
+        {
+          "position": 44,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.9364542365074158,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": true
+        },
+        {
+          "position": 45,
+          "predicted_token_id": 87,
+          "predicted_token": "t",
+          "predicted_probability": 0.07556001842021942,
+          "gold_token_id": 77,
+          "gold_token": "j",
+          "matches_gold": false
+        },
+        {
+          "position": 46,
+          "predicted_token_id": 75,
+          "predicted_token": "h",
+          "predicted_probability": 0.6148157715797424,
+          "gold_token_id": 88,
+          "gold_token": "u",
+          "matches_gold": false
+        },
+        {
+          "position": 47,
+          "predicted_token_id": 72,
+          "predicted_token": "e",
+          "predicted_probability": 0.7519269585609436,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "matches_gold": false
+        },
+        {
+          "position": 48,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.7820557355880737,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "matches_gold": false
+        },
+        {
+          "position": 49,
+          "predicted_token_id": 86,
+          "predicted_token": "s",
+          "predicted_probability": 0.07142910361289978,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 50,
+          "predicted_token_id": 72,
+          "predicted_token": "e",
+          "predicted_probability": 0.16372385621070862,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "matches_gold": false
+        },
+        {
+          "position": 51,
+          "predicted_token_id": 85,
+          "predicted_token": "r",
+          "predicted_probability": 0.252299427986145,
+          "gold_token_id": 75,
+          "gold_token": "h",
+          "matches_gold": false
+        },
+        {
+          "position": 52,
+          "predicted_token_id": 89,
+          "predicted_token": "v",
+          "predicted_probability": 0.6364546418190002,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 53,
+          "predicted_token_id": 76,
+          "predicted_token": "i",
+          "predicted_probability": 0.596612811088562,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 54,
+          "predicted_token_id": 70,
+          "predicted_token": "c",
+          "predicted_probability": 0.6951944828033447,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "matches_gold": false
+        },
+        {
+          "position": 55,
+          "predicted_token_id": 72,
+          "predicted_token": "e",
+          "predicted_probability": 0.811735212802887,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": true
+        },
+        {
+          "position": 56,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.5387666821479797,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "matches_gold": false
+        },
+        {
+          "position": 57,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.16359063982963562,
+          "gold_token_id": 82,
+          "gold_token": "o",
+          "matches_gold": false
+        },
+        {
+          "position": 58,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.2969518005847931,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "matches_gold": false
+        },
+        {
+          "position": 59,
+          "predicted_token_id": 71,
+          "predicted_token": "d",
+          "predicted_probability": 0.8353469967842102,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 60,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.9409239292144775,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "matches_gold": false
+        },
+        {
+          "position": 61,
+          "predicted_token_id": 87,
+          "predicted_token": "t",
+          "predicted_probability": 0.14132806658744812,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "matches_gold": false
+        },
+        {
+          "position": 62,
+          "predicted_token_id": 75,
+          "predicted_token": "h",
+          "predicted_probability": 0.61296147108078,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "matches_gold": false
+        },
+        {
+          "position": 63,
+          "predicted_token_id": 72,
+          "predicted_token": "e",
+          "predicted_probability": 0.740717887878418,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 64,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.7786805629730225,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "matches_gold": false
+        },
+        {
+          "position": 65,
+          "predicted_token_id": 70,
+          "predicted_token": "c",
+          "predicted_probability": 0.0915665403008461,
+          "gold_token_id": 85,
+          "gold_token": "r",
+          "matches_gold": false
+        },
+        {
+          "position": 66,
+          "predicted_token_id": 82,
+          "predicted_token": "o",
+          "predicted_probability": 0.40954557061195374,
+          "gold_token_id": 70,
+          "gold_token": "c",
+          "matches_gold": false
+        },
+        {
+          "position": 67,
+          "predicted_token_id": 80,
+          "predicted_token": "m",
+          "predicted_probability": 0.36404159665107727,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "matches_gold": false
+        },
+        {
+          "position": 68,
+          "predicted_token_id": 83,
+          "predicted_token": "p",
+          "predicted_probability": 0.5959381461143494,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "matches_gold": false
+        },
+        {
+          "position": 69,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.23347590863704681,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 70,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.5295100808143616,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 71,
+          "predicted_token_id": 92,
+          "predicted_token": "y",
+          "predicted_probability": 0.33515045046806335,
+          "gold_token_id": 74,
+          "gold_token": "g",
+          "matches_gold": false
+        },
+        {
+          "position": 72,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.6058845520019531,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "matches_gold": false
+        },
+        {
+          "position": 73,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.14982566237449646,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "matches_gold": false
+        },
+        {
+          "position": 74,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.38416674733161926,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 75,
+          "predicted_token_id": 71,
+          "predicted_token": "d",
+          "predicted_probability": 0.8497041463851929,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "matches_gold": false
+        },
+        {
+          "position": 76,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.9412155151367188,
+          "gold_token_id": 17,
+          "gold_token": ".",
+          "matches_gold": false
+        },
+        {
+          "position": 77,
+          "predicted_token_id": 87,
+          "predicted_token": "t",
+          "predicted_probability": 0.13234306871891022,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 78,
+          "predicted_token_id": 75,
+          "predicted_token": "h",
+          "predicted_probability": 0.597133457660675,
+          "gold_token_id": 37,
+          "gold_token": "B",
+          "matches_gold": false
+        },
+        {
+          "position": 79,
+          "predicted_token_id": 72,
+          "predicted_token": "e",
+          "predicted_probability": 0.758645236492157,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": true
+        },
+        {
+          "position": 80,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.7812201976776123,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "matches_gold": false
+        },
+        {
+          "position": 81,
+          "predicted_token_id": 70,
+          "predicted_token": "c",
+          "predicted_probability": 0.08984524011611938,
+          "gold_token_id": 90,
+          "gold_token": "w",
+          "matches_gold": false
+        },
+        {
+          "position": 82,
+          "predicted_token_id": 82,
+          "predicted_token": "o",
+          "predicted_probability": 0.41167283058166504,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 83,
+          "predicted_token_id": 80,
+          "predicted_token": "m",
+          "predicted_probability": 0.3641800582408905,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 84,
+          "predicted_token_id": 83,
+          "predicted_token": "p",
+          "predicted_probability": 0.5969569683074951,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "matches_gold": false
+        },
+        {
+          "position": 85,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.24552881717681885,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 86,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.5314737558364868,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "matches_gold": false
+        },
+        {
+          "position": 87,
+          "predicted_token_id": 92,
+          "predicted_token": "y",
+          "predicted_probability": 0.33472299575805664,
+          "gold_token_id": 92,
+          "gold_token": "y",
+          "matches_gold": true
+        },
+        {
+          "position": 88,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.6095860600471497,
+          "gold_token_id": 86,
+          "gold_token": "s",
+          "matches_gold": false
+        },
+        {
+          "position": 89,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.14889121055603027,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 90,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.38456711173057556,
+          "gold_token_id": 79,
+          "gold_token": "l",
+          "matches_gold": false
+        },
+        {
+          "position": 91,
+          "predicted_token_id": 71,
+          "predicted_token": "d",
+          "predicted_probability": 0.8497784733772278,
+          "gold_token_id": 73,
+          "gold_token": "f",
+          "matches_gold": false
+        },
+        {
+          "position": 92,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.9411695003509521,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": true
+        },
+        {
+          "position": 93,
+          "predicted_token_id": 87,
+          "predicted_token": "t",
+          "predicted_probability": 0.13379323482513428,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "matches_gold": false
+        },
+        {
+          "position": 94,
+          "predicted_token_id": 75,
+          "predicted_token": "h",
+          "predicted_probability": 0.5969377756118774,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "matches_gold": false
+        },
+        {
+          "position": 95,
+          "predicted_token_id": 72,
+          "predicted_token": "e",
+          "predicted_probability": 0.7586537003517151,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "matches_gold": false
+        },
+        {
+          "position": 96,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.7812226414680481,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": true
+        },
+        {
+          "position": 97,
+          "predicted_token_id": 70,
+          "predicted_token": "c",
+          "predicted_probability": 0.08974622189998627,
+          "gold_token_id": 68,
+          "gold_token": "a",
+          "matches_gold": false
+        },
+        {
+          "position": 98,
+          "predicted_token_id": 82,
+          "predicted_token": "o",
+          "predicted_probability": 0.4116755425930023,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 99,
+          "predicted_token_id": 80,
+          "predicted_token": "m",
+          "predicted_probability": 0.3641798794269562,
+          "gold_token_id": 73,
+          "gold_token": "f",
+          "matches_gold": false
+        },
+        {
+          "position": 100,
+          "predicted_token_id": 83,
+          "predicted_token": "p",
+          "predicted_probability": 0.5969571471214294,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 101,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.2460356205701828,
+          "gold_token_id": 90,
+          "gold_token": "w",
+          "matches_gold": false
+        },
+        {
+          "position": 102,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.5314745306968689,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 103,
+          "predicted_token_id": 92,
+          "predicted_token": "y",
+          "predicted_probability": 0.33472275733947754,
+          "gold_token_id": 82,
+          "gold_token": "o",
+          "matches_gold": false
+        },
+        {
+          "position": 104,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.6095860600471497,
+          "gold_token_id": 87,
+          "gold_token": "t",
+          "matches_gold": false
+        },
+        {
+          "position": 105,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.14889121055603027,
+          "gold_token_id": 75,
+          "gold_token": "h",
+          "matches_gold": false
+        },
+        {
+          "position": 106,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.38456711173057556,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 107,
+          "predicted_token_id": 71,
+          "predicted_token": "d",
+          "predicted_probability": 0.8497784733772278,
+          "gold_token_id": 85,
+          "gold_token": "r",
+          "matches_gold": false
+        },
+        {
+          "position": 108,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.9411695003509521,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": true
+        },
+        {
+          "position": 109,
+          "predicted_token_id": 87,
+          "predicted_token": "t",
+          "predicted_probability": 0.13379323482513428,
+          "gold_token_id": 79,
+          "gold_token": "l",
+          "matches_gold": false
+        },
+        {
+          "position": 110,
+          "predicted_token_id": 75,
+          "predicted_token": "h",
+          "predicted_probability": 0.5969377756118774,
+          "gold_token_id": 76,
+          "gold_token": "i",
+          "matches_gold": false
+        },
+        {
+          "position": 111,
+          "predicted_token_id": 72,
+          "predicted_token": "e",
+          "predicted_probability": 0.7586537003517151,
+          "gold_token_id": 78,
+          "gold_token": "k",
+          "matches_gold": false
+        },
+        {
+          "position": 112,
+          "predicted_token_id": 3,
+          "predicted_token": " ",
+          "predicted_probability": 0.7812226414680481,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 113,
+          "predicted_token_id": 70,
+          "predicted_token": "c",
+          "predicted_probability": 0.08974622189998627,
+          "gold_token_id": 3,
+          "gold_token": " ",
+          "matches_gold": false
+        },
+        {
+          "position": 114,
+          "predicted_token_id": 82,
+          "predicted_token": "o",
+          "predicted_probability": 0.4116755425930023,
+          "gold_token_id": 80,
+          "gold_token": "m",
+          "matches_gold": false
+        },
+        {
+          "position": 115,
+          "predicted_token_id": 80,
+          "predicted_token": "m",
+          "predicted_probability": 0.3641798794269562,
+          "gold_token_id": 76,
+          "gold_token": "i",
+          "matches_gold": false
+        },
+        {
+          "position": 116,
+          "predicted_token_id": 83,
+          "predicted_token": "p",
+          "predicted_probability": 0.5969571471214294,
+          "gold_token_id": 81,
+          "gold_token": "n",
+          "matches_gold": false
+        },
+        {
+          "position": 117,
+          "predicted_token_id": 68,
+          "predicted_token": "a",
+          "predicted_probability": 0.2460356205701828,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "matches_gold": false
+        },
+        {
+          "position": 118,
+          "predicted_token_id": 81,
+          "predicted_token": "n",
+          "predicted_probability": 0.5314745306968689,
+          "gold_token_id": 72,
+          "gold_token": "e",
+          "matches_gold": false
+        },
+        {
+          "position": 119,
+          "predicted_token_id": 92,
+          "predicted_token": "y",
+          "predicted_probability": 0.33472275733947754,
+          "gold_token_id": 71,
+          "gold_token": "d",
+          "matches_gold": false
+        }
+      ]
+    }
+  }
+}

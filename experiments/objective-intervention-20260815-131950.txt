@@ -1,0 +1,19 @@
+OUTREACHLM OBJECTIVE INTERVENTION (ARCHITECTURE FIXED)
+================================================================================
+Timestamp: 2026-08-15T13:19:50.181121
+
+BASELINE SNAPSHOT
+--------------------------------------------------------------------------------
+Teacher top1: 0.512500 | Free match: 0.100000 | Logit cosine mean: 0.994433
+
+INTERVENTION (BALANCED CE + LABEL SMOOTHING)
+--------------------------------------------------------------------------------
+Loss first/last: 5.805941 / 3.493792
+Teacher top1: 0.525000 | Free match: 0.100000 | Logit cosine mean: 0.820768
+Rollout mean entropy: 2.974022 | First repeated trigram step: 36
+
+DELTA (INTERVENTION - BASELINE)
+--------------------------------------------------------------------------------
+Teacher top1 delta: +0.012500
+Free match delta: +0.000000
+Logit cosine mean delta: -0.173665

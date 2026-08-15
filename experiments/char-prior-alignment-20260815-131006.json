@@ -1,0 +1,278 @@
+{
+  "timestamp": "2026-08-15T13:10:06.020768",
+  "config": {
+    "seed": 42,
+    "sample_count_requested": 4096,
+    "sample_count_used": 4096,
+    "batch_size": 256
+  },
+  "token_count_summary": {
+    "vocab_size": 490,
+    "observed_token_count": 488,
+    "unseen_token_count": 2,
+    "pad_count": 0,
+    "unk_count": 0,
+    "pad_probability": 0.0,
+    "unk_probability": 0.0
+  },
+  "alignment": {
+    "pearson_all_tokens": 0.8797901252338589,
+    "spearman_all_tokens": 0.7815421039526942,
+    "pearson_observed_only": 0.8994529567612923,
+    "spearman_observed_only": 0.7804132299485721
+  },
+  "top20_empirical": [
+    {
+      "token_id": 3,
+      "token": " ",
+      "probability": 0.16155122220516205,
+      "count": 485091
+    },
+    {
+      "token_id": 72,
+      "token": "e",
+      "probability": 0.0939105972647667,
+      "count": 281986
+    },
+    {
+      "token_id": 87,
+      "token": "t",
+      "probability": 0.06903870403766632,
+      "count": 207303
+    },
+    {
+      "token_id": 68,
+      "token": "a",
+      "probability": 0.06292721629142761,
+      "count": 188952
+    },
+    {
+      "token_id": 82,
+      "token": "o",
+      "probability": 0.06257553398609161,
+      "count": 187896
+    },
+    {
+      "token_id": 76,
+      "token": "i",
+      "probability": 0.05751010775566101,
+      "count": 172686
+    },
+    {
+      "token_id": 81,
+      "token": "n",
+      "probability": 0.05637579783797264,
+      "count": 169280
+    },
+    {
+      "token_id": 86,
+      "token": "s",
+      "probability": 0.050530072301626205,
+      "count": 151727
+    },
+    {
+      "token_id": 85,
+      "token": "r",
+      "probability": 0.050068821758031845,
+      "count": 150342
+    },
+    {
+      "token_id": 79,
+      "token": "l",
+      "probability": 0.032820384949445724,
+      "count": 98550
+    },
+    {
+      "token_id": 75,
+      "token": "h",
+      "probability": 0.032335489988327026,
+      "count": 97094
+    },
+    {
+      "token_id": 71,
+      "token": "d",
+      "probability": 0.026917045935988426,
+      "count": 80824
+    },
+    {
+      "token_id": 70,
+      "token": "c",
+      "probability": 0.02573378011584282,
+      "count": 77271
+    },
+    {
+      "token_id": 88,
+      "token": "u",
+      "probability": 0.02419816516339779,
+      "count": 72660
+    },
+    {
+      "token_id": 80,
+      "token": "m",
+      "probability": 0.018393736332654953,
+      "count": 55231
+    },
+    {
+      "token_id": 83,
+      "token": "p",
+      "probability": 0.017126545310020447,
+      "count": 51426
+    },
+    {
+      "token_id": 74,
+      "token": "g",
+      "probability": 0.016589364036917686,
+      "count": 49813
+    },
+    {
+      "token_id": 73,
+      "token": "f",
+      "probability": 0.016266321763396263,
+      "count": 48843
+    },
+    {
+      "token_id": 92,
+      "token": "y",
+      "probability": 0.015823055058717728,
+      "count": 47512
+    },
+    {
+      "token_id": 90,
+      "token": "w",
+      "probability": 0.012291908264160156,
+      "count": 36909
+    }
+  ],
+  "top20_mean_logit": [
+    {
+      "token_id": 76,
+      "token": "i",
+      "mean_logit": 3.6142303943634033,
+      "mean_probability": 0.06120949983596802
+    },
+    {
+      "token_id": 72,
+      "token": "e",
+      "mean_logit": 3.4966962337493896,
+      "mean_probability": 0.089083231985569
+    },
+    {
+      "token_id": 68,
+      "token": "a",
+      "mean_logit": 3.4486913681030273,
+      "mean_probability": 0.06757114827632904
+    },
+    {
+      "token_id": 87,
+      "token": "t",
+      "mean_logit": 3.156752109527588,
+      "mean_probability": 0.07007458806037903
+    },
+    {
+      "token_id": 86,
+      "token": "s",
+      "mean_logit": 3.1275362968444824,
+      "mean_probability": 0.048864513635635376
+    },
+    {
+      "token_id": 82,
+      "token": "o",
+      "mean_logit": 3.0184133052825928,
+      "mean_probability": 0.06184319406747818
+    },
+    {
+      "token_id": 85,
+      "token": "r",
+      "mean_logit": 2.985328197479248,
+      "mean_probability": 0.047731418162584305
+    },
+    {
+      "token_id": 79,
+      "token": "l",
+      "mean_logit": 2.7009010314941406,
+      "mean_probability": 0.03176521882414818
+    },
+    {
+      "token_id": 3,
+      "token": " ",
+      "mean_logit": 2.6764183044433594,
+      "mean_probability": 0.1658511906862259
+    },
+    {
+      "token_id": 81,
+      "token": "n",
+      "mean_logit": 2.406567335128784,
+      "mean_probability": 0.05703573301434517
+    },
+    {
+      "token_id": 88,
+      "token": "u",
+      "mean_logit": 2.345040798187256,
+      "mean_probability": 0.028407027944922447
+    },
+    {
+      "token_id": 70,
+      "token": "c",
+      "mean_logit": 1.990718960762024,
+      "mean_probability": 0.026350433006882668
+    },
+    {
+      "token_id": 80,
+      "token": "m",
+      "mean_logit": 1.860769271850586,
+      "mean_probability": 0.01626407541334629
+    },
+    {
+      "token_id": 71,
+      "token": "d",
+      "mean_logit": 1.6294026374816895,
+      "mean_probability": 0.025639047846198082
+    },
+    {
+      "token_id": 92,
+      "token": "y",
+      "mean_logit": 1.4726141691207886,
+      "mean_probability": 0.015438158065080643
+    },
+    {
+      "token_id": 75,
+      "token": "h",
+      "mean_logit": 1.219428539276123,
+      "mean_probability": 0.033326391130685806
+    },
+    {
+      "token_id": 73,
+      "token": "f",
+      "mean_logit": 1.1711313724517822,
+      "mean_probability": 0.01517853420227766
+    },
+    {
+      "token_id": 69,
+      "token": "b",
+      "mean_logit": 1.082056999206543,
+      "mean_probability": 0.010740973055362701
+    },
+    {
+      "token_id": 83,
+      "token": "p",
+      "mean_logit": 1.0229060649871826,
+      "mean_probability": 0.014827215112745762
+    },
+    {
+      "token_id": 17,
+      "token": ".",
+      "mean_logit": 1.0182209014892578,
+      "mean_probability": 0.009655055589973927
+    }
+  ],
+  "pad_unk_prediction_stats": {
+    "pad_rank_mean_probs": 460,
+    "pad_probability_mean_probs": 7.26368298842317e-09,
+    "unk_rank_mean_probs": 400,
+    "unk_probability_mean_probs": 1.0096953495519756e-08
+  },
+  "unigram_baseline": {
+    "cross_entropy_nats": 3.1268646717071533,
+    "perplexity": 22.80237441865487
+  }
+}

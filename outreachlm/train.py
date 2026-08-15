@@ -53,6 +53,8 @@ DEVICE = torch.device(
 
 CONTEXT_LENGTH = 32
 EMBEDDING_DIM = 64
+NUM_LAYERS = 1
+NUM_HEADS = 4
 
 BATCH_SIZE = 8
 LEARNING_RATE = 0.001
@@ -186,15 +188,46 @@ def create_dataset(
 def create_model(
     vocab_size,
     context_length=CONTEXT_LENGTH,
-    embedding_dim=EMBEDDING_DIM
+    embedding_dim=EMBEDDING_DIM,
+    num_layers=NUM_LAYERS,
+    num_heads=NUM_HEADS
 ):
     model = OutreachModel(
         vocab_size=vocab_size,
         context_length=context_length,
-        embedding_dim=embedding_dim
+        embedding_dim=embedding_dim,
+        num_layers=num_layers,
+        num_heads=num_heads
     )
 
     return model.to(DEVICE)
+
+
+def build_model_artifact(
+    model,
+    tokenizer,
+    context_length,
+    embedding_dim,
+    num_layers,
+    num_heads,
+    training_config,
+):
+    return {
+        "model_state_dict": model.state_dict(),
+        "model_config": {
+            "vocab_size": tokenizer.vocab_size,
+            "context_length": context_length,
+            "embedding_dim": embedding_dim,
+            "num_layers": num_layers,
+            "num_heads": num_heads,
+        },
+        "training_config": training_config,
+        "tokenizer_config": {
+            "tokens": tokenizer.tokens,
+            "pad_token": tokenizer.pad_token,
+            "unk_token": tokenizer.unk_token,
+        },
+    }
 
 # ============================================================
 # RANDOM MINIBATCH
@@ -322,86 +355,6 @@ def get_learning_rate(
         * cosine_decay
     )
 
-# ============================================================
-# CHECKPOINTING
-# ============================================================
-
-
-def save_checkpoint(
-    checkpoint_path,
-    model,
-    optimizer,
-    step,
-    last_loss,
-    average_train_loss,
-    validation_loss,
-    best_validation_loss
-):
-    checkpoint_path.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    checkpoint = {
-        "step": step,
-        "model_state_dict": model.state_dict(),
-        "optimizer_state_dict": optimizer.state_dict(),
-        "last_loss": float(last_loss),
-        "average_train_loss": float(average_train_loss),
-        "validation_loss": float(validation_loss),
-        "best_validation_loss": float(best_validation_loss),
-        "config": {
-            "context_length": CONTEXT_LENGTH,
-            "embedding_dim": EMBEDDING_DIM,
-            "batch_size": BATCH_SIZE,
-            "learning_rate": LEARNING_RATE,
-        },
-    }
-
-    torch.save(
-        checkpoint,
-        checkpoint_path
-    )
-
-    print(
-        f"\n[CHECKPOINT] Saved at step {step}:"
-    )
-
-    print(
-        checkpoint_path
-    )
-
-
-def load_checkpoint(
-    checkpoint_path,
-    model,
-    optimizer,
-    device
-):
-    checkpoint = torch.load(
-        checkpoint_path,
-        map_location=device,
-        weights_only=False
-    )
-
-    model.load_state_dict(
-        checkpoint["model_state_dict"]
-    )
-
-    optimizer.load_state_dict(
-        checkpoint["optimizer_state_dict"]
-    )
-
-    step = checkpoint["step"]
-
-    best_validation_loss = checkpoint.get(
-        "best_validation_loss",
-        float("inf")
-    )
-
-    return step, best_validation_loss
-
-
 def evaluate_validation(
     model,
     validation_dataset,
@@ -479,6 +432,8 @@ def train(
     best_model_path=BEST_MODEL_PATH,
     context_length=CONTEXT_LENGTH,
     embedding_dim=EMBEDDING_DIM,
+    num_layers=NUM_LAYERS,
+    num_heads=NUM_HEADS,
     batch_size=BATCH_SIZE,
     learning_rate=LEARNING_RATE,
     training_steps=TRAINING_STEPS,
@@ -506,6 +461,14 @@ def train(
 
     print(
         f"Embedding dim:      {embedding_dim}"
+    )
+
+    print(
+        f"Transformer layers: {num_layers}"
+    )
+
+    print(
+        f"Attention heads:    {num_heads}"
     )
 
     print(
@@ -610,7 +573,9 @@ def train(
     model = create_model(
         vocab_size=tokenizer.vocab_size,
         context_length=context_length,
-        embedding_dim=embedding_dim
+        embedding_dim=embedding_dim,
+        num_layers=num_layers,
+        num_heads=num_heads
     )
 
     # --------------------------------------------------------
@@ -622,19 +587,64 @@ def train(
         lr=learning_rate
     )
 
+    run_config = build_config(
+        context_length=context_length,
+        embedding_dim=embedding_dim,
+        batch_size=batch_size,
+        learning_rate=learning_rate,
+        warmup_steps=warmup_steps,
+        min_learning_rate_ratio=min_learning_rate_ratio,
+        validation_split=validation_split,
+        seed=seed,
+        corpus_path=corpus_path,
+        vocab_size=tokenizer.vocab_size,
+        num_layers=num_layers,
+        num_heads=num_heads,
+    )
+
     start_step = 0
     best_validation_loss = float("inf")
 
     if resume and checkpoint_path.exists():
-        start_step, best_validation_loss = load_checkpoint(
+        checkpoint_state = load_checkpoint(
             checkpoint_path,
             model,
             optimizer,
             DEVICE
         )
 
+        checkpoint_config = dict(
+            checkpoint_state.get("config", {})
+        )
+
+        if checkpoint_state.get("is_legacy"):
+            print(
+                "[CHECKPOINT] Legacy checkpoint detected. "
+                "Using compatibility mode for missing config fields."
+            )
+
+            for key, value in run_config.items():
+                checkpoint_config.setdefault(
+                    key,
+                    value
+                )
+
+        validate_config(
+            checkpoint_config,
+            run_config
+        )
+
+        start_step = checkpoint_state["step"]
+        best_validation_loss = checkpoint_state[
+            "best_validation_loss"
+        ]
+
         print(
             f"\n[CHECKPOINT] Resuming from step {start_step}"
+        )
+
+        print(
+            f"Previous train loss: {checkpoint_state['train_loss']:.6f}"
         )
 
     elif resume:
@@ -783,8 +793,18 @@ def train(
                     exist_ok=True
                 )
 
+                best_model_artifact = build_model_artifact(
+                    model=model,
+                    tokenizer=tokenizer,
+                    context_length=context_length,
+                    embedding_dim=embedding_dim,
+                    num_layers=num_layers,
+                    num_heads=num_heads,
+                    training_config=run_config,
+                )
+
                 torch.save(
-                    model.state_dict(),
+                    best_model_artifact,
                     best_model_path
                 )
 
@@ -819,18 +839,35 @@ def train(
                 model,
                 optimizer,
                 step,
-                last_loss,
                 average_train_loss,
-                validation_loss,
-                best_validation_loss
+                best_validation_loss,
+                run_config
+            )
+
+            print(
+                f"\n[CHECKPOINT] Saved at step {step}:"
+            )
+
+            print(
+                checkpoint_path
             )
 
     # --------------------------------------------------------
     # Save model
     # --------------------------------------------------------
 
+    model_artifact = build_model_artifact(
+        model=model,
+        tokenizer=tokenizer,
+        context_length=context_length,
+        embedding_dim=embedding_dim,
+        num_layers=num_layers,
+        num_heads=num_heads,
+        training_config=run_config,
+    )
+
     torch.save(
-        model.state_dict(),
+        model_artifact,
         model_path
     )
 
@@ -867,13 +904,10 @@ def save_tokenizer(
 ):
     tokenizer_data = {
         "vocab_size": tokenizer.vocab_size,
+        "tokens": tokenizer.tokens,
+        "pad_token": tokenizer.pad_token,
+        "unk_token": tokenizer.unk_token,
     }
-
-    if hasattr(tokenizer, "stoi"):
-        tokenizer_data["stoi"] = tokenizer.stoi
-
-    if hasattr(tokenizer, "itos"):
-        tokenizer_data["itos"] = tokenizer.itos
 
     tokenizer_path.parent.mkdir(
         parents=True,
@@ -1076,6 +1110,18 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--num-layers",
+        type=int,
+        default=NUM_LAYERS
+    )
+
+    parser.add_argument(
+        "--num-heads",
+        type=int,
+        default=NUM_HEADS
+    )
+
+    parser.add_argument(
         "--batch-size",
         type=int,
         default=BATCH_SIZE
@@ -1151,6 +1197,8 @@ if __name__ == "__main__":
         tokenizer_path=args.tokenizer,
         context_length=args.context_length,
         embedding_dim=args.embedding_dim,
+        num_layers=args.num_layers,
+        num_heads=args.num_heads,
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         training_steps=args.steps,
