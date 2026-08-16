@@ -1,0 +1,13 @@
+OUTREACHLM PRE-DIVERGENCE WINDOW WEIGHT SWEEP
+================================================================================
+Timestamp: 2026-08-16T11:52:10.037277
+
+CONFIG | steps=1500 batch=8 lr=0.0005 warmup=250 label_smoothing=0.05 recovery_start=40 recovery_weight=2.0 pre_window=37-40 weights=[1.0, 0.5, 2.0]
+
+METRIC COMPARISON
+--------------------------------------------------------------------------------
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+v2_w2_checkpoint,0.462500,0.200000,0.919068,3.861342,22,39,41
+pre_w_1.00,0.487500,0.175000,0.915011,3.781787,22,38,41
+pre_w_0.50,0.487500,0.162500,0.912076,3.784047,22,38,41
+pre_w_2.00,0.487500,0.187500,0.919465,3.767065,22,38,41

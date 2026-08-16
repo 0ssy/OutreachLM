@@ -1,0 +1,16 @@
+OUTREACHLM V3 CONTINUATION TO 4500 + LEADER COMPARISON
+================================================================================
+Timestamp: 2026-08-16T14:18:32.335829
+
+CONFIG | resume_step=1500 continue_steps=3000 target_total=4500 batch=8 lr=0.0005 warmup=250 min_lr=0.1 ls=0.05 recovery_w=2.0
+
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+leader,0.462500,0.200000,0.919068,3.861342,22,39,41
+v3_1500,0.262500,0.187500,0.953146,3.882437,19,20,41
+v3_3000,0.375000,0.187500,0.864305,3.778296,19,20,41
+v3_4500,0.487500,0.150000,0.814581,3.419173,24,35,41
+
+Continuation total loss first/last/mean: 13.575174 / 11.962896 / 12.637845
+Saved checkpoints:
+  step=3000: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v3-continue-20260816-131317\v3-step-3000.pt
+  step=4500: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v3-continue-20260816-131317\v3-step-4500.pt

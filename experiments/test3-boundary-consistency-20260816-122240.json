@@ -1,0 +1,2667 @@
+{
+  "timestamp": "2026-08-16T12:22:40.518957",
+  "config": {
+    "resume_artifact": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v2-divergence-intervention-20260816-113809.pt",
+    "steps": 1500,
+    "batch_size": 8,
+    "learning_rate": 0.0005,
+    "warmup_steps": 250,
+    "min_learning_rate_ratio": 0.1,
+    "label_smoothing": 0.05,
+    "recovery_start_index": 40,
+    "recovery_loss_weight": 2.0,
+    "consistency_weight": 1.0,
+    "boundary_indices": [
+      40,
+      41,
+      42
+    ],
+    "systematic_sample_count": 4096,
+    "systematic_batch_size": 256,
+    "seed": 42
+  },
+  "leader_before": {
+    "teacher_free": {
+      "sequence_source": "fallback-start-of-validation",
+      "prompt_text": "the content on the Xbox 360 Marketplace,",
+      "teacher_top1_accuracy": 0.4625,
+      "teacher_average_gold_probability": 0.23331948569102678,
+      "free_match_rate_against_target": 0.2,
+      "free_first_divergence_position": 41,
+      "target_continuation": " not just the demos and arcade games. Between myself and a few other like minded",
+      "free_continuation": " and tour tou                                                                   "
+    },
+    "logit_alignment": {
+      "pairwise": [
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "Machine",
+          "logit_cosine": 1.0,
+          "kl_symmetric": 0.0
+        },
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.8967028260231018,
+          "kl_symmetric": 0.7971327602863312
+        },
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 0.9319249987602234,
+          "kl_symmetric": 0.816076010465622
+        },
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.9522948265075684,
+          "kl_symmetric": 0.9490130841732025
+        },
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 0.9375631213188171,
+          "kl_symmetric": 0.7929894030094147
+        },
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.9563122987747192,
+          "kl_symmetric": 0.7130365073680878
+        },
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 0.9109512567520142,
+          "kl_symmetric": 0.7622919380664825
+        },
+        {
+          "prompt_a": "Machine",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 0.8561280965805054,
+          "kl_symmetric": 0.8887132108211517
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "Machine",
+          "logit_cosine": 0.8967028260231018,
+          "kl_symmetric": 0.7971327602863312
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.9999998211860657,
+          "kl_symmetric": 0.0
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 0.9329909682273865,
+          "kl_symmetric": 0.08997760340571404
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.9170742034912109,
+          "kl_symmetric": 0.3082835376262665
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 0.8758754730224609,
+          "kl_symmetric": 0.3040279969573021
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.9012224674224854,
+          "kl_symmetric": 1.3058549165725708
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 0.89170902967453,
+          "kl_symmetric": 0.847809761762619
+        },
+        {
+          "prompt_a": "Machine learning",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 0.899229884147644,
+          "kl_symmetric": 0.15712852776050568
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "Machine",
+          "logit_cosine": 0.9319249987602234,
+          "kl_symmetric": 0.816076010465622
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.9329909682273865,
+          "kl_symmetric": 0.08997760340571404
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 1.0,
+          "kl_symmetric": 0.0
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.9780028462409973,
+          "kl_symmetric": 0.14075880497694016
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 0.8983769416809082,
+          "kl_symmetric": 0.4300149232149124
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.9312210083007812,
+          "kl_symmetric": 1.1392049193382263
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 0.9088535308837891,
+          "kl_symmetric": 0.7180238366127014
+        },
+        {
+          "prompt_a": "Machine learning allows",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 0.8991274833679199,
+          "kl_symmetric": 0.2611466571688652
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "Machine",
+          "logit_cosine": 0.9522948265075684,
+          "kl_symmetric": 0.9490130841732025
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.9170742034912109,
+          "kl_symmetric": 0.3082835376262665
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 0.9780028462409973,
+          "kl_symmetric": 0.14075880497694016
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.9999998211860657,
+          "kl_symmetric": 0.0
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 0.9361215233802795,
+          "kl_symmetric": 0.44034455716609955
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.9614032506942749,
+          "kl_symmetric": 0.8448376059532166
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 0.9226102828979492,
+          "kl_symmetric": 0.4965980350971222
+        },
+        {
+          "prompt_a": "Machine learning allows computers",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 0.8842305541038513,
+          "kl_symmetric": 0.41466790437698364
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "Machine",
+          "logit_cosine": 0.9375631213188171,
+          "kl_symmetric": 0.7929894030094147
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.8758754730224609,
+          "kl_symmetric": 0.3040279969573021
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 0.8983769416809082,
+          "kl_symmetric": 0.4300149232149124
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.9361215233802795,
+          "kl_symmetric": 0.44034455716609955
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 1.0000001192092896,
+          "kl_symmetric": 0.0
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.9514157772064209,
+          "kl_symmetric": 1.2336799502372742
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 0.9373607039451599,
+          "kl_symmetric": 0.7052509188652039
+        },
+        {
+          "prompt_a": "Machine learning allows computers to",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 0.9068273305892944,
+          "kl_symmetric": 0.1852579489350319
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "Machine",
+          "logit_cosine": 0.9563122987747192,
+          "kl_symmetric": 0.7130365073680878
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.9012224674224854,
+          "kl_symmetric": 1.3058549165725708
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 0.9312210083007812,
+          "kl_symmetric": 1.1392049193382263
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.9614032506942749,
+          "kl_symmetric": 0.8448376059532166
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 0.9514157772064209,
+          "kl_symmetric": 1.2336799502372742
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.9999999403953552,
+          "kl_symmetric": 0.0
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 0.9626954197883606,
+          "kl_symmetric": 0.3237239271402359
+        },
+        {
+          "prompt_a": "The purpose of a transformer",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 0.8845484852790833,
+          "kl_symmetric": 1.3928423523902893
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "Machine",
+          "logit_cosine": 0.9109512567520142,
+          "kl_symmetric": 0.7622919380664825
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.89170902967453,
+          "kl_symmetric": 0.847809761762619
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 0.9088535308837891,
+          "kl_symmetric": 0.7180238366127014
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.9226102828979492,
+          "kl_symmetric": 0.4965980350971222
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 0.9373607039451599,
+          "kl_symmetric": 0.7052509188652039
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.9626954197883606,
+          "kl_symmetric": 0.3237239271402359
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 1.0000001192092896,
+          "kl_symmetric": 0.0
+        },
+        {
+          "prompt_a": "A computer system can",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 0.911135733127594,
+          "kl_symmetric": 0.768703430891037
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "Machine",
+          "logit_cosine": 0.8561280965805054,
+          "kl_symmetric": 0.8887132108211517
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "Machine learning",
+          "logit_cosine": 0.899229884147644,
+          "kl_symmetric": 0.15712852776050568
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "Machine learning allows",
+          "logit_cosine": 0.8991274833679199,
+          "kl_symmetric": 0.2611466571688652
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "Machine learning allows computers",
+          "logit_cosine": 0.8842305541038513,
+          "kl_symmetric": 0.41466790437698364
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "Machine learning allows computers to",
+          "logit_cosine": 0.9068273305892944,
+          "kl_symmetric": 0.1852579489350319
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "The purpose of a transformer",
+          "logit_cosine": 0.8845484852790833,
+          "kl_symmetric": 1.3928423523902893
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "A computer system can",
+          "logit_cosine": 0.911135733127594,
+          "kl_symmetric": 0.768703430891037
+        },
+        {
+          "prompt_a": "OutreachLM is",
+          "prompt_b": "OutreachLM is",
+          "logit_cosine": 1.0000001192092896,
+          "kl_symmetric": 0.0
+        }
+      ],
+      "offdiag_logit_cosine_mean": 0.9190682257924762,
+      "offdiag_logit_cosine_min": 0.8561280965805054,
+      "offdiag_logit_cosine_max": 0.9780028462409973
+    },
+    "rollout": {
+      "prompt": "OutreachLM is",
+      "mean_entropy": 3.861342042684555,
+      "first_repeated_bigram_step": 22,
+      "first_repeated_trigram_step": 39,
+      "generated_text": "OutreachLM is a some and the sear to the e                               "
+    }
+  },
+  "boundary_before": {
+    "sample_count": 4096,
+    "prompt_length": 40,
+    "position_40_prediction_match_rate": 0.40673828125,
+    "position_40_prediction_mismatch_rate": 0.59326171875,
+    "position_41_teacher_match_rate": 0.400390625,
+    "position_41_free_match_rate": 0.24609375,
+    "position_41_free_match_rate_when_context_same": 0.4093637466430664,
+    "position_41_free_match_rate_when_context_diff": 0.13415637612342834,
+    "hidden_cos_teacher_vs_free_mean_all": 0.8573863506317139,
+    "hidden_cos_teacher_vs_free_mean_when_context_same": 1.0,
+    "hidden_cos_teacher_vs_free_mean_when_context_diff": 0.7596108317375183,
+    "logit_cos_teacher_vs_free_mean_all": 0.9772403836250305,
+    "logit_cos_teacher_vs_free_mean_when_context_same": 1.0,
+    "logit_cos_teacher_vs_free_mean_when_context_diff": 0.961636483669281,
+    "kl_symmetric_mean_all": 0.39243337512016296,
+    "kl_symmetric_mean_when_context_same": 0.0,
+    "kl_symmetric_mean_when_context_diff": 0.6614844799041748,
+    "delta_hidden_norm_mean_when_context_diff": 8.253251075744629,
+    "delta_logit_norm_mean_when_context_diff": 12.201643943786621,
+    "delta_ratio_mean_when_context_diff": 1.4102632999420166
+  },
+  "run": {
+    "loss_summary": {
+      "first_total_loss": 13.26972484588623,
+      "last_total_loss": 13.16940975189209,
+      "mean_total_loss": 12.892186546961467,
+      "first_teacher_loss": 3.7474770545959473,
+      "last_teacher_loss": 3.7601914405822754,
+      "first_recovery_loss": 4.5262956619262695,
+      "last_recovery_loss": 4.559256553649902,
+      "first_consistency_loss": 0.4696570336818695,
+      "last_consistency_loss": 0.29070577025413513
+    },
+    "checkpoint_metrics": [
+      {
+        "step": 375,
+        "learning_rate": 0.0004891617851445727,
+        "metrics": {
+          "teacher_free": {
+            "sequence_source": "fallback-start-of-validation",
+            "prompt_text": "the content on the Xbox 360 Marketplace,",
+            "teacher_top1_accuracy": 0.475,
+            "teacher_average_gold_probability": 0.2274652983440319,
+            "free_match_rate_against_target": 0.1875,
+            "free_first_divergence_position": 41,
+            "target_continuation": " not just the demos and arcade games. Between myself and a few other like minded",
+            "free_continuation": "  e                                                                             "
+          },
+          "logit_alignment": {
+            "pairwise": [
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8694968223571777,
+                "kl_symmetric": 0.6375358253717422
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9466607570648193,
+                "kl_symmetric": 0.547765851020813
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9528326988220215,
+                "kl_symmetric": 0.7686965465545654
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9322234392166138,
+                "kl_symmetric": 0.7966411709785461
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9540137648582458,
+                "kl_symmetric": 0.6847726702690125
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9046052694320679,
+                "kl_symmetric": 0.8176972270011902
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8801234364509583,
+                "kl_symmetric": 0.6181255728006363
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8694968223571777,
+                "kl_symmetric": 0.6375358253717422
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9020699858665466,
+                "kl_symmetric": 0.20843657851219177
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.895102858543396,
+                "kl_symmetric": 0.22187329828739166
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.851249098777771,
+                "kl_symmetric": 0.3297240287065506
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.8775379061698914,
+                "kl_symmetric": 1.2677764594554901
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.8962878584861755,
+                "kl_symmetric": 0.6867640167474747
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.90152508020401,
+                "kl_symmetric": 0.30380942672491074
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9466607570648193,
+                "kl_symmetric": 0.547765851020813
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9020699858665466,
+                "kl_symmetric": 0.20843657851219177
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9900840520858765,
+                "kl_symmetric": 0.056906379759311676
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9184083938598633,
+                "kl_symmetric": 0.45111022889614105
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.953998327255249,
+                "kl_symmetric": 0.7069301307201385
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9317538142204285,
+                "kl_symmetric": 0.37795422971248627
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9199914336204529,
+                "kl_symmetric": 0.27305611968040466
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9528326988220215,
+                "kl_symmetric": 0.7686965465545654
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.895102858543396,
+                "kl_symmetric": 0.22187329828739166
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9900840520858765,
+                "kl_symmetric": 0.056906379759311676
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9999998807907104,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9344155788421631,
+                "kl_symmetric": 0.43653377890586853
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9630779027938843,
+                "kl_symmetric": 0.8800424933433533
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9313974976539612,
+                "kl_symmetric": 0.455906018614769
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9112183451652527,
+                "kl_symmetric": 0.35008232295513153
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9322234392166138,
+                "kl_symmetric": 0.7966411709785461
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.851249098777771,
+                "kl_symmetric": 0.3297240287065506
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9184083938598633,
+                "kl_symmetric": 0.45111022889614105
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9344155788421631,
+                "kl_symmetric": 0.43653377890586853
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 1.0000001192092896,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9522454738616943,
+                "kl_symmetric": 1.1275098621845245
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9347944259643555,
+                "kl_symmetric": 0.6229035258293152
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9201120734214783,
+                "kl_symmetric": 0.2003757730126381
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9540137648582458,
+                "kl_symmetric": 0.6847726702690125
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8775379061698914,
+                "kl_symmetric": 1.2677764594554901
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.953998327255249,
+                "kl_symmetric": 0.7069301307201385
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9630779027938843,
+                "kl_symmetric": 0.8800424933433533
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9522454738616943,
+                "kl_symmetric": 1.1275098621845245
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9635283946990967,
+                "kl_symmetric": 0.3177758455276489
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9120694398880005,
+                "kl_symmetric": 0.8798132538795471
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9046052694320679,
+                "kl_symmetric": 0.8176972270011902
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8962878584861755,
+                "kl_symmetric": 0.6867640167474747
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9317538142204285,
+                "kl_symmetric": 0.37795422971248627
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9313974976539612,
+                "kl_symmetric": 0.455906018614769
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9347944259643555,
+                "kl_symmetric": 0.6229035258293152
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9635283946990967,
+                "kl_symmetric": 0.3177758455276489
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9342550039291382,
+                "kl_symmetric": 0.4652337431907654
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8801234364509583,
+                "kl_symmetric": 0.6181255728006363
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.90152508020401,
+                "kl_symmetric": 0.30380942672491074
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9199914336204529,
+                "kl_symmetric": 0.27305611968040466
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9112183451652527,
+                "kl_symmetric": 0.35008232295513153
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9201120734214783,
+                "kl_symmetric": 0.2003757730126381
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9120694398880005,
+                "kl_symmetric": 0.8798132538795471
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9342550039291382,
+                "kl_symmetric": 0.4652337431907654
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9999998211860657,
+                "kl_symmetric": 0.0
+              }
+            ],
+            "offdiag_logit_cosine_mean": 0.9226813976253782,
+            "offdiag_logit_cosine_min": 0.851249098777771,
+            "offdiag_logit_cosine_max": 0.9900840520858765
+          },
+          "rollout": {
+            "prompt": "OutreachLM is",
+            "mean_entropy": 3.6333611687024434,
+            "first_repeated_bigram_step": 22,
+            "first_repeated_trigram_step": 27,
+            "generated_text": "OutreachLM is a some and and the conterseee  aor    aor tou     aor      "
+          }
+        },
+        "boundary_mapping": {
+          "sample_count": 1024,
+          "prompt_length": 40,
+          "position_40_prediction_match_rate": 0.3828125,
+          "position_40_prediction_mismatch_rate": 0.6171875,
+          "position_41_teacher_match_rate": 0.2099609375,
+          "position_41_free_match_rate": 0.1943359375,
+          "position_41_free_match_rate_when_context_same": 0.20408163964748383,
+          "position_41_free_match_rate_when_context_diff": 0.18829113245010376,
+          "hidden_cos_teacher_vs_free_mean_all": 0.9705750346183777,
+          "hidden_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "hidden_cos_teacher_vs_free_mean_when_context_diff": 0.9523242115974426,
+          "logit_cos_teacher_vs_free_mean_all": 0.9966681599617004,
+          "logit_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "logit_cos_teacher_vs_free_mean_when_context_diff": 0.9946015477180481,
+          "kl_symmetric_mean_all": 0.04210178181529045,
+          "kl_symmetric_mean_when_context_same": 0.0,
+          "kl_symmetric_mean_when_context_diff": 0.06821554899215698,
+          "delta_hidden_norm_mean_when_context_diff": 3.642709493637085,
+          "delta_logit_norm_mean_when_context_diff": 4.646499156951904,
+          "delta_ratio_mean_when_context_diff": 1.231389045715332
+        }
+      },
+      {
+        "step": 750,
+        "learning_rate": 0.0003450664133669139,
+        "metrics": {
+          "teacher_free": {
+            "sequence_source": "fallback-start-of-validation",
+            "prompt_text": "the content on the Xbox 360 Marketplace,",
+            "teacher_top1_accuracy": 0.4625,
+            "teacher_average_gold_probability": 0.2451328760245815,
+            "free_match_rate_against_target": 0.1875,
+            "free_first_divergence_position": 41,
+            "target_continuation": " not just the demos and arcade games. Between myself and a few other like minded",
+            "free_continuation": "                                                                                "
+          },
+          "logit_alignment": {
+            "pairwise": [
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8414669632911682,
+                "kl_symmetric": 0.5914749950170517
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9340013861656189,
+                "kl_symmetric": 0.6624224185943604
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9524364471435547,
+                "kl_symmetric": 0.9198765158653259
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9388392567634583,
+                "kl_symmetric": 0.8398301005363464
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.95916348695755,
+                "kl_symmetric": 0.5008706152439117
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9028273224830627,
+                "kl_symmetric": 0.6917964816093445
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.860506534576416,
+                "kl_symmetric": 0.6839737445116043
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8414669632911682,
+                "kl_symmetric": 0.5914749950170517
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 1.0000001192092896,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.888757586479187,
+                "kl_symmetric": 0.11504879221320152
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.8638018369674683,
+                "kl_symmetric": 0.263089619576931
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.8323540687561035,
+                "kl_symmetric": 0.2657292038202286
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.8607689738273621,
+                "kl_symmetric": 0.9860481917858124
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.8879086971282959,
+                "kl_symmetric": 0.574269711971283
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9025654196739197,
+                "kl_symmetric": 0.17322445660829544
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9340013861656189,
+                "kl_symmetric": 0.6624224185943604
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.888757586479187,
+                "kl_symmetric": 0.11504879221320152
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9788151383399963,
+                "kl_symmetric": 0.08054445683956146
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9007530212402344,
+                "kl_symmetric": 0.42473483085632324
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9318357706069946,
+                "kl_symmetric": 0.8453294932842255
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9075653553009033,
+                "kl_symmetric": 0.5008663237094879
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8960968852043152,
+                "kl_symmetric": 0.2833585888147354
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9524364471435547,
+                "kl_symmetric": 0.9198765158653259
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8638018369674683,
+                "kl_symmetric": 0.263089619576931
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9788151383399963,
+                "kl_symmetric": 0.08054445683956146
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9999998211860657,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9351500272750854,
+                "kl_symmetric": 0.44059088826179504
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9563525915145874,
+                "kl_symmetric": 0.9276314675807953
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9137871861457825,
+                "kl_symmetric": 0.521751880645752
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8854418396949768,
+                "kl_symmetric": 0.3509174585342407
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9388392567634583,
+                "kl_symmetric": 0.8398301005363464
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8323540687561035,
+                "kl_symmetric": 0.2657292038202286
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9007530212402344,
+                "kl_symmetric": 0.42473483085632324
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9351500272750854,
+                "kl_symmetric": 0.44059088826179504
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9517238140106201,
+                "kl_symmetric": 1.284445971250534
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9245602488517761,
+                "kl_symmetric": 0.7124699354171753
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9040123224258423,
+                "kl_symmetric": 0.1263928785920143
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.95916348695755,
+                "kl_symmetric": 0.5008706152439117
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8607689738273621,
+                "kl_symmetric": 0.9860481917858124
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9318357706069946,
+                "kl_symmetric": 0.8453294932842255
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9563525915145874,
+                "kl_symmetric": 0.9276314675807953
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9517238140106201,
+                "kl_symmetric": 1.284445971250534
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9999999403953552,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9588305354118347,
+                "kl_symmetric": 0.3230047821998596
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8946797847747803,
+                "kl_symmetric": 1.139963686466217
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9028273224830627,
+                "kl_symmetric": 0.6917964816093445
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8879086971282959,
+                "kl_symmetric": 0.574269711971283
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9075653553009033,
+                "kl_symmetric": 0.5008663237094879
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9137871861457825,
+                "kl_symmetric": 0.521751880645752
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9245602488517761,
+                "kl_symmetric": 0.7124699354171753
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9588305354118347,
+                "kl_symmetric": 0.3230047821998596
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 1.0000001192092896,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9150377511978149,
+                "kl_symmetric": 0.646791622042656
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.860506534576416,
+                "kl_symmetric": 0.6839737445116043
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9025654196739197,
+                "kl_symmetric": 0.17322445660829544
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.8960968852043152,
+                "kl_symmetric": 0.2833585888147354
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.8854418396949768,
+                "kl_symmetric": 0.3509174585342407
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9040123224258423,
+                "kl_symmetric": 0.1263928785920143
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.8946797847747803,
+                "kl_symmetric": 1.139963686466217
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9150377511978149,
+                "kl_symmetric": 0.646791622042656
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              }
+            ],
+            "offdiag_logit_cosine_mean": 0.9100014375788825,
+            "offdiag_logit_cosine_min": 0.8323540687561035,
+            "offdiag_logit_cosine_max": 0.9788151383399963
+          },
+          "rollout": {
+            "prompt": "OutreachLM is",
+            "mean_entropy": 3.7232694149017336,
+            "first_repeated_bigram_step": 33,
+            "first_repeated_trigram_step": 39,
+            "generated_text": "OutreachLM is a start the comple and the  ue te the e                    "
+          }
+        },
+        "boundary_mapping": {
+          "sample_count": 1024,
+          "prompt_length": 40,
+          "position_40_prediction_match_rate": 0.3935546875,
+          "position_40_prediction_mismatch_rate": 0.6064453125,
+          "position_41_teacher_match_rate": 0.2236328125,
+          "position_41_free_match_rate": 0.2138671875,
+          "position_41_free_match_rate_when_context_same": 0.2779156267642975,
+          "position_41_free_match_rate_when_context_diff": 0.1723027378320694,
+          "hidden_cos_teacher_vs_free_mean_all": 0.9770931005477905,
+          "hidden_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "hidden_cos_teacher_vs_free_mean_when_context_diff": 0.9622275233268738,
+          "logit_cos_teacher_vs_free_mean_all": 0.9978514909744263,
+          "logit_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "logit_cos_teacher_vs_free_mean_when_context_diff": 0.9964573979377747,
+          "kl_symmetric_mean_all": 0.03105635568499565,
+          "kl_symmetric_mean_when_context_same": 0.0,
+          "kl_symmetric_mean_when_context_diff": 0.05121048167347908,
+          "delta_hidden_norm_mean_when_context_diff": 3.195063352584839,
+          "delta_logit_norm_mean_when_context_diff": 3.8807926177978516,
+          "delta_ratio_mean_when_context_diff": 1.1594175100326538
+        }
+      },
+      {
+        "step": 1125,
+        "learning_rate": 0.00014320622377162747,
+        "metrics": {
+          "teacher_free": {
+            "sequence_source": "fallback-start-of-validation",
+            "prompt_text": "the content on the Xbox 360 Marketplace,",
+            "teacher_top1_accuracy": 0.4875,
+            "teacher_average_gold_probability": 0.2520569445201545,
+            "free_match_rate_against_target": 0.1875,
+            "free_first_divergence_position": 41,
+            "target_continuation": " not just the demos and arcade games. Between myself and a few other like minded",
+            "free_continuation": "                                                                                "
+          },
+          "logit_alignment": {
+            "pairwise": [
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8684993386268616,
+                "kl_symmetric": 0.7917393743991852
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9236295223236084,
+                "kl_symmetric": 0.9136175215244293
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.941353440284729,
+                "kl_symmetric": 1.1860200762748718
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9293315410614014,
+                "kl_symmetric": 0.9386225044727325
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.955411970615387,
+                "kl_symmetric": 0.6301174759864807
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.8871416449546814,
+                "kl_symmetric": 0.8636922240257263
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8332046270370483,
+                "kl_symmetric": 1.0933899879455566
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8684993386268616,
+                "kl_symmetric": 0.7917393743991852
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9999998807907104,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9075594544410706,
+                "kl_symmetric": 0.12649936228990555
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9034379720687866,
+                "kl_symmetric": 0.2163131684064865
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.8579657077789307,
+                "kl_symmetric": 0.2900804802775383
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.8780895471572876,
+                "kl_symmetric": 1.2324344515800476
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.8888062834739685,
+                "kl_symmetric": 0.5635957717895508
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9111607074737549,
+                "kl_symmetric": 0.1308230608701706
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9236295223236084,
+                "kl_symmetric": 0.9136175215244293
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9075594544410706,
+                "kl_symmetric": 0.12649936228990555
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9999998211860657,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9810326099395752,
+                "kl_symmetric": 0.06706158816814423
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.8916476368904114,
+                "kl_symmetric": 0.4182787239551544
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.929463267326355,
+                "kl_symmetric": 1.0347679555416107
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.8943287134170532,
+                "kl_symmetric": 0.5182049870491028
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8830134868621826,
+                "kl_symmetric": 0.33038096874952316
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.941353440284729,
+                "kl_symmetric": 1.1860200762748718
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9034379720687866,
+                "kl_symmetric": 0.2163131684064865
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9810326099395752,
+                "kl_symmetric": 0.06706158816814423
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9242957830429077,
+                "kl_symmetric": 0.4263150990009308
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9549216628074646,
+                "kl_symmetric": 1.069269597530365
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9109490513801575,
+                "kl_symmetric": 0.47817154228687286
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8788021206855774,
+                "kl_symmetric": 0.39789560437202454
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9293315410614014,
+                "kl_symmetric": 0.9386225044727325
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8579657077789307,
+                "kl_symmetric": 0.2900804802775383
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.8916476368904114,
+                "kl_symmetric": 0.4182787239551544
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9242957830429077,
+                "kl_symmetric": 0.4263150990009308
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9999998807907104,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9507428407669067,
+                "kl_symmetric": 1.2409221529960632
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9308542013168335,
+                "kl_symmetric": 0.5658055692911148
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8915815353393555,
+                "kl_symmetric": 0.21560551971197128
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.955411970615387,
+                "kl_symmetric": 0.6301174759864807
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8780895471572876,
+                "kl_symmetric": 1.2324344515800476
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.929463267326355,
+                "kl_symmetric": 1.0347679555416107
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9549216628074646,
+                "kl_symmetric": 1.069269597530365
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9507428407669067,
+                "kl_symmetric": 1.2409221529960632
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9999998807907104,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9498394131660461,
+                "kl_symmetric": 0.4720911979675293
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8707537055015564,
+                "kl_symmetric": 1.540915071964264
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8871416449546814,
+                "kl_symmetric": 0.8636922240257263
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8888062834739685,
+                "kl_symmetric": 0.5635957717895508
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.8943287134170532,
+                "kl_symmetric": 0.5182049870491028
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9109490513801575,
+                "kl_symmetric": 0.47817154228687286
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9308542013168335,
+                "kl_symmetric": 0.5658055692911148
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9498394131660461,
+                "kl_symmetric": 0.4720911979675293
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9999998807907104,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.908327579498291,
+                "kl_symmetric": 0.6726774871349335
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8332046270370483,
+                "kl_symmetric": 1.0933899879455566
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9111607074737549,
+                "kl_symmetric": 0.1308230608701706
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.8830134868621826,
+                "kl_symmetric": 0.33038096874952316
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.8788021206855774,
+                "kl_symmetric": 0.39789560437202454
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.8915815353393555,
+                "kl_symmetric": 0.21560551971197128
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.8707537055015564,
+                "kl_symmetric": 1.540915071964264
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.908327579498291,
+                "kl_symmetric": 0.6726774871349335
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              }
+            ],
+            "offdiag_logit_cosine_mean": 0.9084337630442211,
+            "offdiag_logit_cosine_min": 0.8332046270370483,
+            "offdiag_logit_cosine_max": 0.9810326099395752
+          },
+          "rollout": {
+            "prompt": "OutreachLM is",
+            "mean_entropy": 3.858317224184672,
+            "first_repeated_bigram_step": 22,
+            "first_repeated_trigram_step": 38,
+            "generated_text": "OutreachLM is a some and the comple the r                                "
+          }
+        },
+        "boundary_mapping": {
+          "sample_count": 1024,
+          "prompt_length": 40,
+          "position_40_prediction_match_rate": 0.40625,
+          "position_40_prediction_mismatch_rate": 0.59375,
+          "position_41_teacher_match_rate": 0.2099609375,
+          "position_41_free_match_rate": 0.2041015625,
+          "position_41_free_match_rate_when_context_same": 0.2548076808452606,
+          "position_41_free_match_rate_when_context_diff": 0.1694078892469406,
+          "hidden_cos_teacher_vs_free_mean_all": 0.9781218767166138,
+          "hidden_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "hidden_cos_teacher_vs_free_mean_when_context_diff": 0.9631526470184326,
+          "logit_cos_teacher_vs_free_mean_all": 0.9982099533081055,
+          "logit_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "logit_cos_teacher_vs_free_mean_when_context_diff": 0.9969853758811951,
+          "kl_symmetric_mean_all": 0.030024882405996323,
+          "kl_symmetric_mean_when_context_same": 0.0,
+          "kl_symmetric_mean_when_context_diff": 0.05056821554899216,
+          "delta_hidden_norm_mean_when_context_diff": 3.173288106918335,
+          "delta_logit_norm_mean_when_context_diff": 3.767913818359375,
+          "delta_ratio_mean_when_context_diff": 1.139931082725525
+        }
+      },
+      {
+        "step": 1500,
+        "learning_rate": 5.0000710611142834e-05,
+        "metrics": {
+          "teacher_free": {
+            "sequence_source": "fallback-start-of-validation",
+            "prompt_text": "the content on the Xbox 360 Marketplace,",
+            "teacher_top1_accuracy": 0.475,
+            "teacher_average_gold_probability": 0.25411452758999076,
+            "free_match_rate_against_target": 0.1875,
+            "free_first_divergence_position": 41,
+            "target_continuation": " not just the demos and arcade games. Between myself and a few other like minded",
+            "free_continuation": "                                                                                "
+          },
+          "logit_alignment": {
+            "pairwise": [
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8668153285980225,
+                "kl_symmetric": 0.7930262982845306
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9249656796455383,
+                "kl_symmetric": 0.8518080413341522
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.94145268201828,
+                "kl_symmetric": 1.0954226851463318
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9253646731376648,
+                "kl_symmetric": 0.9177730679512024
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9482307434082031,
+                "kl_symmetric": 0.651637077331543
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.8902043104171753,
+                "kl_symmetric": 0.8901679515838623
+              },
+              {
+                "prompt_a": "Machine",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8350847363471985,
+                "kl_symmetric": 0.8794333040714264
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8668153285980225,
+                "kl_symmetric": 0.7930262982845306
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9999998807907104,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9132722616195679,
+                "kl_symmetric": 0.11147284507751465
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9059702754020691,
+                "kl_symmetric": 0.23505297303199768
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.862910807132721,
+                "kl_symmetric": 0.2611699253320694
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.8856008052825928,
+                "kl_symmetric": 1.1232901215553284
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.8818103075027466,
+                "kl_symmetric": 0.76612389087677
+              },
+              {
+                "prompt_a": "Machine learning",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9080882668495178,
+                "kl_symmetric": 0.12669813632965088
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9249656796455383,
+                "kl_symmetric": 0.8518080413341522
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9132722616195679,
+                "kl_symmetric": 0.11147284507751465
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9999999403953552,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9795947074890137,
+                "kl_symmetric": 0.07783723250031471
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.8991676568984985,
+                "kl_symmetric": 0.38044069707393646
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.932805061340332,
+                "kl_symmetric": 0.9410848021507263
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9060553312301636,
+                "kl_symmetric": 0.6386005580425262
+              },
+              {
+                "prompt_a": "Machine learning allows",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8888068199157715,
+                "kl_symmetric": 0.27164291590452194
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.94145268201828,
+                "kl_symmetric": 1.0954226851463318
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9059702754020691,
+                "kl_symmetric": 0.23505297303199768
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9795947074890137,
+                "kl_symmetric": 0.07783723250031471
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 1.0,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9315803050994873,
+                "kl_symmetric": 0.42517611384391785
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9605403542518616,
+                "kl_symmetric": 0.8627297878265381
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9244327545166016,
+                "kl_symmetric": 0.5458277761936188
+              },
+              {
+                "prompt_a": "Machine learning allows computers",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.882096529006958,
+                "kl_symmetric": 0.3822910785675049
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9253646731376648,
+                "kl_symmetric": 0.9177730679512024
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.862910807132721,
+                "kl_symmetric": 0.2611699253320694
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.8991676568984985,
+                "kl_symmetric": 0.38044069707393646
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9315803050994873,
+                "kl_symmetric": 0.42517611384391785
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9999997615814209,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9502612352371216,
+                "kl_symmetric": 1.1750178039073944
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9333786368370056,
+                "kl_symmetric": 0.7451002895832062
+              },
+              {
+                "prompt_a": "Machine learning allows computers to",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9024519324302673,
+                "kl_symmetric": 0.15715262666344643
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.9482307434082031,
+                "kl_symmetric": 0.651637077331543
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8856008052825928,
+                "kl_symmetric": 1.1232901215553284
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.932805061340332,
+                "kl_symmetric": 0.9410848021507263
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9605403542518616,
+                "kl_symmetric": 0.8627297878265381
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9502612352371216,
+                "kl_symmetric": 1.1750178039073944
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9999999403953552,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9587282538414001,
+                "kl_symmetric": 0.31117042899131775
+              },
+              {
+                "prompt_a": "The purpose of a transformer",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.8790637850761414,
+                "kl_symmetric": 1.2001588642597198
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8902043104171753,
+                "kl_symmetric": 0.8901679515838623
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.8818103075027466,
+                "kl_symmetric": 0.76612389087677
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.9060553312301636,
+                "kl_symmetric": 0.6386005580425262
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.9244327545166016,
+                "kl_symmetric": 0.5458277761936188
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9333786368370056,
+                "kl_symmetric": 0.7451002895832062
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.9587282538414001,
+                "kl_symmetric": 0.31117042899131775
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9999999403953552,
+                "kl_symmetric": 0.0
+              },
+              {
+                "prompt_a": "A computer system can",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 0.9037420749664307,
+                "kl_symmetric": 0.7610559016466141
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine",
+                "logit_cosine": 0.8350847363471985,
+                "kl_symmetric": 0.8794333040714264
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning",
+                "logit_cosine": 0.9080882668495178,
+                "kl_symmetric": 0.12669813632965088
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows",
+                "logit_cosine": 0.8888068199157715,
+                "kl_symmetric": 0.27164291590452194
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers",
+                "logit_cosine": 0.882096529006958,
+                "kl_symmetric": 0.3822910785675049
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "Machine learning allows computers to",
+                "logit_cosine": 0.9024519324302673,
+                "kl_symmetric": 0.15715262666344643
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "The purpose of a transformer",
+                "logit_cosine": 0.8790637850761414,
+                "kl_symmetric": 1.2001588642597198
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "A computer system can",
+                "logit_cosine": 0.9037420749664307,
+                "kl_symmetric": 0.7610559016466141
+              },
+              {
+                "prompt_a": "OutreachLM is",
+                "prompt_b": "OutreachLM is",
+                "logit_cosine": 1.0000001192092896,
+                "kl_symmetric": 0.0
+              }
+            ],
+            "offdiag_logit_cosine_mean": 0.9115170112677983,
+            "offdiag_logit_cosine_min": 0.8350847363471985,
+            "offdiag_logit_cosine_max": 0.9795947074890137
+          },
+          "rollout": {
+            "prompt": "OutreachLM is",
+            "mean_entropy": 3.940327364206314,
+            "first_repeated_bigram_step": 21,
+            "first_repeated_trigram_step": 22,
+            "generated_text": "OutreachLM is a see a sect and the comple                                "
+          }
+        },
+        "boundary_mapping": {
+          "sample_count": 1024,
+          "prompt_length": 40,
+          "position_40_prediction_match_rate": 0.3994140625,
+          "position_40_prediction_mismatch_rate": 0.6005859375,
+          "position_41_teacher_match_rate": 0.2080078125,
+          "position_41_free_match_rate": 0.1982421875,
+          "position_41_free_match_rate_when_context_same": 0.2616136968135834,
+          "position_41_free_match_rate_when_context_diff": 0.15609756112098694,
+          "hidden_cos_teacher_vs_free_mean_all": 0.9792230129241943,
+          "hidden_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "hidden_cos_teacher_vs_free_mean_when_context_diff": 0.9654054641723633,
+          "logit_cos_teacher_vs_free_mean_all": 0.9983526468276978,
+          "logit_cos_teacher_vs_free_mean_when_context_same": 1.0,
+          "logit_cos_teacher_vs_free_mean_when_context_diff": 0.9972571134567261,
+          "kl_symmetric_mean_all": 0.027219831943511963,
+          "kl_symmetric_mean_when_context_same": 0.0,
+          "kl_symmetric_mean_when_context_diff": 0.045322123914957047,
+          "delta_hidden_norm_mean_when_context_diff": 3.0746066570281982,
+          "delta_logit_norm_mean_when_context_diff": 3.5959084033966064,
+          "delta_ratio_mean_when_context_diff": 1.1198761463165283
+        }
+      }
+    ],
+    "final_metrics": {
+      "teacher_free": {
+        "sequence_source": "fallback-start-of-validation",
+        "prompt_text": "the content on the Xbox 360 Marketplace,",
+        "teacher_top1_accuracy": 0.475,
+        "teacher_average_gold_probability": 0.25411452758999076,
+        "free_match_rate_against_target": 0.1875,
+        "free_first_divergence_position": 41,
+        "target_continuation": " not just the demos and arcade games. Between myself and a few other like minded",
+        "free_continuation": "                                                                                "
+      },
+      "logit_alignment": {
+        "pairwise": [
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "Machine",
+            "logit_cosine": 1.0,
+            "kl_symmetric": 0.0
+          },
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.8668153285980225,
+            "kl_symmetric": 0.7930262982845306
+          },
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.9249656796455383,
+            "kl_symmetric": 0.8518080413341522
+          },
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 0.94145268201828,
+            "kl_symmetric": 1.0954226851463318
+          },
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.9253646731376648,
+            "kl_symmetric": 0.9177730679512024
+          },
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.9482307434082031,
+            "kl_symmetric": 0.651637077331543
+          },
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.8902043104171753,
+            "kl_symmetric": 0.8901679515838623
+          },
+          {
+            "prompt_a": "Machine",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 0.8350847363471985,
+            "kl_symmetric": 0.8794333040714264
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "Machine",
+            "logit_cosine": 0.8668153285980225,
+            "kl_symmetric": 0.7930262982845306
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.9999998807907104,
+            "kl_symmetric": 0.0
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.9132722616195679,
+            "kl_symmetric": 0.11147284507751465
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 0.9059702754020691,
+            "kl_symmetric": 0.23505297303199768
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.862910807132721,
+            "kl_symmetric": 0.2611699253320694
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.8856008052825928,
+            "kl_symmetric": 1.1232901215553284
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.8818103075027466,
+            "kl_symmetric": 0.76612389087677
+          },
+          {
+            "prompt_a": "Machine learning",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 0.9080882668495178,
+            "kl_symmetric": 0.12669813632965088
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "Machine",
+            "logit_cosine": 0.9249656796455383,
+            "kl_symmetric": 0.8518080413341522
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.9132722616195679,
+            "kl_symmetric": 0.11147284507751465
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.9999999403953552,
+            "kl_symmetric": 0.0
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 0.9795947074890137,
+            "kl_symmetric": 0.07783723250031471
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.8991676568984985,
+            "kl_symmetric": 0.38044069707393646
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.932805061340332,
+            "kl_symmetric": 0.9410848021507263
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.9060553312301636,
+            "kl_symmetric": 0.6386005580425262
+          },
+          {
+            "prompt_a": "Machine learning allows",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 0.8888068199157715,
+            "kl_symmetric": 0.27164291590452194
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "Machine",
+            "logit_cosine": 0.94145268201828,
+            "kl_symmetric": 1.0954226851463318
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.9059702754020691,
+            "kl_symmetric": 0.23505297303199768
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.9795947074890137,
+            "kl_symmetric": 0.07783723250031471
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 1.0,
+            "kl_symmetric": 0.0
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.9315803050994873,
+            "kl_symmetric": 0.42517611384391785
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.9605403542518616,
+            "kl_symmetric": 0.8627297878265381
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.9244327545166016,
+            "kl_symmetric": 0.5458277761936188
+          },
+          {
+            "prompt_a": "Machine learning allows computers",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 0.882096529006958,
+            "kl_symmetric": 0.3822910785675049
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "Machine",
+            "logit_cosine": 0.9253646731376648,
+            "kl_symmetric": 0.9177730679512024
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.862910807132721,
+            "kl_symmetric": 0.2611699253320694
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.8991676568984985,
+            "kl_symmetric": 0.38044069707393646
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 0.9315803050994873,
+            "kl_symmetric": 0.42517611384391785
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.9999997615814209,
+            "kl_symmetric": 0.0
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.9502612352371216,
+            "kl_symmetric": 1.1750178039073944
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.9333786368370056,
+            "kl_symmetric": 0.7451002895832062
+          },
+          {
+            "prompt_a": "Machine learning allows computers to",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 0.9024519324302673,
+            "kl_symmetric": 0.15715262666344643
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "Machine",
+            "logit_cosine": 0.9482307434082031,
+            "kl_symmetric": 0.651637077331543
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.8856008052825928,
+            "kl_symmetric": 1.1232901215553284
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.932805061340332,
+            "kl_symmetric": 0.9410848021507263
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 0.9605403542518616,
+            "kl_symmetric": 0.8627297878265381
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.9502612352371216,
+            "kl_symmetric": 1.1750178039073944
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.9999999403953552,
+            "kl_symmetric": 0.0
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.9587282538414001,
+            "kl_symmetric": 0.31117042899131775
+          },
+          {
+            "prompt_a": "The purpose of a transformer",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 0.8790637850761414,
+            "kl_symmetric": 1.2001588642597198
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "Machine",
+            "logit_cosine": 0.8902043104171753,
+            "kl_symmetric": 0.8901679515838623
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.8818103075027466,
+            "kl_symmetric": 0.76612389087677
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.9060553312301636,
+            "kl_symmetric": 0.6386005580425262
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 0.9244327545166016,
+            "kl_symmetric": 0.5458277761936188
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.9333786368370056,
+            "kl_symmetric": 0.7451002895832062
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.9587282538414001,
+            "kl_symmetric": 0.31117042899131775
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.9999999403953552,
+            "kl_symmetric": 0.0
+          },
+          {
+            "prompt_a": "A computer system can",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 0.9037420749664307,
+            "kl_symmetric": 0.7610559016466141
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "Machine",
+            "logit_cosine": 0.8350847363471985,
+            "kl_symmetric": 0.8794333040714264
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "Machine learning",
+            "logit_cosine": 0.9080882668495178,
+            "kl_symmetric": 0.12669813632965088
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "Machine learning allows",
+            "logit_cosine": 0.8888068199157715,
+            "kl_symmetric": 0.27164291590452194
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "Machine learning allows computers",
+            "logit_cosine": 0.882096529006958,
+            "kl_symmetric": 0.3822910785675049
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "Machine learning allows computers to",
+            "logit_cosine": 0.9024519324302673,
+            "kl_symmetric": 0.15715262666344643
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "The purpose of a transformer",
+            "logit_cosine": 0.8790637850761414,
+            "kl_symmetric": 1.2001588642597198
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "A computer system can",
+            "logit_cosine": 0.9037420749664307,
+            "kl_symmetric": 0.7610559016466141
+          },
+          {
+            "prompt_a": "OutreachLM is",
+            "prompt_b": "OutreachLM is",
+            "logit_cosine": 1.0000001192092896,
+            "kl_symmetric": 0.0
+          }
+        ],
+        "offdiag_logit_cosine_mean": 0.9115170112677983,
+        "offdiag_logit_cosine_min": 0.8350847363471985,
+        "offdiag_logit_cosine_max": 0.9795947074890137
+      },
+      "rollout": {
+        "prompt": "OutreachLM is",
+        "mean_entropy": 3.940327364206314,
+        "first_repeated_bigram_step": 21,
+        "first_repeated_trigram_step": 22,
+        "generated_text": "OutreachLM is a see a sect and the comple                                "
+      }
+    },
+    "final_boundary_mapping": {
+      "sample_count": 4096,
+      "prompt_length": 40,
+      "position_40_prediction_match_rate": 0.415283203125,
+      "position_40_prediction_mismatch_rate": 0.584716796875,
+      "position_41_teacher_match_rate": 0.207763671875,
+      "position_41_free_match_rate": 0.2041015625,
+      "position_41_free_match_rate_when_context_same": 0.2475014626979828,
+      "position_41_free_match_rate_when_context_diff": 0.17327766120433807,
+      "hidden_cos_teacher_vs_free_mean_all": 0.9798827767372131,
+      "hidden_cos_teacher_vs_free_mean_when_context_same": 1.0,
+      "hidden_cos_teacher_vs_free_mean_when_context_diff": 0.9655949473381042,
+      "logit_cos_teacher_vs_free_mean_all": 0.9983683228492737,
+      "logit_cos_teacher_vs_free_mean_when_context_same": 1.0,
+      "logit_cos_teacher_vs_free_mean_when_context_diff": 0.9972095489501953,
+      "kl_symmetric_mean_all": 0.026657989248633385,
+      "kl_symmetric_mean_when_context_same": 0.0,
+      "kl_symmetric_mean_when_context_diff": 0.04559127986431122,
+      "delta_hidden_norm_mean_when_context_diff": 3.0657455921173096,
+      "delta_logit_norm_mean_when_context_diff": 3.61044979095459,
+      "delta_ratio_mean_when_context_diff": 1.1288763284683228
+    }
+  },
+  "summary_table": {
+    "leader_before": {
+      "teacher_top1": 0.4625,
+      "free_match": 0.2,
+      "prompt_logit_cosine": 0.9190682257924762,
+      "rollout_mean_entropy": 3.861342042684555,
+      "first_repeated_bigram_step": 22,
+      "first_repeated_trigram_step": 39,
+      "first_free_divergence": 41
+    },
+    "after_test3": {
+      "teacher_top1": 0.475,
+      "free_match": 0.1875,
+      "prompt_logit_cosine": 0.9115170112677983,
+      "rollout_mean_entropy": 3.940327364206314,
+      "first_repeated_bigram_step": 21,
+      "first_repeated_trigram_step": 22,
+      "first_free_divergence": 41
+    }
+  },
+  "artifact_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v2-test3-boundary-consistency-20260816-122240.pt"
+}

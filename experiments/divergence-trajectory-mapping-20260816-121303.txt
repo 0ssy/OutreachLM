@@ -1,0 +1,35 @@
+OUTREACHLM DIVERGENCE-BOUNDARY TRAJECTORY MAPPING
+================================================================================
+Timestamp: 2026-08-16T12:13:03.916920
+
+Model artifact: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v2-divergence-intervention-20260816-113809.pt
+
+CANONICAL TRAJECTORY (teacher vs free)
+--------------------------------------------------------------------------------
+Sequence source: fallback-start-of-validation
+Prompt: 'the content on the Xbox 360 Marketplace,'
+First divergence position: 41
+Focus window: 40..49
+
+pos | gold | t_pred | f_pred | ctx_equal | h_cos | l_cos | KL | t_gold_p | f_gold_p
+ 40 |  ' ' |    ' ' |    ' ' |      True | 1.0000 | 1.0000 | 0.0000 | 0.8253 | 0.8253
+ 41 |  'n' |    'a' |    'a' |      True | 1.0000 | 1.0000 | 0.0000 | 0.0137 | 0.0137
+ 42 |  'o' |    'g' |    'n' |     False | 0.7380 | 0.9752 | 0.8796 | 0.0259 | 0.0956
+ 43 |  't' |    't' |    'd' |     False | 0.6097 | 0.9740 | 1.3164 | 0.2112 | 0.0323
+ 44 |  ' ' |    ' ' |    ' ' |     False | 0.6808 | 0.9424 | 0.5360 | 0.3955 | 0.7922
+ 45 |  'j' |    ' ' |    't' |     False | 0.9374 | 0.9943 | 0.1519 | 0.0020 | 0.0032
+ 46 |  'u' |    'u' |    'o' |     False | 0.6093 | 0.9468 | 1.0066 | 0.3552 | 0.0297
+ 47 |  's' |    's' |    'u' |     False | 0.5844 | 0.9620 | 1.6493 | 0.4829 | 0.0186
+ 48 |  't' |    't' |    'r' |     False | 0.3699 | 0.9287 | 2.8946 | 0.6069 | 0.0184
+ 49 |  ' ' |    ' ' |    ' ' |     False | 0.8028 | 0.9857 | 0.1289 | 0.6385 | 0.5617
+
+SYSTEMATIC BOUNDARY MAPPING
+--------------------------------------------------------------------------------
+Sample count: 4096
+pos40 match/mismatch rate: 0.406738 / 0.593262
+pos41 teacher/free match: 0.400391 / 0.246094
+pos41 free match when context same/diff: 0.409364 / 0.134156
+hidden cos teacher/free mean all/same/diff: 0.857386 / 1.000000 / 0.759611
+logit cos teacher/free mean all/same/diff: 0.977240 / 1.000000 / 0.961636
+KL_sym mean all/same/diff: 0.392433 / 0.000000 / 0.661484
+delta norms when context diff | ||dh||, ||dlogit||, ratio: 8.253251, 12.201644, 1.410263

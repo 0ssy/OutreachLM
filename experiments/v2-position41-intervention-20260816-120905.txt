@@ -1,0 +1,18 @@
+OUTREACHLM POSITION-41 TOKEN-LOSS INTERVENTION
+================================================================================
+Timestamp: 2026-08-16T12:09:05.690250
+
+CONFIG | steps=1500 batch=8 lr=0.0005 warmup=250 ls=0.05 recovery_start=40 recovery_weight=2.0 position_index=40 position_weight=1.0
+
+METRIC COMPARISON
+--------------------------------------------------------------------------------
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+v2_w2_checkpoint,0.462500,0.200000,0.919068,3.861342,22,39,41
+v2_after_position41_intervention,0.500000,0.187500,0.930347,3.815425,33,35,41
+
+POSITION-41 SYSTEMATIC STATS
+--------------------------------------------------------------------------------
+before teacher/free match: 0.400391 / 0.246094
+after  teacher/free match: 0.435547 / 0.238281
+before most-common wrong pred: ' ' frac=0.282060
+after  most-common wrong pred: 't' frac=0.221474

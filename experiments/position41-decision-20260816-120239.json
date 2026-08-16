@@ -1,0 +1,475 @@
+{
+  "timestamp": "2026-08-16T12:02:39.229033",
+  "config": {
+    "model_artifact": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v2-divergence-intervention-20260816-113809.pt",
+    "sample_count": 4096,
+    "prompt_length": 40,
+    "eval_length": 80,
+    "batch_size": 256,
+    "seed": 42
+  },
+  "single_case": {
+    "sequence_source": "fallback-start-of-validation",
+    "sequence_text": "the content on the Xbox 360 Marketplace, not just the demos and arcade games. Between myself and a few other like minded people we estimate that vast majority of content has already been preserved, bo",
+    "prompt_text": "the content on the Xbox 360 Marketplace,",
+    "position_40": {
+      "gold_token_id": 3,
+      "gold_token": " ",
+      "pred_token_id": 3,
+      "pred_token": " ",
+      "pred_probability": 0.8252764344215393
+    },
+    "position_41": {
+      "gold_token_id": 81,
+      "gold_token": "n",
+      "teacher_top1_token_id": 68,
+      "teacher_top1_token": "a",
+      "teacher_top1_probability": 0.09847687184810638,
+      "teacher_gold_probability": 0.013664958998560905,
+      "free_top1_token_id": 68,
+      "free_top1_token": "a",
+      "free_top1_probability": 0.09847687184810638,
+      "free_gold_probability": 0.013664958998560905,
+      "teacher_top10": [
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.09847687184810638,
+          "logit": 3.215242624282837
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.0740957036614418,
+          "logit": 2.9307785034179688
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.05859517306089401,
+          "logit": 2.696073293685913
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.05177415907382965,
+          "logit": 2.572312116622925
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.051162030547857285,
+          "logit": 2.5604186058044434
+        },
+        {
+          "token_id": 90,
+          "token": "w",
+          "probability": 0.04074733331799507,
+          "logit": 2.3328113555908203
+        },
+        {
+          "token_id": 69,
+          "token": "b",
+          "probability": 0.03069482557475567,
+          "logit": 2.0495150089263916
+        },
+        {
+          "token_id": 73,
+          "token": "f",
+          "probability": 0.028684886172413826,
+          "logit": 1.9817912578582764
+        },
+        {
+          "token_id": 83,
+          "token": "p",
+          "probability": 0.027962522581219673,
+          "logit": 1.956286072731018
+        },
+        {
+          "token_id": 85,
+          "token": "r",
+          "probability": 0.021574493497610092,
+          "logit": 1.6969326734542847
+        }
+      ],
+      "free_top10": [
+        {
+          "token_id": 68,
+          "token": "a",
+          "probability": 0.09847687184810638,
+          "logit": 3.215242624282837
+        },
+        {
+          "token_id": 87,
+          "token": "t",
+          "probability": 0.0740957036614418,
+          "logit": 2.9307785034179688
+        },
+        {
+          "token_id": 82,
+          "token": "o",
+          "probability": 0.05859517306089401,
+          "logit": 2.696073293685913
+        },
+        {
+          "token_id": 86,
+          "token": "s",
+          "probability": 0.05177415907382965,
+          "logit": 2.572312116622925
+        },
+        {
+          "token_id": 76,
+          "token": "i",
+          "probability": 0.051162030547857285,
+          "logit": 2.5604186058044434
+        },
+        {
+          "token_id": 90,
+          "token": "w",
+          "probability": 0.04074733331799507,
+          "logit": 2.3328113555908203
+        },
+        {
+          "token_id": 69,
+          "token": "b",
+          "probability": 0.03069482557475567,
+          "logit": 2.0495150089263916
+        },
+        {
+          "token_id": 73,
+          "token": "f",
+          "probability": 0.028684886172413826,
+          "logit": 1.9817912578582764
+        },
+        {
+          "token_id": 83,
+          "token": "p",
+          "probability": 0.027962522581219673,
+          "logit": 1.956286072731018
+        },
+        {
+          "token_id": 85,
+          "token": "r",
+          "probability": 0.021574493497610092,
+          "logit": 1.6969326734542847
+        }
+      ],
+      "free_minus_gold_logit_margin": 1.9749869108200073
+    }
+  },
+  "systematic": {
+    "sample_count": 4096,
+    "prompt_length": 40,
+    "position_analyzed": 41,
+    "teacher_match_rate_at_pos41": 0.400390625,
+    "free_match_rate_at_pos41": 0.24609375,
+    "free_mismatch_rate_at_pos41": 0.75390625,
+    "free_gold_probability_mean": 0.11706511676311493,
+    "free_gold_probability_mean_when_correct": 0.3236275017261505,
+    "free_gold_probability_mean_when_wrong": 0.04963801056146622,
+    "free_logit_margin_pred_minus_gold_mean": 1.2448713779449463,
+    "free_logit_margin_pred_minus_gold_mean_when_wrong": 1.6512283086776733,
+    "most_common_wrong_pred_token": {
+      "token_id": 3,
+      "token": " ",
+      "count": 871,
+      "fraction_of_mismatches": 0.282059585492228
+    },
+    "top_mismatch_gold_tokens": [
+      {
+        "token_id": 72,
+        "token": "e",
+        "count": 335
+      },
+      {
+        "token_id": 76,
+        "token": "i",
+        "count": 238
+      },
+      {
+        "token_id": 86,
+        "token": "s",
+        "count": 207
+      },
+      {
+        "token_id": 3,
+        "token": " ",
+        "count": 205
+      },
+      {
+        "token_id": 81,
+        "token": "n",
+        "count": 197
+      },
+      {
+        "token_id": 87,
+        "token": "t",
+        "count": 194
+      },
+      {
+        "token_id": 68,
+        "token": "a",
+        "count": 190
+      },
+      {
+        "token_id": 82,
+        "token": "o",
+        "count": 168
+      },
+      {
+        "token_id": 85,
+        "token": "r",
+        "count": 155
+      },
+      {
+        "token_id": 79,
+        "token": "l",
+        "count": 126
+      },
+      {
+        "token_id": 75,
+        "token": "h",
+        "count": 115
+      },
+      {
+        "token_id": 70,
+        "token": "c",
+        "count": 97
+      },
+      {
+        "token_id": 71,
+        "token": "d",
+        "count": 92
+      },
+      {
+        "token_id": 88,
+        "token": "u",
+        "count": 77
+      },
+      {
+        "token_id": 92,
+        "token": "y",
+        "count": 64
+      }
+    ],
+    "top_mismatch_pred_tokens": [
+      {
+        "token_id": 3,
+        "token": " ",
+        "count": 871
+      },
+      {
+        "token_id": 82,
+        "token": "o",
+        "count": 480
+      },
+      {
+        "token_id": 87,
+        "token": "t",
+        "count": 467
+      },
+      {
+        "token_id": 68,
+        "token": "a",
+        "count": 235
+      },
+      {
+        "token_id": 81,
+        "token": "n",
+        "count": 210
+      },
+      {
+        "token_id": 72,
+        "token": "e",
+        "count": 183
+      },
+      {
+        "token_id": 85,
+        "token": "r",
+        "count": 142
+      },
+      {
+        "token_id": 86,
+        "token": "s",
+        "count": 100
+      },
+      {
+        "token_id": 76,
+        "token": "i",
+        "count": 75
+      },
+      {
+        "token_id": 75,
+        "token": "h",
+        "count": 63
+      },
+      {
+        "token_id": 71,
+        "token": "d",
+        "count": 61
+      },
+      {
+        "token_id": 70,
+        "token": "c",
+        "count": 36
+      },
+      {
+        "token_id": 55,
+        "token": "T",
+        "count": 34
+      },
+      {
+        "token_id": 79,
+        "token": "l",
+        "count": 29
+      },
+      {
+        "token_id": 74,
+        "token": "g",
+        "count": 23
+      }
+    ],
+    "top_mismatch_pairs_gold_to_pred": [
+      {
+        "gold_token_id": 87,
+        "gold_token": "t",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 102
+      },
+      {
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 89
+      },
+      {
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "pred_token_id": 82,
+        "pred_token": "o",
+        "count": 87
+      },
+      {
+        "gold_token_id": 86,
+        "gold_token": "s",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 85
+      },
+      {
+        "gold_token_id": 76,
+        "gold_token": "i",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 70
+      },
+      {
+        "gold_token_id": 81,
+        "gold_token": "n",
+        "pred_token_id": 82,
+        "pred_token": "o",
+        "count": 58
+      },
+      {
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "pred_token_id": 87,
+        "pred_token": "t",
+        "count": 52
+      },
+      {
+        "gold_token_id": 81,
+        "gold_token": "n",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 50
+      },
+      {
+        "gold_token_id": 75,
+        "gold_token": "h",
+        "pred_token_id": 82,
+        "pred_token": "o",
+        "count": 50
+      },
+      {
+        "gold_token_id": 85,
+        "gold_token": "r",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 47
+      },
+      {
+        "gold_token_id": 72,
+        "gold_token": "e",
+        "pred_token_id": 87,
+        "pred_token": "t",
+        "count": 46
+      },
+      {
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 43
+      },
+      {
+        "gold_token_id": 3,
+        "gold_token": " ",
+        "pred_token_id": 72,
+        "pred_token": "e",
+        "count": 42
+      },
+      {
+        "gold_token_id": 68,
+        "gold_token": "a",
+        "pred_token_id": 82,
+        "pred_token": "o",
+        "count": 42
+      },
+      {
+        "gold_token_id": 79,
+        "gold_token": "l",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 41
+      },
+      {
+        "gold_token_id": 76,
+        "gold_token": "i",
+        "pred_token_id": 82,
+        "pred_token": "o",
+        "count": 39
+      },
+      {
+        "gold_token_id": 82,
+        "gold_token": "o",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 38
+      },
+      {
+        "gold_token_id": 71,
+        "gold_token": "d",
+        "pred_token_id": 3,
+        "pred_token": " ",
+        "count": 36
+      },
+      {
+        "gold_token_id": 85,
+        "gold_token": "r",
+        "pred_token_id": 82,
+        "pred_token": "o",
+        "count": 36
+      },
+      {
+        "gold_token_id": 86,
+        "gold_token": "s",
+        "pred_token_id": 87,
+        "pred_token": "t",
+        "count": 33
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+OUTREACHLM POSITION-41 TOKEN DECISION ANALYSIS
+================================================================================
+Timestamp: 2026-08-16T12:02:39.229033
+
+Model artifact: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v2-divergence-intervention-20260816-113809.pt
+
+SINGLE-CASE (canonical divergence sequence)
+--------------------------------------------------------------------------------
+Sequence source: fallback-start-of-validation
+Prompt: 'the content on the Xbox 360 Marketplace,'
+Position 40 | gold=' ' pred=' ' p(pred)=0.825276
+Position 41 | gold='n' | teacher top1='a' p=0.098477 (gold p=0.013665)
+             free top1='a' p=0.098477 (gold p=0.013665) logit_margin(pred-gold)=1.974987
+
+SYSTEMATIC ACROSS VALIDATION WINDOWS
+--------------------------------------------------------------------------------
+Sample count: 4096 | analyzed position index: 41
+Teacher match rate @pos41: 0.400391
+Free match rate @pos41:    0.246094
+Free mismatch rate @pos41: 0.753906
+Free gold prob mean (all/correct/wrong): 0.117065 / 0.323628 / 0.049638
+Free logit margin pred-gold mean (all/wrong): 1.244871 / 1.651228
+Most common wrong predicted token: ' ' (count=871, fraction_of_mismatches=0.282060)
+
+Top mismatch gold->pred pairs:
+  't' -> ' ' : 102
+  'e' -> ' ' : 89
+  'e' -> 'o' : 87
+  's' -> ' ' : 85
+  'i' -> ' ' : 70
+  'n' -> 'o' : 58
+  ' ' -> 't' : 52
+  'n' -> ' ' : 50
+  'h' -> 'o' : 50
+  'r' -> ' ' : 47
