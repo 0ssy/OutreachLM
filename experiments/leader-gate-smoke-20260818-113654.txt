@@ -1,0 +1,29 @@
+OUTREACHLM LEADER GATING PROTOCOL REPORT
+================================================================================
+Timestamp: 2026-08-18T11:36:54.599536
+
+Leader artifact: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v2-divergence-intervention-20260816-113809.pt
+Candidates: seed1=C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v4-training-post-error-w1\v4-best-rollout.pt
+Gate: min_seeds=1 required_margin=0.0
+Held-out slices=2 | boundary sample_count=64 seed=42
+
+LEADER SNAPSHOT
+--------------------------------------------------------------------------------
+teacher_top1=0.4625 free_match=0.2000 first_div=41 heldout_mean_free=0.1437
+
+CANDIDATE SNAPSHOT
+--------------------------------------------------------------------------------
+label,teacher_top1,free_match,first_free_divergence,heldout_mean_free,pos41_free_match_ctx_diff,post_div_next12,seed_pass,heldout_pass
+seed1,0.200000,0.225000,41,0.162500,0.166667,0.333333,True,True
+
+GATE DECISION
+--------------------------------------------------------------------------------
+promotion_pass=True
+minimum_seed_count_pass=True
+all_seed_free_match_pass=True
+mean_free_match_pass=True
+all_heldout_pass=True
+candidate_mean_free_match=0.225000 min=0.225000 max=0.225000
+candidate_mean_heldout_free_match=0.162500 candidate_mean_pos41_ctx_diff=0.166667 candidate_mean_post_div_next12=0.333333
+reasons:
+- All promotion gate conditions passed.

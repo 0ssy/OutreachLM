@@ -1,0 +1,16 @@
+OUTREACHLM V5 BOUNDARY-AWARE ROLLOUT INTERVENTION
+================================================================================
+Timestamp: 2026-08-18T12:55:42.851760
+
+CONFIG | steps=1500 batch=8 lr=0.0005 warmup=250 label_smoothing=0.05 recovery_start=40 recovery_weight=2.0 boundary_loss_weight=1.0 boundary_window=40-43 forced_error_index=40
+
+METRIC COMPARISON
+--------------------------------------------------------------------------------
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+v2_before_intervention,0.462500,0.200000,0.919068,3.861342,22,39,41
+v5_after_intervention,0.450000,0.187500,0.923318,3.331871,22,38,41
+
+Total loss first/last/mean: 17.342396 / 16.768143 / 17.387044
+Teacher loss first->last: 3.659737 -> 3.560399
+Recovery loss first->last: 4.497099 -> 4.328864
+Boundary rollout loss first->last: 4.688461 -> 4.550017

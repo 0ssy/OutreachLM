@@ -1,0 +1,1243 @@
+{
+  "timestamp": "2026-08-18T17:53:32.777350",
+  "config": {
+    "leader": {
+      "label": "leader",
+      "artifact_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v2-divergence-intervention-20260816-113809.pt"
+    },
+    "candidates": [
+      {
+        "label": "v5_seed1",
+        "artifact_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v5-boundary-rollout-intervention-20260818-123304.pt"
+      },
+      {
+        "label": "v5_seed2",
+        "artifact_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v5-boundary-rollout-intervention-20260818-125542.pt"
+      }
+    ],
+    "sample_seed": 42,
+    "sample_count": 4096,
+    "sample_batch_size": 256,
+    "position_start": 40,
+    "position_end": 52,
+    "fallback_topk": 5,
+    "heldout_slices": 4
+  },
+  "leader": {
+    "label": "leader",
+    "artifact_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v2-divergence-intervention-20260816-113809.pt",
+    "sample_count_used": 4096,
+    "suite_row": {
+      "teacher_top1": 0.4625,
+      "free_match": 0.2,
+      "prompt_logit_cosine": 0.9190682257924762,
+      "rollout_mean_entropy": 3.861342042684555,
+      "first_repeated_bigram_step": 22,
+      "first_repeated_trigram_step": 39,
+      "first_free_divergence": 41
+    },
+    "post_divergence_recovery": {
+      "has_divergence": true,
+      "first_divergence_position": 41,
+      "next_12_match_rate": 0.3333333333333333,
+      "tail_match_rate": 0.21052631578947367,
+      "tail_steps": 38
+    },
+    "fallback_tokens": [
+      {
+        "token_id": 3,
+        "token_text": " "
+      },
+      {
+        "token_id": 82,
+        "token_text": "o"
+      },
+      {
+        "token_id": 88,
+        "token_text": "u"
+      },
+      {
+        "token_id": 87,
+        "token_text": "t"
+      },
+      {
+        "token_id": 72,
+        "token_text": "e"
+      }
+    ],
+    "position_rows": [
+      {
+        "position": 40,
+        "context_diff_rate": 0.0,
+        "teacher_gold_probability_mean": 0.22680222988128662,
+        "free_gold_probability_mean": 0.22680222988128662,
+        "free_gold_probability_mean_when_context_diff": 0.0,
+        "teacher_margin_pred_minus_gold_mean": 0.8701164722442627,
+        "free_margin_pred_minus_gold_mean": 0.8701164722442627,
+        "margin_shift_free_minus_teacher_mean": 0.0,
+        "teacher_entropy_mean": 3.2437820434570312,
+        "free_entropy_mean": 3.2437820434570312,
+        "entropy_shift_free_minus_teacher_mean": 0.0,
+        "hidden_delta_norm_mean": 0.0,
+        "logit_delta_norm_mean": 0.0,
+        "argmax_change_rate": 0.0,
+        "fallback_probability_mass_mean": 0.3422156274318695,
+        "fallback_probability_mass_mean_when_context_diff": 0.0
+      },
+      {
+        "position": 41,
+        "context_diff_rate": 0.59326171875,
+        "teacher_gold_probability_mean": 0.17775079607963562,
+        "free_gold_probability_mean": 0.11706511676311493,
+        "free_gold_probability_mean_when_context_diff": 0.06804030388593674,
+        "teacher_margin_pred_minus_gold_mean": 0.7651247978210449,
+        "free_margin_pred_minus_gold_mean": 1.2448713779449463,
+        "margin_shift_free_minus_teacher_mean": 0.4797464609146118,
+        "teacher_entropy_mean": 3.5622448921203613,
+        "free_entropy_mean": 3.689580202102661,
+        "entropy_shift_free_minus_teacher_mean": 0.12733511626720428,
+        "hidden_delta_norm_mean": 4.896337509155273,
+        "logit_delta_norm_mean": 7.238768100738525,
+        "argmax_change_rate": 0.44921875,
+        "fallback_probability_mass_mean": 0.3316415250301361,
+        "fallback_probability_mass_mean_when_context_diff": 0.3191663324832916
+      },
+      {
+        "position": 42,
+        "context_diff_rate": 0.83349609375,
+        "teacher_gold_probability_mean": 0.17000064253807068,
+        "free_gold_probability_mean": 0.07928173243999481,
+        "free_gold_probability_mean_when_context_diff": 0.0601695291697979,
+        "teacher_margin_pred_minus_gold_mean": 0.8046437501907349,
+        "free_margin_pred_minus_gold_mean": 1.5241557359695435,
+        "margin_shift_free_minus_teacher_mean": 0.7195119261741638,
+        "teacher_entropy_mean": 3.571563482284546,
+        "free_entropy_mean": 3.7757973670959473,
+        "entropy_shift_free_minus_teacher_mean": 0.20423398911952972,
+        "hidden_delta_norm_mean": 7.174990653991699,
+        "logit_delta_norm_mean": 11.082977294921875,
+        "argmax_change_rate": 0.646240234375,
+        "fallback_probability_mass_mean": 0.3508059084415436,
+        "fallback_probability_mass_mean_when_context_diff": 0.34745338559150696
+      },
+      {
+        "position": 43,
+        "context_diff_rate": 0.940673828125,
+        "teacher_gold_probability_mean": 0.17204242944717407,
+        "free_gold_probability_mean": 0.0638962835073471,
+        "free_gold_probability_mean_when_context_diff": 0.05812366306781769,
+        "teacher_margin_pred_minus_gold_mean": 0.8976755142211914,
+        "free_margin_pred_minus_gold_mean": 1.6835408210754395,
+        "margin_shift_free_minus_teacher_mean": 0.785865306854248,
+        "teacher_entropy_mean": 3.5319693088531494,
+        "free_entropy_mean": 3.8709545135498047,
+        "entropy_shift_free_minus_teacher_mean": 0.3389849364757538,
+        "hidden_delta_norm_mean": 8.680763244628906,
+        "logit_delta_norm_mean": 14.316411972045898,
+        "argmax_change_rate": 0.689697265625,
+        "fallback_probability_mass_mean": 0.3350604772567749,
+        "fallback_probability_mass_mean_when_context_diff": 0.334934800863266
+      },
+      {
+        "position": 44,
+        "context_diff_rate": 0.98193359375,
+        "teacher_gold_probability_mean": 0.18420818448066711,
+        "free_gold_probability_mean": 0.05578071251511574,
+        "free_gold_probability_mean_when_context_diff": 0.052615538239479065,
+        "teacher_margin_pred_minus_gold_mean": 0.8890388607978821,
+        "free_margin_pred_minus_gold_mean": 1.661187767982483,
+        "margin_shift_free_minus_teacher_mean": 0.772148847579956,
+        "teacher_entropy_mean": 3.4582748413085938,
+        "free_entropy_mean": 3.9305055141448975,
+        "entropy_shift_free_minus_teacher_mean": 0.4722309112548828,
+        "hidden_delta_norm_mean": 9.63008975982666,
+        "logit_delta_norm_mean": 17.032367706298828,
+        "argmax_change_rate": 0.72509765625,
+        "fallback_probability_mass_mean": 0.32338160276412964,
+        "fallback_probability_mass_mean_when_context_diff": 0.3221067190170288
+      },
+      {
+        "position": 45,
+        "context_diff_rate": 0.993408203125,
+        "teacher_gold_probability_mean": 0.18443168699741364,
+        "free_gold_probability_mean": 0.050138168036937714,
+        "free_gold_probability_mean_when_context_diff": 0.04886389151215553,
+        "teacher_margin_pred_minus_gold_mean": 0.8668373227119446,
+        "free_margin_pred_minus_gold_mean": 1.4939687252044678,
+        "margin_shift_free_minus_teacher_mean": 0.6271313428878784,
+        "teacher_entropy_mean": 3.4727120399475098,
+        "free_entropy_mean": 4.0709228515625,
+        "entropy_shift_free_minus_teacher_mean": 0.5982105135917664,
+        "hidden_delta_norm_mean": 10.083817481994629,
+        "logit_delta_norm_mean": 18.0533504486084,
+        "argmax_change_rate": 0.73486328125,
+        "fallback_probability_mass_mean": 0.29992184042930603,
+        "fallback_probability_mass_mean_when_context_diff": 0.29936638474464417
+      },
+      {
+        "position": 46,
+        "context_diff_rate": 0.9970703125,
+        "teacher_gold_probability_mean": 0.18897190690040588,
+        "free_gold_probability_mean": 0.04809862747788429,
+        "free_gold_probability_mean_when_context_diff": 0.04795307666063309,
+        "teacher_margin_pred_minus_gold_mean": 0.8574036359786987,
+        "free_margin_pred_minus_gold_mean": 1.4293839931488037,
+        "margin_shift_free_minus_teacher_mean": 0.5719804763793945,
+        "teacher_entropy_mean": 3.4571633338928223,
+        "free_entropy_mean": 4.1297783851623535,
+        "entropy_shift_free_minus_teacher_mean": 0.6726148724555969,
+        "hidden_delta_norm_mean": 10.262722969055176,
+        "logit_delta_norm_mean": 18.50235366821289,
+        "argmax_change_rate": 0.760009765625,
+        "fallback_probability_mass_mean": 0.2839829921722412,
+        "fallback_probability_mass_mean_when_context_diff": 0.28416189551353455
+      },
+      {
+        "position": 47,
+        "context_diff_rate": 0.999267578125,
+        "teacher_gold_probability_mean": 0.20329055190086365,
+        "free_gold_probability_mean": 0.04889436066150665,
+        "free_gold_probability_mean_when_context_diff": 0.048812441527843475,
+        "teacher_margin_pred_minus_gold_mean": 0.8707948923110962,
+        "free_margin_pred_minus_gold_mean": 1.4641542434692383,
+        "margin_shift_free_minus_teacher_mean": 0.5933591723442078,
+        "teacher_entropy_mean": 3.3600711822509766,
+        "free_entropy_mean": 4.143294334411621,
+        "entropy_shift_free_minus_teacher_mean": 0.7832229137420654,
+        "hidden_delta_norm_mean": 10.676727294921875,
+        "logit_delta_norm_mean": 20.694368362426758,
+        "argmax_change_rate": 0.741943359375,
+        "fallback_probability_mass_mean": 0.2814468741416931,
+        "fallback_probability_mass_mean_when_context_diff": 0.2813415229320526
+      },
+      {
+        "position": 48,
+        "context_diff_rate": 0.999755859375,
+        "teacher_gold_probability_mean": 0.21134978532791138,
+        "free_gold_probability_mean": 0.04891922324895859,
+        "free_gold_probability_mean_when_context_diff": 0.0489041805267334,
+        "teacher_margin_pred_minus_gold_mean": 0.8595530390739441,
+        "free_margin_pred_minus_gold_mean": 1.3475815057754517,
+        "margin_shift_free_minus_teacher_mean": 0.4880284070968628,
+        "teacher_entropy_mean": 3.3501906394958496,
+        "free_entropy_mean": 4.193643569946289,
+        "entropy_shift_free_minus_teacher_mean": 0.8434526920318604,
+        "hidden_delta_norm_mean": 10.9330415725708,
+        "logit_delta_norm_mean": 21.56456756591797,
+        "argmax_change_rate": 0.748046875,
+        "fallback_probability_mass_mean": 0.27807167172431946,
+        "fallback_probability_mass_mean_when_context_diff": 0.27807116508483887
+      },
+      {
+        "position": 49,
+        "context_diff_rate": 0.999755859375,
+        "teacher_gold_probability_mean": 0.21198296546936035,
+        "free_gold_probability_mean": 0.043305084109306335,
+        "free_gold_probability_mean_when_context_diff": 0.04331335797905922,
+        "teacher_margin_pred_minus_gold_mean": 0.8853166699409485,
+        "free_margin_pred_minus_gold_mean": 1.3891338109970093,
+        "margin_shift_free_minus_teacher_mean": 0.5038172006607056,
+        "teacher_entropy_mean": 3.322054147720337,
+        "free_entropy_mean": 4.307219505310059,
+        "entropy_shift_free_minus_teacher_mean": 0.9851653575897217,
+        "hidden_delta_norm_mean": 11.108098030090332,
+        "logit_delta_norm_mean": 22.44495391845703,
+        "argmax_change_rate": 0.75634765625,
+        "fallback_probability_mass_mean": 0.2712210714817047,
+        "fallback_probability_mass_mean_when_context_diff": 0.2712295651435852
+      },
+      {
+        "position": 50,
+        "context_diff_rate": 1.0,
+        "teacher_gold_probability_mean": 0.2169579416513443,
+        "free_gold_probability_mean": 0.04235778748989105,
+        "free_gold_probability_mean_when_context_diff": 0.04235778748989105,
+        "teacher_margin_pred_minus_gold_mean": 0.9019036293029785,
+        "free_margin_pred_minus_gold_mean": 1.3623549938201904,
+        "margin_shift_free_minus_teacher_mean": 0.4604513943195343,
+        "teacher_entropy_mean": 3.2947888374328613,
+        "free_entropy_mean": 4.337796211242676,
+        "entropy_shift_free_minus_teacher_mean": 1.0430068969726562,
+        "hidden_delta_norm_mean": 11.405832290649414,
+        "logit_delta_norm_mean": 23.36758041381836,
+        "argmax_change_rate": 0.757080078125,
+        "fallback_probability_mass_mean": 0.26415666937828064,
+        "fallback_probability_mass_mean_when_context_diff": 0.26415666937828064
+      },
+      {
+        "position": 51,
+        "context_diff_rate": 1.0,
+        "teacher_gold_probability_mean": 0.21608008444309235,
+        "free_gold_probability_mean": 0.043602101504802704,
+        "free_gold_probability_mean_when_context_diff": 0.043602101504802704,
+        "teacher_margin_pred_minus_gold_mean": 0.8666558265686035,
+        "free_margin_pred_minus_gold_mean": 1.3700120449066162,
+        "margin_shift_free_minus_teacher_mean": 0.5033561587333679,
+        "teacher_entropy_mean": 3.306871175765991,
+        "free_entropy_mean": 4.308548927307129,
+        "entropy_shift_free_minus_teacher_mean": 1.0016777515411377,
+        "hidden_delta_norm_mean": 11.551578521728516,
+        "logit_delta_norm_mean": 23.06135368347168,
+        "argmax_change_rate": 0.760009765625,
+        "fallback_probability_mass_mean": 0.2655610144138336,
+        "fallback_probability_mass_mean_when_context_diff": 0.2655610144138336
+      },
+      {
+        "position": 52,
+        "context_diff_rate": 1.0,
+        "teacher_gold_probability_mean": 0.21651910245418549,
+        "free_gold_probability_mean": 0.04185359179973602,
+        "free_gold_probability_mean_when_context_diff": 0.04185359179973602,
+        "teacher_margin_pred_minus_gold_mean": 0.844542384147644,
+        "free_margin_pred_minus_gold_mean": 1.2990261316299438,
+        "margin_shift_free_minus_teacher_mean": 0.4544837772846222,
+        "teacher_entropy_mean": 3.3157196044921875,
+        "free_entropy_mean": 4.317178726196289,
+        "entropy_shift_free_minus_teacher_mean": 1.0014598369598389,
+        "hidden_delta_norm_mean": 11.583316802978516,
+        "logit_delta_norm_mean": 23.317989349365234,
+        "argmax_change_rate": 0.764404296875,
+        "fallback_probability_mass_mean": 0.24367091059684753,
+        "fallback_probability_mass_mean_when_context_diff": 0.24367091059684753
+      }
+    ],
+    "heldout_stability": {
+      "rows": [
+        {
+          "slice_index": 0,
+          "free_match_rate_against_target": 0.2,
+          "teacher_top1_accuracy": 0.4625,
+          "first_divergence_position": 41
+        },
+        {
+          "slice_index": 1,
+          "free_match_rate_against_target": 0.125,
+          "teacher_top1_accuracy": 0.4625,
+          "first_divergence_position": 40
+        },
+        {
+          "slice_index": 2,
+          "free_match_rate_against_target": 0.0875,
+          "teacher_top1_accuracy": 0.3375,
+          "first_divergence_position": 40
+        },
+        {
+          "slice_index": 3,
+          "free_match_rate_against_target": 0.125,
+          "teacher_top1_accuracy": 0.425,
+          "first_divergence_position": 41
+        }
+      ],
+      "mean_free_match": 0.134375,
+      "min_free_match": 0.0875,
+      "max_free_match": 0.2,
+      "free_match_range": 0.11250000000000002
+    }
+  },
+  "candidates": [
+    {
+      "label": "v5_seed1",
+      "artifact_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v5-boundary-rollout-intervention-20260818-123304.pt",
+      "sample_count_used": 4096,
+      "suite_row": {
+        "teacher_top1": 0.4625,
+        "free_match": 0.1,
+        "prompt_logit_cosine": 0.922280381832804,
+        "rollout_mean_entropy": 3.8372132976849875,
+        "first_repeated_bigram_step": 25,
+        "first_repeated_trigram_step": 38,
+        "first_free_divergence": 41
+      },
+      "post_divergence_recovery": {
+        "has_divergence": true,
+        "first_divergence_position": 41,
+        "next_12_match_rate": 0.4166666666666667,
+        "tail_match_rate": 0.13157894736842105,
+        "tail_steps": 38
+      },
+      "fallback_tokens": [
+        {
+          "token_id": 3,
+          "token_text": " "
+        },
+        {
+          "token_id": 72,
+          "token_text": "e"
+        },
+        {
+          "token_id": 87,
+          "token_text": "t"
+        },
+        {
+          "token_id": 82,
+          "token_text": "o"
+        },
+        {
+          "token_id": 85,
+          "token_text": "r"
+        }
+      ],
+      "position_rows": [
+        {
+          "position": 40,
+          "context_diff_rate": 0.0,
+          "teacher_gold_probability_mean": 0.23283740878105164,
+          "free_gold_probability_mean": 0.23283740878105164,
+          "free_gold_probability_mean_when_context_diff": 0.0,
+          "teacher_margin_pred_minus_gold_mean": 0.8807994723320007,
+          "free_margin_pred_minus_gold_mean": 0.8807994723320007,
+          "margin_shift_free_minus_teacher_mean": 0.0,
+          "teacher_entropy_mean": 3.2122602462768555,
+          "free_entropy_mean": 3.2122602462768555,
+          "entropy_shift_free_minus_teacher_mean": 0.0,
+          "hidden_delta_norm_mean": 0.0,
+          "logit_delta_norm_mean": 0.0,
+          "argmax_change_rate": 0.0,
+          "fallback_probability_mass_mean": 0.35428664088249207,
+          "fallback_probability_mass_mean_when_context_diff": 0.0
+        },
+        {
+          "position": 41,
+          "context_diff_rate": 0.583984375,
+          "teacher_gold_probability_mean": 0.1126730814576149,
+          "free_gold_probability_mean": 0.10214591026306152,
+          "free_gold_probability_mean_when_context_diff": 0.08284968882799149,
+          "teacher_margin_pred_minus_gold_mean": 0.9826086759567261,
+          "free_margin_pred_minus_gold_mean": 1.1863746643066406,
+          "margin_shift_free_minus_teacher_mean": 0.2037661373615265,
+          "teacher_entropy_mean": 3.7960832118988037,
+          "free_entropy_mean": 3.8036346435546875,
+          "entropy_shift_free_minus_teacher_mean": 0.007551162503659725,
+          "hidden_delta_norm_mean": 2.845273971557617,
+          "logit_delta_norm_mean": 3.6265478134155273,
+          "argmax_change_rate": 0.300048828125,
+          "fallback_probability_mass_mean": 0.3677453100681305,
+          "fallback_probability_mass_mean_when_context_diff": 0.35523736476898193
+        },
+        {
+          "position": 42,
+          "context_diff_rate": 0.87353515625,
+          "teacher_gold_probability_mean": 0.09979349374771118,
+          "free_gold_probability_mean": 0.06513260304927826,
+          "free_gold_probability_mean_when_context_diff": 0.061974626034498215,
+          "teacher_margin_pred_minus_gold_mean": 0.8464183211326599,
+          "free_margin_pred_minus_gold_mean": 1.2219223976135254,
+          "margin_shift_free_minus_teacher_mean": 0.3755039870738983,
+          "teacher_entropy_mean": 3.89669132232666,
+          "free_entropy_mean": 4.021913528442383,
+          "entropy_shift_free_minus_teacher_mean": 0.12522196769714355,
+          "hidden_delta_norm_mean": 4.236632347106934,
+          "logit_delta_norm_mean": 6.496517658233643,
+          "argmax_change_rate": 0.4609375,
+          "fallback_probability_mass_mean": 0.36177533864974976,
+          "fallback_probability_mass_mean_when_context_diff": 0.3593080937862396
+        },
+        {
+          "position": 43,
+          "context_diff_rate": 0.972900390625,
+          "teacher_gold_probability_mean": 0.11031448841094971,
+          "free_gold_probability_mean": 0.05602455884218216,
+          "free_gold_probability_mean_when_context_diff": 0.05531536042690277,
+          "teacher_margin_pred_minus_gold_mean": 0.8958475589752197,
+          "free_margin_pred_minus_gold_mean": 1.2269103527069092,
+          "margin_shift_free_minus_teacher_mean": 0.33106282353401184,
+          "teacher_entropy_mean": 3.8271632194519043,
+          "free_entropy_mean": 4.078089714050293,
+          "entropy_shift_free_minus_teacher_mean": 0.25092604756355286,
+          "hidden_delta_norm_mean": 5.3522467613220215,
+          "logit_delta_norm_mean": 8.60792064666748,
+          "argmax_change_rate": 0.496337890625,
+          "fallback_probability_mass_mean": 0.3546774387359619,
+          "fallback_probability_mass_mean_when_context_diff": 0.35433802008628845
+        },
+        {
+          "position": 44,
+          "context_diff_rate": 0.9951171875,
+          "teacher_gold_probability_mean": 0.13531959056854248,
+          "free_gold_probability_mean": 0.05323696881532669,
+          "free_gold_probability_mean_when_context_diff": 0.05291634425520897,
+          "teacher_margin_pred_minus_gold_mean": 0.8582049012184143,
+          "free_margin_pred_minus_gold_mean": 1.213560938835144,
+          "margin_shift_free_minus_teacher_mean": 0.35535603761672974,
+          "teacher_entropy_mean": 3.725355863571167,
+          "free_entropy_mean": 4.104274272918701,
+          "entropy_shift_free_minus_teacher_mean": 0.3789181411266327,
+          "hidden_delta_norm_mean": 6.877150058746338,
+          "logit_delta_norm_mean": 12.774200439453125,
+          "argmax_change_rate": 0.5615234375,
+          "fallback_probability_mass_mean": 0.35226473212242126,
+          "fallback_probability_mass_mean_when_context_diff": 0.35202667117118835
+        },
+        {
+          "position": 45,
+          "context_diff_rate": 0.998046875,
+          "teacher_gold_probability_mean": 0.19438478350639343,
+          "free_gold_probability_mean": 0.048156656324863434,
+          "free_gold_probability_mean_when_context_diff": 0.047788385301828384,
+          "teacher_margin_pred_minus_gold_mean": 0.8720309138298035,
+          "free_margin_pred_minus_gold_mean": 1.2040989398956299,
+          "margin_shift_free_minus_teacher_mean": 0.33206796646118164,
+          "teacher_entropy_mean": 3.412646770477295,
+          "free_entropy_mean": 4.249844074249268,
+          "entropy_shift_free_minus_teacher_mean": 0.8371968269348145,
+          "hidden_delta_norm_mean": 10.506468772888184,
+          "logit_delta_norm_mean": 22.12058448791504,
+          "argmax_change_rate": 0.70947265625,
+          "fallback_probability_mass_mean": 0.3067205250263214,
+          "fallback_probability_mass_mean_when_context_diff": 0.3064259886741638
+        },
+        {
+          "position": 46,
+          "context_diff_rate": 0.9990234375,
+          "teacher_gold_probability_mean": 0.21009324491024017,
+          "free_gold_probability_mean": 0.04426408186554909,
+          "free_gold_probability_mean_when_context_diff": 0.044291626662015915,
+          "teacher_margin_pred_minus_gold_mean": 0.8825253248214722,
+          "free_margin_pred_minus_gold_mean": 1.1810789108276367,
+          "margin_shift_free_minus_teacher_mean": 0.2985534965991974,
+          "teacher_entropy_mean": 3.331956148147583,
+          "free_entropy_mean": 4.353954792022705,
+          "entropy_shift_free_minus_teacher_mean": 1.021998643875122,
+          "hidden_delta_norm_mean": 10.791211128234863,
+          "logit_delta_norm_mean": 22.425521850585938,
+          "argmax_change_rate": 0.728271484375,
+          "fallback_probability_mass_mean": 0.2851376533508301,
+          "fallback_probability_mass_mean_when_context_diff": 0.2851946949958801
+        },
+        {
+          "position": 47,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.22183065116405487,
+          "free_gold_probability_mean": 0.04301270842552185,
+          "free_gold_probability_mean_when_context_diff": 0.04301270842552185,
+          "teacher_margin_pred_minus_gold_mean": 0.877860426902771,
+          "free_margin_pred_minus_gold_mean": 1.1826494932174683,
+          "margin_shift_free_minus_teacher_mean": 0.3047890365123749,
+          "teacher_entropy_mean": 3.2732019424438477,
+          "free_entropy_mean": 4.416985034942627,
+          "entropy_shift_free_minus_teacher_mean": 1.143783450126648,
+          "hidden_delta_norm_mean": 11.376436233520508,
+          "logit_delta_norm_mean": 25.129823684692383,
+          "argmax_change_rate": 0.74462890625,
+          "fallback_probability_mass_mean": 0.268574059009552,
+          "fallback_probability_mass_mean_when_context_diff": 0.268574059009552
+        },
+        {
+          "position": 48,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.22857236862182617,
+          "free_gold_probability_mean": 0.04398544505238533,
+          "free_gold_probability_mean_when_context_diff": 0.04398544505238533,
+          "teacher_margin_pred_minus_gold_mean": 0.8690986633300781,
+          "free_margin_pred_minus_gold_mean": 1.19508957862854,
+          "margin_shift_free_minus_teacher_mean": 0.3259908854961395,
+          "teacher_entropy_mean": 3.2568540573120117,
+          "free_entropy_mean": 4.4165239334106445,
+          "entropy_shift_free_minus_teacher_mean": 1.1596696376800537,
+          "hidden_delta_norm_mean": 11.729679107666016,
+          "logit_delta_norm_mean": 25.613868713378906,
+          "argmax_change_rate": 0.74951171875,
+          "fallback_probability_mass_mean": 0.2745116949081421,
+          "fallback_probability_mass_mean_when_context_diff": 0.2745116949081421
+        },
+        {
+          "position": 49,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.2240900844335556,
+          "free_gold_probability_mean": 0.039392706006765366,
+          "free_gold_probability_mean_when_context_diff": 0.039392706006765366,
+          "teacher_margin_pred_minus_gold_mean": 0.8981131315231323,
+          "free_margin_pred_minus_gold_mean": 1.2362544536590576,
+          "margin_shift_free_minus_teacher_mean": 0.3381412625312805,
+          "teacher_entropy_mean": 3.256544828414917,
+          "free_entropy_mean": 4.512426853179932,
+          "entropy_shift_free_minus_teacher_mean": 1.255881905555725,
+          "hidden_delta_norm_mean": 11.93924617767334,
+          "logit_delta_norm_mean": 26.818071365356445,
+          "argmax_change_rate": 0.759521484375,
+          "fallback_probability_mass_mean": 0.24533739686012268,
+          "fallback_probability_mass_mean_when_context_diff": 0.24533739686012268
+        },
+        {
+          "position": 50,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.23181486129760742,
+          "free_gold_probability_mean": 0.039829377084970474,
+          "free_gold_probability_mean_when_context_diff": 0.039829377084970474,
+          "teacher_margin_pred_minus_gold_mean": 0.9190987348556519,
+          "free_margin_pred_minus_gold_mean": 1.329100251197815,
+          "margin_shift_free_minus_teacher_mean": 0.4100014269351959,
+          "teacher_entropy_mean": 3.2324132919311523,
+          "free_entropy_mean": 4.498007774353027,
+          "entropy_shift_free_minus_teacher_mean": 1.265594482421875,
+          "hidden_delta_norm_mean": 12.157069206237793,
+          "logit_delta_norm_mean": 27.39134407043457,
+          "argmax_change_rate": 0.7490234375,
+          "fallback_probability_mass_mean": 0.2538710832595825,
+          "fallback_probability_mass_mean_when_context_diff": 0.2538710832595825
+        },
+        {
+          "position": 51,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.2282411903142929,
+          "free_gold_probability_mean": 0.04198598861694336,
+          "free_gold_probability_mean_when_context_diff": 0.04198598861694336,
+          "teacher_margin_pred_minus_gold_mean": 0.8919583559036255,
+          "free_margin_pred_minus_gold_mean": 1.2562443017959595,
+          "margin_shift_free_minus_teacher_mean": 0.3642859160900116,
+          "teacher_entropy_mean": 3.2577624320983887,
+          "free_entropy_mean": 4.443800926208496,
+          "entropy_shift_free_minus_teacher_mean": 1.1860381364822388,
+          "hidden_delta_norm_mean": 12.319829940795898,
+          "logit_delta_norm_mean": 27.047222137451172,
+          "argmax_change_rate": 0.7666015625,
+          "fallback_probability_mass_mean": 0.26479288935661316,
+          "fallback_probability_mass_mean_when_context_diff": 0.26479288935661316
+        },
+        {
+          "position": 52,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.23394173383712769,
+          "free_gold_probability_mean": 0.04032149165868759,
+          "free_gold_probability_mean_when_context_diff": 0.04032149165868759,
+          "teacher_margin_pred_minus_gold_mean": 0.8607574701309204,
+          "free_margin_pred_minus_gold_mean": 1.2380443811416626,
+          "margin_shift_free_minus_teacher_mean": 0.3772868812084198,
+          "teacher_entropy_mean": 3.2170908451080322,
+          "free_entropy_mean": 4.455402851104736,
+          "entropy_shift_free_minus_teacher_mean": 1.238311529159546,
+          "hidden_delta_norm_mean": 12.308573722839355,
+          "logit_delta_norm_mean": 27.18050193786621,
+          "argmax_change_rate": 0.7490234375,
+          "fallback_probability_mass_mean": 0.2463747262954712,
+          "fallback_probability_mass_mean_when_context_diff": 0.2463747262954712
+        }
+      ],
+      "heldout_stability": {
+        "rows": [
+          {
+            "slice_index": 0,
+            "free_match_rate_against_target": 0.1,
+            "teacher_top1_accuracy": 0.4625,
+            "first_divergence_position": 41
+          },
+          {
+            "slice_index": 1,
+            "free_match_rate_against_target": 0.1375,
+            "teacher_top1_accuracy": 0.4,
+            "first_divergence_position": 40
+          },
+          {
+            "slice_index": 2,
+            "free_match_rate_against_target": 0.0875,
+            "teacher_top1_accuracy": 0.325,
+            "first_divergence_position": 40
+          },
+          {
+            "slice_index": 3,
+            "free_match_rate_against_target": 0.0875,
+            "teacher_top1_accuracy": 0.4375,
+            "first_divergence_position": 41
+          }
+        ],
+        "mean_free_match": 0.103125,
+        "min_free_match": 0.0875,
+        "max_free_match": 0.1375,
+        "free_match_range": 0.05000000000000002
+      }
+    },
+    {
+      "label": "v5_seed2",
+      "artifact_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v5-boundary-rollout-intervention-20260818-125542.pt",
+      "sample_count_used": 4096,
+      "suite_row": {
+        "teacher_top1": 0.45,
+        "free_match": 0.1875,
+        "prompt_logit_cosine": 0.9233182966709137,
+        "rollout_mean_entropy": 3.331871457894643,
+        "first_repeated_bigram_step": 22,
+        "first_repeated_trigram_step": 38,
+        "first_free_divergence": 41
+      },
+      "post_divergence_recovery": {
+        "has_divergence": true,
+        "first_divergence_position": 41,
+        "next_12_match_rate": 0.25,
+        "tail_match_rate": 0.18421052631578946,
+        "tail_steps": 38
+      },
+      "fallback_tokens": [
+        {
+          "token_id": 3,
+          "token_text": " "
+        },
+        {
+          "token_id": 72,
+          "token_text": "e"
+        },
+        {
+          "token_id": 87,
+          "token_text": "t"
+        },
+        {
+          "token_id": 82,
+          "token_text": "o"
+        },
+        {
+          "token_id": 85,
+          "token_text": "r"
+        }
+      ],
+      "position_rows": [
+        {
+          "position": 40,
+          "context_diff_rate": 0.0,
+          "teacher_gold_probability_mean": 0.22834773361682892,
+          "free_gold_probability_mean": 0.22834773361682892,
+          "free_gold_probability_mean_when_context_diff": 0.0,
+          "teacher_margin_pred_minus_gold_mean": 0.8648646473884583,
+          "free_margin_pred_minus_gold_mean": 0.8648646473884583,
+          "margin_shift_free_minus_teacher_mean": 0.0,
+          "teacher_entropy_mean": 3.2600300312042236,
+          "free_entropy_mean": 3.2600300312042236,
+          "entropy_shift_free_minus_teacher_mean": 0.0,
+          "hidden_delta_norm_mean": 0.0,
+          "logit_delta_norm_mean": 0.0,
+          "argmax_change_rate": 0.0,
+          "fallback_probability_mass_mean": 0.34817883372306824,
+          "fallback_probability_mass_mean_when_context_diff": 0.0
+        },
+        {
+          "position": 41,
+          "context_diff_rate": 0.5849609375,
+          "teacher_gold_probability_mean": 0.10545958578586578,
+          "free_gold_probability_mean": 0.09603849053382874,
+          "free_gold_probability_mean_when_context_diff": 0.08197107911109924,
+          "teacher_margin_pred_minus_gold_mean": 0.9990459084510803,
+          "free_margin_pred_minus_gold_mean": 1.177901029586792,
+          "margin_shift_free_minus_teacher_mean": 0.17885512113571167,
+          "teacher_entropy_mean": 3.8331503868103027,
+          "free_entropy_mean": 3.8436026573181152,
+          "entropy_shift_free_minus_teacher_mean": 0.010452000424265862,
+          "hidden_delta_norm_mean": 2.823063850402832,
+          "logit_delta_norm_mean": 3.5531840324401855,
+          "argmax_change_rate": 0.302001953125,
+          "fallback_probability_mass_mean": 0.36769840121269226,
+          "fallback_probability_mass_mean_when_context_diff": 0.35759517550468445
+        },
+        {
+          "position": 42,
+          "context_diff_rate": 0.88232421875,
+          "teacher_gold_probability_mean": 0.10085251927375793,
+          "free_gold_probability_mean": 0.06581035256385803,
+          "free_gold_probability_mean_when_context_diff": 0.06308366358280182,
+          "teacher_margin_pred_minus_gold_mean": 0.8670744895935059,
+          "free_margin_pred_minus_gold_mean": 1.2151271104812622,
+          "margin_shift_free_minus_teacher_mean": 0.3480525314807892,
+          "teacher_entropy_mean": 3.8983449935913086,
+          "free_entropy_mean": 4.025513648986816,
+          "entropy_shift_free_minus_teacher_mean": 0.12716838717460632,
+          "hidden_delta_norm_mean": 4.36543083190918,
+          "logit_delta_norm_mean": 6.534153938293457,
+          "argmax_change_rate": 0.430908203125,
+          "fallback_probability_mass_mean": 0.35741183161735535,
+          "fallback_probability_mass_mean_when_context_diff": 0.35372674465179443
+        },
+        {
+          "position": 43,
+          "context_diff_rate": 0.97412109375,
+          "teacher_gold_probability_mean": 0.1071411594748497,
+          "free_gold_probability_mean": 0.055505670607089996,
+          "free_gold_probability_mean_when_context_diff": 0.0553150400519371,
+          "teacher_margin_pred_minus_gold_mean": 0.9209715127944946,
+          "free_margin_pred_minus_gold_mean": 1.2065414190292358,
+          "margin_shift_free_minus_teacher_mean": 0.2855699956417084,
+          "teacher_entropy_mean": 3.832095146179199,
+          "free_entropy_mean": 4.082878589630127,
+          "entropy_shift_free_minus_teacher_mean": 0.25078287720680237,
+          "hidden_delta_norm_mean": 5.127700328826904,
+          "logit_delta_norm_mean": 8.309779167175293,
+          "argmax_change_rate": 0.5146484375,
+          "fallback_probability_mass_mean": 0.35754844546318054,
+          "fallback_probability_mass_mean_when_context_diff": 0.35739678144454956
+        },
+        {
+          "position": 44,
+          "context_diff_rate": 0.99560546875,
+          "teacher_gold_probability_mean": 0.14270970225334167,
+          "free_gold_probability_mean": 0.052963171154260635,
+          "free_gold_probability_mean_when_context_diff": 0.052649255841970444,
+          "teacher_margin_pred_minus_gold_mean": 0.8439743518829346,
+          "free_margin_pred_minus_gold_mean": 1.1860873699188232,
+          "margin_shift_free_minus_teacher_mean": 0.34211304783821106,
+          "teacher_entropy_mean": 3.69547700881958,
+          "free_entropy_mean": 4.0960469245910645,
+          "entropy_shift_free_minus_teacher_mean": 0.4005698561668396,
+          "hidden_delta_norm_mean": 7.231227874755859,
+          "logit_delta_norm_mean": 13.396529197692871,
+          "argmax_change_rate": 0.603515625,
+          "fallback_probability_mass_mean": 0.3467130661010742,
+          "fallback_probability_mass_mean_when_context_diff": 0.34656763076782227
+        },
+        {
+          "position": 45,
+          "context_diff_rate": 0.998291015625,
+          "teacher_gold_probability_mean": 0.19745758175849915,
+          "free_gold_probability_mean": 0.04700673371553421,
+          "free_gold_probability_mean_when_context_diff": 0.0468844510614872,
+          "teacher_margin_pred_minus_gold_mean": 0.8643689155578613,
+          "free_margin_pred_minus_gold_mean": 1.0831656455993652,
+          "margin_shift_free_minus_teacher_mean": 0.21879678964614868,
+          "teacher_entropy_mean": 3.4096388816833496,
+          "free_entropy_mean": 4.247932434082031,
+          "entropy_shift_free_minus_teacher_mean": 0.8382932543754578,
+          "hidden_delta_norm_mean": 10.418569564819336,
+          "logit_delta_norm_mean": 21.328794479370117,
+          "argmax_change_rate": 0.705810546875,
+          "fallback_probability_mass_mean": 0.30153024196624756,
+          "fallback_probability_mass_mean_when_context_diff": 0.301556259393692
+        },
+        {
+          "position": 46,
+          "context_diff_rate": 0.999755859375,
+          "teacher_gold_probability_mean": 0.20736581087112427,
+          "free_gold_probability_mean": 0.04445057734847069,
+          "free_gold_probability_mean_when_context_diff": 0.04445952549576759,
+          "teacher_margin_pred_minus_gold_mean": 0.8624117970466614,
+          "free_margin_pred_minus_gold_mean": 1.133765459060669,
+          "margin_shift_free_minus_teacher_mean": 0.27135372161865234,
+          "teacher_entropy_mean": 3.369532823562622,
+          "free_entropy_mean": 4.333311080932617,
+          "entropy_shift_free_minus_teacher_mean": 0.9637783169746399,
+          "hidden_delta_norm_mean": 10.719340324401855,
+          "logit_delta_norm_mean": 22.190078735351562,
+          "argmax_change_rate": 0.72705078125,
+          "fallback_probability_mass_mean": 0.28715407848358154,
+          "fallback_probability_mass_mean_when_context_diff": 0.2871798276901245
+        },
+        {
+          "position": 47,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.21818037331104279,
+          "free_gold_probability_mean": 0.04494962841272354,
+          "free_gold_probability_mean_when_context_diff": 0.04494962841272354,
+          "teacher_margin_pred_minus_gold_mean": 0.8570481538772583,
+          "free_margin_pred_minus_gold_mean": 1.1459295749664307,
+          "margin_shift_free_minus_teacher_mean": 0.28888148069381714,
+          "teacher_entropy_mean": 3.29293155670166,
+          "free_entropy_mean": 4.371108055114746,
+          "entropy_shift_free_minus_teacher_mean": 1.078176498413086,
+          "hidden_delta_norm_mean": 11.168206214904785,
+          "logit_delta_norm_mean": 24.579479217529297,
+          "argmax_change_rate": 0.752197265625,
+          "fallback_probability_mass_mean": 0.2807633876800537,
+          "fallback_probability_mass_mean_when_context_diff": 0.2807633876800537
+        },
+        {
+          "position": 48,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.22384321689605713,
+          "free_gold_probability_mean": 0.04424555227160454,
+          "free_gold_probability_mean_when_context_diff": 0.04424555227160454,
+          "teacher_margin_pred_minus_gold_mean": 0.8394942283630371,
+          "free_margin_pred_minus_gold_mean": 1.1624665260314941,
+          "margin_shift_free_minus_teacher_mean": 0.32297226786613464,
+          "teacher_entropy_mean": 3.306690216064453,
+          "free_entropy_mean": 4.391626834869385,
+          "entropy_shift_free_minus_teacher_mean": 1.0849366188049316,
+          "hidden_delta_norm_mean": 11.5641450881958,
+          "logit_delta_norm_mean": 25.219606399536133,
+          "argmax_change_rate": 0.758056640625,
+          "fallback_probability_mass_mean": 0.2790102958679199,
+          "fallback_probability_mass_mean_when_context_diff": 0.2790102958679199
+        },
+        {
+          "position": 49,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.22107459604740143,
+          "free_gold_probability_mean": 0.04088711366057396,
+          "free_gold_probability_mean_when_context_diff": 0.04088711366057396,
+          "teacher_margin_pred_minus_gold_mean": 0.8785532712936401,
+          "free_margin_pred_minus_gold_mean": 1.1853679418563843,
+          "margin_shift_free_minus_teacher_mean": 0.3068147897720337,
+          "teacher_entropy_mean": 3.301157236099243,
+          "free_entropy_mean": 4.474381446838379,
+          "entropy_shift_free_minus_teacher_mean": 1.1732239723205566,
+          "hidden_delta_norm_mean": 11.710477828979492,
+          "logit_delta_norm_mean": 25.957029342651367,
+          "argmax_change_rate": 0.756103515625,
+          "fallback_probability_mass_mean": 0.25733014941215515,
+          "fallback_probability_mass_mean_when_context_diff": 0.25733014941215515
+        },
+        {
+          "position": 50,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.22658011317253113,
+          "free_gold_probability_mean": 0.0407036691904068,
+          "free_gold_probability_mean_when_context_diff": 0.0407036691904068,
+          "teacher_margin_pred_minus_gold_mean": 0.9054491519927979,
+          "free_margin_pred_minus_gold_mean": 1.2678526639938354,
+          "margin_shift_free_minus_teacher_mean": 0.3624035120010376,
+          "teacher_entropy_mean": 3.2637858390808105,
+          "free_entropy_mean": 4.477414131164551,
+          "entropy_shift_free_minus_teacher_mean": 1.2136282920837402,
+          "hidden_delta_norm_mean": 11.890376091003418,
+          "logit_delta_norm_mean": 26.67108726501465,
+          "argmax_change_rate": 0.7392578125,
+          "fallback_probability_mass_mean": 0.2616398334503174,
+          "fallback_probability_mass_mean_when_context_diff": 0.2616398334503174
+        },
+        {
+          "position": 51,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.2255236655473709,
+          "free_gold_probability_mean": 0.042128730565309525,
+          "free_gold_probability_mean_when_context_diff": 0.042128730565309525,
+          "teacher_margin_pred_minus_gold_mean": 0.8680541515350342,
+          "free_margin_pred_minus_gold_mean": 1.2050617933273315,
+          "margin_shift_free_minus_teacher_mean": 0.337007611989975,
+          "teacher_entropy_mean": 3.2790820598602295,
+          "free_entropy_mean": 4.433625221252441,
+          "entropy_shift_free_minus_teacher_mean": 1.1545432806015015,
+          "hidden_delta_norm_mean": 12.037113189697266,
+          "logit_delta_norm_mean": 26.33449935913086,
+          "argmax_change_rate": 0.768798828125,
+          "fallback_probability_mass_mean": 0.2676929533481598,
+          "fallback_probability_mass_mean_when_context_diff": 0.2676929533481598
+        },
+        {
+          "position": 52,
+          "context_diff_rate": 1.0,
+          "teacher_gold_probability_mean": 0.22658634185791016,
+          "free_gold_probability_mean": 0.040360838174819946,
+          "free_gold_probability_mean_when_context_diff": 0.040360838174819946,
+          "teacher_margin_pred_minus_gold_mean": 0.8461857438087463,
+          "free_margin_pred_minus_gold_mean": 1.136396884918213,
+          "margin_shift_free_minus_teacher_mean": 0.290211021900177,
+          "teacher_entropy_mean": 3.2769687175750732,
+          "free_entropy_mean": 4.451127529144287,
+          "entropy_shift_free_minus_teacher_mean": 1.1741586923599243,
+          "hidden_delta_norm_mean": 12.166850090026855,
+          "logit_delta_norm_mean": 26.945594787597656,
+          "argmax_change_rate": 0.760498046875,
+          "fallback_probability_mass_mean": 0.250404953956604,
+          "fallback_probability_mass_mean_when_context_diff": 0.250404953956604
+        }
+      ],
+      "heldout_stability": {
+        "rows": [
+          {
+            "slice_index": 0,
+            "free_match_rate_against_target": 0.1875,
+            "teacher_top1_accuracy": 0.45,
+            "first_divergence_position": 41
+          },
+          {
+            "slice_index": 1,
+            "free_match_rate_against_target": 0.1375,
+            "teacher_top1_accuracy": 0.3875,
+            "first_divergence_position": 40
+          },
+          {
+            "slice_index": 2,
+            "free_match_rate_against_target": 0.0875,
+            "teacher_top1_accuracy": 0.35,
+            "first_divergence_position": 40
+          },
+          {
+            "slice_index": 3,
+            "free_match_rate_against_target": 0.1,
+            "teacher_top1_accuracy": 0.4375,
+            "first_divergence_position": 41
+          }
+        ],
+        "mean_free_match": 0.128125,
+        "min_free_match": 0.0875,
+        "max_free_match": 0.1875,
+        "free_match_range": 0.1
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "candidate_label": "v5_seed1",
+      "position_deltas": [
+        {
+          "position": 40,
+          "delta_free_gold_probability_mean": 0.006035178899765015,
+          "delta_margin_shift_free_minus_teacher_mean": 0.0,
+          "delta_free_entropy_mean": -0.03152179718017578,
+          "delta_hidden_delta_norm_mean": 0.0,
+          "delta_logit_delta_norm_mean": 0.0,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.0,
+          "delta_argmax_change_rate": 0.0
+        },
+        {
+          "position": 41,
+          "delta_free_gold_probability_mean": -0.014919206500053406,
+          "delta_margin_shift_free_minus_teacher_mean": -0.2759803235530853,
+          "delta_free_entropy_mean": 0.11405444145202637,
+          "delta_hidden_delta_norm_mean": -2.0510635375976562,
+          "delta_logit_delta_norm_mean": -3.612220287322998,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.03607103228569031,
+          "delta_argmax_change_rate": -0.149169921875
+        },
+        {
+          "position": 42,
+          "delta_free_gold_probability_mean": -0.014149129390716553,
+          "delta_margin_shift_free_minus_teacher_mean": -0.3440079391002655,
+          "delta_free_entropy_mean": 0.24611616134643555,
+          "delta_hidden_delta_norm_mean": -2.9383583068847656,
+          "delta_logit_delta_norm_mean": -4.586459636688232,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.011854708194732666,
+          "delta_argmax_change_rate": -0.185302734375
+        },
+        {
+          "position": 43,
+          "delta_free_gold_probability_mean": -0.007871724665164948,
+          "delta_margin_shift_free_minus_teacher_mean": -0.4548024833202362,
+          "delta_free_entropy_mean": 0.20713520050048828,
+          "delta_hidden_delta_norm_mean": -3.3285164833068848,
+          "delta_logit_delta_norm_mean": -5.708491325378418,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.01940321922302246,
+          "delta_argmax_change_rate": -0.193359375
+        },
+        {
+          "position": 44,
+          "delta_free_gold_probability_mean": -0.0025437436997890472,
+          "delta_margin_shift_free_minus_teacher_mean": -0.4167928099632263,
+          "delta_free_entropy_mean": 0.1737687587738037,
+          "delta_hidden_delta_norm_mean": -2.7529397010803223,
+          "delta_logit_delta_norm_mean": -4.258167266845703,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.029919952154159546,
+          "delta_argmax_change_rate": -0.16357421875
+        },
+        {
+          "position": 45,
+          "delta_free_gold_probability_mean": -0.00198151171207428,
+          "delta_margin_shift_free_minus_teacher_mean": -0.2950633764266968,
+          "delta_free_entropy_mean": 0.17892122268676758,
+          "delta_hidden_delta_norm_mean": 0.4226512908935547,
+          "delta_logit_delta_norm_mean": 4.067234039306641,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.007059603929519653,
+          "delta_argmax_change_rate": -0.025390625
+        },
+        {
+          "position": 46,
+          "delta_free_gold_probability_mean": -0.003834545612335205,
+          "delta_margin_shift_free_minus_teacher_mean": -0.27342697978019714,
+          "delta_free_entropy_mean": 0.22417640686035156,
+          "delta_hidden_delta_norm_mean": 0.5284881591796875,
+          "delta_logit_delta_norm_mean": 3.923168182373047,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.001032799482345581,
+          "delta_argmax_change_rate": -0.03173828125
+        },
+        {
+          "position": 47,
+          "delta_free_gold_probability_mean": -0.005881652235984802,
+          "delta_margin_shift_free_minus_teacher_mean": -0.2885701358318329,
+          "delta_free_entropy_mean": 0.27369070053100586,
+          "delta_hidden_delta_norm_mean": 0.6997089385986328,
+          "delta_logit_delta_norm_mean": 4.435455322265625,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.01276746392250061,
+          "delta_argmax_change_rate": 0.002685546875
+        },
+        {
+          "position": 48,
+          "delta_free_gold_probability_mean": -0.0049337781965732574,
+          "delta_margin_shift_free_minus_teacher_mean": -0.16203752160072327,
+          "delta_free_entropy_mean": 0.22288036346435547,
+          "delta_hidden_delta_norm_mean": 0.7966375350952148,
+          "delta_logit_delta_norm_mean": 4.0493011474609375,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.0035594701766967773,
+          "delta_argmax_change_rate": 0.00146484375
+        },
+        {
+          "position": 49,
+          "delta_free_gold_probability_mean": -0.00391237810254097,
+          "delta_margin_shift_free_minus_teacher_mean": -0.16567593812942505,
+          "delta_free_entropy_mean": 0.20520734786987305,
+          "delta_hidden_delta_norm_mean": 0.8311481475830078,
+          "delta_logit_delta_norm_mean": 4.373117446899414,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.025892168283462524,
+          "delta_argmax_change_rate": 0.003173828125
+        },
+        {
+          "position": 50,
+          "delta_free_gold_probability_mean": -0.002528410404920578,
+          "delta_margin_shift_free_minus_teacher_mean": -0.05044996738433838,
+          "delta_free_entropy_mean": 0.16021156311035156,
+          "delta_hidden_delta_norm_mean": 0.7512369155883789,
+          "delta_logit_delta_norm_mean": 4.023763656616211,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.01028558611869812,
+          "delta_argmax_change_rate": -0.008056640625
+        },
+        {
+          "position": 51,
+          "delta_free_gold_probability_mean": -0.0016161128878593445,
+          "delta_margin_shift_free_minus_teacher_mean": -0.13907024264335632,
+          "delta_free_entropy_mean": 0.1352519989013672,
+          "delta_hidden_delta_norm_mean": 0.7682514190673828,
+          "delta_logit_delta_norm_mean": 3.985868453979492,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.000768125057220459,
+          "delta_argmax_change_rate": 0.006591796875
+        },
+        {
+          "position": 52,
+          "delta_free_gold_probability_mean": -0.0015321001410484314,
+          "delta_margin_shift_free_minus_teacher_mean": -0.07719689607620239,
+          "delta_free_entropy_mean": 0.13822412490844727,
+          "delta_hidden_delta_norm_mean": 0.7252569198608398,
+          "delta_logit_delta_norm_mean": 3.8625125885009766,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.0027038156986236572,
+          "delta_argmax_change_rate": -0.015380859375
+        }
+      ]
+    },
+    {
+      "candidate_label": "v5_seed2",
+      "position_deltas": [
+        {
+          "position": 40,
+          "delta_free_gold_probability_mean": 0.0015455037355422974,
+          "delta_margin_shift_free_minus_teacher_mean": 0.0,
+          "delta_free_entropy_mean": 0.016247987747192383,
+          "delta_hidden_delta_norm_mean": 0.0,
+          "delta_logit_delta_norm_mean": 0.0,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.0,
+          "delta_argmax_change_rate": 0.0
+        },
+        {
+          "position": 41,
+          "delta_free_gold_probability_mean": -0.021026626229286194,
+          "delta_margin_shift_free_minus_teacher_mean": -0.30089133977890015,
+          "delta_free_entropy_mean": 0.1540224552154541,
+          "delta_hidden_delta_norm_mean": -2.0732736587524414,
+          "delta_logit_delta_norm_mean": -3.68558406829834,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.03842884302139282,
+          "delta_argmax_change_rate": -0.147216796875
+        },
+        {
+          "position": 42,
+          "delta_free_gold_probability_mean": -0.01347137987613678,
+          "delta_margin_shift_free_minus_teacher_mean": -0.37145939469337463,
+          "delta_free_entropy_mean": 0.24971628189086914,
+          "delta_hidden_delta_norm_mean": -2.8095598220825195,
+          "delta_logit_delta_norm_mean": -4.548823356628418,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.006273359060287476,
+          "delta_argmax_change_rate": -0.21533203125
+        },
+        {
+          "position": 43,
+          "delta_free_gold_probability_mean": -0.00839061290025711,
+          "delta_margin_shift_free_minus_teacher_mean": -0.5002953112125397,
+          "delta_free_entropy_mean": 0.21192407608032227,
+          "delta_hidden_delta_norm_mean": -3.553062915802002,
+          "delta_logit_delta_norm_mean": -6.0066328048706055,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.02246198058128357,
+          "delta_argmax_change_rate": -0.175048828125
+        },
+        {
+          "position": 44,
+          "delta_free_gold_probability_mean": -0.0028175413608551025,
+          "delta_margin_shift_free_minus_teacher_mean": -0.430035799741745,
+          "delta_free_entropy_mean": 0.165541410446167,
+          "delta_hidden_delta_norm_mean": -2.398861885070801,
+          "delta_logit_delta_norm_mean": -3.635838508605957,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.024460911750793457,
+          "delta_argmax_change_rate": -0.12158203125
+        },
+        {
+          "position": 45,
+          "delta_free_gold_probability_mean": -0.0031314343214035034,
+          "delta_margin_shift_free_minus_teacher_mean": -0.40833455324172974,
+          "delta_free_entropy_mean": 0.17700958251953125,
+          "delta_hidden_delta_norm_mean": 0.33475208282470703,
+          "delta_logit_delta_norm_mean": 3.2754440307617188,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.0021898746490478516,
+          "delta_argmax_change_rate": -0.029052734375
+        },
+        {
+          "position": 46,
+          "delta_free_gold_probability_mean": -0.0036480501294136047,
+          "delta_margin_shift_free_minus_teacher_mean": -0.3006267547607422,
+          "delta_free_entropy_mean": 0.20353269577026367,
+          "delta_hidden_delta_norm_mean": 0.4566173553466797,
+          "delta_logit_delta_norm_mean": 3.687725067138672,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.003017932176589966,
+          "delta_argmax_change_rate": -0.032958984375
+        },
+        {
+          "position": 47,
+          "delta_free_gold_probability_mean": -0.003944732248783112,
+          "delta_margin_shift_free_minus_teacher_mean": -0.3044776916503906,
+          "delta_free_entropy_mean": 0.227813720703125,
+          "delta_hidden_delta_norm_mean": 0.49147891998291016,
+          "delta_logit_delta_norm_mean": 3.885110855102539,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.0005781352519989014,
+          "delta_argmax_change_rate": 0.01025390625
+        },
+        {
+          "position": 48,
+          "delta_free_gold_probability_mean": -0.00467367097735405,
+          "delta_margin_shift_free_minus_teacher_mean": -0.16505613923072815,
+          "delta_free_entropy_mean": 0.1979832649230957,
+          "delta_hidden_delta_norm_mean": 0.631103515625,
+          "delta_logit_delta_norm_mean": 3.655038833618164,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.0009391307830810547,
+          "delta_argmax_change_rate": 0.010009765625
+        },
+        {
+          "position": 49,
+          "delta_free_gold_probability_mean": -0.002417970448732376,
+          "delta_margin_shift_free_minus_teacher_mean": -0.19700241088867188,
+          "delta_free_entropy_mean": 0.1671619415283203,
+          "delta_hidden_delta_norm_mean": 0.6023797988891602,
+          "delta_logit_delta_norm_mean": 3.512075424194336,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.013899415731430054,
+          "delta_argmax_change_rate": -0.000244140625
+        },
+        {
+          "position": 50,
+          "delta_free_gold_probability_mean": -0.001654118299484253,
+          "delta_margin_shift_free_minus_teacher_mean": -0.0980478823184967,
+          "delta_free_entropy_mean": 0.139617919921875,
+          "delta_hidden_delta_norm_mean": 0.4845438003540039,
+          "delta_logit_delta_norm_mean": 3.303506851196289,
+          "delta_fallback_probability_mass_mean_when_context_diff": -0.002516835927963257,
+          "delta_argmax_change_rate": -0.017822265625
+        },
+        {
+          "position": 51,
+          "delta_free_gold_probability_mean": -0.0014733709394931793,
+          "delta_margin_shift_free_minus_teacher_mean": -0.16634854674339294,
+          "delta_free_entropy_mean": 0.1250762939453125,
+          "delta_hidden_delta_norm_mean": 0.48553466796875,
+          "delta_logit_delta_norm_mean": 3.2731456756591797,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.002131938934326172,
+          "delta_argmax_change_rate": 0.0087890625
+        },
+        {
+          "position": 52,
+          "delta_free_gold_probability_mean": -0.0014927536249160767,
+          "delta_margin_shift_free_minus_teacher_mean": -0.1642727553844452,
+          "delta_free_entropy_mean": 0.13394880294799805,
+          "delta_hidden_delta_norm_mean": 0.5835332870483398,
+          "delta_logit_delta_norm_mean": 3.627605438232422,
+          "delta_fallback_probability_mass_mean_when_context_diff": 0.00673404335975647,
+          "delta_argmax_change_rate": -0.00390625
+        }
+      ]
+    }
+  ],
+  "candidate_stability": {
+    "free_match_mean": 0.14375,
+    "free_match_std": 0.04375,
+    "free_match_min": 0.1,
+    "free_match_max": 0.1875,
+    "post_div_next12_mean": 0.33333333333333337,
+    "post_div_next12_std": 0.08333333333333334,
+    "heldout_mean_free_mean": 0.11562499999999999,
+    "heldout_mean_free_std": 0.012499999999999997
+  }
+}

@@ -1,0 +1,38 @@
+OUTREACHLM LEADER GATING PROTOCOL REPORT
+================================================================================
+Timestamp: 2026-08-18T17:38:42.133737
+
+Leader artifact: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v2-divergence-intervention-20260816-113809.pt
+Candidates: seed1=C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v5-boundary-rollout-intervention-20260818-123304.pt, seed2=C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v5-boundary-rollout-intervention-20260818-125542.pt
+Gate: min_seeds=2 required_margin=0.0 minimum_free_match=0.2 require_not_below_leader=True require_divergence_or_recovery=True
+Held-out slices=4 | boundary sample_count=4096 seed=42
+
+LEADER SNAPSHOT
+--------------------------------------------------------------------------------
+teacher_top1=0.4625 free_match=0.2000 first_div=41 heldout_mean_free=0.1344
+leader post-divergence next12 match=0.3333
+
+CANDIDATE SNAPSHOT
+--------------------------------------------------------------------------------
+label,teacher_top1,free_match,first_free_divergence,heldout_mean_free,pos41_free_match_ctx_diff,post_div_next12,seed_pass,heldout_pass,min_free_pass,not_below_leader_pass,divergence_or_recovery_pass
+seed1,0.462500,0.100000,41,0.103125,0.187709,0.416667,False,False,False,False,True
+seed2,0.450000,0.187500,41,0.128125,0.204925,0.250000,False,False,False,False,False
+
+GATE DECISION
+--------------------------------------------------------------------------------
+promotion_pass=False
+minimum_seed_count_pass=True
+all_seed_free_match_pass=False
+mean_free_match_pass=False
+all_heldout_pass=False
+all_minimum_free_match_pass=False
+all_not_below_leader_pass=False
+all_divergence_or_recovery_pass=False
+candidate_mean_free_match=0.143750 min=0.100000 max=0.187500
+candidate_mean_heldout_free_match=0.115625 candidate_mean_pos41_ctx_diff=0.196317 candidate_mean_post_div_next12=0.333333
+reasons:
+- Not all seeds beat leader free-match threshold; failing seeds: seed1, seed2
+- Mean free-match across seeds does not beat leader threshold.
+- Not all seeds beat minimum free-match threshold 0.200000; failing seeds: seed1, seed2
+- Some seeds fell below leader free-match; failing seeds: seed1, seed2
+- Some seeds did not improve first divergence and did not improve post-divergence recovery; failing seeds: seed2

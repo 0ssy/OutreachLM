@@ -7,6 +7,7 @@ from pathlib import Path
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 from outreachlm.architecture_capacity_pilot import metric_row, metrics_snapshot
 from outreachlm.divergence_window_intervention import build_recovery_mixed_inputs
@@ -229,6 +230,63 @@ def post_error_recovery_loss(
     )
 
 
+def rollout_distribution_preservation_loss(
+    model,
+    input_ids,
+    teacher_logits,
+    forced_error_index,
+    rollout_steps,
+    start_index,
+    end_index,
+):
+    if start_index < 0:
+        raise ValueError("--rollout-calibration-start-index must be >= 0.")
+    if end_index < start_index:
+        raise ValueError(
+            "--rollout-calibration-end-index must be >= --rollout-calibration-start-index."
+        )
+
+    mixed = build_post_error_rollout_inputs(
+        model=model,
+        input_ids=input_ids,
+        teacher_logits=teacher_logits,
+        post_error_start_index=forced_error_index,
+        rollout_steps=rollout_steps,
+    )
+    free_logits = model(mixed)
+
+    max_index = min(end_index, teacher_logits.shape[1] - 1)
+    if start_index > max_index:
+        return torch.zeros((), device=input_ids.device, dtype=teacher_logits.dtype)
+
+    loss_terms = []
+    for position in range(start_index, max_index + 1):
+        context_diff = (
+            mixed[:, : position + 1] != input_ids[:, : position + 1]
+        ).any(dim=1)
+        if not context_diff.any():
+            continue
+
+        teacher_probs = torch.softmax(
+            teacher_logits[context_diff, position, :].detach(),
+            dim=-1,
+        )
+        free_log_probs = torch.log_softmax(
+            free_logits[context_diff, position, :],
+            dim=-1,
+        )
+        kl = F.kl_div(
+            free_log_probs,
+            teacher_probs,
+            reduction="batchmean",
+        )
+        loss_terms.append(kl)
+
+    if not loss_terms:
+        return torch.zeros((), device=input_ids.device, dtype=teacher_logits.dtype)
+    return torch.stack(loss_terms).mean()
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Train OutreachLM V4 from scratch."
@@ -250,6 +308,11 @@ def parse_args():
     parser.add_argument("--post-error-start-index", type=int, default=40)
     parser.add_argument("--post-error-rollout-steps", type=int, default=8)
     parser.add_argument("--post-error-loss-window", type=int, default=32)
+    parser.add_argument("--rollout-calibration-loss-weight", type=float, default=0.0)
+    parser.add_argument("--rollout-calibration-forced-error-index", type=int, default=40)
+    parser.add_argument("--rollout-calibration-rollout-steps", type=int, default=8)
+    parser.add_argument("--rollout-calibration-start-index", type=int, default=41)
+    parser.add_argument("--rollout-calibration-end-index", type=int, default=43)
     parser.add_argument("--grad-clip", type=float, default=1.0)
 
     parser.add_argument("--context-length", type=int, default=256)
@@ -283,6 +346,18 @@ def main():
         raise ValueError("--post-error-rollout-steps must be >= 1.")
     if args.post_error_loss_window == 0:
         raise ValueError("--post-error-loss-window must be > 0, or negative for full suffix.")
+    if args.rollout_calibration_loss_weight < 0:
+        raise ValueError("--rollout-calibration-loss-weight must be zero or positive.")
+    if args.rollout_calibration_forced_error_index < 1:
+        raise ValueError("--rollout-calibration-forced-error-index must be >= 1.")
+    if args.rollout_calibration_rollout_steps < 1:
+        raise ValueError("--rollout-calibration-rollout-steps must be >= 1.")
+    if args.rollout_calibration_start_index < 0:
+        raise ValueError("--rollout-calibration-start-index must be >= 0.")
+    if args.rollout_calibration_end_index < args.rollout_calibration_start_index:
+        raise ValueError(
+            "--rollout-calibration-end-index must be >= --rollout-calibration-start-index."
+        )
 
     torch.manual_seed(args.seed)
 
@@ -333,6 +408,11 @@ def main():
         "post_error_start_index": args.post_error_start_index,
         "post_error_rollout_steps": args.post_error_rollout_steps,
         "post_error_loss_window": args.post_error_loss_window,
+        "rollout_calibration_loss_weight": args.rollout_calibration_loss_weight,
+        "rollout_calibration_forced_error_index": args.rollout_calibration_forced_error_index,
+        "rollout_calibration_rollout_steps": args.rollout_calibration_rollout_steps,
+        "rollout_calibration_start_index": args.rollout_calibration_start_index,
+        "rollout_calibration_end_index": args.rollout_calibration_end_index,
         "grad_clip": args.grad_clip,
         "context_length": args.context_length,
         "embedding_dim": args.embedding_dim,
@@ -376,6 +456,7 @@ def main():
     loss_teacher_values = []
     loss_recovery_values = []
     loss_post_error_values = []
+    loss_rollout_calibration_values = []
     checkpoints = []
     best_rollout_path = output_dir / "v4-best-rollout.pt"
     best_rollout_step = None
@@ -438,10 +519,28 @@ def main():
                 dtype=teacher_loss.dtype,
             )
 
+        if args.rollout_calibration_loss_weight > 0:
+            rollout_calibration_loss = rollout_distribution_preservation_loss(
+                model=model,
+                input_ids=input_ids,
+                teacher_logits=teacher_logits.detach(),
+                forced_error_index=args.rollout_calibration_forced_error_index,
+                rollout_steps=args.rollout_calibration_rollout_steps,
+                start_index=args.rollout_calibration_start_index,
+                end_index=args.rollout_calibration_end_index,
+            )
+        else:
+            rollout_calibration_loss = torch.zeros(
+                (),
+                device=DEVICE,
+                dtype=teacher_loss.dtype,
+            )
+
         total_loss = (
             teacher_loss
             + (args.recovery_loss_weight * recovery_loss)
             + (args.post_error_loss_weight * post_error_loss)
+            + (args.rollout_calibration_loss_weight * rollout_calibration_loss)
         )
 
         optimizer.zero_grad(set_to_none=True)
@@ -466,6 +565,7 @@ def main():
         loss_teacher_values.append(float(teacher_loss.item()))
         loss_recovery_values.append(float(recovery_loss.item()))
         loss_post_error_values.append(float(post_error_loss.item()))
+        loss_rollout_calibration_values.append(float(rollout_calibration_loss.item()))
 
         if step % args.log_interval == 0 or step == 1 or step == args.steps:
             elapsed = max(1e-6, time.time() - start_time)
@@ -480,6 +580,7 @@ def main():
                 f"teacher={float(teacher_loss.item()):.4f} "
                 f"recovery={float(recovery_loss.item()):.4f} "
                 f"post_error={float(post_error_loss.item()):.4f} "
+                f"rollout_calib={float(rollout_calibration_loss.item()):.4f} "
                 f"eta={format_duration(eta_seconds)}",
                 flush=True,
             )
@@ -544,6 +645,7 @@ def main():
                     "teacher_loss": float(teacher_loss.item()),
                     "recovery_loss": float(recovery_loss.item()),
                     "post_error_loss": float(post_error_loss.item()),
+                    "rollout_calibration_loss": float(rollout_calibration_loss.item()),
                     "checkpoint_path": str(checkpoint_path.resolve()) if checkpoint_path is not None else None,
                     "best_rollout_checkpoint_updated": improved,
                     "degradation_streak": degradation_streak,
@@ -587,6 +689,12 @@ def main():
             "last_recovery_loss": float(loss_recovery_values[-1]) if loss_recovery_values else None,
             "first_post_error_loss": float(loss_post_error_values[0]) if loss_post_error_values else None,
             "last_post_error_loss": float(loss_post_error_values[-1]) if loss_post_error_values else None,
+            "first_rollout_calibration_loss": float(loss_rollout_calibration_values[0])
+            if loss_rollout_calibration_values
+            else None,
+            "last_rollout_calibration_loss": float(loss_rollout_calibration_values[-1])
+            if loss_rollout_calibration_values
+            else None,
         },
         "selected_final_model": {
             "source": "best_rollout_checkpoint",
