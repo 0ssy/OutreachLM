@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-08-18T09:38:16.916009",
+  "title": "OutreachLM V4 post-error reproducibility check (seed 1337)",
+  "reference_best_post_error_run": {
+    "summary_path": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v4-training-post-error-w1\\v4_training_summary.json",
+    "selected_final_model": {
+      "step": 500,
+      "free_match": 0.225,
+      "teacher_top1": 0.2,
+      "first_free_divergence": 41
+    }
+  },
+  "repro_run": {
+    "command": "python -m outreachlm.test3_boundary_consistency_intervention --seed 1337 --steps 1500 --recovery-loss-weight 2.0 --consistency-weight 1.0",
+    "artifacts": {
+      "json": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\test3-boundary-consistency-20260818-093816.json",
+      "txt": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\test3-boundary-consistency-20260818-093816.txt",
+      "pt": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v2-test3-boundary-consistency-20260818-093816.pt"
+    },
+    "config": {
+      "seed": 1337,
+      "steps": 1500,
+      "recovery_loss_weight": 2.0,
+      "consistency_weight": 1.0
+    },
+    "summary_table": {
+      "leader_before": {
+        "teacher_top1": 0.4625,
+        "free_match": 0.2,
+        "prompt_logit_cosine": 0.9190682257924762,
+        "rollout_mean_entropy": 3.861342042684555,
+        "first_repeated_bigram_step": 22,
+        "first_repeated_trigram_step": 39,
+        "first_free_divergence": 41
+      },
+      "after_test3": {
+        "teacher_top1": 0.475,
+        "free_match": 0.1875,
+        "prompt_logit_cosine": 0.9116345665284565,
+        "rollout_mean_entropy": 3.898920883735021,
+        "first_repeated_bigram_step": 25,
+        "first_repeated_trigram_step": 30,
+        "first_free_divergence": 41
+      }
+    },
+    "checkpoint_trajectory": [
+      {
+        "step": 375,
+        "teacher_top1": 0.4375,
+        "free_match": 0.1875
+      },
+      {
+        "step": 750,
+        "teacher_top1": 0.475,
+        "free_match": 0.1875
+      },
+      {
+        "step": 1125,
+        "teacher_top1": 0.4625,
+        "free_match": 0.1875
+      },
+      {
+        "step": 1500,
+        "teacher_top1": 0.475,
+        "free_match": 0.1875
+      }
+    ]
+  },
+  "comparison": {
+    "delta_free_match_vs_leader": -0.0125,
+    "delta_free_match_vs_reference_best_post_error": -0.0375
+  },
+  "conclusion": "This seed did not reproduce the prior 0.225 free-match gain; rollout objective remains below the 0.200 leader."
+}

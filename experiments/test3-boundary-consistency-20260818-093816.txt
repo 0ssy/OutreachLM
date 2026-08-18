@@ -1,0 +1,17 @@
+OUTREACHLM TEST 3 — BOUNDARY CONSISTENCY INTERVENTION
+================================================================================
+Timestamp: 2026-08-18T09:38:16.916009
+
+CONFIG | steps=1500 batch=8 lr=0.0005 warmup=250 ls=0.05 recovery_start=40 recovery_weight=2.0 consistency_weight=1.0 boundary_indices=[40, 41, 42]
+
+DECISION METRICS
+--------------------------------------------------------------------------------
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+leader_before,0.462500,0.200000,0.919068,3.861342,22,39,41
+after_test3,0.475000,0.187500,0.911635,3.898921,25,30,41
+
+BOUNDARY MAPPING (systematic)
+--------------------------------------------------------------------------------
+pos41 free match (all/same/diff): 0.243408/0.395294/0.135643 -> 0.193115/0.229047/0.166525
+logit cos (context diff): 0.961124 -> 0.997015
+KL_sym (context diff): 0.655285 -> 0.046259

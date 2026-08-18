@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-08-16T19:01:32.625395",
+  "leader_artifact": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v2-divergence-intervention-20260816-113809.pt",
+  "leader_row": {
+    "teacher_top1": 0.4625,
+    "free_match": 0.2,
+    "prompt_logit_cosine": 0.9190682257924762,
+    "rollout_mean_entropy": 3.861342042684555,
+    "first_repeated_bigram_step": 22,
+    "first_repeated_trigram_step": 39,
+    "first_free_divergence": 41
+  },
+  "candidates": [
+    {
+      "artifact": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v4-training\\v4-checkpoint-step-01500.pt",
+      "row": {
+        "teacher_top1": 0.375,
+        "free_match": 0.2,
+        "prompt_logit_cosine": 0.9949691636221749,
+        "rollout_mean_entropy": 4.250821503003438,
+        "first_repeated_bigram_step": 19,
+        "first_repeated_trigram_step": 20,
+        "first_free_divergence": 41
+      }
+    },
+    {
+      "artifact": "C:\\Users\\josep\\OneDrive\\Desktop\\OutreachLM\\experiments\\v4-training\\v4-final.pt",
+      "row": {
+        "teacher_top1": 0.525,
+        "free_match": 0.0375,
+        "prompt_logit_cosine": 0.9939895421266556,
+        "rollout_mean_entropy": 3.5918808837731677,
+        "first_repeated_bigram_step": 26,
+        "first_repeated_trigram_step": 46,
+        "first_free_divergence": 41
+      }
+    }
+  ]
+}

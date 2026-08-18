@@ -3,6 +3,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+import torch
+
 from outreachlm.architecture_capacity_continuation import load_model_from_artifact
 from outreachlm.architecture_capacity_pilot import metric_row, metrics_snapshot
 from outreachlm.generate import (
@@ -16,6 +18,7 @@ from outreachlm.train import (
     load_corpus,
     split_corpus,
 )
+from outreachlm.v4_generate import load_model_and_tokenizer as load_v4_model_and_tokenizer
 
 
 def render_report(results):
@@ -62,6 +65,20 @@ def parse_args():
     return parser.parse_args()
 
 
+def load_model_for_suite(artifact_path):
+    artifact = torch.load(
+        artifact_path,
+        map_location="cpu",
+        weights_only=False,
+    )
+    model_type = artifact.get("model_config", {}).get("model_type")
+    if model_type == "outreachlm_v4":
+        model, _ = load_v4_model_and_tokenizer(artifact_path, None)
+        return model
+    model, _ = load_model_from_artifact(artifact_path)
+    return model
+
+
 def main():
     args = parse_args()
 
@@ -72,9 +89,9 @@ def main():
     text = load_corpus(CORPUS_PATH)
     _, validation_text = split_corpus(text, VALIDATION_SPLIT)
 
-    leader_model, _ = load_model_from_artifact(args.leader_artifact)
+    leader_model = load_model_for_suite(args.leader_artifact)
     leader_model.eval()
-    candidate_model, _ = load_model_from_artifact(args.candidate_artifact)
+    candidate_model = load_model_for_suite(args.candidate_artifact)
     candidate_model.eval()
 
     leader_metrics = metrics_snapshot(leader_model, tokenizer, validation_text)

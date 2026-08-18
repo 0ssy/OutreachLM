@@ -1,0 +1,10 @@
+OUTREACHLM EVALUATION SUITE COMPARISON
+================================================================================
+Timestamp: 2026-08-16T20:14:46.917104
+
+Leader artifact: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v2-divergence-intervention-20260816-113809.pt
+Candidate artifact: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v4-training\v4-final.pt
+
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+leader,0.462500,0.200000,0.919068,3.861342,22,39,41
+candidate,0.375000,0.200000,0.994969,4.250822,19,20,41

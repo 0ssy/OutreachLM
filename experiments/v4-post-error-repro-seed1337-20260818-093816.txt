@@ -1,0 +1,41 @@
+OUTREACHLM V4 POST-ERROR REPRO CHECK (SEED 1337)
+================================================================================
+Timestamp: 2026-08-18T09:38:16.916009
+
+REFERENCE (PRIOR BEST V4 + POST-ERROR W=1.0)
+--------------------------------------------------------------------------------
+source_summary: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v4-training-post-error-w1\v4_training_summary.json
+selected_step: 500
+selected_free_match: 0.225000
+selected_teacher_top1: 0.200000
+selected_first_free_divergence: 41
+
+REPRO RUN CONFIG
+--------------------------------------------------------------------------------
+command: python -m outreachlm.test3_boundary_consistency_intervention --seed 1337 --steps 1500 --recovery-loss-weight 2.0 --consistency-weight 1.0
+report_json: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\test3-boundary-consistency-20260818-093816.json
+report_txt:  C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\test3-boundary-consistency-20260818-093816.txt
+artifact_pt: C:\Users\josep\OneDrive\Desktop\OutreachLM\experiments\v2-test3-boundary-consistency-20260818-093816.pt
+
+METRIC COMPARISON
+--------------------------------------------------------------------------------
+condition,teacher_top1,free_match,prompt_logit_cosine,rollout_mean_entropy,first_repeated_bigram_step,first_repeated_trigram_step,first_free_divergence
+leader_before,0.462500,0.200000,0.919068,3.861342,22,39,41
+repro_seed1337_after,0.475000,0.187500,0.911635,3.898921,25,30,41
+
+CHECKPOINT TRAJECTORY (REPRO RUN)
+--------------------------------------------------------------------------------
+step,teacher_top1,free_match
+375,0.437500,0.187500
+750,0.475000,0.187500
+1125,0.462500,0.187500
+1500,0.475000,0.187500
+
+READOUT
+--------------------------------------------------------------------------------
+- Repro seed did not recover the prior 0.2250 free-match peak.
+- Free-match stayed flat at 0.1875 through all measured checkpoints.
+- Versus leader: delta free_match = -0.0125 (0.2000 -> 0.1875).
+- Versus prior best post-error checkpoint: delta free_match = -0.0375 (0.2250 -> 0.1875).
+
+Conclusion: current V4/post-error gain is not yet robust under seed change.
