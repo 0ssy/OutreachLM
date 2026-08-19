@@ -1,0 +1,72 @@
+{
+  "report_kind": "v6_two_seed_gate_consolidated",
+  "timestamp": "2026-08-19T14:57:55.738702",
+  "scripts": {
+    "training_module": "python -m outreachlm.train_v4",
+    "gate_module": "python -m outreachlm.leader_gating_protocol"
+  },
+  "gate_command": "python -m outreachlm.leader_gating_protocol --leader-artifact experiments/v2-divergence-intervention-20260816-113809.pt --candidate seed1=experiments/v6-training-rollout-calibration-seed1/v4-best-rollout.pt --candidate seed1337=experiments/v6-training-rollout-calibration-seed1337/v4-best-rollout.pt --min-seeds 2 --required-free-match-margin 0.0 --minimum-free-match 0.2 --require-not-below-leader --require-divergence-or-recovery --minimum-post-divergence-next12-delta 0.0 --output-dir experiments",
+  "full_data_sources": {
+    "gate_json": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\leader-gate-20260819-145755.json",
+    "gate_txt": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\leader-gate-20260819-145755.txt",
+    "seed1_summary_json": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\v6-training-rollout-calibration-seed1\\v4_training_summary.json",
+    "seed1337_summary_json": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\v6-training-rollout-calibration-seed1337\\v4_training_summary.json"
+  },
+  "leader_snapshot": {
+    "artifact": "experiments/v2-divergence-intervention-20260816-113809.pt",
+    "teacher_top1": 0.4625,
+    "free_match": 0.2,
+    "first_divergence": 41,
+    "heldout_mean_free": 0.1344,
+    "post_divergence_next12_match": 0.3333
+  },
+  "candidates": [
+    {
+      "label": "seed1",
+      "artifact": "experiments/v6-training-rollout-calibration-seed1/v4-best-rollout.pt",
+      "teacher_top1": 0.225,
+      "free_match": 0.225,
+      "first_free_divergence": 41,
+      "heldout_mean_free": 0.140625,
+      "pos41_free_match_ctx_diff": 0.164549,
+      "post_div_next12": 0.166667,
+      "seed_pass": true,
+      "heldout_pass": true,
+      "minimum_free_match_pass": true,
+      "not_below_leader_pass": true,
+      "divergence_or_recovery_pass": false
+    },
+    {
+      "label": "seed1337",
+      "artifact": "experiments/v6-training-rollout-calibration-seed1337/v4-best-rollout.pt",
+      "teacher_top1": 0.25,
+      "free_match": 0.225,
+      "first_free_divergence": 41,
+      "heldout_mean_free": 0.14375,
+      "pos41_free_match_ctx_diff": 0.163649,
+      "post_div_next12": 0.25,
+      "seed_pass": true,
+      "heldout_pass": true,
+      "minimum_free_match_pass": true,
+      "not_below_leader_pass": true,
+      "divergence_or_recovery_pass": false
+    }
+  ],
+  "gate_decision": {
+    "promotion_pass": false,
+    "minimum_seed_count_pass": true,
+    "all_seed_free_match_pass": true,
+    "mean_free_match_pass": true,
+    "all_heldout_pass": true,
+    "all_minimum_free_match_pass": true,
+    "all_not_below_leader_pass": true,
+    "all_divergence_or_recovery_pass": false,
+    "candidate_mean_free_match": 0.225,
+    "candidate_mean_heldout_free_match": 0.142188,
+    "candidate_mean_pos41_ctx_diff": 0.164099,
+    "candidate_mean_post_div_next12": 0.208333,
+    "reasons": [
+      "Some seeds did not improve first divergence and did not improve post-divergence recovery; failing seeds: seed1, seed1337"
+    ]
+  }
+}

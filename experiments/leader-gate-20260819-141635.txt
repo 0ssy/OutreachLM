@@ -1,0 +1,34 @@
+OUTREACHLM LEADER GATING PROTOCOL REPORT
+================================================================================
+Timestamp: 2026-08-19T14:16:35.872977
+
+Leader artifact: C:\Users\josep\Desktop\OutreachLM\experiments\v2-divergence-intervention-20260816-113809.pt
+Candidates: seed1=C:\Users\josep\Desktop\OutreachLM\experiments\v6-training-rollout-calibration-seed1\v4-final.pt, seed1337=C:\Users\josep\Desktop\OutreachLM\experiments\v6-training-rollout-calibration-seed1337\v4-final.pt
+Gate: min_seeds=2 required_margin=0.0 minimum_free_match=0.2 require_not_below_leader=True require_divergence_or_recovery=True
+Held-out slices=4 | boundary sample_count=4096 seed=42
+
+LEADER SNAPSHOT
+--------------------------------------------------------------------------------
+teacher_top1=0.4625 free_match=0.2000 first_div=41 heldout_mean_free=0.1344
+leader post-divergence next12 match=0.3333
+
+CANDIDATE SNAPSHOT
+--------------------------------------------------------------------------------
+label,teacher_top1,free_match,first_free_divergence,heldout_mean_free,pos41_free_match_ctx_diff,post_div_next12,seed_pass,heldout_pass,min_free_pass,not_below_leader_pass,divergence_or_recovery_pass
+seed1,0.225000,0.225000,41,0.140625,0.164549,0.166667,True,True,True,True,False
+seed1337,0.250000,0.225000,41,0.143750,0.163649,0.250000,True,True,True,True,False
+
+GATE DECISION
+--------------------------------------------------------------------------------
+promotion_pass=False
+minimum_seed_count_pass=True
+all_seed_free_match_pass=True
+mean_free_match_pass=True
+all_heldout_pass=True
+all_minimum_free_match_pass=True
+all_not_below_leader_pass=True
+all_divergence_or_recovery_pass=False
+candidate_mean_free_match=0.225000 min=0.225000 max=0.225000
+candidate_mean_heldout_free_match=0.142188 candidate_mean_pos41_ctx_diff=0.164099 candidate_mean_post_div_next12=0.208333
+reasons:
+- Some seeds did not improve first divergence and did not improve post-divergence recovery; failing seeds: seed1, seed1337
