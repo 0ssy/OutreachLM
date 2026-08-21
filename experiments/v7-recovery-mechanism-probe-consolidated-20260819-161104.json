@@ -1,0 +1,53 @@
+{
+  "report_kind": "v7_recovery_mechanism_probe_consolidated",
+  "timestamp": "2026-08-19T16:11:04.743926",
+  "script": "python -m outreachlm.rollout_calibration_regime_analysis",
+  "command": "python -m outreachlm.rollout_calibration_regime_analysis --leader v2=experiments/v2-divergence-intervention-20260816-113809.pt --candidate v6_seed1=experiments/v6-training-rollout-calibration-seed1/v4-best-rollout.pt --candidate v6_seed1337=experiments/v6-training-rollout-calibration-seed1337/v4-best-rollout.pt --sample-count 4096 --sample-seed 42 --sample-batch-size 256 --position-start 40 --position-end 52 --fallback-topk 10 --output-dir experiments --report-prefix v7-recovery-mechanism-probe",
+  "full_data_sources": {
+    "report_text": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\v7-recovery-mechanism-probe-20260819-161104.txt",
+    "report_json": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\v7-recovery-mechanism-probe-20260819-161104.json"
+  },
+  "leader_snapshot": {
+    "label": "v2",
+    "teacher_top1": 0.4625,
+    "free_match": 0.2,
+    "first_divergence": 41,
+    "post_div_next12": 0.3333
+  },
+  "candidates": [
+    {
+      "label": "v6_seed1",
+      "teacher_top1": 0.225,
+      "free_match": 0.225,
+      "first_divergence": 41,
+      "post_div_next12": 0.166667,
+      "heldout_mean_free": 0.140625
+    },
+    {
+      "label": "v6_seed1337",
+      "teacher_top1": 0.25,
+      "free_match": 0.225,
+      "first_divergence": 41,
+      "post_div_next12": 0.25,
+      "heldout_mean_free": 0.14375
+    }
+  ],
+  "cross_seed_stability": {
+    "free_match_mean": 0.225,
+    "free_match_std": 0.0,
+    "post_div_next12_mean": 0.208333,
+    "post_div_next12_std": 0.041667,
+    "heldout_mean_free_mean": 0.142188,
+    "heldout_mean_free_std": 0.001563
+  },
+  "mechanism_summary": [
+    "V6 improves global free-match and held-out mean reproducibly across seeds.",
+    "Divergence onset remains fixed at position 41.",
+    "Post-divergence recovery is below leader for both V6 seeds.",
+    "Position-level deltas over 41..52 indicate stronger post-error trajectory drift and persistently weaker margin behavior in V6."
+  ],
+  "decision": {
+    "production_leader": "v2",
+    "v6_status": "research_candidate"
+  }
+}

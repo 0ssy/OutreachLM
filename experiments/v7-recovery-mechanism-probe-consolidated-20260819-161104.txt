@@ -1,0 +1,74 @@
+OUTREACHLM V7 RECOVERY MECHANISM PROBE (NO TRAINING)
+================================================================================
+Timestamp: 2026-08-19T16:11:04.743926
+
+Objective
+--------------------------------------------------------------------------------
+Diagnose why V6 fails post-divergence recovery despite reproducible free-match
+improvements, using a position-focused analysis window (40..52).
+
+Script/Module
+--------------------------------------------------------------------------------
+python -m outreachlm.rollout_calibration_regime_analysis
+
+Command
+--------------------------------------------------------------------------------
+python -m outreachlm.rollout_calibration_regime_analysis `
+  --leader v2=experiments/v2-divergence-intervention-20260816-113809.pt `
+  --candidate v6_seed1=experiments/v6-training-rollout-calibration-seed1/v4-best-rollout.pt `
+  --candidate v6_seed1337=experiments/v6-training-rollout-calibration-seed1337/v4-best-rollout.pt `
+  --sample-count 4096 `
+  --sample-seed 42 `
+  --sample-batch-size 256 `
+  --position-start 40 `
+  --position-end 52 `
+  --fallback-topk 10 `
+  --output-dir experiments `
+  --report-prefix v7-recovery-mechanism-probe
+
+Full data sources
+--------------------------------------------------------------------------------
+Report text:
+  C:\Users\josep\Desktop\OutreachLM\experiments\v7-recovery-mechanism-probe-20260819-161104.txt
+Report JSON:
+  C:\Users\josep\Desktop\OutreachLM\experiments\v7-recovery-mechanism-probe-20260819-161104.json
+
+Summary snapshot
+--------------------------------------------------------------------------------
+Leader (V2):
+  teacher_top1=0.4625
+  free_match=0.2000
+  first_div=41
+  post_div_next12=0.3333
+
+Candidate (V6 seed1):
+  teacher_top1=0.2250
+  free_match=0.2250
+  first_div=41
+  post_div_next12=0.1667
+  heldout_mean=0.140625
+
+Candidate (V6 seed1337):
+  teacher_top1=0.2500
+  free_match=0.2250
+  first_div=41
+  post_div_next12=0.2500
+  heldout_mean=0.143750
+
+Cross-seed stability (V6)
+--------------------------------------------------------------------------------
+free_match mean/std/min/max = 0.225000 / 0.000000 / 0.225000 / 0.225000
+post_div_next12 mean/std = 0.208333 / 0.041667
+heldout_mean_free mean/std = 0.142188 / 0.001563
+
+Mechanism reading
+--------------------------------------------------------------------------------
+- V6 improves global free-match and held-out mean reproducibly across seeds.
+- First divergence remains fixed at position 41 (no onset shift vs leader).
+- Post-divergence recovery remains below leader for both seeds.
+- Position deltas over 41..52 show persistent negative margin shifts and larger
+  hidden/logit trajectory drift after the first boundary error in V6.
+
+Decision
+--------------------------------------------------------------------------------
+Keep V2 as production leader under the frozen gate. Keep V6 as research candidate.

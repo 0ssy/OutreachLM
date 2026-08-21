@@ -17,6 +17,7 @@ from outreachlm.train import (
     load_corpus,
     split_corpus,
 )
+from outreachlm.v4_generate import load_model_and_tokenizer as load_v4_model_and_tokenizer
 
 
 def token_text(tokenizer, token_id):
@@ -63,6 +64,20 @@ def sample_windows(validation_token_ids, eval_length, sample_count, seed):
         dim=0,
     )
     return windows, actual_count
+
+
+def load_model_for_suite(artifact_path):
+    artifact = torch.load(
+        artifact_path,
+        map_location="cpu",
+        weights_only=False,
+    )
+    model_type = artifact.get("model_config", {}).get("model_type")
+    if model_type == "outreachlm_v4":
+        model, _ = load_v4_model_and_tokenizer(artifact_path, None)
+        return model
+    model, _ = load_model_from_artifact(artifact_path)
+    return model
 
 
 def collect_teacher_free_states(
@@ -406,7 +421,7 @@ def main():
     args = parse_args()
     torch.manual_seed(args.seed)
 
-    model, _ = load_model_from_artifact(args.model_artifact)
+    model = load_model_for_suite(args.model_artifact)
     model.eval()
 
     tokenizer = load_tokenizer_artifact(TOKENIZER_PATH)
