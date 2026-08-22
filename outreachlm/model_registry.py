@@ -3,6 +3,7 @@ from typing import Any
 
 import torch.nn as nn
 
+from outreachlm.model_config import LegacyV1Config, V4Config
 from outreachlm.model import OutreachModel
 from outreachlm.v4_model import OutreachV4Model
 
@@ -37,15 +38,33 @@ MODEL_REGISTRY: dict[str, ModelFactory] = {
 }
 
 
-def create_model(model_type: str, model_config: dict[str, Any]) -> nn.Module:
+def create_model(
+    model_type: str | LegacyV1Config | V4Config,
+    model_config: dict[str, Any] | None = None,
+) -> nn.Module:
+    resolved_type: str
+    resolved_config: dict[str, Any]
+
+    if isinstance(model_type, LegacyV1Config):
+        resolved_type = "legacy_v1"
+        resolved_config = model_type.to_dict()
+    elif isinstance(model_type, V4Config):
+        resolved_type = "v4"
+        resolved_config = model_type.to_dict()
+    else:
+        if model_config is None:
+            raise ValueError("model_config is required when model_type is a string.")
+        resolved_type = model_type
+        resolved_config = model_config
+
     try:
-        factory = MODEL_REGISTRY[model_type]
+        factory = MODEL_REGISTRY[resolved_type]
     except KeyError as exc:
         available = ", ".join(sorted(MODEL_REGISTRY))
         raise ValueError(
-            f"Unknown model_type={model_type!r}. Available model types: {available}"
+            f"Unknown model_type={resolved_type!r}. Available model types: {available}"
         ) from exc
-    return factory(model_config)
+    return factory(resolved_config)
 
 
 def available_model_types() -> tuple[str, ...]:
