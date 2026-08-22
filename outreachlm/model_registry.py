@@ -1,4 +1,5 @@
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 import torch.nn as nn
 
@@ -7,20 +8,9 @@ from outreachlm.v4_model import OutreachV4Model
 
 
 ModelFactory = Callable[[dict[str, Any]], nn.Module]
-MODEL_REGISTRY: dict[str, ModelFactory] = {}
 
 
-def register_model(model_type: str, factory: ModelFactory) -> None:
-    if not model_type:
-        raise ValueError("model_type cannot be empty.")
-    if not callable(factory):
-        raise TypeError("factory must be callable.")
-    if model_type in MODEL_REGISTRY:
-        raise ValueError(f"Model type already registered: {model_type}")
-    MODEL_REGISTRY[model_type] = factory
-
-
-def _create_legacy_v1(model_config: dict[str, Any]) -> nn.Module:
+def _build_legacy_v1(model_config: dict[str, Any]) -> nn.Module:
     return OutreachModel(
         vocab_size=model_config["vocab_size"],
         context_length=model_config["context_length"],
@@ -30,7 +20,7 @@ def _create_legacy_v1(model_config: dict[str, Any]) -> nn.Module:
     )
 
 
-def _create_v4(model_config: dict[str, Any]) -> nn.Module:
+def _build_v4(model_config: dict[str, Any]) -> nn.Module:
     return OutreachV4Model(
         vocab_size=model_config["vocab_size"],
         context_length=model_config.get("context_length", 256),
@@ -41,15 +31,22 @@ def _create_v4(model_config: dict[str, Any]) -> nn.Module:
     )
 
 
+MODEL_REGISTRY: dict[str, ModelFactory] = {
+    "legacy_v1": _build_legacy_v1,
+    "v4": _build_v4,
+}
+
+
 def create_model(model_type: str, model_config: dict[str, Any]) -> nn.Module:
-    factory = MODEL_REGISTRY.get(model_type)
-    if factory is None:
+    try:
+        factory = MODEL_REGISTRY[model_type]
+    except KeyError as exc:
         available = ", ".join(sorted(MODEL_REGISTRY))
         raise ValueError(
-            f"Unknown model_type '{model_type}'. Registered model types: {available}"
-        )
+            f"Unknown model_type={model_type!r}. Available model types: {available}"
+        ) from exc
     return factory(model_config)
 
 
-register_model("legacy_v1", _create_legacy_v1)
-register_model("v4", _create_v4)
+def available_model_types() -> tuple[str, ...]:
+    return tuple(sorted(MODEL_REGISTRY))
