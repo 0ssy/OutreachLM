@@ -4,25 +4,7 @@ from typing import Any
 
 import torch
 
-
-class SingleDeviceRuntime:
-    def __init__(self, device: torch.device | str):
-        self.device = torch.device(device)
-
-    def prepare_model(self, model: torch.nn.Module) -> torch.nn.Module:
-        return model.to(self.device)
-
-    def prepare_batch(self, batch: tuple[torch.Tensor, ...]) -> tuple[torch.Tensor, ...]:
-        return tuple(item.to(self.device) for item in batch)
-
-    def zero_grad(self, optimizer: torch.optim.Optimizer) -> None:
-        optimizer.zero_grad(set_to_none=True)
-
-    def backward(self, loss: torch.Tensor) -> None:
-        loss.backward()
-
-    def optimizer_step(self, optimizer: torch.optim.Optimizer) -> None:
-        optimizer.step()
+from outreachlm.runtime import Runtime, SingleDeviceRuntime
 
 
 class TrainerHooks:
@@ -54,7 +36,7 @@ class Trainer:
         model: torch.nn.Module,
         optimizer: torch.optim.Optimizer,
         loss_fn,
-        runtime: SingleDeviceRuntime,
+        runtime: Runtime,
         scheduler: Any = None,
         hooks: TrainerHooks | None = None,
         eval_interval: int | None = None,
