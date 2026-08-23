@@ -1,5 +1,17 @@
 # OutreachLM Notes — Part 5: BPE Pair Counting & First Merge
 
+## What it is
+This part documents a concrete step in the OutreachLM build/refactor/research timeline and records the implementation or experiment state reached at that point.
+
+## Why it is there
+This note exists to preserve chronological traceability of decisions, commands, outputs, and outcomes so later phases can build on verified history instead of assumptions.
+
+## Why it is important
+It provides continuity across phases, supports reproducibility of results, and makes architecture/training decisions auditable when comparing future changes.
+
+## What would happen without it
+Without this record, decision context and result provenance would degrade, making regressions harder to diagnose and increasing risk of repeating failed approaches.
+
 ## 31. BPE starts from atomic units
 Before BPE begins, text is represented using the initial vocabulary's smallest units.
 

@@ -1,5 +1,17 @@
 # OutreachLM — w=2.0 Continuation Stability Pass
 
+## What it is
+This part documents a concrete step in the OutreachLM build/refactor/research timeline and records the implementation or experiment state reached at that point.
+
+## Why it is there
+This note exists to preserve chronological traceability of decisions, commands, outputs, and outcomes so later phases can build on verified history instead of assumptions.
+
+## Why it is important
+It provides continuity across phases, supports reproducibility of results, and makes architecture/training decisions auditable when comparing future changes.
+
+## What would happen without it
+Without this record, decision context and result provenance would degrade, making regressions harder to diagnose and increasing risk of repeating failed approaches.
+
 ## Goal
 Build directly on the best current intervention (recovery weight `2.0`) and test whether additional training can preserve/improve free-running recovery while regaining teacher-forced quality.
 

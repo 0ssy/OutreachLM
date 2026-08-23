@@ -1,5 +1,17 @@
 # OutreachLM — Part 88: B1.3 ModelConfig
 
+## What it is
+This part documents a concrete step in the OutreachLM build/refactor/research timeline and records the implementation or experiment state reached at that point.
+
+## Why it is there
+This note exists to preserve chronological traceability of decisions, commands, outputs, and outcomes so later phases can build on verified history instead of assumptions.
+
+## Why it is important
+It provides continuity across phases, supports reproducibility of results, and makes architecture/training decisions auditable when comparing future changes.
+
+## What would happen without it
+Without this record, decision context and result provenance would degrade, making regressions harder to diagnose and increasing risk of repeating failed approaches.
+
 ## Scope
 Implemented typed model configuration seam for current architectures while preserving existing behavior and registry compatibility.
 
