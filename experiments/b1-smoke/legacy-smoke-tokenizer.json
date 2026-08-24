@@ -1,0 +1,32 @@
+{
+  "artifact_version": 1,
+  "vocab_size": 24,
+  "tokens": [
+    "<PAD>",
+    "<UNK>",
+    " ",
+    ".",
+    "1",
+    "a",
+    "b",
+    "c",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v"
+  ],
+  "pad_token": "<PAD>",
+  "unk_token": "<UNK>"
+}

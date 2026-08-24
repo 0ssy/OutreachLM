@@ -13,6 +13,8 @@ class TrainingConfig:
     eval_interval: int = 250
     checkpoint_interval: int = 500
     label_smoothing: float = 0.05
+    gradient_accumulation_steps: int = 1
+    precision: str = "fp32"
 
     def __post_init__(self) -> None:
         if self.steps <= 0:
@@ -35,6 +37,10 @@ class TrainingConfig:
             raise ValueError("label_smoothing must be >= 0.")
         if self.label_smoothing >= 1:
             raise ValueError("label_smoothing must be < 1.")
+        if self.gradient_accumulation_steps <= 0:
+            raise ValueError("gradient_accumulation_steps must be > 0.")
+        if self.precision not in {"fp32", "fp16", "bf16"}:
+            raise ValueError("precision must be one of: fp32, fp16, bf16.")
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -47,6 +53,8 @@ class TrainingConfig:
             "eval_interval": self.eval_interval,
             "checkpoint_interval": self.checkpoint_interval,
             "label_smoothing": self.label_smoothing,
+            "gradient_accumulation_steps": self.gradient_accumulation_steps,
+            "precision": self.precision,
         }
 
     @classmethod
@@ -61,4 +69,6 @@ class TrainingConfig:
             eval_interval=payload.get("eval_interval", 250),
             checkpoint_interval=payload.get("checkpoint_interval", 500),
             label_smoothing=payload.get("label_smoothing", 0.05),
+            gradient_accumulation_steps=payload.get("gradient_accumulation_steps", 1),
+            precision=payload.get("precision", "fp32"),
         )

@@ -14,6 +14,8 @@ def test_training_config_defaults_match_train_v4():
     assert cfg.eval_interval == 250
     assert cfg.checkpoint_interval == 500
     assert cfg.label_smoothing == 0.05
+    assert cfg.gradient_accumulation_steps == 1
+    assert cfg.precision == "fp32"
 
 
 @pytest.mark.parametrize(
@@ -29,6 +31,8 @@ def test_training_config_defaults_match_train_v4():
         {"min_learning_rate_ratio": 1.01},
         {"label_smoothing": -0.01},
         {"label_smoothing": 1.0},
+        {"gradient_accumulation_steps": 0},
+        {"precision": "int8"},
     ],
 )
 def test_training_config_validation(payload):
@@ -49,6 +53,8 @@ def test_training_config_round_trip_dict():
         eval_interval=100,
         checkpoint_interval=200,
         label_smoothing=0.1,
+        gradient_accumulation_steps=4,
+        precision="bf16",
     )
     restored = TrainingConfig.from_dict(original.to_dict())
     assert restored == original

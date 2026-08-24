@@ -1,16 +1,25 @@
 import argparse
-import json
 import math
 from pathlib import Path
 
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader
 
 from outreachlm.corpus import Corpus
+from outreachlm.data_loader_config import DataLoaderConfig, build_data_loader
+from outreachlm.experiment_config import (
+    load_experiment_config,
+    to_train_cli_defaults,
+)
+from outreachlm.model_config import LegacyV1Config
+from outreachlm.model_registry import create_model as create_registered_model
+from outreachlm.runtime import SingleDeviceRuntime
 from outreachlm.tokenizer import CharacterTokenizer
+from outreachlm.tokenizer_artifacts import (
+    TokenizerArtifact,
+    save_tokenizer_artifact,
+)
 from outreachlm.datasets import LanguageModelDataset
-from outreachlm.model import OutreachModel
 from outreachlm.checkpoint import (
     build_config,
     save_checkpoint,
@@ -43,6 +52,7 @@ TOKENIZER_PATH = DEFAULT_TOKENIZER_PATH
 DEVICE = torch.device(
     "cuda" if torch.cuda.is_available() else "cpu"
 )
+RUNTIME = SingleDeviceRuntime(DEVICE)
 
 # ============================================================
 # COMPATIBILITY CONFIGURATION
@@ -192,15 +202,15 @@ def create_model(
     num_layers=NUM_LAYERS,
     num_heads=NUM_HEADS
 ):
-    model = OutreachModel(
+    model_config = LegacyV1Config(
         vocab_size=vocab_size,
         context_length=context_length,
         embedding_dim=embedding_dim,
         num_layers=num_layers,
-        num_heads=num_heads
+        num_heads=num_heads,
     )
-
-    return model.to(DEVICE)
+    model = create_registered_model(model_config)
+    return RUNTIME.prepare_model(model)
 
 
 def build_model_artifact(
@@ -359,14 +369,18 @@ def evaluate_validation(
     model,
     validation_dataset,
     device,
-    batch_size
+    batch_size,
+    eval_loader_config: DataLoaderConfig | None = None,
 ):
     model.eval()
 
-    dataloader = DataLoader(
-        validation_dataset,
+    resolved_loader_config = eval_loader_config or DataLoaderConfig(
         batch_size=batch_size,
-        shuffle=False
+        shuffle=False,
+    )
+    dataloader = build_data_loader(
+        validation_dataset,
+        resolved_loader_config,
     )
 
     loss_function = nn.CrossEntropyLoss()
@@ -444,6 +458,11 @@ def train(
     min_learning_rate_ratio=MIN_LEARNING_RATE_RATIO,
     save_interval=SAVE_INTERVAL,
     validation_interval=VALIDATION_INTERVAL,
+    eval_num_workers=0,
+    eval_prefetch_factor=2,
+    eval_persistent_workers=False,
+    eval_pin_memory=False,
+    eval_drop_last=False,
     resume=False
 ):
 
@@ -586,6 +605,15 @@ def train(
         model.parameters(),
         lr=learning_rate
     )
+    eval_loader_config = DataLoaderConfig(
+        batch_size=batch_size,
+        num_workers=eval_num_workers,
+        prefetch_factor=eval_prefetch_factor,
+        persistent_workers=eval_persistent_workers,
+        pin_memory=eval_pin_memory,
+        drop_last=eval_drop_last,
+        shuffle=False,
+    )
 
     run_config = build_config(
         context_length=context_length,
@@ -600,10 +628,12 @@ def train(
         vocab_size=tokenizer.vocab_size,
         num_layers=num_layers,
         num_heads=num_heads,
+        eval_loader_config=eval_loader_config.to_dict(),
     )
 
     start_step = 0
     best_validation_loss = float("inf")
+    last_learning_rate = learning_rate
 
     if resume and checkpoint_path.exists():
         checkpoint_state = load_checkpoint(
@@ -646,6 +676,10 @@ def train(
         print(
             f"Previous train loss: {checkpoint_state['train_loss']:.6f}"
         )
+
+        resumed_lr = checkpoint_state.get("trainer_state", {}).get("last_learning_rate")
+        if resumed_lr is not None:
+            last_learning_rate = resumed_lr
 
     elif resume:
         raise RuntimeError(
@@ -737,6 +771,7 @@ def train(
         # ----------------------------------------------------
 
         optimizer.step()
+        last_learning_rate = current_learning_rate
 
         last_loss = loss.item()
         interval_losses.append(
@@ -774,7 +809,8 @@ def train(
                     model,
                     validation_dataset,
                     DEVICE,
-                    batch_size
+                    batch_size,
+                    eval_loader_config=eval_loader_config,
                 )
             )
 
@@ -831,7 +867,8 @@ def train(
                     model,
                     validation_dataset,
                     DEVICE,
-                    batch_size
+                    batch_size,
+                    eval_loader_config=eval_loader_config,
                 )
 
             save_checkpoint(
@@ -841,7 +878,17 @@ def train(
                 step,
                 average_train_loss,
                 best_validation_loss,
-                run_config
+                run_config,
+                trainer_state={
+                    "optimizer_step": step,
+                    "micro_step": step,
+                    "last_learning_rate": last_learning_rate,
+                    "interval_loss_count": len(interval_losses),
+                },
+                metadata={
+                    "entrypoint": "outreachlm.train",
+                    "resumed": resume,
+                },
             )
 
             print(
@@ -902,30 +949,11 @@ def save_tokenizer(
     tokenizer,
     tokenizer_path
 ):
-    tokenizer_data = {
-        "vocab_size": tokenizer.vocab_size,
-        "tokens": tokenizer.tokens,
-        "pad_token": tokenizer.pad_token,
-        "unk_token": tokenizer.unk_token,
-    }
-
-    tokenizer_path.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    with open(
+    tokenizer_artifact = TokenizerArtifact.from_tokenizer(tokenizer)
+    save_tokenizer_artifact(
+        tokenizer_artifact,
         tokenizer_path,
-        "w",
-        encoding="utf-8"
-    ) as file:
-
-        json.dump(
-            tokenizer_data,
-            file,
-            ensure_ascii=False,
-            indent=2
-        )
+    )
 
 # ============================================================
 # EVALUATION
@@ -1073,10 +1101,17 @@ def evaluate(
 # ============================================================
 
 
-def parse_args():
+def _build_arg_parser() -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser(
         description="Train OutreachLM."
+    )
+
+    parser.add_argument(
+        "--config",
+        type=Path,
+        default=None,
+        help="Path to experiment config JSON. CLI flags override config values.",
     )
 
     parser.add_argument(
@@ -1176,11 +1211,47 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--eval-num-workers",
+        type=int,
+        default=0
+    )
+
+    parser.add_argument(
+        "--eval-prefetch-factor",
+        type=int,
+        default=2
+    )
+
+    parser.add_argument(
+        "--eval-persistent-workers",
+        action="store_true"
+    )
+
+    parser.add_argument(
+        "--eval-pin-memory",
+        action="store_true"
+    )
+
+    parser.add_argument(
+        "--eval-drop-last",
+        action="store_true"
+    )
+
+    parser.add_argument(
         "--resume",
         action="store_true"
     )
 
-    return parser.parse_args()
+    return parser
+
+
+def parse_args(argv: list[str] | None = None):
+    parser = _build_arg_parser()
+    pre_args, _ = parser.parse_known_args(argv)
+    if pre_args.config is not None:
+        experiment_config = load_experiment_config(pre_args.config)
+        parser.set_defaults(**to_train_cli_defaults(experiment_config))
+    return parser.parse_args(argv)
 
 # ============================================================
 # MAIN
@@ -1208,6 +1279,11 @@ if __name__ == "__main__":
         warmup_steps=args.warmup_steps,
         min_learning_rate_ratio=args.min_learning_rate_ratio,
         validation_interval=args.validation_interval,
+        eval_num_workers=args.eval_num_workers,
+        eval_prefetch_factor=args.eval_prefetch_factor,
+        eval_persistent_workers=args.eval_persistent_workers,
+        eval_pin_memory=args.eval_pin_memory,
+        eval_drop_last=args.eval_drop_last,
         resume=args.resume
     )
 

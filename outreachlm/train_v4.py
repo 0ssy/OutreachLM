@@ -11,6 +11,25 @@ import torch.nn.functional as F
 
 from outreachlm.architecture_capacity_pilot import metric_row, metrics_snapshot
 from outreachlm.divergence_window_intervention import build_recovery_mixed_inputs
+from outreachlm.experiment_config import (
+    load_experiment_config,
+    to_train_v4_cli_defaults,
+)
+from outreachlm.loss_plans import (
+    LossPlan,
+    PostErrorLossTerm,
+    RecoveryLossTerm,
+    RolloutCalibrationLossTerm,
+    TeacherLossTerm,
+)
+from outreachlm.model_config import V4Config
+from outreachlm.model_registry import create_model as create_registered_model
+from outreachlm.runtime import SingleDeviceRuntime
+from outreachlm.tokenizer_artifacts import (
+    TokenizerArtifact,
+    save_tokenizer_artifact,
+)
+from outreachlm.training_config import TrainingConfig
 from outreachlm.generate import (
     TOKENIZER_PATH,
     load_tokenizer_artifact,
@@ -25,24 +44,19 @@ from outreachlm.train import (
     load_corpus,
     split_corpus,
 )
-from outreachlm.v4_model import OutreachV4Model
 
 
 DEVICE = torch.device(
     "cuda" if torch.cuda.is_available() else "cpu"
 )
+RUNTIME = SingleDeviceRuntime(DEVICE)
 
 
 def save_tokenizer_config(tokenizer, path):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    payload = {
-        "vocab_size": tokenizer.vocab_size,
-        "tokens": tokenizer.tokens,
-        "pad_token": tokenizer.pad_token,
-        "unk_token": tokenizer.unk_token,
-    }
-    with open(path, "w", encoding="utf-8") as file:
-        json.dump(payload, file, ensure_ascii=False, indent=2)
+    save_tokenizer_artifact(
+        TokenizerArtifact.from_tokenizer(tokenizer),
+        path,
+    )
 
 
 def load_or_build_tokenizer(training_text):
@@ -67,7 +81,7 @@ def build_frequency_balanced_weights(token_ids, vocab_size, device):
 
 
 def create_v4_model(vocab_size, context_length, embedding_dim, num_layers, num_heads, ffn_dim):
-    model = OutreachV4Model(
+    model_config = V4Config(
         vocab_size=vocab_size,
         context_length=context_length,
         embedding_dim=embedding_dim,
@@ -75,7 +89,8 @@ def create_v4_model(vocab_size, context_length, embedding_dim, num_layers, num_h
         num_heads=num_heads,
         ffn_dim=ffn_dim,
     )
-    return model.to(DEVICE)
+    model = create_registered_model(model_config)
+    return RUNTIME.prepare_model(model)
 
 
 def build_v4_artifact(
@@ -287,9 +302,15 @@ def rollout_distribution_preservation_loss(
     return torch.stack(loss_terms).mean()
 
 
-def parse_args():
+def _build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Train OutreachLM V4 from scratch."
+    )
+    parser.add_argument(
+        "--config",
+        type=Path,
+        default=None,
+        help="Path to experiment config JSON. CLI flags override config values.",
     )
     parser.add_argument("--corpus", type=Path, default=CORPUS_PATH)
     parser.add_argument("--output-dir", type=Path, default=Path("experiments") / "v4-training")
@@ -325,7 +346,16 @@ def parse_args():
     parser.add_argument("--best-min-delta", type=float, default=1e-6)
 
     parser.add_argument("--smoke-test", action="store_true")
-    return parser.parse_args()
+    return parser
+
+
+def parse_args(argv: list[str] | None = None):
+    parser = _build_arg_parser()
+    pre_args, _ = parser.parse_known_args(argv)
+    if pre_args.config is not None:
+        experiment_config = load_experiment_config(pre_args.config)
+        parser.set_defaults(**to_train_v4_cli_defaults(experiment_config))
+    return parser.parse_args(argv)
 
 
 def main():
@@ -390,18 +420,22 @@ def main():
     output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    training_loop_config = TrainingConfig(
+        seed=args.seed,
+        steps=args.steps,
+        batch_size=args.batch_size,
+        learning_rate=args.learning_rate,
+        warmup_steps=args.warmup_steps,
+        min_learning_rate_ratio=args.min_learning_rate_ratio,
+        eval_interval=args.eval_interval,
+        checkpoint_interval=args.checkpoint_interval,
+        label_smoothing=args.label_smoothing,
+    )
+
     config = {
         "timestamp": datetime.now().isoformat(),
-        "seed": args.seed,
+        **training_loop_config.to_dict(),
         "corpus": str(args.corpus),
-        "steps": args.steps,
-        "eval_interval": args.eval_interval,
-        "checkpoint_interval": args.checkpoint_interval,
-        "batch_size": args.batch_size,
-        "learning_rate": args.learning_rate,
-        "warmup_steps": args.warmup_steps,
-        "min_learning_rate_ratio": args.min_learning_rate_ratio,
-        "label_smoothing": args.label_smoothing,
         "recovery_start_index": args.recovery_start_index,
         "recovery_loss_weight": args.recovery_loss_weight,
         "post_error_loss_weight": args.post_error_loss_weight,
@@ -464,6 +498,24 @@ def main():
     best_rollout_metrics_row = None
     degradation_streak = 0
     stop_reason = None
+
+    loss_plan = LossPlan(
+        terms=[
+            TeacherLossTerm(loss_fn=lambda ctx: ctx["teacher_loss"]),
+            RecoveryLossTerm(
+                weight=args.recovery_loss_weight,
+                loss_fn=lambda ctx: ctx["recovery_loss"],
+            ),
+            PostErrorLossTerm(
+                weight=args.post_error_loss_weight,
+                loss_fn=lambda ctx: ctx["post_error_loss"],
+            ),
+            RolloutCalibrationLossTerm(
+                weight=args.rollout_calibration_loss_weight,
+                loss_fn=lambda ctx: ctx["rollout_calibration_loss"],
+            ),
+        ]
+    )
 
     start_time = time.time()
     model.train()
@@ -536,12 +588,15 @@ def main():
                 dtype=teacher_loss.dtype,
             )
 
-        total_loss = (
-            teacher_loss
-            + (args.recovery_loss_weight * recovery_loss)
-            + (args.post_error_loss_weight * post_error_loss)
-            + (args.rollout_calibration_loss_weight * rollout_calibration_loss)
+        loss_result = loss_plan.compute(
+            {
+                "teacher_loss": teacher_loss,
+                "recovery_loss": recovery_loss,
+                "post_error_loss": post_error_loss,
+                "rollout_calibration_loss": rollout_calibration_loss,
+            }
         )
+        total_loss = loss_result.total_loss
 
         optimizer.zero_grad(set_to_none=True)
         total_loss.backward()
