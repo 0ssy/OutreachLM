@@ -60,3 +60,28 @@ def test_shard_indices_cover_without_overlap() -> None:
         for j in range(i + 1, len(shard_sets)):
             assert shard_sets[i].isdisjoint(shard_sets[j])
     assert all_indices == set(range(total))
+
+
+def test_distributed_sampler_shards_dataset_by_rank() -> None:
+    token_ids = torch.arange(0, 24, dtype=torch.long)
+    dataset = LanguageModelDataset(token_ids=token_ids, context_length=4)
+    config = DataLoaderConfig(batch_size=2, shuffle=False, drop_last=True)
+
+    loader_rank0 = build_data_loader(
+        dataset,
+        config,
+        distributed_rank=0,
+        distributed_world_size=2,
+    )
+    loader_rank1 = build_data_loader(
+        dataset,
+        config,
+        distributed_rank=1,
+        distributed_world_size=2,
+    )
+
+    indices_rank0 = set(iter(loader_rank0.sampler))
+    indices_rank1 = set(iter(loader_rank1.sampler))
+
+    assert indices_rank0.isdisjoint(indices_rank1)
+    assert indices_rank0 | indices_rank1 == set(range(len(dataset)))

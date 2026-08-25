@@ -13,7 +13,7 @@ from outreachlm.experiment_config import (
 )
 from outreachlm.model_config import LegacyV1Config
 from outreachlm.model_registry import create_model as create_registered_model
-from outreachlm.runtime import SingleDeviceRuntime
+from outreachlm.runtime import Runtime, SingleDeviceRuntime
 from outreachlm.tokenizer import CharacterTokenizer
 from outreachlm.tokenizer_artifacts import (
     TokenizerArtifact,
@@ -371,6 +371,7 @@ def evaluate_validation(
     device,
     batch_size,
     eval_loader_config: DataLoaderConfig | None = None,
+    runtime: Runtime | None = None,
 ):
     model.eval()
 
@@ -381,6 +382,8 @@ def evaluate_validation(
     dataloader = build_data_loader(
         validation_dataset,
         resolved_loader_config,
+        distributed_rank=runtime.info.rank if runtime is not None and runtime.info.is_distributed else None,
+        distributed_world_size=runtime.info.world_size if runtime is not None and runtime.info.is_distributed else None,
     )
 
     loss_function = nn.CrossEntropyLoss()
@@ -423,7 +426,10 @@ def evaluate_validation(
             total_loss += loss.item()
             batches += 1
 
-    average_loss = total_loss / batches
+    if runtime is not None and runtime.info.is_distributed:
+        total_loss = runtime.all_reduce_sum(total_loss)
+        batches = int(round(runtime.all_reduce_sum(float(batches))))
+    average_loss = total_loss / max(batches, 1)
 
     perplexity = math.exp(
         average_loss
@@ -640,7 +646,8 @@ def train(
             checkpoint_path,
             model,
             optimizer,
-            DEVICE
+            DEVICE,
+            runtime=RUNTIME,
         )
 
         checkpoint_config = dict(
@@ -889,6 +896,7 @@ def train(
                     "entrypoint": "outreachlm.train",
                     "resumed": resume,
                 },
+                runtime=RUNTIME,
             )
 
             print(

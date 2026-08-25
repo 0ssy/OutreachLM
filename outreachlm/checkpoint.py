@@ -145,9 +145,13 @@ def save_checkpoint(
     scaler_state: dict[str, Any] | None = None,
     trainer_state: dict[str, Any] | None = None,
     metadata: dict[str, Any] | None = None,
+    runtime: Any | None = None,
 ):
     path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
+    is_distributed = bool(runtime is not None and runtime.info.is_distributed)
+    is_main_process = bool(runtime is None or runtime.info.is_main_process)
+    if is_main_process:
+        path.parent.mkdir(parents=True, exist_ok=True)
 
     resolved_trainer_state = {
         "step": step,
@@ -166,7 +170,7 @@ def save_checkpoint(
 
     checkpoint = TrainingCheckpoint(
         checkpoint_version=CHECKPOINT_VERSION,
-        model_state=model.state_dict(),
+        model_state=(model.module.state_dict() if hasattr(model, "module") else model.state_dict()),
         optimizer_state=optimizer.state_dict(),
         scheduler_state=scheduler_state,
         scaler_state=scaler_state,
@@ -175,7 +179,10 @@ def save_checkpoint(
         config=config,
         metadata=resolved_metadata,
     )
-    torch.save(checkpoint.to_dict(), path)
+    if is_main_process:
+        torch.save(checkpoint.to_dict(), path)
+    if is_distributed:
+        runtime.barrier()
 
 
 def load_checkpoint(
@@ -191,6 +198,10 @@ def load_checkpoint(
 
     if not path.exists():
         raise FileNotFoundError(f"Checkpoint not found: {path}")
+
+    is_distributed = bool(runtime is not None and runtime.info.is_distributed)
+    if is_distributed:
+        runtime.barrier()
 
     payload = torch.load(
         path,
@@ -210,13 +221,21 @@ def load_checkpoint(
     else:
         normalized = _normalize_legacy_payload(payload, version)
 
-    model.load_state_dict(normalized["model_state"])
+    try:
+        model.load_state_dict(normalized["model_state"])
+    except RuntimeError:
+        if hasattr(model, "module"):
+            model.module.load_state_dict(normalized["model_state"])
+        else:
+            raise
     optimizer.load_state_dict(normalized["optimizer_state"])
     if scheduler is not None and normalized.get("scheduler_state") is not None:
         scheduler.load_state_dict(normalized["scheduler_state"])
     if runtime is not None:
         runtime.load_scaler_state(normalized.get("scaler_state"))
     _restore_rng_state(normalized["rng_state"])
+    if is_distributed:
+        runtime.barrier()
 
     trainer_state = normalized["trainer_state"]
     return {

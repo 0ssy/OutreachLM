@@ -11,16 +11,42 @@ from outreachlm.training_config import TrainingConfig
 @dataclass(frozen=True)
 class RuntimeConfig:
     device: str | None = None
+    backend: str = "gloo"
+    world_size: int = 1
+    rank: int = 0
+    local_rank: int = 0
+
+    def __post_init__(self) -> None:
+        if self.world_size <= 0:
+            raise ValueError("runtime_config.world_size must be > 0.")
+        if self.rank < 0:
+            raise ValueError("runtime_config.rank must be >= 0.")
+        if self.local_rank < 0:
+            raise ValueError("runtime_config.local_rank must be >= 0.")
+        if not self.backend:
+            raise ValueError("runtime_config.backend must not be empty.")
 
     def to_dict(self) -> dict[str, Any]:
-        return {"device": self.device}
+        return {
+            "device": self.device,
+            "backend": self.backend,
+            "world_size": self.world_size,
+            "rank": self.rank,
+            "local_rank": self.local_rank,
+        }
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "RuntimeConfig":
         device = payload.get("device")
         if device is not None and not isinstance(device, str):
             raise ValueError("runtime_config.device must be a string or null.")
-        return cls(device=device)
+        return cls(
+            device=device,
+            backend=payload.get("backend", "gloo"),
+            world_size=payload.get("world_size", 1),
+            rank=payload.get("rank", 0),
+            local_rank=payload.get("local_rank", 0),
+        )
 
 
 @dataclass(frozen=True)

@@ -5,6 +5,7 @@ from typing import Any
 
 import torch
 
+from outreachlm.distributed_semantics import BatchSemantics
 from outreachlm.runtime import Runtime, SingleDeviceRuntime
 from outreachlm.telemetry import TrainingTelemetry
 
@@ -124,6 +125,7 @@ class Trainer:
     def _throughput_metrics(
         self,
         *,
+        per_device_batch_size: int,
         step_time_seconds: float,
         data_time_seconds: float,
         forward_time_seconds: float,
@@ -133,12 +135,37 @@ class Trainer:
         elapsed = max(perf_counter() - self.state.run_start_time, 1e-12)
         optimizer_steps = self.state.optimizer_step
         micro_steps = self.state.micro_step
+        local_tokens = self.state.total_tokens_processed
+        local_samples = self.state.total_samples_processed
+        global_tokens = int(round(self.runtime.all_reduce_sum(float(local_tokens))))
+        global_samples = int(round(self.runtime.all_reduce_sum(float(local_samples))))
+        world_size = self.runtime.info.world_size
+        local_tokens_per_second = local_tokens / elapsed
+        local_samples_per_second = local_samples / elapsed
+        global_tokens_per_second = global_tokens / elapsed
+        global_samples_per_second = global_samples / elapsed
+        semantics = BatchSemantics(
+            per_device_batch_size=per_device_batch_size,
+            gradient_accumulation_steps=self.gradient_accumulation_steps,
+            world_size=world_size,
+        )
 
         return {
-            "tokens_processed": self.state.total_tokens_processed,
-            "samples_processed": self.state.total_samples_processed,
-            "tokens_per_second": self.state.total_tokens_processed / elapsed,
-            "samples_per_second": self.state.total_samples_processed / elapsed,
+            "rank": self.runtime.info.rank,
+            "local_rank": self.runtime.info.local_rank,
+            "world_size": world_size,
+            "device": str(self.runtime.info.device),
+            "tokens_processed": local_tokens,
+            "samples_processed": local_samples,
+            "global_tokens_processed": global_tokens,
+            "global_samples_processed": global_samples,
+            "tokens_per_second": local_tokens_per_second,
+            "samples_per_second": local_samples_per_second,
+            "global_tokens_per_second": global_tokens_per_second,
+            "global_samples_per_second": global_samples_per_second,
+            "effective_batch_size": semantics.effective_batch_size,
+            "per_device_batch_size": semantics.per_device_batch_size,
+            "gradient_accumulation_steps": semantics.gradient_accumulation_steps,
             "microsteps_per_second": micro_steps / elapsed,
             "optimizer_steps_per_second": optimizer_steps / elapsed,
             "steps_per_second": optimizer_steps / elapsed,
@@ -197,6 +224,7 @@ class Trainer:
         self.state.total_tokens_processed += batch_stats["token_count"]
         self.state.total_samples_processed += batch_stats["sample_count"]
         throughput = self._throughput_metrics(
+            per_device_batch_size=batch_stats["sample_count"],
             step_time_seconds=perf_counter() - step_start_time,
             data_time_seconds=after_data_time - step_start_time,
             forward_time_seconds=forward_end_time - forward_start_time,
@@ -248,6 +276,7 @@ class Trainer:
         self.state.optimizer_step += 1
         self.state.step = self.state.optimizer_step
         throughput = self._throughput_metrics(
+            per_device_batch_size=1,
             step_time_seconds=0.0,
             data_time_seconds=0.0,
             forward_time_seconds=0.0,

@@ -19,7 +19,9 @@ def test_single_device_runtime_info_defaults():
     assert runtime.info.device.type == "cpu"
     assert runtime.info.world_size == 1
     assert runtime.info.rank == 0
+    assert runtime.info.local_rank == 0
     assert runtime.info.is_distributed is False
+    assert runtime.info.is_main_process is True
     assert runtime.info.precision == "fp32"
 
 

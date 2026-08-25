@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from typing import Any
 
 import torch
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, IterableDataset
+from torch.utils.data.distributed import DistributedSampler
 
 
 @dataclass(frozen=True)
@@ -54,14 +55,33 @@ def build_data_loader(
     config: DataLoaderConfig,
     *,
     generator: torch.Generator | None = None,
+    distributed_rank: int | None = None,
+    distributed_world_size: int | None = None,
+    distributed_seed: int = 42,
 ) -> DataLoader:
+    sampler = None
+    if (
+        distributed_rank is not None
+        and distributed_world_size is not None
+        and not isinstance(dataset, IterableDataset)
+    ):
+        sampler = DistributedSampler(
+            dataset,
+            num_replicas=distributed_world_size,
+            rank=distributed_rank,
+            shuffle=config.shuffle,
+            drop_last=config.drop_last,
+            seed=distributed_seed,
+        )
+
     kwargs: dict[str, Any] = {
         "batch_size": config.batch_size,
-        "shuffle": config.shuffle,
+        "shuffle": config.shuffle if sampler is None else False,
         "num_workers": config.num_workers,
         "pin_memory": config.pin_memory,
         "drop_last": config.drop_last,
         "generator": generator,
+        "sampler": sampler,
     }
     if config.num_workers > 0:
         kwargs["prefetch_factor"] = config.prefetch_factor

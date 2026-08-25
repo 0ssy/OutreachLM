@@ -10,20 +10,27 @@ from time import perf_counter
 class TelemetryConfig:
     output_dir: Path
     run_name: str = "training-run"
+    rank: int = 0
+    world_size: int = 1
+    local_rank: int = 0
+    is_main_process: bool = True
 
     def __post_init__(self) -> None:
         if not self.run_name:
             raise ValueError("run_name must not be empty.")
+        if self.world_size <= 0:
+            raise ValueError("world_size must be > 0.")
 
 
 class TrainingTelemetry:
     def __init__(self, config: TelemetryConfig):
         self.config = config
         self.config.output_dir.mkdir(parents=True, exist_ok=True)
-        self._metrics_path = self.config.output_dir / "metrics.jsonl"
-        self._memory_path = self.config.output_dir / "memory.jsonl"
-        self._events_path = self.config.output_dir / "events.jsonl"
-        self._summary_path = self.config.output_dir / "summary.json"
+        suffix = f"-rank{self.config.rank}" if self.config.world_size > 1 else ""
+        self._metrics_path = self.config.output_dir / f"metrics{suffix}.jsonl"
+        self._memory_path = self.config.output_dir / f"memory{suffix}.jsonl"
+        self._events_path = self.config.output_dir / f"events{suffix}.jsonl"
+        self._summary_path = self.config.output_dir / f"summary{suffix}.json"
         self._step_count = 0
         self._loss_sum = 0.0
         self._first_loss: float | None = None
@@ -31,7 +38,15 @@ class TrainingTelemetry:
         self._best_loss: float | None = None
         self._start = perf_counter()
 
-        self.record_event("run_started", {"run_name": self.config.run_name})
+        self.record_event(
+            "run_started",
+            {
+                "run_name": self.config.run_name,
+                "rank": self.config.rank,
+                "local_rank": self.config.local_rank,
+                "world_size": self.config.world_size,
+            },
+        )
 
     def _append_jsonl(self, path: Path, payload: dict[str, Any]) -> None:
         with open(path, "a", encoding="utf-8") as file:
@@ -64,6 +79,9 @@ class TrainingTelemetry:
             "loss": metrics.get("loss"),
             "evaluated": metrics.get("evaluated", False),
             "checkpointed": metrics.get("checkpointed", False),
+            "rank": self.config.rank,
+            "local_rank": self.config.local_rank,
+            "world_size": self.config.world_size,
             "throughput": metrics.get("throughput", {}),
         }
         self._append_jsonl(self._metrics_path, core_metrics)
@@ -75,6 +93,9 @@ class TrainingTelemetry:
                 "step": metrics.get("step"),
                 "micro_step": metrics.get("micro_step"),
                 "optimizer_step": metrics.get("optimizer_step"),
+                "rank": self.config.rank,
+                "local_rank": self.config.local_rank,
+                "world_size": self.config.world_size,
                 "memory": memory_payload,
             },
         )
@@ -94,6 +115,9 @@ class TrainingTelemetry:
         mean_loss = self._loss_sum / self._step_count if self._step_count > 0 else None
         summary = {
             "run_name": self.config.run_name,
+            "rank": self.config.rank,
+            "local_rank": self.config.local_rank,
+            "world_size": self.config.world_size,
             "steps_recorded": self._step_count,
             "elapsed_seconds": elapsed,
             "loss": {
