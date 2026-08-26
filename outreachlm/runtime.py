@@ -33,6 +33,7 @@ class DistributedRuntimeConfig:
     init_method: str | None = None
     device: str | None = None
     precision: PrecisionMode = "fp32"
+    find_unused_parameters: bool = False
 
     def __post_init__(self) -> None:
         if self.world_size <= 1:
@@ -320,9 +321,16 @@ class DistributedRuntime:
     def prepare_model(self, model: torch.nn.Module) -> torch.nn.Module:
         base = model.to(self.info.device)
         if self.info.device.type == "cuda":
-            wrapped = DistributedDataParallel(base, device_ids=[self.info.local_rank])
+            wrapped = DistributedDataParallel(
+                base,
+                device_ids=[self.info.local_rank],
+                find_unused_parameters=self._config.find_unused_parameters,
+            )
         else:
-            wrapped = DistributedDataParallel(base)
+            wrapped = DistributedDataParallel(
+                base,
+                find_unused_parameters=self._config.find_unused_parameters,
+            )
         self._wrapped_model = wrapped
         return wrapped
 

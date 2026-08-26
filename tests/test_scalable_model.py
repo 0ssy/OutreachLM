@@ -85,3 +85,29 @@ def test_v4_compatibility_state_dict_and_output_equivalence():
     v4_logits = v4(inputs)
     scalable_logits = scalable(inputs)
     assert torch.allclose(v4_logits, scalable_logits, atol=1e-6, rtol=1e-6)
+
+
+def test_scalable_model_moe_mode_produces_router_stats_and_combined_loss():
+    cfg = DenseTransformerConfig(
+        vocab_size=64,
+        context_length=16,
+        embedding_dim=32,
+        num_layers=2,
+        num_heads=4,
+        ffn_dim=64,
+        moe_enabled=True,
+        num_experts=4,
+        top_k=2,
+        load_balancing_weight=0.2,
+    )
+    model = ScalableTransformerModel(cfg)
+    inputs = torch.randint(0, cfg.vocab_size, (2, 16))
+    targets = torch.randint(0, cfg.vocab_size, (2, 16))
+    logits = model(inputs)
+    language_loss = torch.nn.functional.cross_entropy(
+        logits.reshape(-1, cfg.vocab_size),
+        targets.reshape(-1),
+    )
+    total_loss = model.combine_with_moe_loss(language_loss)
+    assert total_loss.item() >= language_loss.item()
+    assert len(model.last_moe_stats) == cfg.num_layers

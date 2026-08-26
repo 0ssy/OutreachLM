@@ -26,6 +26,7 @@ def test_architecture_profiler_reports_positive_metrics():
     assert payload["parameter_memory_bytes"] > 0
     assert payload["flops_per_token"] > 0
     assert payload["flops_per_step"] > 0
+    assert payload["active_parameters_per_token"] > 0
 
 
 def test_architecture_profiler_scales_up_with_larger_model():
@@ -49,3 +50,22 @@ def test_architecture_profiler_scales_up_with_larger_model():
     large_profile = profile_architecture(large)
     assert large_profile.total_parameters > small_profile.total_parameters
     assert large_profile.flops_per_step > small_profile.flops_per_step
+
+
+def test_architecture_profiler_moe_active_parameters_less_than_total():
+    cfg = DenseTransformerConfig(
+        vocab_size=128,
+        context_length=64,
+        embedding_dim=64,
+        num_layers=2,
+        num_heads=4,
+        ffn_dim=128,
+        moe_enabled=True,
+        num_experts=8,
+        top_k=2,
+        expert_ffn_dim=128,
+    )
+    profile = profile_architecture(cfg)
+    assert profile.expert_parameters > 0
+    assert profile.router_parameters > 0
+    assert profile.active_parameters_per_token < profile.total_parameters

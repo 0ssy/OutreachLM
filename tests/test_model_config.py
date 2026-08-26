@@ -35,6 +35,10 @@ def test_dense_transformer_config_defaults_match_v4_behavior():
     assert cfg.positional_encoding == "rope"
     assert cfg.ffn_variant == "swiglu"
     assert cfg.tie_embeddings is True
+    assert cfg.moe_enabled is False
+    assert cfg.num_experts == 4
+    assert cfg.top_k == 2
+    assert cfg.capacity_factor == 1.25
 
 
 @pytest.mark.parametrize(
@@ -101,6 +105,13 @@ def test_v4_config_validation(payload):
         {"ffn_variant": "bad"},
         {"attention_dropout": 1.0},
         {"dropout": 1.0},
+        {"num_experts": 0},
+        {"top_k": 0},
+        {"num_experts": 2, "top_k": 3},
+        {"expert_ffn_dim": 0},
+        {"capacity_factor": 0.0},
+        {"load_balancing_weight": -0.1},
+        {"moe_fallback": "invalid"},
     ],
 )
 def test_dense_transformer_config_validation(payload):
@@ -150,6 +161,14 @@ def test_dense_transformer_config_round_trip_dict():
         dropout=0.2,
         use_bias=False,
         tie_embeddings=False,
+        moe_enabled=True,
+        num_experts=8,
+        top_k=2,
+        expert_ffn_dim=2048,
+        capacity_factor=1.5,
+        router_bias=False,
+        load_balancing_weight=0.01,
+        moe_fallback="dense",
     )
     restored = DenseTransformerConfig.from_dict(original.to_dict())
     assert restored == original

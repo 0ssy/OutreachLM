@@ -30,6 +30,9 @@ def run_architecture_scaling_experiments(specs: list[ScalingSpec], seed: int = 4
         optimizer = torch.optim.AdamW(model.parameters(), lr=5e-4)
 
         losses: list[float] = []
+        load_balance_losses: list[float] = []
+        utilization_snapshots: list[list[float]] = []
+        overflow_ratios: list[float] = []
         start = perf_counter()
         for _ in range(spec.steps):
             input_ids = torch.randint(
@@ -46,13 +49,25 @@ def run_architecture_scaling_experiments(specs: list[ScalingSpec], seed: int = 4
             )
             runtime.zero_grad(optimizer)
             logits = model(input_ids)
-            loss = F.cross_entropy(
+            language_loss = F.cross_entropy(
                 logits.reshape(-1, spec.config.vocab_size),
                 target_ids.reshape(-1),
             )
+            if hasattr(model, "combine_with_moe_loss"):
+                loss = model.combine_with_moe_loss(language_loss)
+            else:
+                loss = language_loss
             runtime.backward(loss)
             runtime.optimizer_step(optimizer)
             losses.append(float(loss.item()))
+            load_balance_losses.append(float(getattr(model, "last_moe_load_balancing_loss", torch.tensor(0.0)).item()))
+            stats = getattr(model, "last_moe_stats", [])
+            if stats:
+                utilization = [sum(layer.expert_utilization[i] for layer in stats) / len(stats) for i in range(len(stats[0].expert_utilization))]
+                utilization_snapshots.append(utilization)
+                tokens_routed = sum(layer.tokens_routed for layer in stats)
+                tokens_overflowed = sum(layer.tokens_overflowed for layer in stats)
+                overflow_ratios.append(tokens_overflowed / max(tokens_routed, 1))
         elapsed = max(perf_counter() - start, 1e-12)
 
         tokens_processed = spec.steps * spec.batch_size * spec.config.context_length
@@ -67,6 +82,7 @@ def run_architecture_scaling_experiments(specs: list[ScalingSpec], seed: int = 4
             {
                 "name": spec.name,
                 "parameter_count": profile.total_parameters,
+                "active_parameters_per_token": profile.active_parameters_per_token,
                 "train_loss_first": losses[0],
                 "train_loss_last": losses[-1],
                 "validation_loss_proxy": losses[-1],
@@ -74,6 +90,9 @@ def run_architecture_scaling_experiments(specs: list[ScalingSpec], seed: int = 4
                 "memory": memory,
                 "flops_per_token": profile.flops_per_token,
                 "flops_per_step": profile.flops_per_step,
+                "load_balancing_loss_last": load_balance_losses[-1] if load_balance_losses else 0.0,
+                "expert_utilization": utilization_snapshots[-1] if utilization_snapshots else [],
+                "overflow_ratio": overflow_ratios[-1] if overflow_ratios else 0.0,
             }
         )
     return results

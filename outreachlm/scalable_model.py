@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from outreachlm.model_config import DenseTransformerConfig
+from outreachlm.moe import MoELayer, MoEForwardStats
 
 
 class RMSNorm(nn.Module):
@@ -153,15 +154,22 @@ class ScalableFFN(nn.Module):
 class ScalableTransformerBlock(nn.Module):
     def __init__(self, config: DenseTransformerConfig):
         super().__init__()
+        self.config = config
         self.attn_norm = _build_norm(config.normalization, config.embedding_dim)
         self.attn = ScalableSelfAttention(config)
         self.ffn_norm = _build_norm(config.normalization, config.embedding_dim)
         self.ffn = ScalableFFN(config)
+        self.moe = MoELayer(config) if config.moe_enabled else None
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, MoEForwardStats | None]:
         x = x + self.attn(self.attn_norm(x))
-        x = x + self.ffn(self.ffn_norm(x))
-        return x
+        if self.moe is None:
+            x = x + self.ffn(self.ffn_norm(x))
+            return x, x.new_zeros(()), None
+
+        moe_output, load_balancing_loss, stats = self.moe(self.ffn_norm(x))
+        x = x + moe_output
+        return x, load_balancing_loss, stats
 
 
 class ScalableTransformerModel(nn.Module):
@@ -184,6 +192,8 @@ class ScalableTransformerModel(nn.Module):
             config.vocab_size,
             bias=config.use_bias,
         )
+        self.last_moe_load_balancing_loss = torch.tensor(0.0)
+        self.last_moe_stats: list[MoEForwardStats] = []
 
     def forward(self, input_ids: torch.Tensor) -> torch.Tensor:
         batch_size, sequence_length = input_ids.shape
@@ -193,9 +203,16 @@ class ScalableTransformerModel(nn.Module):
             )
 
         x = self.token_embedding(input_ids)
+        total_moe_loss = x.new_zeros(())
+        moe_stats: list[MoEForwardStats] = []
         for block in self.blocks:
-            x = block(x)
+            x, moe_loss, stats = block(x)
+            total_moe_loss = total_moe_loss + moe_loss
+            if stats is not None:
+                moe_stats.append(stats)
         x = self.final_norm(x)
+        self.last_moe_load_balancing_loss = total_moe_loss
+        self.last_moe_stats = moe_stats
         if self.output_head is None:
             return F.linear(x, self.token_embedding.weight)
         return self.output_head(x)
@@ -203,3 +220,8 @@ class ScalableTransformerModel(nn.Module):
     @property
     def parameter_count(self) -> int:
         return sum(parameter.numel() for parameter in self.parameters())
+
+    def combine_with_moe_loss(self, language_loss: torch.Tensor) -> torch.Tensor:
+        if not self.config.moe_enabled:
+            return language_loss
+        return language_loss + (self.config.load_balancing_weight * self.last_moe_load_balancing_loss)

@@ -14,6 +14,9 @@ class ArchitectureProfile:
     ffn_parameters: int
     normalization_parameters: int
     output_parameters: int
+    router_parameters: int
+    expert_parameters: int
+    active_parameters_per_token: int
     parameter_memory_bytes: int
     activation_memory_bytes: int
     approximate_training_memory_bytes: int
@@ -28,6 +31,9 @@ class ArchitectureProfile:
             "ffn_parameters": self.ffn_parameters,
             "normalization_parameters": self.normalization_parameters,
             "output_parameters": self.output_parameters,
+            "router_parameters": self.router_parameters,
+            "expert_parameters": self.expert_parameters,
+            "active_parameters_per_token": self.active_parameters_per_token,
             "parameter_memory_bytes": self.parameter_memory_bytes,
             "activation_memory_bytes": self.activation_memory_bytes,
             "approximate_training_memory_bytes": self.approximate_training_memory_bytes,
@@ -49,6 +55,8 @@ def profile_architecture(
     ffn_parameters = 0
     normalization_parameters = 0
     output_parameters = 0
+    router_parameters = 0
+    expert_parameters = 0
 
     for name, parameter in model.named_parameters():
         count = parameter.numel()
@@ -62,11 +70,26 @@ def profile_architecture(
             normalization_parameters += count
         elif name.startswith("output_head"):
             output_parameters += count
+        elif ".router." in name:
+            router_parameters += count
+        elif ".experts." in name or ".fallback_dense." in name:
+            expert_parameters += count
         else:
             # tied embeddings route output parameters through token_embedding weights.
             embedding_parameters += 0
 
     total_parameters = sum(parameter.numel() for parameter in model.parameters())
+    if config.moe_enabled:
+        active_parameters_per_token = (
+            embedding_parameters
+            + normalization_parameters
+            + attention_parameters
+            + output_parameters
+            + router_parameters
+            + max(1, config.top_k) * (expert_parameters // max(1, config.num_experts))
+        )
+    else:
+        active_parameters_per_token = total_parameters
     parameter_memory_bytes = sum(parameter.numel() * parameter.element_size() for parameter in model.parameters())
     activation_memory_bytes = (
         per_device_batch_size
@@ -103,6 +126,9 @@ def profile_architecture(
         ffn_parameters=ffn_parameters,
         normalization_parameters=normalization_parameters,
         output_parameters=output_parameters,
+        router_parameters=router_parameters,
+        expert_parameters=expert_parameters,
+        active_parameters_per_token=active_parameters_per_token,
         parameter_memory_bytes=parameter_memory_bytes,
         activation_memory_bytes=activation_memory_bytes,
         approximate_training_memory_bytes=approximate_training_memory_bytes,
