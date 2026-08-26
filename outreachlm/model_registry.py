@@ -3,8 +3,9 @@ from typing import Any
 
 import torch.nn as nn
 
-from outreachlm.model_config import LegacyV1Config, V4Config
+from outreachlm.model_config import DenseTransformerConfig, LegacyV1Config, V4Config
 from outreachlm.model import OutreachModel
+from outreachlm.scalable_model import ScalableTransformerModel
 from outreachlm.v4_model import OutreachV4Model
 
 
@@ -32,14 +33,19 @@ def _build_v4(model_config: dict[str, Any]) -> nn.Module:
     )
 
 
+def _build_dense_scalable(model_config: dict[str, Any]) -> nn.Module:
+    return ScalableTransformerModel(DenseTransformerConfig.from_dict(model_config))
+
+
 MODEL_REGISTRY: dict[str, ModelFactory] = {
     "legacy_v1": _build_legacy_v1,
     "v4": _build_v4,
+    "dense_scalable": _build_dense_scalable,
 }
 
 
 def create_model(
-    model_type: str | LegacyV1Config | V4Config,
+    model_type: str | LegacyV1Config | V4Config | DenseTransformerConfig,
     model_config: dict[str, Any] | None = None,
 ) -> nn.Module:
     resolved_type: str
@@ -50,6 +56,9 @@ def create_model(
         resolved_config = model_type.to_dict()
     elif isinstance(model_type, V4Config):
         resolved_type = "v4"
+        resolved_config = model_type.to_dict()
+    elif isinstance(model_type, DenseTransformerConfig):
+        resolved_type = "dense_scalable"
         resolved_config = model_type.to_dict()
     else:
         if model_config is None:

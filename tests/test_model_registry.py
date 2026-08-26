@@ -2,12 +2,13 @@ import torch.nn as nn
 import pytest
 
 from outreachlm.model import OutreachModel
+from outreachlm.scalable_model import ScalableTransformerModel
 from outreachlm.model_registry import available_model_types, create_model
 from outreachlm.v4_model import OutreachV4Model
 
 
 def test_available_model_types():
-    assert available_model_types() == ("legacy_v1", "v4")
+    assert available_model_types() == ("dense_scalable", "legacy_v1", "v4")
 
 
 def test_create_legacy_v1():
@@ -49,6 +50,28 @@ def test_create_v4():
 def test_unknown_model_type_raises():
     with pytest.raises(ValueError, match="Unknown model_type"):
         create_model("does_not_exist", {})
+
+
+def test_create_dense_scalable():
+    config = {
+        "vocab_size": 490,
+        "context_length": 256,
+        "embedding_dim": 256,
+        "num_layers": 4,
+        "num_heads": 8,
+        "ffn_dim": 684,
+        "normalization": "rmsnorm",
+        "positional_encoding": "rope",
+        "ffn_variant": "swiglu",
+        "attention_dropout": 0.0,
+        "dropout": 0.0,
+        "use_bias": True,
+        "tie_embeddings": True,
+    }
+    model = create_model("dense_scalable", config)
+    assert isinstance(model, ScalableTransformerModel)
+    assert model.vocab_size == 490
+    assert model.context_length == 256
 
 
 def test_registry_v4_constructor_matches_direct_constructor_structure():
