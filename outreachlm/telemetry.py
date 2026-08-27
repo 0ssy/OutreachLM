@@ -83,6 +83,7 @@ class TrainingTelemetry:
             "local_rank": self.config.local_rank,
             "world_size": self.config.world_size,
             "throughput": metrics.get("throughput", {}),
+            "moe": metrics.get("moe", {}),
         }
         self._append_jsonl(self._metrics_path, core_metrics)
 

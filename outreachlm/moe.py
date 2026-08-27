@@ -27,6 +27,8 @@ class MoEForwardStats:
     expert_accepted: list[int]
     expert_overflowed: list[int]
     expert_utilization: list[float]
+    routing_entropy_mean: float
+    expert_balance_score: float
 
 
 class ExpertFFN(nn.Module):
@@ -166,6 +168,19 @@ class MoELayer(nn.Module):
             (accepted / max(routed, 1))
             for accepted, routed in zip(expert_accepted, expert_routed)
         ]
+        routing_entropy_mean = float(
+            -(routing.probabilities * torch.log(routing.probabilities + 1e-12)).sum(dim=-1).mean().item()
+        )
+        routed_total = max(sum(expert_routed), 1)
+        routed_distribution = torch.tensor(
+            [routed / routed_total for routed in expert_routed],
+            dtype=x.dtype,
+            device=x.device,
+        )
+        uniform_distribution = torch.full_like(routed_distribution, 1.0 / self.config.num_experts)
+        expert_balance_score = float(
+            1.0 - torch.abs(routed_distribution - uniform_distribution).mean().item()
+        )
         stats = MoEForwardStats(
             tokens_total=tokens,
             tokens_routed=tokens * self.config.top_k,
@@ -176,6 +191,8 @@ class MoELayer(nn.Module):
             expert_accepted=expert_accepted,
             expert_overflowed=expert_overflowed,
             expert_utilization=utilization,
+            routing_entropy_mean=routing_entropy_mean,
+            expert_balance_score=expert_balance_score,
         )
         self.last_stats = stats
         return output_flat.reshape(batch_size, sequence_length, hidden_dim), load_balancing_loss, stats

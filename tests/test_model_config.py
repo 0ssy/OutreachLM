@@ -30,7 +30,11 @@ def test_dense_transformer_config_defaults_match_v4_behavior():
     assert cfg.embedding_dim == 256
     assert cfg.num_layers == 4
     assert cfg.num_heads == 8
+    assert cfg.kv_heads is None
+    assert cfg.attention_head_dim is None
     assert cfg.ffn_dim == 684
+    assert cfg.attention_backend == "sdpa"
+    assert cfg.rope_base == 10000.0
     assert cfg.normalization == "rmsnorm"
     assert cfg.positional_encoding == "rope"
     assert cfg.ffn_variant == "swiglu"
@@ -98,7 +102,13 @@ def test_v4_config_validation(payload):
         {"embedding_dim": 0},
         {"num_layers": 0},
         {"num_heads": 0},
+        {"kv_heads": 0},
+        {"num_heads": 8, "kv_heads": 3},
+        {"attention_head_dim": 0},
+        {"embedding_dim": 256, "num_heads": 8, "attention_head_dim": 48},
         {"ffn_dim": 0},
+        {"attention_backend": "flash"},
+        {"rope_base": 0.0},
         {"embedding_dim": 255, "num_heads": 8},
         {"normalization": "bad"},
         {"positional_encoding": "bad"},
@@ -153,7 +163,11 @@ def test_dense_transformer_config_round_trip_dict():
         embedding_dim=512,
         num_layers=8,
         num_heads=8,
+        kv_heads=2,
+        attention_head_dim=64,
         ffn_dim=1365,
+        attention_backend="sdpa",
+        rope_base=50000.0,
         normalization="layernorm",
         positional_encoding="none",
         ffn_variant="standard",

@@ -95,3 +95,64 @@ class EvaluationProfile:
             output_sensitivity_start=payload.get("output_sensitivity_start", 39),
             output_sensitivity_end=payload.get("output_sensitivity_end", 43),
         )
+
+
+@dataclass(frozen=True)
+class FrontierEvaluationProfile:
+    validation_batches: int = 8
+    compute_perplexity: bool = True
+    compute_teacher_accuracy: bool = True
+    compute_free_rollout: bool = True
+    compute_divergence: bool = True
+    compute_recovery: bool = True
+    long_context_eval_length: int = 1024
+    compute_tokens_per_second: bool = True
+    compute_samples_per_second: bool = True
+    compute_memory: bool = True
+    compute_communication_overhead: bool = True
+    compute_checkpoint_time: bool = True
+    compute_data_loading_time: bool = True
+    compute_moe_metrics: bool = True
+
+    def __post_init__(self) -> None:
+        if self.validation_batches <= 0:
+            raise ValueError("validation_batches must be > 0.")
+        if self.long_context_eval_length <= 0:
+            raise ValueError("long_context_eval_length must be > 0.")
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "validation_batches": self.validation_batches,
+            "compute_perplexity": self.compute_perplexity,
+            "compute_teacher_accuracy": self.compute_teacher_accuracy,
+            "compute_free_rollout": self.compute_free_rollout,
+            "compute_divergence": self.compute_divergence,
+            "compute_recovery": self.compute_recovery,
+            "long_context_eval_length": self.long_context_eval_length,
+            "compute_tokens_per_second": self.compute_tokens_per_second,
+            "compute_samples_per_second": self.compute_samples_per_second,
+            "compute_memory": self.compute_memory,
+            "compute_communication_overhead": self.compute_communication_overhead,
+            "compute_checkpoint_time": self.compute_checkpoint_time,
+            "compute_data_loading_time": self.compute_data_loading_time,
+            "compute_moe_metrics": self.compute_moe_metrics,
+        }
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any]) -> "FrontierEvaluationProfile":
+        return cls(
+            validation_batches=payload.get("validation_batches", 8),
+            compute_perplexity=payload.get("compute_perplexity", True),
+            compute_teacher_accuracy=payload.get("compute_teacher_accuracy", True),
+            compute_free_rollout=payload.get("compute_free_rollout", True),
+            compute_divergence=payload.get("compute_divergence", True),
+            compute_recovery=payload.get("compute_recovery", True),
+            long_context_eval_length=payload.get("long_context_eval_length", 1024),
+            compute_tokens_per_second=payload.get("compute_tokens_per_second", True),
+            compute_samples_per_second=payload.get("compute_samples_per_second", True),
+            compute_memory=payload.get("compute_memory", True),
+            compute_communication_overhead=payload.get("compute_communication_overhead", True),
+            compute_checkpoint_time=payload.get("compute_checkpoint_time", True),
+            compute_data_loading_time=payload.get("compute_data_loading_time", True),
+            compute_moe_metrics=payload.get("compute_moe_metrics", True),
+        )

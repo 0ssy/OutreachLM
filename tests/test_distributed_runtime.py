@@ -8,7 +8,12 @@ import torch
 import torch.distributed as dist
 import torch.nn as nn
 
-from outreachlm.runtime import DistributedRuntime, DistributedRuntimeConfig
+from outreachlm.runtime import (
+    DistributedRuntime,
+    DistributedRuntimeConfig,
+    FSDPRuntime,
+    create_parallel_runtime,
+)
 
 
 class TinyModel(nn.Module):
@@ -98,6 +103,30 @@ def _gradient_sync_worker(rank: int, world_size: int, port: int, output_dir: str
     runtime.destroy()
 
 
+def _parallel_mode_worker(rank: int, world_size: int, port: int, output_dir: str, mode: str) -> None:
+    runtime = create_parallel_runtime(
+        mode,
+        DistributedRuntimeConfig(
+            backend="gloo",
+            rank=rank,
+            world_size=world_size,
+            local_rank=rank,
+            master_addr="127.0.0.1",
+            master_port=port,
+            device="cpu",
+        ),
+    )
+    payload = {
+        "rank": rank,
+        "mode": mode,
+        "runtime_type": type(runtime).__name__,
+        "using_fsdp": runtime.using_fsdp if isinstance(runtime, FSDPRuntime) else False,
+    }
+    with open(Path(output_dir) / f"mode-{mode}-rank{rank}.json", "w", encoding="utf-8") as file:
+        json.dump(payload, file, ensure_ascii=False, indent=2)
+    runtime.destroy()
+
+
 @pytest.mark.skipif(not dist.is_available(), reason="torch.distributed unavailable")
 def test_distributed_runtime_metadata_and_collectives(tmp_path: Path) -> None:
     port = _find_free_port()
@@ -123,3 +152,16 @@ def test_distributed_gradient_synchronization_keeps_parameters_aligned(tmp_path:
     weight_rank0 = torch.load(tmp_path / "weight-rank0.pt", map_location="cpu", weights_only=False)
     weight_rank1 = torch.load(tmp_path / "weight-rank1.pt", map_location="cpu", weights_only=False)
     assert torch.allclose(weight_rank0, weight_rank1, atol=1e-6, rtol=1e-6)
+
+
+@pytest.mark.skipif(not dist.is_available(), reason="torch.distributed unavailable")
+def test_parallel_runtime_factory_supports_ddp_and_fsdp_modes(tmp_path: Path) -> None:
+    ddp_port = _find_free_port()
+    _launch_world(2, _parallel_mode_worker, ddp_port, str(tmp_path), "ddp")
+    fsdp_port = _find_free_port()
+    _launch_world(2, _parallel_mode_worker, fsdp_port, str(tmp_path), "fsdp")
+
+    ddp_rank0 = json.loads((tmp_path / "mode-ddp-rank0.json").read_text(encoding="utf-8"))
+    fsdp_rank0 = json.loads((tmp_path / "mode-fsdp-rank0.json").read_text(encoding="utf-8"))
+    assert ddp_rank0["runtime_type"] == "DDPRuntime"
+    assert fsdp_rank0["runtime_type"] == "FSDPRuntime"

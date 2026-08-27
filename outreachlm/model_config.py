@@ -96,7 +96,11 @@ class DenseTransformerConfig:
     embedding_dim: int = 256
     num_layers: int = 4
     num_heads: int = 8
+    kv_heads: int | None = None
+    attention_head_dim: int | None = None
     ffn_dim: int = 684
+    attention_backend: str = "sdpa"
+    rope_base: float = 10000.0
     normalization: str = "rmsnorm"
     positional_encoding: str = "rope"
     ffn_variant: str = "swiglu"
@@ -124,10 +128,27 @@ class DenseTransformerConfig:
             raise ValueError("num_layers must be > 0.")
         if self.num_heads <= 0:
             raise ValueError("num_heads must be > 0.")
+        resolved_kv_heads = self.num_heads if self.kv_heads is None else self.kv_heads
+        if resolved_kv_heads <= 0:
+            raise ValueError("kv_heads must be > 0 when provided.")
+        if self.num_heads % resolved_kv_heads != 0:
+            raise ValueError("num_heads must be divisible by kv_heads.")
         if self.ffn_dim <= 0:
             raise ValueError("ffn_dim must be > 0.")
-        if self.embedding_dim % self.num_heads != 0:
-            raise ValueError("embedding_dim must be divisible by num_heads.")
+        if self.attention_head_dim is None:
+            if self.embedding_dim % self.num_heads != 0:
+                raise ValueError("embedding_dim must be divisible by num_heads.")
+        else:
+            if self.attention_head_dim <= 0:
+                raise ValueError("attention_head_dim must be > 0 when provided.")
+            if self.embedding_dim != self.num_heads * self.attention_head_dim:
+                raise ValueError(
+                    "embedding_dim must equal num_heads * attention_head_dim when attention_head_dim is set."
+                )
+        if self.attention_backend not in {"sdpa"}:
+            raise ValueError("attention_backend must be one of: sdpa.")
+        if self.rope_base <= 0.0:
+            raise ValueError("rope_base must be > 0.")
         if self.normalization not in {"rmsnorm", "layernorm"}:
             raise ValueError("normalization must be one of: rmsnorm, layernorm.")
         if self.positional_encoding not in {"rope", "none"}:
@@ -160,7 +181,11 @@ class DenseTransformerConfig:
             "embedding_dim": self.embedding_dim,
             "num_layers": self.num_layers,
             "num_heads": self.num_heads,
+            "kv_heads": self.kv_heads,
+            "attention_head_dim": self.attention_head_dim,
             "ffn_dim": self.ffn_dim,
+            "attention_backend": self.attention_backend,
+            "rope_base": self.rope_base,
             "normalization": self.normalization,
             "positional_encoding": self.positional_encoding,
             "ffn_variant": self.ffn_variant,
@@ -186,7 +211,11 @@ class DenseTransformerConfig:
             embedding_dim=payload.get("embedding_dim", 256),
             num_layers=payload.get("num_layers", 4),
             num_heads=payload.get("num_heads", 8),
+            kv_heads=payload.get("kv_heads"),
+            attention_head_dim=payload.get("attention_head_dim"),
             ffn_dim=payload.get("ffn_dim", 684),
+            attention_backend=payload.get("attention_backend", "sdpa"),
+            rope_base=payload.get("rope_base", 10000.0),
             normalization=payload.get("normalization", "rmsnorm"),
             positional_encoding=payload.get("positional_encoding", "rope"),
             ffn_variant=payload.get("ffn_variant", "swiglu"),

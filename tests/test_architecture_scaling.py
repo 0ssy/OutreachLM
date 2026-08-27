@@ -93,3 +93,6 @@ def test_moe_scaling_experiments_report_active_params_and_utilization():
     assert results[1]["active_parameters_per_token"] > 0
     assert isinstance(results[0]["expert_utilization"], list)
     assert 0.0 <= results[0]["overflow_ratio"] <= 1.0
+    assert 0.0 <= results[0]["dropped_ratio"] <= 1.0
+    assert results[0]["routing_entropy_mean"] >= 0.0
+    assert 0.0 <= results[0]["expert_balance_score"] <= 1.0

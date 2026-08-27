@@ -68,6 +68,8 @@ def test_moe_dispatch_sparse_and_shape() -> None:
     assert stats.tokens_accepted <= stats.tokens_routed
     assert stats.tokens_overflowed >= 0
     assert sum(stats.expert_routed) == stats.tokens_routed
+    assert stats.routing_entropy_mean >= 0.0
+    assert 0.0 <= stats.expert_balance_score <= 1.0
 
 
 def test_moe_gradients_flow() -> None:

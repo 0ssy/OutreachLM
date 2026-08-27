@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import json
 import torch
 
 CHECKPOINT_VERSION = 3
@@ -250,6 +251,159 @@ def load_checkpoint(
         "scaler_state": normalized.get("scaler_state"),
         "rng_state": normalized.get("rng_state", {}),
         "is_legacy": version != CHECKPOINT_VERSION,
+    }
+
+
+def save_distributed_checkpoint(
+    directory,
+    model,
+    optimizer,
+    step,
+    train_loss,
+    best_validation_loss,
+    config,
+    *,
+    scheduler_state: dict[str, Any] | None = None,
+    scaler_state: dict[str, Any] | None = None,
+    trainer_state: dict[str, Any] | None = None,
+    metadata: dict[str, Any] | None = None,
+    runtime: Any | None = None,
+) -> None:
+    directory = Path(directory)
+    rank = int(runtime.info.rank) if runtime is not None else 0
+    world_size = int(runtime.info.world_size) if runtime is not None else 1
+    is_main_process = bool(runtime is None or runtime.info.is_main_process)
+
+    if runtime is not None and runtime.info.is_distributed:
+        runtime.barrier()
+    directory.mkdir(parents=True, exist_ok=True)
+    (directory / "model").mkdir(parents=True, exist_ok=True)
+    (directory / "optimizer").mkdir(parents=True, exist_ok=True)
+    (directory / "training_state").mkdir(parents=True, exist_ok=True)
+
+    resolved_trainer_state = {
+        "step": step,
+        "train_loss": train_loss,
+        "best_validation_loss": best_validation_loss,
+    }
+    if trainer_state is not None:
+        resolved_trainer_state.update(trainer_state)
+    resolved_metadata = {
+        "format": "distributed_training_checkpoint",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+    }
+    if metadata is not None:
+        resolved_metadata.update(metadata)
+
+    raw_model = model.module if hasattr(model, "module") else model
+    torch.save(raw_model.state_dict(), directory / "model" / f"shard-rank{rank}.pt")
+    torch.save(optimizer.state_dict(), directory / "optimizer" / f"shard-rank{rank}.pt")
+    torch.save(
+        {
+            "checkpoint_version": CHECKPOINT_VERSION,
+            "trainer_state": resolved_trainer_state,
+            "scheduler_state": scheduler_state,
+            "scaler_state": scaler_state,
+            "rng_state": _current_rng_state(),
+            "config": config,
+            "metadata": resolved_metadata,
+            "rank": rank,
+            "world_size": world_size,
+        },
+        directory / "training_state" / f"shard-rank{rank}.pt",
+    )
+
+    if runtime is not None and runtime.info.is_distributed:
+        runtime.barrier()
+    if is_main_process:
+        with open(directory / "metadata.json", "w", encoding="utf-8") as file:
+            json.dump(
+                {
+                    "checkpoint_version": CHECKPOINT_VERSION,
+                    "format": "distributed_training_checkpoint",
+                    "created_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "world_size": world_size,
+                },
+                file,
+                ensure_ascii=False,
+                indent=2,
+            )
+    if runtime is not None and runtime.info.is_distributed:
+        runtime.barrier()
+
+
+def load_distributed_checkpoint(
+    directory,
+    model,
+    optimizer,
+    device,
+    *,
+    scheduler: Any | None = None,
+    runtime: Any | None = None,
+) -> dict[str, Any]:
+    directory = Path(directory)
+    rank = int(runtime.info.rank) if runtime is not None else 0
+    world_size = int(runtime.info.world_size) if runtime is not None else 1
+    is_distributed = bool(runtime is not None and runtime.info.is_distributed)
+
+    if not directory.exists():
+        raise FileNotFoundError(f"Distributed checkpoint directory not found: {directory}")
+    if is_distributed:
+        runtime.barrier()
+
+    metadata_path = directory / "metadata.json"
+    if metadata_path.exists():
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        checkpoint_world_size = int(metadata.get("world_size", world_size))
+        if checkpoint_world_size != world_size:
+            raise ValueError(
+                "Distributed checkpoint world_size mismatch: "
+                f"checkpoint={checkpoint_world_size} runtime={world_size}"
+            )
+
+    model_state_path = directory / "model" / f"shard-rank{rank}.pt"
+    optimizer_state_path = directory / "optimizer" / f"shard-rank{rank}.pt"
+    trainer_state_path = directory / "training_state" / f"shard-rank{rank}.pt"
+    if not model_state_path.exists():
+        raise FileNotFoundError(f"Model shard not found: {model_state_path}")
+    if not optimizer_state_path.exists():
+        raise FileNotFoundError(f"Optimizer shard not found: {optimizer_state_path}")
+    if not trainer_state_path.exists():
+        raise FileNotFoundError(f"Trainer shard not found: {trainer_state_path}")
+
+    model_state = torch.load(model_state_path, map_location=device, weights_only=False)
+    optimizer_state = torch.load(optimizer_state_path, map_location=device, weights_only=False)
+    training_state = torch.load(trainer_state_path, map_location=device, weights_only=False)
+
+    try:
+        model.load_state_dict(model_state)
+    except RuntimeError:
+        if hasattr(model, "module"):
+            model.module.load_state_dict(model_state)
+        else:
+            raise
+    optimizer.load_state_dict(optimizer_state)
+    if scheduler is not None and training_state.get("scheduler_state") is not None:
+        scheduler.load_state_dict(training_state["scheduler_state"])
+    if runtime is not None:
+        runtime.load_scaler_state(training_state.get("scaler_state"))
+    _restore_rng_state(training_state.get("rng_state", {}))
+    if is_distributed:
+        runtime.barrier()
+
+    trainer_state = training_state.get("trainer_state", {})
+    return {
+        "step": trainer_state.get("step", 0),
+        "train_loss": trainer_state.get("train_loss", float("nan")),
+        "best_validation_loss": trainer_state.get("best_validation_loss", float("inf")),
+        "config": training_state.get("config", {}),
+        "trainer_state": trainer_state,
+        "metadata": training_state.get("metadata", {}),
+        "checkpoint_version": training_state.get("checkpoint_version", CHECKPOINT_VERSION),
+        "scheduler_state": training_state.get("scheduler_state"),
+        "scaler_state": training_state.get("scaler_state"),
+        "rng_state": training_state.get("rng_state", {}),
+        "is_legacy": False,
     }
 
 

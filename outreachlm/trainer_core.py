@@ -75,6 +75,41 @@ class Trainer:
         self.telemetry = telemetry
         self.state = TrainerState(run_start_time=perf_counter())
 
+    def _moe_metrics(self) -> dict[str, Any]:
+        raw_model = self.model.module if hasattr(self.model, "module") else self.model
+        layer_stats = getattr(raw_model, "last_moe_stats", None)
+        if not layer_stats:
+            return {}
+        total_tokens_routed = sum(item.tokens_routed for item in layer_stats)
+        total_tokens_accepted = sum(item.tokens_accepted for item in layer_stats)
+        total_tokens_overflowed = sum(item.tokens_overflowed for item in layer_stats)
+        total_tokens_dropped = sum(item.tokens_dropped for item in layer_stats)
+        experts = len(layer_stats[0].expert_utilization)
+        mean_expert_utilization = [
+            sum(item.expert_utilization[i] for item in layer_stats) / len(layer_stats)
+            for i in range(experts)
+        ]
+        return {
+            "load_balancing_loss": float(
+                getattr(raw_model, "last_moe_load_balancing_loss", 0.0).item()
+                if hasattr(getattr(raw_model, "last_moe_load_balancing_loss", 0.0), "item")
+                else getattr(raw_model, "last_moe_load_balancing_loss", 0.0)
+            ),
+            "tokens_routed": total_tokens_routed,
+            "tokens_accepted": total_tokens_accepted,
+            "tokens_overflowed": total_tokens_overflowed,
+            "tokens_dropped": total_tokens_dropped,
+            "overflow_ratio": total_tokens_overflowed / max(total_tokens_routed, 1),
+            "dropped_ratio": total_tokens_dropped / max(total_tokens_routed, 1),
+            "expert_utilization": mean_expert_utilization,
+            "routing_entropy_mean": (
+                sum(item.routing_entropy_mean for item in layer_stats) / len(layer_stats)
+            ),
+            "expert_balance_score": (
+                sum(item.expert_balance_score for item in layer_stats) / len(layer_stats)
+            ),
+        }
+
     def state_dict(self) -> dict[str, Any]:
         scheduler_state = self.scheduler.state_dict() if self.scheduler is not None else None
         return {
@@ -241,6 +276,7 @@ class Trainer:
             "checkpointed": False,
             "memory": self.runtime.collect_memory_stats(self.model, self.optimizer),
             "throughput": throughput,
+            "moe": self._moe_metrics(),
         }
 
         if should_step_optimizer and self.evaluation_fn is not None and self.eval_interval is not None:
@@ -295,6 +331,7 @@ class Trainer:
             "finalized_partial_accumulation": True,
             "memory": self.runtime.collect_memory_stats(self.model, self.optimizer),
             "throughput": throughput,
+            "moe": self._moe_metrics(),
         }
 
         if self.evaluation_fn is not None and self.eval_interval is not None:

@@ -111,3 +111,33 @@ def test_scalable_model_moe_mode_produces_router_stats_and_combined_loss():
     total_loss = model.combine_with_moe_loss(language_loss)
     assert total_loss.item() >= language_loss.item()
     assert len(model.last_moe_stats) == cfg.num_layers
+
+
+def test_scalable_model_supports_grouped_query_attention():
+    cfg = DenseTransformerConfig(
+        vocab_size=64,
+        context_length=16,
+        embedding_dim=64,
+        num_layers=2,
+        num_heads=8,
+        kv_heads=2,
+        ffn_dim=128,
+    )
+    model = ScalableTransformerModel(cfg)
+    logits = model(torch.randint(0, cfg.vocab_size, (2, 16)))
+    assert logits.shape == (2, 16, cfg.vocab_size)
+
+
+def test_scalable_model_supports_multi_query_attention():
+    cfg = DenseTransformerConfig(
+        vocab_size=64,
+        context_length=16,
+        embedding_dim=64,
+        num_layers=2,
+        num_heads=8,
+        kv_heads=1,
+        ffn_dim=128,
+    )
+    model = ScalableTransformerModel(cfg)
+    logits = model(torch.randint(0, cfg.vocab_size, (2, 16)))
+    assert logits.shape == (2, 16, cfg.vocab_size)

@@ -7,8 +7,13 @@ import os
 import torch
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel
+try:
+    from torch.distributed.fsdp import FullyShardedDataParallel
+except Exception:  # pragma: no cover - environment-dependent import
+    FullyShardedDataParallel = None
 
 PrecisionMode = Literal["fp32", "fp16", "bf16"]
+ParallelMode = Literal["ddp", "fsdp"]
 
 
 @dataclass(frozen=True)
@@ -303,7 +308,7 @@ class DistributedRuntime:
 
         self._communication_seconds = 0.0
         self._scaler = _build_scaler(self._device, config.precision)
-        self._wrapped_model: DistributedDataParallel | None = None
+        self._wrapped_model: Any | None = None
         self._info = RuntimeInfo(
             device=self._device,
             world_size=config.world_size,
@@ -431,3 +436,38 @@ def distributed_runtime_from_env(
             precision=precision,
         )
     )
+
+
+class DDPRuntime(DistributedRuntime):
+    pass
+
+
+class FSDPRuntime(DistributedRuntime):
+    def __init__(self, config: DistributedRuntimeConfig):
+        super().__init__(config)
+        self._using_fsdp = False
+
+    def prepare_model(self, model: torch.nn.Module) -> torch.nn.Module:
+        base = model.to(self.info.device)
+        can_use_fsdp = (
+            FullyShardedDataParallel is not None
+            and self.info.device.type == "cuda"
+        )
+        if can_use_fsdp:
+            wrapped = FullyShardedDataParallel(base, use_orig_params=True)
+            self._using_fsdp = True
+            self._wrapped_model = wrapped
+            return wrapped
+        return super().prepare_model(model)
+
+    @property
+    def using_fsdp(self) -> bool:
+        return self._using_fsdp
+
+
+def create_parallel_runtime(mode: ParallelMode, config: DistributedRuntimeConfig) -> DistributedRuntime:
+    if mode == "ddp":
+        return DDPRuntime(config)
+    if mode == "fsdp":
+        return FSDPRuntime(config)
+    raise ValueError(f"Unsupported parallel runtime mode: {mode}")

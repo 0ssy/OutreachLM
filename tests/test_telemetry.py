@@ -23,6 +23,7 @@ def test_training_telemetry_writes_structured_outputs(tmp_path: Path) -> None:
             "checkpointed": False,
             "throughput": {"tokens_processed": 32},
             "memory": {"parameter_bytes": 1024},
+            "moe": {"overflow_ratio": 0.1},
         }
     )
     telemetry.record_step(
@@ -35,6 +36,7 @@ def test_training_telemetry_writes_structured_outputs(tmp_path: Path) -> None:
             "checkpointed": True,
             "throughput": {"tokens_processed": 64},
             "memory": {"parameter_bytes": 1024},
+            "moe": {"overflow_ratio": 0.05},
         }
     )
     summary = telemetry.finalize({"step": 2})
@@ -46,6 +48,7 @@ def test_training_telemetry_writes_structured_outputs(tmp_path: Path) -> None:
 
     assert len(metrics) == 2
     assert len(memory) == 2
+    assert metrics[0]["moe"]["overflow_ratio"] == 0.1
     assert summary["steps_recorded"] == 2
     assert summary_file["loss"]["best"] == 1.0
     event_types = [event["event_type"] for event in events]

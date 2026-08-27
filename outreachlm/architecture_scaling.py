@@ -33,6 +33,9 @@ def run_architecture_scaling_experiments(specs: list[ScalingSpec], seed: int = 4
         load_balance_losses: list[float] = []
         utilization_snapshots: list[list[float]] = []
         overflow_ratios: list[float] = []
+        dropped_ratios: list[float] = []
+        routing_entropy_values: list[float] = []
+        expert_balance_values: list[float] = []
         start = perf_counter()
         for _ in range(spec.steps):
             input_ids = torch.randint(
@@ -67,7 +70,15 @@ def run_architecture_scaling_experiments(specs: list[ScalingSpec], seed: int = 4
                 utilization_snapshots.append(utilization)
                 tokens_routed = sum(layer.tokens_routed for layer in stats)
                 tokens_overflowed = sum(layer.tokens_overflowed for layer in stats)
+                tokens_dropped = sum(layer.tokens_dropped for layer in stats)
                 overflow_ratios.append(tokens_overflowed / max(tokens_routed, 1))
+                dropped_ratios.append(tokens_dropped / max(tokens_routed, 1))
+                routing_entropy_values.append(
+                    sum(layer.routing_entropy_mean for layer in stats) / len(stats)
+                )
+                expert_balance_values.append(
+                    sum(layer.expert_balance_score for layer in stats) / len(stats)
+                )
         elapsed = max(perf_counter() - start, 1e-12)
 
         tokens_processed = spec.steps * spec.batch_size * spec.config.context_length
@@ -93,6 +104,9 @@ def run_architecture_scaling_experiments(specs: list[ScalingSpec], seed: int = 4
                 "load_balancing_loss_last": load_balance_losses[-1] if load_balance_losses else 0.0,
                 "expert_utilization": utilization_snapshots[-1] if utilization_snapshots else [],
                 "overflow_ratio": overflow_ratios[-1] if overflow_ratios else 0.0,
+                "dropped_ratio": dropped_ratios[-1] if dropped_ratios else 0.0,
+                "routing_entropy_mean": routing_entropy_values[-1] if routing_entropy_values else 0.0,
+                "expert_balance_score": expert_balance_values[-1] if expert_balance_values else 0.0,
             }
         )
     return results

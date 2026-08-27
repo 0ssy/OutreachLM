@@ -71,33 +71,74 @@ class ScalableSelfAttention(nn.Module):
         super().__init__()
         self.embedding_dim = config.embedding_dim
         self.num_heads = config.num_heads
-        self.head_dim = config.embedding_dim // config.num_heads
+        self.kv_heads = config.num_heads if config.kv_heads is None else config.kv_heads
+        self.head_dim = (
+            config.embedding_dim // config.num_heads
+            if config.attention_head_dim is None
+            else config.attention_head_dim
+        )
         self.attention_dropout = config.attention_dropout
         self.positional_encoding = config.positional_encoding
+        self.attention_backend = config.attention_backend
+        self.use_fused_qkv = self.kv_heads == self.num_heads
 
-        self.qkv = nn.Linear(
-            config.embedding_dim,
-            config.embedding_dim * 3,
-            bias=config.use_bias,
-        )
+        if self.use_fused_qkv:
+            self.qkv = nn.Linear(
+                config.embedding_dim,
+                config.embedding_dim * 3,
+                bias=config.use_bias,
+            )
+            self.q_proj = None
+            self.k_proj = None
+            self.v_proj = None
+        else:
+            self.qkv = None
+            self.q_proj = nn.Linear(
+                config.embedding_dim,
+                self.num_heads * self.head_dim,
+                bias=config.use_bias,
+            )
+            self.k_proj = nn.Linear(
+                config.embedding_dim,
+                self.kv_heads * self.head_dim,
+                bias=config.use_bias,
+            )
+            self.v_proj = nn.Linear(
+                config.embedding_dim,
+                self.kv_heads * self.head_dim,
+                bias=config.use_bias,
+            )
         self.out = nn.Linear(
             config.embedding_dim,
             config.embedding_dim,
             bias=config.use_bias,
         )
 
-        self.rope = RotaryEmbedding(self.head_dim) if config.positional_encoding == "rope" else None
+        self.rope = (
+            RotaryEmbedding(self.head_dim, base=config.rope_base)
+            if config.positional_encoding == "rope"
+            else None
+        )
         self.q_norm = HeadRMSNorm(self.num_heads, self.head_dim)
-        self.k_norm = HeadRMSNorm(self.num_heads, self.head_dim)
+        self.k_norm = HeadRMSNorm(self.kv_heads, self.head_dim)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         batch_size, sequence_length, _ = x.shape
-        qkv = self.qkv(x)
-        q, k, v = torch.chunk(qkv, 3, dim=-1)
+        if self.use_fused_qkv:
+            assert self.qkv is not None
+            qkv = self.qkv(x)
+            q, k, v = torch.chunk(qkv, 3, dim=-1)
+        else:
+            assert self.q_proj is not None
+            assert self.k_proj is not None
+            assert self.v_proj is not None
+            q = self.q_proj(x)
+            k = self.k_proj(x)
+            v = self.v_proj(x)
 
         q = q.view(batch_size, sequence_length, self.num_heads, self.head_dim).transpose(1, 2)
-        k = k.view(batch_size, sequence_length, self.num_heads, self.head_dim).transpose(1, 2)
-        v = v.view(batch_size, sequence_length, self.num_heads, self.head_dim).transpose(1, 2)
+        k = k.view(batch_size, sequence_length, self.kv_heads, self.head_dim).transpose(1, 2)
+        v = v.view(batch_size, sequence_length, self.kv_heads, self.head_dim).transpose(1, 2)
 
         if self.rope is not None:
             cos, sin = self.rope.get_cos_sin(sequence_length, x.device, x.dtype)
@@ -106,7 +147,13 @@ class ScalableSelfAttention(nn.Module):
 
         q = self.q_norm(q)
         k = self.k_norm(k)
+        if self.kv_heads != self.num_heads:
+            group_size = self.num_heads // self.kv_heads
+            k = k.repeat_interleave(group_size, dim=1)
+            v = v.repeat_interleave(group_size, dim=1)
 
+        if self.attention_backend != "sdpa":
+            raise RuntimeError(f"Unsupported attention backend: {self.attention_backend}")
         attn = F.scaled_dot_product_attention(
             q,
             k,
@@ -182,7 +229,11 @@ class ScalableTransformerModel(nn.Module):
         self.num_layers = config.num_layers
         self.num_heads = config.num_heads
         self.ffn_dim = config.ffn_dim
-        self.head_dim = config.embedding_dim // config.num_heads
+        self.head_dim = (
+            config.embedding_dim // config.num_heads
+            if config.attention_head_dim is None
+            else config.attention_head_dim
+        )
 
         self.token_embedding = nn.Embedding(config.vocab_size, config.embedding_dim)
         self.blocks = nn.ModuleList([ScalableTransformerBlock(config) for _ in range(config.num_layers)])

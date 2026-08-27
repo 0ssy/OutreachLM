@@ -1,6 +1,6 @@
 import pytest
 
-from outreachlm.evaluation_profiles import EvaluationProfile
+from outreachlm.evaluation_profiles import EvaluationProfile, FrontierEvaluationProfile
 
 
 def test_evaluation_profile_defaults_match_current_scripts():
@@ -69,3 +69,38 @@ def test_evaluation_profile_round_trip_dict():
     )
     restored = EvaluationProfile.from_dict(original.to_dict())
     assert restored == original
+
+
+def test_frontier_evaluation_profile_round_trip_dict():
+    original = FrontierEvaluationProfile(
+        validation_batches=16,
+        compute_perplexity=True,
+        compute_teacher_accuracy=True,
+        compute_free_rollout=True,
+        compute_divergence=True,
+        compute_recovery=True,
+        long_context_eval_length=2048,
+        compute_tokens_per_second=True,
+        compute_samples_per_second=True,
+        compute_memory=True,
+        compute_communication_overhead=True,
+        compute_checkpoint_time=True,
+        compute_data_loading_time=True,
+        compute_moe_metrics=True,
+    )
+    restored = FrontierEvaluationProfile.from_dict(original.to_dict())
+    assert restored == original
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        {"validation_batches": 0},
+        {"long_context_eval_length": 0},
+    ],
+)
+def test_frontier_evaluation_profile_validation(payload):
+    kwargs = FrontierEvaluationProfile().to_dict()
+    kwargs.update(payload)
+    with pytest.raises(ValueError):
+        FrontierEvaluationProfile(**kwargs)
