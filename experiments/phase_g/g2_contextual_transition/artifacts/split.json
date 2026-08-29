@@ -1,0 +1,25 @@
+{
+  "seed": 1337,
+  "train_lines": [
+    "the cat ate the fish",
+    "the boy saw the dog",
+    "the boy fed the cat",
+    "the girl saw the cat",
+    "the dog will sleep",
+    "the cat will purr",
+    "the dog will bark",
+    "the cat eats fish",
+    "the dog eats food",
+    "the cat sees birds",
+    "the dog sees people",
+    "the cat likes milk",
+    "the dog likes bones"
+  ],
+  "eval_lines": [
+    "the cat sat on the mat",
+    "the dog sat on the mat",
+    "the dog ate the food",
+    "the girl fed the dog",
+    "the cat will eat"
+  ]
+}

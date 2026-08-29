@@ -1,0 +1,20 @@
+{
+  "experiment_id": "g1_transition",
+  "seed": 1337,
+  "corpus_size": 8,
+  "vocab_size": 17,
+  "parameter_count": 289,
+  "training_time": 0.002005099995585624,
+  "inference_time": 0.0,
+  "tokens_per_second": 24936.412203919353,
+  "ram_peak": 3104,
+  "accuracy": null,
+  "cross_entropy": null,
+  "perplexity": null,
+  "alpha": 0.1,
+  "transition_count": 50,
+  "artifacts": {
+    "tokenizer": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\phase_g\\g1_transition\\artifacts\\tokenizer.json",
+    "model": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\phase_g\\g1_transition\\artifacts\\transition_model.npz"
+  }
+}

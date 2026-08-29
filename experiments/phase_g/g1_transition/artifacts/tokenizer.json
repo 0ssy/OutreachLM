@@ -1,0 +1,27 @@
+{
+  "token_to_id": {
+    "the": 0,
+    "cat": 1,
+    "sat": 2,
+    "on": 3,
+    "mat": 4,
+    "ate": 5,
+    "fish": 6,
+    "dog": 7,
+    "food": 8,
+    "boy": 9,
+    "saw": 10,
+    "fed": 11,
+    "girl": 12,
+    "<PAD>": 13,
+    "<UNK>": 14,
+    "<BOS>": 15,
+    "<EOS>": 16
+  },
+  "special_tokens": [
+    "<PAD>",
+    "<UNK>",
+    "<BOS>",
+    "<EOS>"
+  ]
+}

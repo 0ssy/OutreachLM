@@ -1,0 +1,29 @@
+{
+  "experiment_id": "g5_adaptive_memory",
+  "seed": 1337,
+  "corpus_size": 14,
+  "vocab_size": 38,
+  "memory_size": 3,
+  "window_size": 6,
+  "parameter_count": 1444,
+  "nonzero_parameters": 47,
+  "training_time": 0.002595500001916662,
+  "inference_time": 0.0022471999982371926,
+  "tokens_per_second": 14684.941271754504,
+  "model_storage_bytes": 12768,
+  "peak_process_ram": 44109,
+  "g4_reference": {
+    "accuracy": 0.30303030303030304,
+    "cross_entropy": 2.6147643778761083,
+    "perplexity": 13.663996458700133
+  },
+  "g5": {
+    "accuracy": 0.5151515151515151,
+    "cross_entropy": 2.2611594822450733,
+    "perplexity": 9.594207032744729
+  },
+  "hard_gates": {
+    "benefit_over_g4": true,
+    "cpu_measured": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "experiment_id": "g8_multi_cpu",
+  "seed": 1337,
+  "inference_items": 260000,
+  "single_cpu": {
+    "elapsed_seconds": 1.615532499999972,
+    "inner_elapsed_seconds": 1.5895941000053426,
+    "throughput": 160937.64749394055
+  },
+  "two_cpu": {
+    "elapsed_seconds": 1.3278607999964152,
+    "throughput": 195803.65652838154
+  },
+  "latency_ratio_two_over_one": 0.8219338205801728,
+  "scaling_efficiency": 0.6083214821931386,
+  "hard_gates": {
+    "useful_parallelism": true,
+    "cpu_measured": true
+  }
+}

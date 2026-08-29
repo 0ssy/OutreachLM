@@ -1,0 +1,34 @@
+{
+  "experiment_id": "g3_distributed_representation",
+  "seed": 1337,
+  "corpus_size": 18,
+  "vocab_size": 29,
+  "parameter_count": 1740,
+  "nonzero_parameters": 180,
+  "training_time": 0.002976699994178489,
+  "inference_time": 0.0028205999988131225,
+  "tokens_per_second": 10990.569387025618,
+  "model_storage_bytes": 14648,
+  "peak_process_ram": 35485,
+  "g2_reference": {
+    "accuracy": 0.3548387096774194,
+    "cross_entropy": 2.566753394345989,
+    "perplexity": 13.02347364679385
+  },
+  "g3": {
+    "accuracy": 0.3548387096774194,
+    "cross_entropy": 2.7219700753149536,
+    "perplexity": 15.21025810134533
+  },
+  "representation_similarity": {
+    "cosine_cat_dog": 0.9171443976571226,
+    "cosine_cat_fish": 0.48536267169707564
+  },
+  "hard_gates": {
+    "representations_learned": true,
+    "contextual_information": true,
+    "competitive_with_g2": true,
+    "no_pretrained": true,
+    "cpu_measured": true
+  }
+}

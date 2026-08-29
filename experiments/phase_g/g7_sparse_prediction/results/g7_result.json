@@ -1,0 +1,33 @@
+{
+  "experiment_id": "g7_sparse_prediction",
+  "seed": 1337,
+  "corpus_size": 22,
+  "vocab_size": 46,
+  "parameter_count": 2254,
+  "active_parameter_count": 196,
+  "sparsity_ratio": 0.9130434782608696,
+  "operations_per_token": {
+    "dense": 46,
+    "sparse": 4
+  },
+  "training_time": 0.0,
+  "inference_time": 0.002675600000657141,
+  "tokens_per_second": 17939.90132613655,
+  "model_storage_bytes": 19184,
+  "peak_process_ram": 36669,
+  "g6_reference": {
+    "accuracy": 0.3958333333333333,
+    "cross_entropy": 2.508286720376882,
+    "perplexity": 12.28386632376174
+  },
+  "g7": {
+    "accuracy": 0.375,
+    "cross_entropy": 9.187572400614988,
+    "perplexity": 9774.892629657585
+  },
+  "hard_gates": {
+    "resource_advantage": true,
+    "quality_not_unacceptable": false,
+    "cpu_measured": true
+  }
+}

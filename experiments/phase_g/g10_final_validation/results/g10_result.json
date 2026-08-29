@@ -1,0 +1,152 @@
+{
+  "experiment_id": "g10_final_architecture_validation",
+  "seed": 1337,
+  "tests": {
+    "A_predictive_capability": {
+      "g1": {
+        "accuracy": 0.64,
+        "cross_entropy": 1.1101689470338254,
+        "perplexity": 3.0348710835934156
+      },
+      "g2": {
+        "accuracy": 0.3548387096774194,
+        "cross_entropy": 2.566753394345989,
+        "perplexity": 13.02347364679385
+      },
+      "g3": {
+        "accuracy": 0.3548387096774194,
+        "cross_entropy": 2.7219700753149536,
+        "perplexity": 15.21025810134533
+      },
+      "g4": {
+        "accuracy": 0.30303030303030304,
+        "cross_entropy": 2.6147643778761083,
+        "perplexity": 13.663996458700133
+      },
+      "g5": {
+        "accuracy": 0.5151515151515151,
+        "cross_entropy": 2.2611594822450733,
+        "perplexity": 9.594207032744729
+      },
+      "g6": {
+        "accuracy": 0.3958333333333333,
+        "cross_entropy": 2.508286720376882,
+        "perplexity": 12.28386632376174
+      },
+      "g7": {
+        "accuracy": 0.375,
+        "cross_entropy": 9.187572400614988,
+        "perplexity": 9774.892629657585
+      },
+      "g9": {
+        "accuracy": 0.3958333333333333,
+        "cross_entropy": 2.3827655928591898,
+        "perplexity": 10.834826184925033
+      },
+      "g7_final_hybrid": {
+        "name": "g7_final_hybrid",
+        "accuracy": 0.3958333333333333,
+        "cross_entropy": 2.3827655928591898,
+        "perplexity": 10.834826184925033,
+        "kl_g6_mean": 0.04373636629378999,
+        "entropy_mean": 2.7124379948976043,
+        "mass_error_max": 4.440892098500626e-16
+      }
+    },
+    "B_context_sensitivity": {
+      "g1_distribution_difference": 0.0,
+      "g2_distribution_difference": 0.26164311878597585
+    },
+    "C_long_context_retention": {
+      "g4_long_accuracy": 0.38461538461538464,
+      "g6_long_accuracy": 0.0
+    },
+    "D_resource_efficiency": {
+      "g2_model_storage_bytes": 7920,
+      "g4_model_storage_bytes": 6232,
+      "g5_model_storage_bytes": 12768,
+      "g6_model_storage_bytes": 57056,
+      "g7_model_storage_bytes": 19184,
+      "g9_model_storage": 76240,
+      "g9_peak_ram": 1094584,
+      "g9_tokens_per_second": 833.0050483819772
+    },
+    "E_scaling": {
+      "single_cpu_tokens_per_second": 160937.64749394055,
+      "two_cpu_tokens_per_second": 195803.65652838154,
+      "scaling_efficiency": 0.6083214821931386
+    },
+    "F_ablation": {
+      "minus_representation": {
+        "accuracy": 0.3548387096774194,
+        "cross_entropy": 2.566753394345989,
+        "perplexity": 13.02347364679385
+      },
+      "minus_context_compression": {
+        "accuracy": 0.3548387096774194,
+        "cross_entropy": 2.7219700753149536,
+        "perplexity": 15.21025810134533
+      },
+      "minus_adaptive_memory": {
+        "accuracy": 0.30303030303030304,
+        "cross_entropy": 2.6147643778761083,
+        "perplexity": 13.663996458700133
+      },
+      "minus_hierarchy": {
+        "accuracy": 0.5151515151515151,
+        "cross_entropy": 2.2611594822450733,
+        "perplexity": 9.594207032744729
+      },
+      "minus_sparsity": {
+        "accuracy": 0.3958333333333333,
+        "cross_entropy": 2.508286720376882,
+        "perplexity": 12.28386632376174
+      }
+    },
+    "G7_final_validation_package": {
+      "path": "C:\\Users\\josep\\Desktop\\OutreachLM\\experiments\\phase_g\\g7_recovery\\r6_residual_sparse\\results\\g7_final_validation_result.json",
+      "final_decision": "ACCEPTED",
+      "acceptance_gates": {
+        "reproducibility_30_of_30_competitive_vs_g6": true,
+        "reproducibility_30_of_30_recovered": true,
+        "unseen_tokens_5_of_5_competitive": true,
+        "probability_mass_correct_30_of_30": true,
+        "frozen_fixture_ce_competitive_vs_g6": true,
+        "frozen_fixture_beats_r4": true,
+        "residual_ablation_matters": true
+      },
+      "g6_vs_g7_final": {
+        "delta_ce_g7_minus_g6": -0.1255211275176933,
+        "delta_ce_g7_minus_r4": -0.18099369075508065
+      }
+    }
+  },
+  "final_decision": {
+    "Transition": "REMOVE",
+    "Context": "KEEP",
+    "Representation": "KEEP",
+    "Compression": "KEEP",
+    "Adaptive memory": "KEEP",
+    "Hierarchy": "UNCERTAIN",
+    "Sparsity": "KEEP_ACCEPTED",
+    "Multi-CPU": "KEEP"
+  },
+  "hard_gates": {
+    "context_sensitivity_confirmed": true,
+    "predictive_model_available": true,
+    "resource_measured": true,
+    "ablation_measured": true,
+    "g7_candidate_validated": true
+  },
+  "phase_g_closure": {
+    "G7_sparsity_mechanism": "ACCEPTED",
+    "G9_integrated_model": "ACCEPTED",
+    "Predictive_capability": "PASS",
+    "Context_sensitivity": "PASS",
+    "Probability_correctness": "PASS",
+    "Resource_measurement": "PASS",
+    "CPU_scaling": "PASS",
+    "Ablation": "PASS",
+    "Phase_G_scientific_closure": "PASS"
+  }
+}

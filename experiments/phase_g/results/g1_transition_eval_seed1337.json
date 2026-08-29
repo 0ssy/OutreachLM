@@ -1,0 +1,21 @@
+{
+  "experiment_id": "g1_transition",
+  "seed": 1337,
+  "corpus_size": 8,
+  "vocab_size": 17,
+  "parameter_count": 289,
+  "training_time": null,
+  "inference_time": 0.38943790000485023,
+  "tokens_per_second": 128.39017465782678,
+  "ram_peak": 1124648,
+  "random": {
+    "accuracy": 0.04,
+    "cross_entropy": 2.833213344056216,
+    "perplexity": 17.0
+  },
+  "g1_transition": {
+    "accuracy": 0.64,
+    "cross_entropy": 1.1101689470338254,
+    "perplexity": 3.0348710835934156
+  }
+}

@@ -1,4 +1,6 @@
 __pycache__/
 *.py[cod]
 corpus/fineweb/
-experiments/
+experiments/*
+!experiments/phase_g/
+!experiments/phase_g/**

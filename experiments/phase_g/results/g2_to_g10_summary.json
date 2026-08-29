@@ -1,0 +1,416 @@
+{
+  "g2": {
+    "experiment_id": "g2_contextual_transition",
+    "seed": 1337,
+    "corpus_size": 18,
+    "vocab_size": 29,
+    "parameter_count": 899,
+    "nonzero_parameters": 46,
+    "transition_count": 31,
+    "context_count": 31,
+    "training_time": 0.0010159999947063625,
+    "inference_time": 0.04419650000636466,
+    "tokens_per_second": 701.4130077163519,
+    "model_storage_bytes": 7920,
+    "peak_process_ram": 1047162,
+    "random": {
+      "accuracy": 0.0,
+      "cross_entropy": 3.367295829986474,
+      "perplexity": 29.0
+    },
+    "g1": {
+      "accuracy": 0.3870967741935484,
+      "cross_entropy": 2.4479667126952096,
+      "perplexity": 11.564808219331702
+    },
+    "g2": {
+      "accuracy": 0.3548387096774194,
+      "cross_entropy": 2.566753394345989,
+      "perplexity": 13.02347364679385
+    }
+  },
+  "g3": {
+    "experiment_id": "g3_distributed_representation",
+    "seed": 1337,
+    "corpus_size": 18,
+    "vocab_size": 29,
+    "parameter_count": 1740,
+    "nonzero_parameters": 180,
+    "training_time": 0.002976699994178489,
+    "inference_time": 0.0028205999988131225,
+    "tokens_per_second": 10990.569387025618,
+    "model_storage_bytes": 14648,
+    "peak_process_ram": 35485,
+    "g2_reference": {
+      "accuracy": 0.3548387096774194,
+      "cross_entropy": 2.566753394345989,
+      "perplexity": 13.02347364679385
+    },
+    "g3": {
+      "accuracy": 0.3548387096774194,
+      "cross_entropy": 2.7219700753149536,
+      "perplexity": 15.21025810134533
+    },
+    "representation_similarity": {
+      "cosine_cat_dog": 0.9171443976571226,
+      "cosine_cat_fish": 0.48536267169707564
+    },
+    "hard_gates": {
+      "representations_learned": true,
+      "contextual_information": true,
+      "competitive_with_g2": true,
+      "no_pretrained": true,
+      "cpu_measured": true
+    }
+  },
+  "g4": {
+    "experiment_id": "g4_context_compression",
+    "seed": 1337,
+    "corpus_size": 14,
+    "vocab_size": 38,
+    "context_length": 4,
+    "compressed_state_buckets": 32,
+    "parameter_count": 722,
+    "nonzero_parameters": 49,
+    "training_time": 0.001382200003718026,
+    "inference_time": 0.0015207999967969954,
+    "tokens_per_second": 21699.10577952547,
+    "model_storage_bytes": 6232,
+    "explicit_context_storage_bytes": 13744,
+    "peak_process_ram": 66709,
+    "g4": {
+      "accuracy": 0.30303030303030304,
+      "cross_entropy": 2.6147643778761083,
+      "perplexity": 13.663996458700133
+    },
+    "order4_reference": {
+      "accuracy": 0.48484848484848486,
+      "cross_entropy": 2.3330017047608487,
+      "perplexity": 10.308839228755454
+    },
+    "long_context": {
+      "accuracy": 0.38461538461538464,
+      "cross_entropy": 1.9148789193171434,
+      "perplexity": 6.786117079563324
+    },
+    "hard_gates": {
+      "memory_reduced": true,
+      "retention_noncatastrophic": true,
+      "cpu_practical": true
+    }
+  },
+  "g5": {
+    "experiment_id": "g5_adaptive_memory",
+    "seed": 1337,
+    "corpus_size": 14,
+    "vocab_size": 38,
+    "memory_size": 3,
+    "window_size": 6,
+    "parameter_count": 1444,
+    "nonzero_parameters": 47,
+    "training_time": 0.002595500001916662,
+    "inference_time": 0.0022471999982371926,
+    "tokens_per_second": 14684.941271754504,
+    "model_storage_bytes": 12768,
+    "peak_process_ram": 44109,
+    "g4_reference": {
+      "accuracy": 0.30303030303030304,
+      "cross_entropy": 2.6147643778761083,
+      "perplexity": 13.663996458700133
+    },
+    "g5": {
+      "accuracy": 0.5151515151515151,
+      "cross_entropy": 2.2611594822450733,
+      "perplexity": 9.594207032744729
+    },
+    "hard_gates": {
+      "benefit_over_g4": true,
+      "cpu_measured": true
+    }
+  },
+  "g6": {
+    "experiment_id": "g6_hierarchical_structure",
+    "seed": 1337,
+    "corpus_size": 22,
+    "vocab_size": 46,
+    "parameter_count": 6624,
+    "nonzero_parameters": 202,
+    "training_time": 0.007375100001809187,
+    "inference_time": 0.003189600000041537,
+    "tokens_per_second": 15048.908953904851,
+    "model_storage_bytes": 57056,
+    "peak_process_ram": 111613,
+    "g5_reference": {
+      "accuracy": 0.5151515151515151,
+      "cross_entropy": 2.2611594822450733,
+      "perplexity": 9.594207032744729
+    },
+    "g6": {
+      "accuracy": 0.3958333333333333,
+      "cross_entropy": 2.508286720376882,
+      "perplexity": 12.28386632376174
+    },
+    "hierarchical_breakdown": {
+      "local_accuracy": 0.0,
+      "medium_accuracy": 0.0,
+      "long_accuracy": 0.0
+    },
+    "hard_gates": {
+      "advantage_over_g5": false,
+      "cpu_measured": true
+    }
+  },
+  "g7": {
+    "experiment_id": "g7_sparse_prediction",
+    "seed": 1337,
+    "corpus_size": 22,
+    "vocab_size": 46,
+    "parameter_count": 2254,
+    "active_parameter_count": 196,
+    "sparsity_ratio": 0.9130434782608696,
+    "operations_per_token": {
+      "dense": 46,
+      "sparse": 4
+    },
+    "training_time": 0.0,
+    "inference_time": 0.002675600000657141,
+    "tokens_per_second": 17939.90132613655,
+    "model_storage_bytes": 19184,
+    "peak_process_ram": 36669,
+    "g6_reference": {
+      "accuracy": 0.3958333333333333,
+      "cross_entropy": 2.508286720376882,
+      "perplexity": 12.28386632376174
+    },
+    "g7": {
+      "accuracy": 0.375,
+      "cross_entropy": 9.187572400614988,
+      "perplexity": 9774.892629657585
+    },
+    "hard_gates": {
+      "resource_advantage": true,
+      "quality_not_unacceptable": false,
+      "cpu_measured": true
+    }
+  },
+  "g8": {
+    "experiment_id": "g8_multi_cpu",
+    "seed": 1337,
+    "inference_items": 260000,
+    "single_cpu": {
+      "elapsed_seconds": 1.615532499999972,
+      "inner_elapsed_seconds": 1.5895941000053426,
+      "throughput": 160937.64749394055
+    },
+    "two_cpu": {
+      "elapsed_seconds": 1.3278607999964152,
+      "throughput": 195803.65652838154
+    },
+    "latency_ratio_two_over_one": 0.8219338205801728,
+    "scaling_efficiency": 0.6083214821931386,
+    "hard_gates": {
+      "useful_parallelism": true,
+      "cpu_measured": true
+    }
+  },
+  "g9": {
+    "experiment_id": "g9_integrated_cpu_native",
+    "seed": 1337,
+    "corpus_size": 22,
+    "vocab_size": 46,
+    "parameter_count": 4968,
+    "active_parameter_count": 432,
+    "model_storage": 43152,
+    "peak_RAM": 37317,
+    "training_time": 0.0,
+    "inference_time": 0.010283600000548176,
+    "tokens_per_second": 4667.626122898724,
+    "context_length": 4,
+    "g1": {
+      "accuracy": 0.64,
+      "cross_entropy": 1.1101689470338254,
+      "perplexity": 3.0348710835934156
+    },
+    "g2": {
+      "accuracy": 0.3548387096774194,
+      "cross_entropy": 2.566753394345989,
+      "perplexity": 13.02347364679385
+    },
+    "g3": {
+      "accuracy": 0.3548387096774194,
+      "cross_entropy": 2.7219700753149536,
+      "perplexity": 15.21025810134533
+    },
+    "g4": {
+      "accuracy": 0.30303030303030304,
+      "cross_entropy": 2.6147643778761083,
+      "perplexity": 13.663996458700133
+    },
+    "g5": {
+      "accuracy": 0.5151515151515151,
+      "cross_entropy": 2.2611594822450733,
+      "perplexity": 9.594207032744729
+    },
+    "g6": {
+      "accuracy": 0.3958333333333333,
+      "cross_entropy": 2.508286720376882,
+      "perplexity": 12.28386632376174
+    },
+    "g7": {
+      "accuracy": 0.375,
+      "cross_entropy": 9.187572400614988,
+      "perplexity": 9774.892629657585
+    },
+    "g8": {
+      "experiment_id": "g8_multi_cpu",
+      "seed": 1337,
+      "inference_items": 260000,
+      "single_cpu": {
+        "elapsed_seconds": 1.615532499999972,
+        "inner_elapsed_seconds": 1.5895941000053426,
+        "throughput": 160937.64749394055
+      },
+      "two_cpu": {
+        "elapsed_seconds": 1.3278607999964152,
+        "throughput": 195803.65652838154
+      },
+      "latency_ratio_two_over_one": 0.8219338205801728,
+      "scaling_efficiency": 0.6083214821931386,
+      "hard_gates": {
+        "useful_parallelism": true,
+        "cpu_measured": true
+      }
+    },
+    "g9": {
+      "accuracy": 0.3958333333333333,
+      "cross_entropy": 8.664182263531822,
+      "perplexity": 5791.706523704
+    },
+    "selected_mechanisms": {
+      "representation": true,
+      "context": true,
+      "adaptive_memory": true,
+      "hierarchy": false,
+      "sparsity": true,
+      "multi_cpu_strategy": true
+    },
+    "hard_gates": {
+      "integrated_better_than_g2": false,
+      "cpu_measured": true
+    }
+  },
+  "g10": {
+    "experiment_id": "g10_final_architecture_validation",
+    "seed": 1337,
+    "tests": {
+      "A_predictive_capability": {
+        "g1": {
+          "accuracy": 0.64,
+          "cross_entropy": 1.1101689470338254,
+          "perplexity": 3.0348710835934156
+        },
+        "g2": {
+          "accuracy": 0.3548387096774194,
+          "cross_entropy": 2.566753394345989,
+          "perplexity": 13.02347364679385
+        },
+        "g3": {
+          "accuracy": 0.3548387096774194,
+          "cross_entropy": 2.7219700753149536,
+          "perplexity": 15.21025810134533
+        },
+        "g4": {
+          "accuracy": 0.30303030303030304,
+          "cross_entropy": 2.6147643778761083,
+          "perplexity": 13.663996458700133
+        },
+        "g5": {
+          "accuracy": 0.5151515151515151,
+          "cross_entropy": 2.2611594822450733,
+          "perplexity": 9.594207032744729
+        },
+        "g6": {
+          "accuracy": 0.3958333333333333,
+          "cross_entropy": 2.508286720376882,
+          "perplexity": 12.28386632376174
+        },
+        "g7": {
+          "accuracy": 0.375,
+          "cross_entropy": 9.187572400614988,
+          "perplexity": 9774.892629657585
+        },
+        "g9": {
+          "accuracy": 0.3958333333333333,
+          "cross_entropy": 8.664182263531822,
+          "perplexity": 5791.706523704
+        }
+      },
+      "B_context_sensitivity": {
+        "g1_distribution_difference": 0.0,
+        "g2_distribution_difference": 0.26164311878597585
+      },
+      "C_long_context_retention": {
+        "g4_long_accuracy": 0.38461538461538464,
+        "g6_long_accuracy": 0.0
+      },
+      "D_resource_efficiency": {
+        "g2_model_storage_bytes": 7920,
+        "g4_model_storage_bytes": 6232,
+        "g5_model_storage_bytes": 12768,
+        "g6_model_storage_bytes": 57056,
+        "g7_model_storage_bytes": 19184,
+        "g9_model_storage": 43152,
+        "g9_peak_ram": 37317,
+        "g9_tokens_per_second": 4667.626122898724
+      },
+      "E_scaling": {
+        "single_cpu_tokens_per_second": 160937.64749394055,
+        "two_cpu_tokens_per_second": 195803.65652838154,
+        "scaling_efficiency": 0.6083214821931386
+      },
+      "F_ablation": {
+        "minus_representation": {
+          "accuracy": 0.3548387096774194,
+          "cross_entropy": 2.566753394345989,
+          "perplexity": 13.02347364679385
+        },
+        "minus_context_compression": {
+          "accuracy": 0.3548387096774194,
+          "cross_entropy": 2.7219700753149536,
+          "perplexity": 15.21025810134533
+        },
+        "minus_adaptive_memory": {
+          "accuracy": 0.30303030303030304,
+          "cross_entropy": 2.6147643778761083,
+          "perplexity": 13.663996458700133
+        },
+        "minus_hierarchy": {
+          "accuracy": 0.5151515151515151,
+          "cross_entropy": 2.2611594822450733,
+          "perplexity": 9.594207032744729
+        },
+        "minus_sparsity": {
+          "accuracy": 0.3958333333333333,
+          "cross_entropy": 2.508286720376882,
+          "perplexity": 12.28386632376174
+        }
+      }
+    },
+    "final_decision": {
+      "Transition": "REMOVE",
+      "Context": "KEEP",
+      "Representation": "KEEP",
+      "Compression": "KEEP",
+      "Adaptive memory": "KEEP",
+      "Hierarchy": "UNCERTAIN",
+      "Sparsity": "KEEP",
+      "Multi-CPU": "KEEP"
+    },
+    "hard_gates": {
+      "context_sensitivity_confirmed": true,
+      "predictive_model_available": false,
+      "resource_measured": true,
+      "ablation_measured": true
+    }
+  }
+}

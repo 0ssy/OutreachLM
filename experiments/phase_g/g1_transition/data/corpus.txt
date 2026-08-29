@@ -1,0 +1,8 @@
+the cat sat on the mat
+the cat ate the fish
+the dog sat on the mat
+the dog ate the food
+the boy saw the dog
+the boy fed the cat
+the girl saw the cat
+the girl fed the dog

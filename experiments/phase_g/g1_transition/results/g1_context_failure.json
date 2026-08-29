@@ -1,0 +1,124 @@
+{
+  "experiment_id": "g1_context_failure",
+  "seed": 1337,
+  "alpha": 0.1,
+  "corpus_size": 8,
+  "vocab_size": 18,
+  "parameter_count": 324,
+  "transition_count": 40,
+  "training_and_test_time_seconds": 0.0012076999992132187,
+  "model_storage_bytes": 2600,
+  "process_peak_ram_bytes": 23123,
+  "contexts": {
+    "a": "the cat will",
+    "b": "the dog will",
+    "c": "the cat eats",
+    "d": "the dog sees"
+  },
+  "final_tokens": {
+    "a": "will",
+    "b": "will",
+    "c": "eats",
+    "d": "sees"
+  },
+  "distribution_comparisons": {
+    "same_final_token_a_vs_b_max_abs_diff": 0.0,
+    "different_final_token_c_vs_d_max_abs_diff": 0.2631578947368421,
+    "different_final_token_a_vs_c_max_abs_diff": 0.27223230490018147
+  },
+  "hard_gate": {
+    "same_final_token_distributions_identical": true,
+    "same_final_token_expected_max_abs_diff": 0.0,
+    "same_final_token_observed_max_abs_diff": 0.0
+  },
+  "top_predictions": {
+    "a": [
+      {
+        "token": "sleep",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "eat",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "purr",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "bark",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "<BOS>",
+        "probability": 0.017241379310344827
+      }
+    ],
+    "b": [
+      {
+        "token": "sleep",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "eat",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "purr",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "bark",
+        "probability": 0.1896551724137931
+      },
+      {
+        "token": "<BOS>",
+        "probability": 0.017241379310344827
+      }
+    ],
+    "c": [
+      {
+        "token": "food",
+        "probability": 0.28947368421052627
+      },
+      {
+        "token": "fish",
+        "probability": 0.28947368421052627
+      },
+      {
+        "token": "<BOS>",
+        "probability": 0.026315789473684206
+      },
+      {
+        "token": "<EOS>",
+        "probability": 0.026315789473684206
+      },
+      {
+        "token": "<UNK>",
+        "probability": 0.026315789473684206
+      }
+    ],
+    "d": [
+      {
+        "token": "people",
+        "probability": 0.28947368421052627
+      },
+      {
+        "token": "birds",
+        "probability": 0.28947368421052627
+      },
+      {
+        "token": "<BOS>",
+        "probability": 0.026315789473684206
+      },
+      {
+        "token": "<EOS>",
+        "probability": 0.026315789473684206
+      },
+      {
+        "token": "<PAD>",
+        "probability": 0.026315789473684206
+      }
+    ]
+  }
+}

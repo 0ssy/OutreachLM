@@ -1,0 +1,19 @@
+{
+  "experiment_id": "g2_contextual_transition_train",
+  "seed": 1337,
+  "alpha": 0.1,
+  "corpus_size": 18,
+  "train_size": 13,
+  "eval_size": 5,
+  "vocab_size": 29,
+  "g1_transition_count": 69,
+  "g2_transition_count": 69,
+  "training_time": 0.0010159999947063625,
+  "peak_process_ram": 23472,
+  "g1_parameter_count": 638,
+  "g2_parameter_count": 899,
+  "g1_nonzero_parameters": 41,
+  "g2_nonzero_parameters": 46,
+  "g1_model_storage_bytes": 5512,
+  "g2_model_storage_bytes": 7920
+}

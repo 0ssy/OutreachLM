@@ -1,0 +1,36 @@
+{
+  "experiment_id": "g4_context_compression",
+  "seed": 1337,
+  "corpus_size": 14,
+  "vocab_size": 38,
+  "context_length": 4,
+  "compressed_state_buckets": 32,
+  "parameter_count": 722,
+  "nonzero_parameters": 49,
+  "training_time": 0.001382200003718026,
+  "inference_time": 0.0015207999967969954,
+  "tokens_per_second": 21699.10577952547,
+  "model_storage_bytes": 6232,
+  "explicit_context_storage_bytes": 13744,
+  "peak_process_ram": 66709,
+  "g4": {
+    "accuracy": 0.30303030303030304,
+    "cross_entropy": 2.6147643778761083,
+    "perplexity": 13.663996458700133
+  },
+  "order4_reference": {
+    "accuracy": 0.48484848484848486,
+    "cross_entropy": 2.3330017047608487,
+    "perplexity": 10.308839228755454
+  },
+  "long_context": {
+    "accuracy": 0.38461538461538464,
+    "cross_entropy": 1.9148789193171434,
+    "perplexity": 6.786117079563324
+  },
+  "hard_gates": {
+    "memory_reduced": true,
+    "retention_noncatastrophic": true,
+    "cpu_practical": true
+  }
+}

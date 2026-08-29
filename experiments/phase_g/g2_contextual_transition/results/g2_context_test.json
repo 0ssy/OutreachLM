@@ -1,0 +1,19 @@
+{
+  "experiment_id": "g2_context_sensitivity_test",
+  "seed": 1337,
+  "contexts": {
+    "a": "the cat will",
+    "b": "the dog will"
+  },
+  "final_token_a": "will",
+  "final_token_b": "will",
+  "g1_distribution_difference": 0.0,
+  "g2_distribution_difference": 0.26164311878597585,
+  "hard_gate_context_sensitive": true,
+  "model_storage_bytes": {
+    "g1": 5512,
+    "g2": 7920
+  },
+  "process_peak_ram_bytes": 2613,
+  "inference_time": 0.00021670000569429249
+}

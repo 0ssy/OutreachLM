@@ -1,0 +1,32 @@
+{
+  "experiment_id": "g6_hierarchical_structure",
+  "seed": 1337,
+  "corpus_size": 22,
+  "vocab_size": 46,
+  "parameter_count": 6624,
+  "nonzero_parameters": 202,
+  "training_time": 0.007375100001809187,
+  "inference_time": 0.003189600000041537,
+  "tokens_per_second": 15048.908953904851,
+  "model_storage_bytes": 57056,
+  "peak_process_ram": 111613,
+  "g5_reference": {
+    "accuracy": 0.5151515151515151,
+    "cross_entropy": 2.2611594822450733,
+    "perplexity": 9.594207032744729
+  },
+  "g6": {
+    "accuracy": 0.3958333333333333,
+    "cross_entropy": 2.508286720376882,
+    "perplexity": 12.28386632376174
+  },
+  "hierarchical_breakdown": {
+    "local_accuracy": 0.0,
+    "medium_accuracy": 0.0,
+    "long_accuracy": 0.0
+  },
+  "hard_gates": {
+    "advantage_over_g5": false,
+    "cpu_measured": true
+  }
+}

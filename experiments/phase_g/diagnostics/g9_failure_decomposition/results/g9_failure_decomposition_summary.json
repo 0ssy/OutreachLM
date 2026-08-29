@@ -1,0 +1,229 @@
+{
+  "experiment_id": "g9_failure_decomposition_summary",
+  "seed": 1337,
+  "eval_token_count": 48,
+  "stage_metrics": {
+    "g2": {
+      "accuracy": 0.375,
+      "cross_entropy": 2.6049237115557893,
+      "perplexity": 13.530193065995405,
+      "count": 48,
+      "entropy_mean": 2.9265830302344114,
+      "entropy_std": 0.5653254915687455,
+      "entropy_min": 1.7743174176170209,
+      "entropy_max": 3.554336547864042,
+      "support_mean": 46.0,
+      "support_min": 46.0,
+      "support_max": 46.0,
+      "top1_probability_mean": 0.2736726721713061,
+      "top1_probability_min": 0.10377358490566041,
+      "top1_probability_max": 0.61734693877551,
+      "state_l2_mean": 0.34604239965655426,
+      "state_l2_std": 0.13841225199737858,
+      "state_l1_mean": 1.0
+    },
+    "g3": {
+      "accuracy": 0.375,
+      "cross_entropy": 2.766071081991237,
+      "perplexity": 15.896056855988082,
+      "count": 48,
+      "entropy_mean": 3.06598970244986,
+      "entropy_std": 0.566749851129431,
+      "entropy_min": 1.7743174176170209,
+      "entropy_max": 3.615892793067982,
+      "support_mean": 46.0,
+      "support_min": 46.0,
+      "support_max": 46.0,
+      "top1_probability_mean": 0.23293874879889573,
+      "top1_probability_min": 0.08548062584776528,
+      "top1_probability_max": 0.61734693877551,
+      "state_l2_mean": 0.30805971016367834,
+      "state_l2_std": 0.14352961303100373,
+      "state_l1_mean": 1.0
+    },
+    "g4": {
+      "accuracy": 0.2916666666666667,
+      "cross_entropy": 2.891813220503984,
+      "perplexity": 18.025965036259308,
+      "count": 48,
+      "entropy_mean": 2.9662960498457074,
+      "entropy_std": 0.5137179544504568,
+      "entropy_min": 1.9516767625091207,
+      "entropy_max": 3.554336547864042,
+      "support_mean": 46.0,
+      "support_min": 46.0,
+      "support_max": 46.0,
+      "top1_probability_mean": 0.25902281718103976,
+      "top1_probability_min": 0.10377358490566041,
+      "top1_probability_max": 0.5601851851851849,
+      "state_l2_mean": 0.33348971406821476,
+      "state_l2_std": 0.11659724902193325,
+      "state_l1_mean": 1.0000000000000002
+    },
+    "g5": {
+      "accuracy": 0.3541666666666667,
+      "cross_entropy": 2.6068017969671,
+      "perplexity": 13.555627801031145,
+      "count": 48,
+      "entropy_mean": 2.9441194226295853,
+      "entropy_std": 0.5710692168158551,
+      "entropy_min": 1.7743174176170209,
+      "entropy_max": 3.554336547864042,
+      "support_mean": 46.0,
+      "support_min": 46.0,
+      "support_max": 46.0,
+      "top1_probability_mean": 0.265901241571329,
+      "top1_probability_min": 0.11458333333333337,
+      "top1_probability_max": 0.61734693877551,
+      "state_l2_mean": 0.3405478079712552,
+      "state_l2_std": 0.13963219950397535,
+      "state_l1_mean": 1.0000000000000002
+    },
+    "g6": {
+      "accuracy": 0.3958333333333333,
+      "cross_entropy": 2.508286720376883,
+      "perplexity": 12.283866323761751,
+      "count": 48,
+      "entropy_mean": 2.960072369491216,
+      "entropy_std": 0.5765385756133409,
+      "entropy_min": 1.774317417617021,
+      "entropy_max": 3.554525252083513,
+      "support_mean": 46.0,
+      "support_min": 46.0,
+      "support_max": 46.0,
+      "top1_probability_mean": 0.2623876374009305,
+      "top1_probability_min": 0.10755699685534588,
+      "top1_probability_max": 0.6173469387755105,
+      "state_l2_mean": 0.3371930478228152,
+      "state_l2_std": 0.14009424157985267,
+      "state_l1_mean": 1.0
+    },
+    "g7": {
+      "accuracy": 0.3958333333333333,
+      "cross_entropy": 8.102017735015492,
+      "perplexity": 3301.1221496986977,
+      "count": 48,
+      "entropy_mean": 1.0610807576501633,
+      "entropy_std": 0.3162538473717073,
+      "entropy_min": 0.39537219227550147,
+      "entropy_max": 1.3862943622803932,
+      "support_mean": 4.0,
+      "support_min": 4.0,
+      "support_max": 4.0,
+      "top1_probability_mean": 0.5233343398430456,
+      "top1_probability_min": 0.25,
+      "top1_probability_max": 0.911764705882353,
+      "state_l2_mean": 0.6379078177160301,
+      "state_l2_std": 0.12879456144241622,
+      "state_l1_mean": 1.0
+    },
+    "g9": {
+      "accuracy": 0.3958333333333333,
+      "cross_entropy": 2.433591725286949,
+      "perplexity": 11.399753419372884,
+      "count": 48,
+      "entropy_mean": 2.79294271470838,
+      "entropy_std": 0.5554018700548375,
+      "entropy_min": 1.6211452827095616,
+      "entropy_max": 3.3393347942044596,
+      "support_mean": 46.0,
+      "support_min": 46.0,
+      "support_max": 46.0,
+      "top1_probability_mean": 0.3013697303985941,
+      "top1_probability_min": 0.13281521494634715,
+      "top1_probability_max": 0.6424461451247166,
+      "state_l2_mean": 0.375618349972469,
+      "state_l2_std": 0.13380913960248655,
+      "state_l1_mean": 1.0
+    }
+  },
+  "stage_deltas": {
+    "cross_entropy": {
+      "g2_to_g3": 0.1611473704354478,
+      "g3_to_g4": 0.12574213851274685,
+      "g4_to_g5": -0.28501142353688413,
+      "g5_to_g6": -0.09851507659021674,
+      "g6_to_g7": 5.593731014638609,
+      "g7_to_g9": -5.6684260097285435
+    },
+    "entropy_mean": {
+      "g2_to_g3": 0.13940667221544878,
+      "g3_to_g4": -0.09969365260415275,
+      "g4_to_g5": -0.022176627216122125,
+      "g5_to_g6": 0.015952946861630846,
+      "g6_to_g7": -1.8989916118410528,
+      "g7_to_g9": 1.7318619570582168
+    },
+    "support_mean": {
+      "g2_to_g3": 0.0,
+      "g3_to_g4": 0.0,
+      "g4_to_g5": 0.0,
+      "g5_to_g6": 0.0,
+      "g6_to_g7": -42.0,
+      "g7_to_g9": 42.0
+    }
+  },
+  "kl_divergence": {
+    "summary": {
+      "g2_g3": {
+        "mean": 0.07278075800113808,
+        "p50": 0.07771902210152665,
+        "p90": 0.12933928874054848,
+        "p95": 0.1379114737636901,
+        "max": 0.14743183756489586
+      },
+      "g3_g4": {
+        "mean": 0.387316383331971,
+        "p50": 0.3584364637593873,
+        "p90": 0.8390479619424306,
+        "p95": 0.9158359499024186,
+        "max": 0.9650376818610936
+      },
+      "g4_g5": {
+        "mean": 0.4325334344929903,
+        "p50": 0.40127737082545084,
+        "p90": 0.8671471283453273,
+        "p95": 1.0051731804318216,
+        "max": 1.1112662224657195
+      },
+      "g5_g6": {
+        "mean": 0.036189449029602076,
+        "p50": 0.0014790094101294546,
+        "p90": 0.10385143589834325,
+        "p95": 0.1918406538339423,
+        "max": 0.37800753938614395
+      },
+      "g6_g7": {
+        "mean": 11.601963578674384,
+        "p50": 13.12127026313351,
+        "p90": 16.713777962981865,
+        "p95": 17.208845920925878,
+        "max": 17.357678478615078
+      },
+      "g7_g9": {
+        "mean": 0.6079755649137129,
+        "p50": 0.6673575116707203,
+        "p90": 0.9270900343904641,
+        "p95": 0.9415137449905997,
+        "max": 0.9638042455251615
+      }
+    },
+    "largest_mean_kl_edge": "g6_g7",
+    "largest_p95_kl_edge": "g6_g7"
+  },
+  "resource_usage": {
+    "training_time_seconds": 0.013685300000361167,
+    "inference_time_seconds": 0.2022504999913508,
+    "tokens_per_second": 237.3294503699754,
+    "peak_process_ram_bytes": 1642859,
+    "model_storage_bytes": {
+      "g2": 19184,
+      "g3_embeddings": 16928,
+      "g4": 9392,
+      "g5": 22712,
+      "g6_local": 19184,
+      "g6_medium": 23968,
+      "g6_global": 13904
+    }
+  }
+}

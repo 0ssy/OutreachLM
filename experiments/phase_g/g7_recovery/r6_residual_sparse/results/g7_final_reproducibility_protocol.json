@@ -1,0 +1,26 @@
+{
+  "seed_values": [
+    1337,
+    2024,
+    4242,
+    9001,
+    12345
+  ],
+  "scenarios": [
+    "baseline_split",
+    "larger_eval_corpus",
+    "context_long_heavy",
+    "context_ambiguity_heavy",
+    "unseen_transitions",
+    "unseen_tokens"
+  ],
+  "total_runs_expected": 30,
+  "required_checks": [
+    "competitive_vs_g6",
+    "recovered_vs_g6_plus_0.1",
+    "mass_correctness",
+    "beats_r4",
+    "cpu_benchmark",
+    "variance_bootstrap"
+  ]
+}

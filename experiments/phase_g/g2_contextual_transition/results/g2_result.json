@@ -1,0 +1,30 @@
+{
+  "experiment_id": "g2_contextual_transition",
+  "seed": 1337,
+  "corpus_size": 18,
+  "vocab_size": 29,
+  "parameter_count": 899,
+  "nonzero_parameters": 46,
+  "transition_count": 31,
+  "context_count": 31,
+  "training_time": 0.0010159999947063625,
+  "inference_time": 0.04419650000636466,
+  "tokens_per_second": 701.4130077163519,
+  "model_storage_bytes": 7920,
+  "peak_process_ram": 1047162,
+  "random": {
+    "accuracy": 0.0,
+    "cross_entropy": 3.367295829986474,
+    "perplexity": 29.0
+  },
+  "g1": {
+    "accuracy": 0.3870967741935484,
+    "cross_entropy": 2.4479667126952096,
+    "perplexity": 11.564808219331702
+  },
+  "g2": {
+    "accuracy": 0.3548387096774194,
+    "cross_entropy": 2.566753394345989,
+    "perplexity": 13.02347364679385
+  }
+}

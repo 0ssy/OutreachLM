@@ -1,0 +1,25 @@
+{
+  "mechanism_name": "g7_final_hybrid",
+  "description": "sparse compute + dense probability reconstruction + contextual residual correction + forced-UNK hybrid gating",
+  "default_profile": {
+    "top_k": 4,
+    "context_blend": 0.9,
+    "tail_temperature": 0.75,
+    "head_temperature": 1.1,
+    "head_context_mix": 0.0,
+    "residual_gain": 0.8
+  },
+  "oov_profile": {
+    "top_k": 4,
+    "context_blend": 0.9,
+    "tail_temperature": 0.9,
+    "head_temperature": 0.8,
+    "head_context_mix": 0.0,
+    "residual_gain": 0.6
+  },
+  "hybrid_gate": {
+    "trigger_if_unk_in_context": true,
+    "trigger_if_g6_unk_probability_gte": 0.02
+  },
+  "operations_per_token_estimate": 8.0
+}
