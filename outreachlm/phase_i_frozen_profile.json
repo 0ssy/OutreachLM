@@ -1,0 +1,26 @@
+{
+  "profile_version": 1,
+  "capability_token": "SEMANTIC_INTELLIGENCE_VERIFIED_2026",
+  "frozen_config_hash_sha256": "9f45d9581629fedf19df0ec97804148691a3861d8cb89ce006dde8f4c7714b58",
+  "required_gates": {
+    "i1_min_max_tested_context_tokens": 16384,
+    "i1_min_needle_recall_accuracy_at_16k": 0.85,
+    "i1_required_long_context_smearing": "FALSE",
+    "i2_min_coreference_resolution_accuracy_rate": 0.85,
+    "i2_max_transactional_state_errors_detected": 0,
+    "i3_required_structural_composition_status": "PASS",
+    "i3_min_unseen_compositional_generalization_rate": 0.8,
+    "i4_min_closure_validation_accuracy_rate": 0.95,
+    "i5_min_paraphrase_matching_confidence_score": 0.9,
+    "i6_min_memory_retrieval_accuracy_rate": 0.85,
+    "i6_max_irrelevant_context_contamination_rate": 0.05,
+    "i7_min_factual_consistency_maintenance_rate": 0.8,
+    "i7_min_structural_output_validity_score": 0.9,
+    "i7_max_degenerate_repetition_run_count": 0,
+    "i8_required_cross_lingual_relation_invariance_status": "PASS",
+    "i9_min_misleading_distractor_bypass_rate": 0.8,
+    "i9_min_contradictory_fact_rejection_rate": 0.8,
+    "i9_required_primary_architectural_break_point_log": "none",
+    "final_required_scientific_gate_status": "PASS"
+  }
+}

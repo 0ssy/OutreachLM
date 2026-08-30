@@ -23,6 +23,7 @@ from outreachlm.train import (
 )
 from outreachlm.tokenizer import CharacterTokenizer
 from outreachlm.phase_h_runtime import BoundedStateRuntime
+from outreachlm.phase_i_runtime import SemanticRuntime
 
 
 # ============================================================
@@ -43,6 +44,7 @@ TEMPERATURE = 0.8
 # Top-k limits sampling to the k most probable tokens.
 TOP_K = 8
 PHASE_H_ARTIFACT_ENV = "OUTREACHLM_PHASE_H_ARTIFACT"
+PHASE_I_ARTIFACT_ENV = "OUTREACHLM_PHASE_I_ARTIFACT"
 
 
 # ============================================================
@@ -497,6 +499,22 @@ def generate(
 # ============================================================
 
 def main():
+    phase_i_artifact = os.environ.get(PHASE_I_ARTIFACT_ENV)
+    if phase_i_artifact:
+        runtime = SemanticRuntime.load(phase_i_artifact)
+        result = runtime.generate(
+            DEFAULT_PROMPT,
+            max_new_tokens=MAX_NEW_TOKENS,
+            temperature=TEMPERATURE,
+            top_k=TOP_K,
+        )
+        print("=" * 60)
+        print("OUTREACHLM PHASE I GENERATION")
+        print("=" * 60)
+        print()
+        print(result["generated_text"])
+        return
+
     phase_h_artifact = os.environ.get(PHASE_H_ARTIFACT_ENV)
     if phase_h_artifact:
         runtime = BoundedStateRuntime.load(phase_h_artifact)
