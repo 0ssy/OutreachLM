@@ -1,0 +1,27 @@
+{
+  "experiment_id": "phase_g_bridge_smoke",
+  "corpus_path": "C:\\Users\\josep\\Desktop\\OutreachLM\\corpus\\fineweb",
+  "train_line_count": 2000,
+  "eval_line_count": 300,
+  "line_caps": {
+    "max_train_lines": 2000,
+    "max_eval_lines": 300
+  },
+  "metrics": {
+    "accuracy": 0.04981684981684982,
+    "cross_entropy": 8.357602482748373,
+    "perplexity": 4262.463177089064,
+    "count": 9555.0,
+    "mass_error_max": 4.440892098500626e-16,
+    "entropy_mean": 7.7648058207616995,
+    "support_mean@1e-4": 705.6281527995814,
+    "operations_per_token_estimate": 8.0
+  },
+  "sample_prediction": {
+    "prompt": "the cat",
+    "top_token_id": 19,
+    "top_token": "the",
+    "top_probability": 0.1201547724928139
+  },
+  "artifact_path": "C:\\Users\\josep\\Desktop\\OutreachLM\\models\\phase_g_hybrid_runtime.pkl"
+}
