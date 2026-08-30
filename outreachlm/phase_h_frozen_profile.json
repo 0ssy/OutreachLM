@@ -1,0 +1,18 @@
+{
+  "profile_version": 1,
+  "submission_token": "SOVEREIGN_CACHE_VERIFIED_2026",
+  "frozen_config_hash_sha256": "254a01a69315bec6abcc44d2b648b07abbb342e51f157c5e238f854089c5bbeb",
+  "required_gates": {
+    "h1_min_final_ingested_tokens": 100000,
+    "h1_memory_scaling_profile": "sublinear",
+    "h2_selected_tokenizer_profile": "online_bpe",
+    "h2_min_average_compression_ratio": 2.5,
+    "h2_max_final_vocabulary_size": 32000,
+    "h3_max_mass_error": 1e-06,
+    "h3_max_kl_divergence_vs_g7": 0.05,
+    "h4_required_gate_status": "PASS",
+    "h4_min_context_intervention_delta": 0.25,
+    "h4_max_unk_absorbed_mass_percentage": 10.0,
+    "h5_min_latency_variance_reduction_rate": 0.15
+  }
+}
