@@ -1,0 +1,18 @@
+phase_i_capability_token: "SEMANTIC_INTELLIGENCE_VERIFIED_2026"
+
+memory_hierarchy:
+  max_context_horizon: 16384
+  retrieval_threshold: 0.85
+
+structural_syntax:
+  max_nesting_depth: 4
+  enforce_strict_closure: true
+
+implicit_semantics:
+  min_paraphrase_similarity: 0.90
+  max_unk_contamination_rate: 0.05
+
+runtime:
+  train_lines: 1200
+  eval_lines: 160
+  seed: 1337
