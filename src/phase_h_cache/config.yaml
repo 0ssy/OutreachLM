@@ -1,4 +1,5 @@
 phase_h_submission_token: "SOVEREIGN_CACHE_VERIFIED_2026"
+phase_h_deep_profile_token: "BOUNDED_RUNTIME_ARCH_VERIFIED_2026"
 
 h1:
   min_tokens: 100000
@@ -33,3 +34,33 @@ h5:
   cores: [1, 2, 4]
   seed: 1337
   train_lines: 900
+
+h6:
+  state_sizes_mb: [0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0, 128.0]
+  steps: 2000
+  train_lines: 900
+  eval_lines: 120
+  seed: 1337
+
+h7:
+  milestones: [10000, 50000, 100000, 250000, 500000, 1000000, 5000000, 10000000]
+  max_nodes: 5000
+  vocab_cap: 32000
+  context_delta_gate: 0.25
+  unk_gate_percent: 10.0
+  sample_eval_tokens: 4096
+  seed: 1337
+
+h8:
+  context_lengths: [32, 128, 256, 512, 1024, 2048, 4096, 8192]
+  train_lines: 1200
+  eval_lines: 120
+  seed: 1337
+  context_delta_gate: 0.25
+
+h9:
+  generation_tokens: 1000
+  pruning_top_k: 64
+  train_lines: 1200
+  eval_lines: 120
+  seed: 1337

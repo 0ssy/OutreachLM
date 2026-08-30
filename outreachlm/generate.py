@@ -1,4 +1,5 @@
 import json
+import os
 
 import torch
 
@@ -21,6 +22,7 @@ from outreachlm.train import (
     save_tokenizer,
 )
 from outreachlm.tokenizer import CharacterTokenizer
+from outreachlm.phase_h_runtime import BoundedStateRuntime
 
 
 # ============================================================
@@ -40,6 +42,7 @@ TEMPERATURE = 0.8
 
 # Top-k limits sampling to the k most probable tokens.
 TOP_K = 8
+PHASE_H_ARTIFACT_ENV = "OUTREACHLM_PHASE_H_ARTIFACT"
 
 
 # ============================================================
@@ -494,6 +497,22 @@ def generate(
 # ============================================================
 
 def main():
+    phase_h_artifact = os.environ.get(PHASE_H_ARTIFACT_ENV)
+    if phase_h_artifact:
+        runtime = BoundedStateRuntime.load(phase_h_artifact)
+        result = runtime.generate(
+            DEFAULT_PROMPT,
+            max_new_tokens=MAX_NEW_TOKENS,
+            temperature=TEMPERATURE,
+            top_k=TOP_K,
+            apply_safety=True,
+        )
+        print("=" * 60)
+        print("OUTREACHLM PHASE H GENERATION")
+        print("=" * 60)
+        print()
+        print(result["generated_text"])
+        return
 
     model, tokenizer = load_model_and_tokenizer()
 

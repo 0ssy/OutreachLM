@@ -1,7 +1,7 @@
 {
   "profile_version": 1,
   "submission_token": "SOVEREIGN_CACHE_VERIFIED_2026",
-  "frozen_config_hash_sha256": "254a01a69315bec6abcc44d2b648b07abbb342e51f157c5e238f854089c5bbeb",
+  "frozen_config_hash_sha256": "64ab9f7ac48c638266d4d4fd205a41937feac6699c675bf1a04bd4d8ed979214",
   "required_gates": {
     "h1_min_final_ingested_tokens": 100000,
     "h1_memory_scaling_profile": "sublinear",
