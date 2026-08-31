@@ -8,6 +8,7 @@ def test_phase_j_gate_matrix_passes() -> None:
     assert payload["final_diagnostic_gate_status"] == "PASS"
     assert payload["experiment_j1_deduction"]["baseline_deductive_accuracy"] >= 0.98
     assert payload["experiment_j2_multi_hop_curve"]["accuracy_8_hops"] >= 0.90
+    assert payload["experiment_j6_counterfactual"]["factual_state_corruption_detected"] == "FALSE"
     assert payload["experiment_j7_planning"]["dependency_violation_count"] == 0
     assert payload["experiment_j9_self_verification"]["candidate_checking_intercept_rate"] >= 0.95
 
