@@ -1,0 +1,18 @@
+{
+  "profile_version": 1,
+  "capability_token": "REASONING_DEGRADATION_INITIAL_2026",
+  "frozen_config_hash_sha256": "636834fbcc09a77da6f9fe9c5806f64c7812dc32f22a9d3e0732c420bd78e741",
+  "required_gates": {
+    "j1_min_deductive_accuracy": 0.98,
+    "j2_min_8_hop_accuracy": 0.9,
+    "j3_min_paradox_detection_rate": 1.0,
+    "j3_max_blind_generation_error_count": 0,
+    "j4_min_causal_separation_rate": 0.95,
+    "j5_min_chronological_ordering_accuracy": 0.95,
+    "j6_required_factual_corruption": "FALSE",
+    "j7_max_dependency_violations": 0,
+    "j8_min_sub_goal_accuracy": 0.95,
+    "j9_min_candidate_checking_intercept_rate": 0.95,
+    "final_required_gate_status": "PASS"
+  }
+}
