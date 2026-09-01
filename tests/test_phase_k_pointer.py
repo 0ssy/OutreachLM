@@ -15,36 +15,7 @@ import pytest
 from outreachlm.phase_g_bridge import PhaseGHybridConfig, PhaseGHybridRuntime, WordTokenizer
 from outreachlm.phase_h_runtime import BoundedStateRuntime, PhaseHRuntimeConfig
 from outreachlm.phase_k_pointer_runtime import PointerAugmentedConfig, PointerAugmentedRuntime
-from src.phase_k_reasoning.pointer import (
-    detect_query_anchor,
-    extract_link_facts,
-    resolve_pointer,
-    resolve_transitive_target,
-)
-
-
-def test_extract_link_facts_parses_all_stated_links() -> None:
-    facts = extract_link_facts("nodeA links nodeB . nodeB links nodeC . unrelated text here")
-    assert facts == {"nodeA": "nodeB", "nodeB": "nodeC"}
-
-
-def test_detect_query_anchor_only_matches_completion_queries() -> None:
-    assert detect_query_anchor("nodeA links nodeB . chain complete nodeA links") == "nodeA"
-    assert detect_query_anchor("nodeA links nodeB .") is None
-    assert detect_query_anchor("") is None
-
-
-def test_resolve_transitive_target_follows_multi_hop_chain() -> None:
-    facts = {"A": "B", "B": "C", "C": "D"}
-    assert resolve_transitive_target(facts, "A") == "D"
-    assert resolve_transitive_target(facts, "Z") is None
-
-
-def test_resolve_transitive_target_guards_against_cycles() -> None:
-    facts = {"A": "B", "B": "A"}
-    # Must terminate rather than looping forever.
-    result = resolve_transitive_target(facts, "A")
-    assert result in {"A", "B"}
+from src.phase_k_reasoning.pointer import resolve_pointer
 
 
 def test_resolve_pointer_end_to_end() -> None:

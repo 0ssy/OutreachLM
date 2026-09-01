@@ -1,0 +1,28 @@
+{
+  "_comment": "A modest, hand-curated starter fact store demonstrating the external world-knowledge fallback mechanism. This is NOT comprehensive world knowledge; it only knows what is explicitly listed here. Extend it with more subject/relation/object triples as needed.",
+  "facts": [
+    {"subject": "engineer", "relation": "uses", "object": "computer"},
+    {"subject": "doctor", "relation": "uses", "object": "stethoscope"},
+    {"subject": "carpenter", "relation": "uses", "object": "hammer"},
+    {"subject": "chef", "relation": "uses", "object": "knife"},
+    {"subject": "pilot", "relation": "flies", "object": "airplane"},
+    {"subject": "paris", "relation": "is capital of", "object": "france"},
+    {"subject": "tokyo", "relation": "is capital of", "object": "japan"},
+    {"subject": "nairobi", "relation": "is capital of", "object": "kenya"},
+    {"subject": "london", "relation": "is capital of", "object": "england"},
+    {"subject": "berlin", "relation": "is capital of", "object": "germany"},
+    {"subject": "rome", "relation": "is capital of", "object": "italy"},
+    {"subject": "cairo", "relation": "is capital of", "object": "egypt"},
+    {"subject": "canberra", "relation": "is capital of", "object": "australia"},
+    {"subject": "ottawa", "relation": "is capital of", "object": "canada"},
+    {"subject": "water", "relation": "boils at", "object": "100c"},
+    {"subject": "water", "relation": "freezes at", "object": "0c"},
+    {"subject": "sun", "relation": "rises in", "object": "east"},
+    {"subject": "sun", "relation": "sets in", "object": "west"},
+    {"subject": "earth", "relation": "orbits", "object": "sun"},
+    {"subject": "moon", "relation": "orbits", "object": "earth"},
+    {"subject": "oxygen", "relation": "is required for", "object": "combustion"},
+    {"subject": "plants", "relation": "produce", "object": "oxygen"},
+    {"subject": "bees", "relation": "produce", "object": "honey"}
+  ]
+}

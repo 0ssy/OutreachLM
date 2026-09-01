@@ -29,6 +29,15 @@ class PointerPrediction:
     used_pointer: bool
 
 
+@dataclass(frozen=True)
+class PointerCompletion:
+    prompt: str
+    completion: str | None
+    pointer: PointerResolution
+    used_pointer: bool
+    truncated: bool = False
+
+
 class PointerAugmentedRuntime:
     """Wraps a frozen BoundedStateRuntime with a general in-context relation pointer.
 
@@ -44,6 +53,13 @@ class PointerAugmentedRuntime:
     - contradiction: the stated facts contradict each other for this
       relation (an explicit negation of an asserted fact) -> decline to
       confidently answer at all, and fall back to the base distribution.
+
+    Resolved answers may themselves be multi-word (e.g. "the old bridge",
+    "New York City"). The underlying tokenizer only assigns IDs to single
+    whitespace-delimited words, so a single `predict_next` call can only ever
+    boost one token: it boosts the first word of the resolved answer. Use
+    `complete_query` to deterministically obtain the *entire* multi-word
+    answer (word by word) rather than just its first token.
     """
 
     def __init__(self, runtime: BoundedStateRuntime, *, config: PointerAugmentedConfig | None = None) -> None:
@@ -74,10 +90,12 @@ class PointerAugmentedRuntime:
             return _fallback()
 
         if pointer.ambiguous and pointer.candidate_targets:
+            # A candidate may itself be multi-word; only its first word can be
+            # boosted for this single next-token step.
             candidate_ids = [
-                self.runtime.tokenizer.token_to_id[token]
+                token_id
                 for token in pointer.candidate_targets
-                if token in self.runtime.tokenizer.token_to_id
+                if (token_id := self.runtime.tokenizer.token_to_id.get(token.split()[0])) is not None
             ]
             if not candidate_ids:
                 return _fallback()
@@ -97,7 +115,8 @@ class PointerAugmentedRuntime:
             )
 
         if pointer.resolved and pointer.resolved_target is not None:
-            target_id = self.runtime.tokenizer.token_to_id.get(pointer.resolved_target)
+            first_word = pointer.resolved_target.split()[0]
+            target_id = self.runtime.tokenizer.token_to_id.get(first_word)
             if target_id is None:
                 return _fallback()
             copy_weight = self.config.copy_weight
@@ -114,3 +133,41 @@ class PointerAugmentedRuntime:
             )
 
         return _fallback()
+
+    def complete_query(self, prompt_text: str) -> PointerCompletion:
+        """Deterministically resolve the *entire* answer span for a query.
+
+        Unlike `predict_next`, which can only directly boost a single token,
+        this returns the full resolved answer (all of its words, in order) as
+        long as every word is representable in the tokenizer's vocabulary. If
+        a later word isn't in vocabulary, the completion stops there rather
+        than silently fabricating a token; `truncated=True` makes that
+        explicit so the caller doesn't have to independently recompute the
+        expected word count to notice a partial answer.
+        """
+        pointer = resolve_pointer(prompt_text)
+        if not pointer.resolved or pointer.resolved_target is None:
+            return PointerCompletion(prompt=prompt_text, completion=None, pointer=pointer, used_pointer=False)
+
+        words = pointer.resolved_target.split()
+        completed_words: list[str] = []
+        for word in words:
+            if word not in self.runtime.tokenizer.token_to_id:
+                break
+            completed_words.append(word)
+
+        truncated = len(completed_words) < len(words)
+
+        if not completed_words:
+            return PointerCompletion(
+                prompt=prompt_text, completion=None, pointer=pointer, used_pointer=False, truncated=truncated
+            )
+
+        return PointerCompletion(
+            prompt=prompt_text,
+            completion=" ".join(completed_words),
+            pointer=pointer,
+            used_pointer=True,
+            truncated=truncated,
+        )
+
