@@ -1,4 +1,4 @@
-# Workspace map — 22 file(s)
+# Workspace map — 23 file(s)
 
 A map, not a substitute for reading. Paths are workspace-relative. Use read_file (with
 start_line/end_line) or search_files on these paths instead of re-listing directories.
@@ -24,10 +24,6 @@ src/phase_i_semantic/
   __init__.py
   config_loader.py
   config.yaml
-src/phase_i_semantic/semantics/
-  __init__.py
-  multilingual_relay.py
-  state_representation.py
 src/phase_j_reasoning/
   __init__.py
 src/phase_j_reasoning/logic/
@@ -35,13 +31,18 @@ src/phase_j_reasoning/logic/
   rollback.py
   topological_planner.py
   transitive_reduction.py
+src/phase_k_reasoning/
+  __init__.py
+  pointer.py
+  relation_engine.py
+  world_knowledge.json
 (29 doc file(s) omitted)
 experiments/phase_g/common/ — 7 more file(s) (use list_files to enumerate)
 experiments/phase_g/g1_transition/ — 7 more file(s) (use list_files to enumerate)
 experiments/phase_g/results/ — 32 more file(s) (use list_files to enumerate)
 src/phase_h_cache/experiments/ — 13 more file(s) (use list_files to enumerate)
 src/phase_i_semantic/experiments/ — 12 more file(s) (use list_files to enumerate)
-outreachlm/ — 37 more file(s) (use list_files to enumerate)
-tests/ — 36 more file(s) (use list_files to enumerate)
-(17 directories omitted)
+outreachlm/ — 38 more file(s) (use list_files to enumerate)
+tests/ — 43 more file(s) (use list_files to enumerate)
+(18 directories omitted)
 (walk stopped early: depth cap reached — use list_files for anything not listed)

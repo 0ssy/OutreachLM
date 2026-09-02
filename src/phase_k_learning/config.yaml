@@ -1,0 +1,26 @@
+hardware_scaling:
+  target_cpus_count: 3                # Configured for the impending hardware expansion
+  threads_per_core: 1                 # Prevent core thrashing by disabling hyperthreading
+  pin_memory: true                    # Lock tensors to page-locked memory to maximize speed
+
+neural_dimensions:
+  vocabulary_size: 16000              # Bounded vocabulary cap for high-density embeddings
+  embedding_dim: 128                  # Continuous vector coordinate track depth
+  hidden_dim: 256                     # Hidden layer representational capacity
+  max_sequence_length: 288            # Must exceed the longest evaluated chain (depth 64 = 261
+                                      # tokens). At the previous value of 128 the left-truncation
+                                      # removed the chain's FIRST fact for depths >= 32, making
+                                      # those depths unsolvable in principle rather than merely
+                                      # hard. A GRU is recurrent and has no architectural context
+                                      # limit, so this is purely a batching/truncation bound.
+
+optimization:
+  initial_learning_rate: 0.001        # Stochastic gradient descent adjustment scalar
+  gradient_clip_norm: 1.0             # Enforce stability against gradient explosions
+  answer_loss_weight: 64.0            # Loss multiplier on the final answer token. With uniform
+                                      # weighting the answer carried only ~1.29% of the gradient
+                                      # signal (51% structural boilerplate + 25% trivially
+                                      # copyable + 24% irreducibly random), so the network
+                                      # converged to the "learned everything except the answer"
+                                      # floor. This reweights the objective onto the token the
+                                      # evaluation actually scores.
