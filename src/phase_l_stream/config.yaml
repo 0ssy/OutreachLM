@@ -1,0 +1,52 @@
+hardware_acceleration:
+  total_training_nodes: 2             # Dual-laptop configuration unit
+  cpus_per_node: 6                    # MEASURED: 6 physical cores = 1.52x over 3 on this
+                                      # Ryzen 5 7530U (6C/12T). 12 threads measured *slower*
+                                      # than 6 (7078 vs 7473 tok/s) because the two logical
+                                      # siblings on a core contend for the same FP/SIMD unit,
+                                      # so hyperthreading hurts a BLAS-bound workload.
+                                      # Raise only to the physical core count, never the
+                                      # logical count.
+  inter_process_buffer_kb: 128        # Fixed 128KB ring buffer for single-pass RAM ingestion
+  torch_compile_enabled: true         # Enable PyTorch Inductor CPU graph compilation
+  torch_compile_backend: inductor     # Requires MSVC; see scripts/setup_msvc_env.bat
+  use_bfloat16_autocast: false        # MEASURED 7.2x SLOWER (7466 -> 1035 tok/s). Zen 3 has
+                                      # no native BF16 instruction support, so autocast falls
+                                      # back to software emulation. Do not enable on this CPU.
+
+multimodal_dimensions:
+  visual_patch_size: 16               # Slices images into manageable 16x16 pixel blocks
+  audio_stride_ms: 20                 # Continuous wave slicing interval matching native speech
+  audio_sample_rate: 16000            # Hz; 20ms stride => 320 samples per audio frame
+  max_sequence_length: 288            # Locked execution block matching Phase K verified baseline
+
+  # Disjoint vocabulary bands. Phase K used 225 real text tokens inside a 16000
+  # slot vocabulary, so the visual and audio bands are placed far above the text
+  # band and are asserted non-overlapping by l5. Each band is sized to the real
+  # number of distinct ids its quantizer can emit.
+  text_vocab_band: [0, 3999]
+  visual_vocab_band: [4000, 8095]     # 4096 codebook entries
+  audio_vocab_band: [8096, 12191]     # 4096 codebook entries
+
+  # Sized to exactly the addressable range above (12192 = audio band top + 1).
+  # The Phase K default of 16000 left 3808 slots that no tokenizer or quantizer
+  # can ever emit, yet the output-head GEMM computed logits for all of them on
+  # every step. Trimming measured 1.15x (7824 -> 8987 tok/s). This applies to
+  # the upcoming ingestion run; it does not retroactively alter the frozen
+  # Phase K checkpoint, which remains at 16000.
+  vocab_size: 12192
+
+optimization_schedule:
+  total_target_tokens: 1000000000     # 1 Billion token milestone configuration
+  warmup_tokens: 50000000             # Linear learning rate warmup over the first 50M tokens
+  lr_max: 0.002                       # Peak step learning rate (eta)
+  lr_min: 0.00001                     # Microscopic final learning rate floor
+  gradient_clip_norm: 1.0             # Referenced by the streaming pipe; absent from the
+                                      # original blueprint config but required by it.
+
+validation_gates:
+  min_throughput_acceleration_factor: 1.5
+  max_image_to_token_ms: 2.0
+  max_audio_to_token_ms: 2.0
+  max_socket_recovery_ms: 50.0
+  max_scheduler_mass_error: 0.000001
