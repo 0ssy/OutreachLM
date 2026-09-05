@@ -50,13 +50,30 @@ WARMUP
 
 COST NOTE -- MEASURED, AND IT IS BAD
 Because parameters cycle independently, rows in a batch generally want
-    different column groups, so the single restricted GEMM becomes one GEMM per
-    distinct group present. FLOP count is unchanged (sum of 2*n_g*d_out*k over
+different column groups, so the single restricted GEMM becomes one GEMM per
+distinct group present. FLOP count is unchanged (sum of 2*n_g*d_out*k over
 buckets is exactly 2*N*d_out*k) but the work splits into many small GEMMs.
 Measured at D=512, N=32, keep=0.05: 0.05x the FLOPs of dense and 3.9x the
-WALL-CLOCK. This is the same FLOPs-vs-wall-clock divergence that
-disqualified Methods C/D/E, and it is inherent to per-parameter scheduling
-rather than an artifact of this implementation.
+WALL-CLOCK.
+
+THIS IS NOT THE SAME FAILURE AS METHODS C/D/E, despite the similar
+symptom. Distinguishing them matters because the locus argument depends on
+the difference:
+
+    C/D/E   SUNK DENSE COST. The full dense dW was materialised and then
+            compressed, so the dense GEMM was already paid for and the
+            selection scan was pure addition. Restriction was in the wrong
+            PLACE -- downstream of the computation it claimed to eliminate.
+    K2      PER-PARAMETER BOOKKEEPING AND GEMM FRAGMENTATION. Restriction
+            is in the right place (no dense dX is ever built, peak tensor
+            is 0.003 MB vs dense's 0.066 MB), and the FLOPs really are
+            0.05x. The loss comes from independent per-parameter cycles
+            shattering one large GEMM into up to G small ones, each too
+            small to reach useful CPU throughput, plus per-step index
+            bookkeeping.
+
+Same symptom (FLOP savings do not survive contact with a CPU), different
+cause (there: wrong locus; here: right locus, wrong granularity of work).
 
 WHAT IS FIXED HERE, AND WHAT IS NOT
 Fixed: misrouting, mis-scheduling, and the cycle-boundary skip that made
